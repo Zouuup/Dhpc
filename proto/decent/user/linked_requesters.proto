@@ -1,0 +1,12 @@
+syntax = "proto3";
+package decent.user;
+
+option go_package = "Decent/x/user/types";
+
+message LinkedRequesters {
+  string index = 1; 
+  string network = 2; 
+  string address = 3; 
+  
+}
+
