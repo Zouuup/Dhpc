@@ -1,0 +1,12 @@
+syntax = "proto3";
+package decent.user;
+
+import "gogoproto/gogo.proto";
+import "decent/user/params.proto";
+
+option go_package = "Decent/x/user/types";
+
+// GenesisState defines the user module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}
