@@ -2,6 +2,7 @@ package keeper
 
 import (
 	"Decent/x/user/types"
+
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
@@ -27,6 +28,31 @@ func (k Keeper) GetUser(
 		account,
 	))
 	if b == nil {
+		return val, false
+	}
+
+	k.cdc.MustUnmarshal(b, &val)
+	return val, true
+}
+
+func (k Keeper) GetOrCreateUser(
+	ctx sdk.Context,
+	account string,
+
+) (val types.User, found bool) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.UserKeyPrefix))
+
+	b := store.Get(types.UserKey(
+		account,
+	))
+	if b == nil {
+		user := new(types.User)
+		user.Account = account
+		user.Deposit = []sdk.Coin{}
+		user.Reputation = 0
+		user.LinkedRequester = &types.LinkedRequesters{}
+		user.SlashHistory = &types.SlashHistory{}
+		k.SetUser(ctx, *user)
 		return val, false
 	}
 

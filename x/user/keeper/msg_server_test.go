@@ -7,6 +7,7 @@ import (
 	keepertest "Decent/testutil/keeper"
 	"Decent/x/user/keeper"
 	"Decent/x/user/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
