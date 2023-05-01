@@ -1,7 +1,17 @@
 syntax = "proto3";
+
 package decent.user;
 
 option go_package = "Decent/x/user/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc DepositToken (MsgDepositToken) returns (MsgDepositTokenResponse);
+}
+message MsgDepositToken {
+  string creator = 1;
+  string deposit = 2;
+}
+
+message MsgDepositTokenResponse {}
+
