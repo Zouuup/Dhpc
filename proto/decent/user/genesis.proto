@@ -6,6 +6,7 @@ import "gogoproto/gogo.proto";
 import "decent/user/params.proto";
 import "decent/user/linked_requesters.proto";
 import "decent/user/slash_history.proto";
+import "decent/user/user.proto";
 
 option go_package = "Decent/x/user/types";
 
@@ -14,5 +15,6 @@ message GenesisState {
            Params           params               = 1 [(gogoproto.nullable) = false];
   repeated LinkedRequesters linkedRequestersList = 2 [(gogoproto.nullable) = false];
   repeated SlashHistory     slashHistoryList     = 3 [(gogoproto.nullable) = false];
+  repeated User             userList             = 4 [(gogoproto.nullable) = false];
 }
 

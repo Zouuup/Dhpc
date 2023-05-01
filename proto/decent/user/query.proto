@@ -8,6 +8,8 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "decent/user/params.proto";
 import "decent/user/linked_requesters.proto";
 import "decent/user/slash_history.proto";
+import "decent/user/user.proto";
+import "cosmos/base/v1beta1/coin.proto";
 
 option go_package = "Decent/x/user/types";
 
@@ -37,6 +39,16 @@ service Query {
   }
   rpc SlashHistoryAll (QueryAllSlashHistoryRequest) returns (QueryAllSlashHistoryResponse) {
     option (google.api.http).get = "/Decent/user/slash_history";
+  
+  }
+  
+  // Queries a list of User items.
+  rpc User    (QueryGetUserRequest) returns (QueryGetUserResponse) {
+    option (google.api.http).get = "/Decent/user/user/{account}";
+  
+  }
+  rpc UserAll (QueryAllUserRequest) returns (QueryAllUserResponse) {
+    option (google.api.http).get = "/Decent/user/user";
   
   }
 }
@@ -82,5 +94,22 @@ message QueryAllSlashHistoryRequest {
 message QueryAllSlashHistoryResponse {
   repeated SlashHistory                           slashHistory = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination   = 2;
+}
+
+message QueryGetUserRequest {
+  string account = 1;
+}
+
+message QueryGetUserResponse {
+  User user = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllUserRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllUserResponse {
+  repeated User                                   user       = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

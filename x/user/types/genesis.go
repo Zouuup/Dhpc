@@ -12,6 +12,7 @@ func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		LinkedRequestersList: []LinkedRequesters{},
 		SlashHistoryList:     []SlashHistory{},
+		UserList:             []User{},
 		// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
@@ -39,6 +40,16 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("duplicated index for slashHistory")
 		}
 		slashHistoryIndexMap[index] = struct{}{}
+	}
+	// Check for duplicated index in user
+	userIndexMap := make(map[string]struct{})
+
+	for _, elem := range gs.UserList {
+		index := string(UserKey(elem.Account))
+		if _, ok := userIndexMap[index]; ok {
+			return fmt.Errorf("duplicated index for user")
+		}
+		userIndexMap[index] = struct{}{}
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

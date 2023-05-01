@@ -1,0 +1,18 @@
+syntax = "proto3";
+package decent.user;
+
+option go_package = "Decent/x/user/types";
+import "decent/user/linked_requesters.proto"; 
+import "decent/user/slash_history.proto"; 
+import "gogoproto/gogo.proto"; 
+import "cosmos/base/v1beta1/coin.proto"; 
+
+message User {
+  string account = 1; 
+  int32 reputation = 2; 
+  repeated cosmos.base.v1beta1.Coin deposit = 3 [(gogoproto.nullable) = false]; 
+  LinkedRequesters linkedRequester = 4; 
+  SlashHistory slashHistory = 5; 
+  
+}
+

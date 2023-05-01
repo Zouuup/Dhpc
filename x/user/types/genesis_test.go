@@ -38,6 +38,14 @@ func TestGenesisState_Validate(t *testing.T) {
 						Index: "1",
 					},
 				},
+				UserList: []types.User{
+					{
+						Account: "0",
+					},
+					{
+						Account: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -65,6 +73,20 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 					{
 						Index: "0",
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated user",
+			genState: &types.GenesisState{
+				UserList: []types.User{
+					{
+						Account: "0",
+					},
+					{
+						Account: "0",
 					},
 				},
 			},
