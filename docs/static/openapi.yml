@@ -34379,24 +34379,6 @@ paths:
                     reputation:
                       type: integer
                       format: int32
-                    deposit:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          denom:
-                            type: string
-                          amount:
-                            type: string
-                        description: >-
-                          Coin defines a token with a denomination and an
-                          amount.
-
-
-                          NOTE: The amount field is an Int which implements the
-                          custom method
-
-                          signatures required by gogoproto.
                     linkedRequester:
                       type: object
                       properties:
@@ -34543,23 +34525,6 @@ paths:
                   reputation:
                     type: integer
                     format: int32
-                  deposit:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        denom:
-                          type: string
-                        amount:
-                          type: string
-                      description: >-
-                        Coin defines a token with a denomination and an amount.
-
-
-                        NOTE: The amount field is an Int which implements the
-                        custom method
-
-                        signatures required by gogoproto.
                   linkedRequester:
                     type: object
                     properties:
@@ -70941,6 +70906,8 @@ definitions:
         type: string
   decent.user.MsgDepositTokenResponse:
     type: object
+  decent.user.MsgWithdrawTokenResponse:
+    type: object
   decent.user.Params:
     type: object
     description: Params defines the parameters for the module.
@@ -71042,23 +71009,6 @@ definitions:
             reputation:
               type: integer
               format: int32
-            deposit:
-              type: array
-              items:
-                type: object
-                properties:
-                  denom:
-                    type: string
-                  amount:
-                    type: string
-                description: >-
-                  Coin defines a token with a denomination and an amount.
-
-
-                  NOTE: The amount field is an Int which implements the custom
-                  method
-
-                  signatures required by gogoproto.
             linkedRequester:
               type: object
               properties:
@@ -71148,23 +71098,6 @@ definitions:
           reputation:
             type: integer
             format: int32
-          deposit:
-            type: array
-            items:
-              type: object
-              properties:
-                denom:
-                  type: string
-                amount:
-                  type: string
-              description: >-
-                Coin defines a token with a denomination and an amount.
-
-
-                NOTE: The amount field is an Int which implements the custom
-                method
-
-                signatures required by gogoproto.
           linkedRequester:
             type: object
             properties:
@@ -71217,20 +71150,6 @@ definitions:
       reputation:
         type: integer
         format: int32
-      deposit:
-        type: array
-        items:
-          type: object
-          properties:
-            denom:
-              type: string
-            amount:
-              type: string
-          description: |-
-            Coin defines a token with a denomination and an amount.
-
-            NOTE: The amount field is an Int which implements the custom method
-            signatures required by gogoproto.
       linkedRequester:
         type: object
         properties:

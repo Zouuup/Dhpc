@@ -6,7 +6,8 @@ option go_package = "Decent/x/user/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc DepositToken (MsgDepositToken) returns (MsgDepositTokenResponse);
+  rpc DepositToken  (MsgDepositToken ) returns (MsgDepositTokenResponse );
+  rpc WithdrawToken (MsgWithdrawToken) returns (MsgWithdrawTokenResponse);
 }
 message MsgDepositToken {
   string creator = 1;
@@ -14,4 +15,11 @@ message MsgDepositToken {
 }
 
 message MsgDepositTokenResponse {}
+
+message MsgWithdrawToken {
+  string creator  = 1;
+  string withdraw = 2;
+}
+
+message MsgWithdrawTokenResponse {}
 
