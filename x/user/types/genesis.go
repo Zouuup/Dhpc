@@ -11,6 +11,7 @@ const DefaultIndex uint64 = 1
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		LinkedRequestersList: []LinkedRequesters{},
+		SlashHistoryList:     []SlashHistory{},
 		// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
@@ -28,6 +29,16 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("duplicated index for linkedRequesters")
 		}
 		linkedRequestersIndexMap[index] = struct{}{}
+	}
+	// Check for duplicated index in slashHistory
+	slashHistoryIndexMap := make(map[string]struct{})
+
+	for _, elem := range gs.SlashHistoryList {
+		index := string(SlashHistoryKey(elem.Index))
+		if _, ok := slashHistoryIndexMap[index]; ok {
+			return fmt.Errorf("duplicated index for slashHistory")
+		}
+		slashHistoryIndexMap[index] = struct{}{}
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

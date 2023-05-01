@@ -7,6 +7,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "decent/user/params.proto";
 import "decent/user/linked_requesters.proto";
+import "decent/user/slash_history.proto";
 
 option go_package = "Decent/x/user/types";
 
@@ -26,6 +27,16 @@ service Query {
   }
   rpc LinkedRequestersAll (QueryAllLinkedRequestersRequest) returns (QueryAllLinkedRequestersResponse) {
     option (google.api.http).get = "/Decent/user/linked_requesters";
+  
+  }
+  
+  // Queries a list of SlashHistory items.
+  rpc SlashHistory    (QueryGetSlashHistoryRequest) returns (QueryGetSlashHistoryResponse) {
+    option (google.api.http).get = "/Decent/user/slash_history/{index}";
+  
+  }
+  rpc SlashHistoryAll (QueryAllSlashHistoryRequest) returns (QueryAllSlashHistoryResponse) {
+    option (google.api.http).get = "/Decent/user/slash_history";
   
   }
 }
@@ -54,5 +65,22 @@ message QueryAllLinkedRequestersRequest {
 message QueryAllLinkedRequestersResponse {
   repeated LinkedRequesters                       linkedRequesters = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination       = 2;
+}
+
+message QueryGetSlashHistoryRequest {
+  string index = 1;
+}
+
+message QueryGetSlashHistoryResponse {
+  SlashHistory slashHistory = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllSlashHistoryRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllSlashHistoryResponse {
+  repeated SlashHistory                           slashHistory = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination   = 2;
 }
 

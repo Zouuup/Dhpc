@@ -30,6 +30,14 @@ func TestGenesisState_Validate(t *testing.T) {
 						Index: "1",
 					},
 				},
+				SlashHistoryList: []types.SlashHistory{
+					{
+						Index: "0",
+					},
+					{
+						Index: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -38,6 +46,20 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "duplicated linkedRequesters",
 			genState: &types.GenesisState{
 				LinkedRequestersList: []types.LinkedRequesters{
+					{
+						Index: "0",
+					},
+					{
+						Index: "0",
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated slashHistory",
+			genState: &types.GenesisState{
+				SlashHistoryList: []types.SlashHistory{
 					{
 						Index: "0",
 					},

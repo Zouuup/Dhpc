@@ -12,6 +12,10 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	for _, elem := range genState.LinkedRequestersList {
 		k.SetLinkedRequesters(ctx, elem)
 	}
+	// Set all the slashHistory
+	for _, elem := range genState.SlashHistoryList {
+		k.SetSlashHistory(ctx, elem)
+	}
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -22,6 +26,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis.Params = k.GetParams(ctx)
 
 	genesis.LinkedRequestersList = k.GetAllLinkedRequesters(ctx)
+	genesis.SlashHistoryList = k.GetAllSlashHistory(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

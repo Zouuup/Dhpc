@@ -1,0 +1,13 @@
+syntax = "proto3";
+package decent.user;
+
+option go_package = "Decent/x/user/types";
+
+message SlashHistory {
+  string index = 1; 
+  int32 datetime = 2; 
+  int32 amount = 3; 
+  int32 level = 4; 
+  
+}
+
