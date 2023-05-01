@@ -19,12 +19,28 @@ func (k msgServer) WithdrawToken(goCtx context.Context, msg *types.MsgWithdrawTo
 	if err != nil {
 		panic(err)
 	}
-	sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, user, withdraw)
+
+	account, _ := k.GetOrCreateUser(ctx, msg.Creator)
+	updatedCoin := []sdk.Coin{}
+	for _, denom := range withdraw {
+
+		for i, userDenom := range account.Deposit {
+
+			if userDenom.Denom == denom.Denom {
+				account.Deposit[i] = account.Deposit[i].SubAmount(denom.Amount)
+				coin := sdk.NewCoin(denom.Denom, denom.Amount)
+				updatedCoin = append(updatedCoin, coin)
+				k.SetUser(ctx, account)
+			}
+		}
+
+	}
+
+	// TODO: Better error handling when the user tries to withdraw more than they have, or coins they don't have at all
+	sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, user, updatedCoin)
 	if sdkError != nil {
 		return nil, sdkError
 	}
-
-	k.GetOrCreateUser(ctx, msg.Creator)
 
 	return &types.MsgWithdrawTokenResponse{}, nil
 }

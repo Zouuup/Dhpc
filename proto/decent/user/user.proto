@@ -9,7 +9,8 @@ import "cosmos/base/v1beta1/coin.proto";
 
 message User {
   string account = 1; 
-  int32 reputation = 2; 
+  int32 reputation = 2;
+  repeated cosmos.base.v1beta1.Coin deposit = 3 [(gogoproto.nullable) = false];
   LinkedRequesters linkedRequester = 4; 
   SlashHistory slashHistory = 5; 
 }

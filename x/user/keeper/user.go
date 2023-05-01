@@ -48,11 +48,15 @@ func (k Keeper) GetOrCreateUser(
 	if b == nil {
 		user := new(types.User)
 		user.Account = account
+		user.Deposit = []sdk.Coin{}
 		user.Reputation = 0
 		user.LinkedRequester = &types.LinkedRequesters{}
 		user.SlashHistory = &types.SlashHistory{}
 		k.SetUser(ctx, *user)
-		return val, false
+		b = store.Get(types.UserKey(
+			account,
+		))
+
 	}
 
 	k.cdc.MustUnmarshal(b, &val)
