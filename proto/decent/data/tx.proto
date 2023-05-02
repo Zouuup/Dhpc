@@ -1,7 +1,21 @@
 syntax = "proto3";
+
 package decent.data;
 
 option go_package = "Decent/x/data/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc AddData (MsgAddData) returns (MsgAddDataResponse);
+}
+message MsgAddData {
+  string creator = 1;
+  string address = 2;
+  string owner   = 3;
+  string network = 4;
+  string method  = 5;
+  int32  score   = 6;
+}
+
+message MsgAddDataResponse {}
+
