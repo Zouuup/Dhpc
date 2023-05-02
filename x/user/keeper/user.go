@@ -50,8 +50,8 @@ func (k Keeper) GetOrCreateUser(
 		user.Account = account
 		user.Deposit = []sdk.Coin{}
 		user.Reputation = 0
-		user.LinkedRequester = &types.LinkedRequesters{}
-		user.SlashHistory = &types.SlashHistory{}
+		user.LinkedRequester = []*types.LinkedRequesters{}
+		user.SlashHistory = []*types.SlashHistory{}
 		k.SetUser(ctx, *user)
 		b = store.Get(types.UserKey(
 			account,

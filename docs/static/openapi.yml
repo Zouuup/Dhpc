@@ -34398,28 +34398,32 @@ paths:
 
                           signatures required by gogoproto.
                     linkedRequester:
-                      type: object
-                      properties:
-                        index:
-                          type: string
-                        network:
-                          type: string
-                        address:
-                          type: string
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          index:
+                            type: string
+                          network:
+                            type: string
+                          address:
+                            type: string
                     slashHistory:
-                      type: object
-                      properties:
-                        index:
-                          type: string
-                        datetime:
-                          type: integer
-                          format: int32
-                        amount:
-                          type: integer
-                          format: int32
-                        level:
-                          type: integer
-                          format: int32
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          index:
+                            type: string
+                          datetime:
+                            type: integer
+                            format: int32
+                          amount:
+                            type: integer
+                            format: int32
+                          level:
+                            type: integer
+                            format: int32
               pagination:
                 type: object
                 properties:
@@ -34561,28 +34565,32 @@ paths:
 
                         signatures required by gogoproto.
                   linkedRequester:
-                    type: object
-                    properties:
-                      index:
-                        type: string
-                      network:
-                        type: string
-                      address:
-                        type: string
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        index:
+                          type: string
+                        network:
+                          type: string
+                        address:
+                          type: string
                   slashHistory:
-                    type: object
-                    properties:
-                      index:
-                        type: string
-                      datetime:
-                        type: integer
-                        format: int32
-                      amount:
-                        type: integer
-                        format: int32
-                      level:
-                        type: integer
-                        format: int32
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        index:
+                          type: string
+                        datetime:
+                          type: integer
+                          format: int32
+                        amount:
+                          type: integer
+                          format: int32
+                        level:
+                          type: integer
+                          format: int32
         default:
           description: An unexpected error response.
           schema:
@@ -71062,28 +71070,32 @@ definitions:
 
                   signatures required by gogoproto.
             linkedRequester:
-              type: object
-              properties:
-                index:
-                  type: string
-                network:
-                  type: string
-                address:
-                  type: string
+              type: array
+              items:
+                type: object
+                properties:
+                  index:
+                    type: string
+                  network:
+                    type: string
+                  address:
+                    type: string
             slashHistory:
-              type: object
-              properties:
-                index:
-                  type: string
-                datetime:
-                  type: integer
-                  format: int32
-                amount:
-                  type: integer
-                  format: int32
-                level:
-                  type: integer
-                  format: int32
+              type: array
+              items:
+                type: object
+                properties:
+                  index:
+                    type: string
+                  datetime:
+                    type: integer
+                    format: int32
+                  amount:
+                    type: integer
+                    format: int32
+                  level:
+                    type: integer
+                    format: int32
       pagination:
         type: object
         properties:
@@ -71168,28 +71180,32 @@ definitions:
 
                 signatures required by gogoproto.
           linkedRequester:
-            type: object
-            properties:
-              index:
-                type: string
-              network:
-                type: string
-              address:
-                type: string
+            type: array
+            items:
+              type: object
+              properties:
+                index:
+                  type: string
+                network:
+                  type: string
+                address:
+                  type: string
           slashHistory:
-            type: object
-            properties:
-              index:
-                type: string
-              datetime:
-                type: integer
-                format: int32
-              amount:
-                type: integer
-                format: int32
-              level:
-                type: integer
-                format: int32
+            type: array
+            items:
+              type: object
+              properties:
+                index:
+                  type: string
+                datetime:
+                  type: integer
+                  format: int32
+                amount:
+                  type: integer
+                  format: int32
+                level:
+                  type: integer
+                  format: int32
   decent.user.QueryParamsResponse:
     type: object
     properties:
@@ -71234,28 +71250,32 @@ definitions:
             NOTE: The amount field is an Int which implements the custom method
             signatures required by gogoproto.
       linkedRequester:
-        type: object
-        properties:
-          index:
-            type: string
-          network:
-            type: string
-          address:
-            type: string
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: string
+            network:
+              type: string
+            address:
+              type: string
       slashHistory:
-        type: object
-        properties:
-          index:
-            type: string
-          datetime:
-            type: integer
-            format: int32
-          amount:
-            type: integer
-            format: int32
-          level:
-            type: integer
-            format: int32
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: string
+            datetime:
+              type: integer
+              format: int32
+            amount:
+              type: integer
+              format: int32
+            level:
+              type: integer
+              format: int32
   ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccountResponse:
     type: object
     properties:
