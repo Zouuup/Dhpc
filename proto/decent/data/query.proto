@@ -1,26 +1,60 @@
 syntax = "proto3";
+
 package decent.data;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "decent/data/params.proto";
+import "decent/data/data.proto";
 
 option go_package = "Decent/x/data/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/Decent/data/params";
+  
+  }
+  
+  // Queries a list of Data items.
+  rpc Data    (QueryGetDataRequest) returns (QueryGetDataResponse) {
+    option (google.api.http).get = "/Decent/data/data/{address}/{owner}/{network}";
+  
+  }
+  rpc DataAll (QueryAllDataRequest) returns (QueryAllDataResponse) {
+    option (google.api.http).get = "/Decent/data/data";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QueryGetDataRequest {
+  string address = 1;
+  string owner   = 2;
+  string network = 3;
+}
+
+message QueryGetDataResponse {
+  Data data = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllDataRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllDataResponse {
+  repeated Data                                   data       = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+

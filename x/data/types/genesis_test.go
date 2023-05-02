@@ -19,12 +19,42 @@ func TestGenesisState_Validate(t *testing.T) {
 			valid:    true,
 		},
 		{
-			desc:     "valid genesis state",
+			desc: "valid genesis state",
 			genState: &types.GenesisState{
 
+				DataList: []types.Data{
+					{
+						Address: "0",
+						Owner:   "0",
+						Network: "0",
+					},
+					{
+						Address: "1",
+						Owner:   "1",
+						Network: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
+		},
+		{
+			desc: "duplicated data",
+			genState: &types.GenesisState{
+				DataList: []types.Data{
+					{
+						Address: "0",
+						Owner:   "0",
+						Network: "0",
+					},
+					{
+						Address: "0",
+						Owner:   "0",
+						Network: "0",
+					},
+				},
+			},
+			valid: false,
 		},
 		// this line is used by starport scaffolding # types/genesis/testcase
 	} {
