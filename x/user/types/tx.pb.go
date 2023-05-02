@@ -299,6 +299,102 @@ func (m *MsgAddLinkedRequesterResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgAddLinkedRequesterResponse proto.InternalMessageInfo
 
+type MsgRemoveLinkedRequester struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Network string `protobuf:"bytes,2,opt,name=network,proto3" json:"network,omitempty"`
+	Address string `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *MsgRemoveLinkedRequester) Reset()         { *m = MsgRemoveLinkedRequester{} }
+func (m *MsgRemoveLinkedRequester) String() string { return proto.CompactTextString(m) }
+func (*MsgRemoveLinkedRequester) ProtoMessage()    {}
+func (*MsgRemoveLinkedRequester) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1719cb30b3bc4bbd, []int{6}
+}
+func (m *MsgRemoveLinkedRequester) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgRemoveLinkedRequester) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgRemoveLinkedRequester.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgRemoveLinkedRequester) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgRemoveLinkedRequester.Merge(m, src)
+}
+func (m *MsgRemoveLinkedRequester) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgRemoveLinkedRequester) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgRemoveLinkedRequester.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgRemoveLinkedRequester proto.InternalMessageInfo
+
+func (m *MsgRemoveLinkedRequester) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgRemoveLinkedRequester) GetNetwork() string {
+	if m != nil {
+		return m.Network
+	}
+	return ""
+}
+
+func (m *MsgRemoveLinkedRequester) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type MsgRemoveLinkedRequesterResponse struct {
+}
+
+func (m *MsgRemoveLinkedRequesterResponse) Reset()         { *m = MsgRemoveLinkedRequesterResponse{} }
+func (m *MsgRemoveLinkedRequesterResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgRemoveLinkedRequesterResponse) ProtoMessage()    {}
+func (*MsgRemoveLinkedRequesterResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1719cb30b3bc4bbd, []int{7}
+}
+func (m *MsgRemoveLinkedRequesterResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgRemoveLinkedRequesterResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgRemoveLinkedRequesterResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgRemoveLinkedRequesterResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgRemoveLinkedRequesterResponse.Merge(m, src)
+}
+func (m *MsgRemoveLinkedRequesterResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgRemoveLinkedRequesterResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgRemoveLinkedRequesterResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgRemoveLinkedRequesterResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgDepositToken)(nil), "decent.user.MsgDepositToken")
 	proto.RegisterType((*MsgDepositTokenResponse)(nil), "decent.user.MsgDepositTokenResponse")
@@ -306,32 +402,37 @@ func init() {
 	proto.RegisterType((*MsgWithdrawTokenResponse)(nil), "decent.user.MsgWithdrawTokenResponse")
 	proto.RegisterType((*MsgAddLinkedRequester)(nil), "decent.user.MsgAddLinkedRequester")
 	proto.RegisterType((*MsgAddLinkedRequesterResponse)(nil), "decent.user.MsgAddLinkedRequesterResponse")
+	proto.RegisterType((*MsgRemoveLinkedRequester)(nil), "decent.user.MsgRemoveLinkedRequester")
+	proto.RegisterType((*MsgRemoveLinkedRequesterResponse)(nil), "decent.user.MsgRemoveLinkedRequesterResponse")
 }
 
 func init() { proto.RegisterFile("decent/user/tx.proto", fileDescriptor_1719cb30b3bc4bbd) }
 
 var fileDescriptor_1719cb30b3bc4bbd = []byte{
-	// 319 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x52, 0x4d, 0x4b, 0xc3, 0x40,
-	0x10, 0x6d, 0x5a, 0xf0, 0x63, 0x54, 0x94, 0xa8, 0x18, 0x83, 0x5d, 0x65, 0x51, 0x10, 0xc1, 0x14,
-	0xf4, 0x17, 0x28, 0x15, 0x3c, 0x98, 0x4b, 0x50, 0x04, 0x6f, 0xb5, 0x3b, 0xc4, 0x52, 0xc8, 0xc6,
-	0x9d, 0x2d, 0xad, 0xff, 0xc2, 0x93, 0xbf, 0xc9, 0x63, 0x8f, 0x1e, 0xa5, 0xf9, 0x23, 0x12, 0xb3,
-	0x09, 0x26, 0x96, 0xf4, 0xf8, 0xf6, 0xbd, 0x79, 0x6f, 0xe7, 0x31, 0xb0, 0x23, 0xb0, 0x8f, 0x91,
-	0xee, 0x8c, 0x08, 0x55, 0x47, 0x4f, 0xbc, 0x58, 0x49, 0x2d, 0xed, 0xb5, 0xec, 0xd5, 0x4b, 0x5f,
-	0xf9, 0x0d, 0x6c, 0xfa, 0x14, 0x76, 0x31, 0x96, 0x34, 0xd0, 0xf7, 0x72, 0x88, 0x91, 0xed, 0xc0,
-	0x72, 0x5f, 0x61, 0x4f, 0x4b, 0xe5, 0x58, 0x47, 0xd6, 0xe9, 0x6a, 0x90, 0xc3, 0x94, 0x11, 0x99,
-	0xd2, 0x69, 0x66, 0x8c, 0x81, 0x7c, 0x1f, 0xf6, 0x2a, 0x36, 0x01, 0x52, 0x2c, 0x23, 0x42, 0x7e,
-	0x0b, 0x5b, 0x3e, 0x85, 0x8f, 0x03, 0xfd, 0x22, 0x54, 0x6f, 0xbc, 0x28, 0xc2, 0x85, 0x95, 0xb1,
-	0x91, 0x9a, 0x8c, 0x02, 0x73, 0x17, 0x9c, 0xaa, 0x53, 0x91, 0x82, 0xb0, 0xeb, 0x53, 0x78, 0x25,
-	0xc4, 0xdd, 0x20, 0x1a, 0xa2, 0x08, 0xf0, 0x75, 0x84, 0xa4, 0x51, 0xd5, 0x6f, 0x13, 0xa1, 0x1e,
-	0x4b, 0x35, 0xcc, 0xb7, 0x31, 0x30, 0x65, 0x7a, 0x42, 0x28, 0x24, 0x72, 0x5a, 0x19, 0x63, 0x20,
-	0x3f, 0x84, 0xf6, 0xdc, 0x98, 0xfc, 0x1f, 0x17, 0x1f, 0x4d, 0x68, 0xf9, 0x14, 0xda, 0x01, 0xac,
-	0x97, 0x4a, 0x3d, 0xf0, 0xfe, 0xb4, 0xee, 0x55, 0xba, 0x72, 0x8f, 0xeb, 0xd8, 0xdc, 0xdb, 0x7e,
-	0x80, 0x8d, 0x72, 0x8d, 0xed, 0xea, 0x58, 0x89, 0x76, 0x4f, 0x6a, 0xe9, 0xc2, 0x56, 0x80, 0x3d,
-	0xa7, 0x37, 0x5e, 0x1d, 0xfe, 0xaf, 0x71, 0xcf, 0x16, 0x6b, 0xf2, 0x94, 0xeb, 0xf3, 0xcf, 0x19,
-	0xb3, 0xa6, 0x33, 0x66, 0x7d, 0xcf, 0x98, 0xf5, 0x9e, 0xb0, 0xc6, 0x34, 0x61, 0x8d, 0xaf, 0x84,
-	0x35, 0x9e, 0xb6, 0xbb, 0xd9, 0x95, 0x4e, 0xcc, 0x9d, 0xbe, 0xc5, 0x48, 0xcf, 0x4b, 0xbf, 0xb7,
-	0x7a, 0xf9, 0x13, 0x00, 0x00, 0xff, 0xff, 0x0d, 0xfb, 0x85, 0x2a, 0xc3, 0x02, 0x00, 0x00,
+	// 355 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x53, 0x41, 0x4b, 0xf3, 0x40,
+	0x14, 0x6c, 0xbe, 0xc2, 0xa7, 0x3e, 0x15, 0x25, 0x5a, 0x8c, 0xc1, 0xc6, 0xb2, 0x28, 0x88, 0xd0,
+	0x14, 0xf4, 0x17, 0x28, 0x15, 0x3c, 0x98, 0x4b, 0x50, 0x04, 0x6f, 0xb5, 0xfb, 0x48, 0x4b, 0x69,
+	0x36, 0xee, 0xdb, 0xda, 0xfa, 0x03, 0xbc, 0xfb, 0xb3, 0x3c, 0xf6, 0xe8, 0x51, 0xda, 0x3f, 0x22,
+	0x6d, 0x36, 0xc1, 0xa6, 0xb1, 0xf5, 0xe2, 0x71, 0x76, 0x66, 0xdf, 0xcc, 0x32, 0xfb, 0x60, 0x97,
+	0x63, 0x13, 0x43, 0x55, 0xeb, 0x11, 0xca, 0x9a, 0x1a, 0xb8, 0x91, 0x14, 0x4a, 0x98, 0xeb, 0xf1,
+	0xa9, 0x3b, 0x39, 0x65, 0x57, 0xb0, 0xe5, 0x51, 0x50, 0xc7, 0x48, 0x50, 0x5b, 0xdd, 0x8a, 0x0e,
+	0x86, 0xa6, 0x05, 0x2b, 0x4d, 0x89, 0x0d, 0x25, 0xa4, 0x65, 0x54, 0x8c, 0x93, 0x35, 0x3f, 0x81,
+	0x13, 0x86, 0xc7, 0x4a, 0xeb, 0x5f, 0xcc, 0x68, 0xc8, 0xf6, 0x61, 0x2f, 0x33, 0xc6, 0x47, 0x8a,
+	0x44, 0x48, 0xc8, 0xae, 0x61, 0xdb, 0xa3, 0xe0, 0xbe, 0xad, 0x5a, 0x5c, 0x36, 0xfa, 0xcb, 0x2c,
+	0x6c, 0x58, 0xed, 0x6b, 0xa9, 0xf6, 0x48, 0x31, 0xb3, 0xc1, 0xca, 0x4e, 0x4a, 0x5d, 0x10, 0x4a,
+	0x1e, 0x05, 0x17, 0x9c, 0xdf, 0xb4, 0xc3, 0x0e, 0x72, 0x1f, 0x9f, 0x7a, 0x48, 0x0a, 0xe5, 0xe2,
+	0xd7, 0x84, 0xa8, 0xfa, 0x42, 0x76, 0x92, 0xd7, 0x68, 0x38, 0x61, 0x1a, 0x9c, 0x4b, 0x24, 0xb2,
+	0x8a, 0x31, 0xa3, 0x21, 0x3b, 0x84, 0x72, 0xae, 0x4d, 0x9a, 0xa3, 0x35, 0xcd, 0xe8, 0x63, 0x57,
+	0x3c, 0xe3, 0xdf, 0x46, 0x61, 0x50, 0xf9, 0xc9, 0x29, 0x49, 0x73, 0xf6, 0x5a, 0x84, 0xa2, 0x47,
+	0x81, 0xe9, 0xc3, 0xc6, 0x4c, 0xc5, 0x07, 0xee, 0xb7, 0x3f, 0xe0, 0x66, 0x9a, 0xb3, 0x8f, 0x16,
+	0xb1, 0xc9, 0x6c, 0xf3, 0x0e, 0x36, 0x67, 0x4b, 0x2d, 0x67, 0xaf, 0xcd, 0xd0, 0xf6, 0xf1, 0x42,
+	0x3a, 0x1d, 0xcb, 0xc1, 0xcc, 0x69, 0x91, 0x65, 0x2f, 0xcf, 0x6b, 0xec, 0xd3, 0xe5, 0x9a, 0xd4,
+	0xa5, 0x0b, 0xa5, 0xfc, 0x8e, 0xe6, 0x52, 0xe6, 0xca, 0xec, 0xea, 0xaf, 0x64, 0x89, 0xdd, 0x65,
+	0xf5, 0x7d, 0xe4, 0x18, 0xc3, 0x91, 0x63, 0x7c, 0x8e, 0x1c, 0xe3, 0x6d, 0xec, 0x14, 0x86, 0x63,
+	0xa7, 0xf0, 0x31, 0x76, 0x0a, 0x0f, 0x3b, 0xf5, 0x78, 0x45, 0x07, 0x7a, 0x49, 0x5f, 0x22, 0xa4,
+	0xc7, 0xff, 0xd3, 0x45, 0x3d, 0xff, 0x0a, 0x00, 0x00, 0xff, 0xff, 0xf1, 0xc4, 0x0a, 0xee, 0xc0,
+	0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -349,6 +450,7 @@ type MsgClient interface {
 	DepositToken(ctx context.Context, in *MsgDepositToken, opts ...grpc.CallOption) (*MsgDepositTokenResponse, error)
 	WithdrawToken(ctx context.Context, in *MsgWithdrawToken, opts ...grpc.CallOption) (*MsgWithdrawTokenResponse, error)
 	AddLinkedRequester(ctx context.Context, in *MsgAddLinkedRequester, opts ...grpc.CallOption) (*MsgAddLinkedRequesterResponse, error)
+	RemoveLinkedRequester(ctx context.Context, in *MsgRemoveLinkedRequester, opts ...grpc.CallOption) (*MsgRemoveLinkedRequesterResponse, error)
 }
 
 type msgClient struct {
@@ -386,11 +488,21 @@ func (c *msgClient) AddLinkedRequester(ctx context.Context, in *MsgAddLinkedRequ
 	return out, nil
 }
 
+func (c *msgClient) RemoveLinkedRequester(ctx context.Context, in *MsgRemoveLinkedRequester, opts ...grpc.CallOption) (*MsgRemoveLinkedRequesterResponse, error) {
+	out := new(MsgRemoveLinkedRequesterResponse)
+	err := c.cc.Invoke(ctx, "/decent.user.Msg/RemoveLinkedRequester", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	DepositToken(context.Context, *MsgDepositToken) (*MsgDepositTokenResponse, error)
 	WithdrawToken(context.Context, *MsgWithdrawToken) (*MsgWithdrawTokenResponse, error)
 	AddLinkedRequester(context.Context, *MsgAddLinkedRequester) (*MsgAddLinkedRequesterResponse, error)
+	RemoveLinkedRequester(context.Context, *MsgRemoveLinkedRequester) (*MsgRemoveLinkedRequesterResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -405,6 +517,9 @@ func (*UnimplementedMsgServer) WithdrawToken(ctx context.Context, req *MsgWithdr
 }
 func (*UnimplementedMsgServer) AddLinkedRequester(ctx context.Context, req *MsgAddLinkedRequester) (*MsgAddLinkedRequesterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddLinkedRequester not implemented")
+}
+func (*UnimplementedMsgServer) RemoveLinkedRequester(ctx context.Context, req *MsgRemoveLinkedRequester) (*MsgRemoveLinkedRequesterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveLinkedRequester not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -465,6 +580,24 @@ func _Msg_AddLinkedRequester_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_RemoveLinkedRequester_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRemoveLinkedRequester)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).RemoveLinkedRequester(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.user.Msg/RemoveLinkedRequester",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).RemoveLinkedRequester(ctx, req.(*MsgRemoveLinkedRequester))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "decent.user.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -480,6 +613,10 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddLinkedRequester",
 			Handler:    _Msg_AddLinkedRequester_Handler,
+		},
+		{
+			MethodName: "RemoveLinkedRequester",
+			Handler:    _Msg_RemoveLinkedRequester_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -673,6 +810,73 @@ func (m *MsgAddLinkedRequesterResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgRemoveLinkedRequester) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgRemoveLinkedRequester) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgRemoveLinkedRequester) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Network) > 0 {
+		i -= len(m.Network)
+		copy(dAtA[i:], m.Network)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Network)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgRemoveLinkedRequesterResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgRemoveLinkedRequesterResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgRemoveLinkedRequesterResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -758,6 +962,36 @@ func (m *MsgAddLinkedRequester) Size() (n int) {
 }
 
 func (m *MsgAddLinkedRequesterResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgRemoveLinkedRequester) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Network)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgRemoveLinkedRequesterResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1273,6 +1507,202 @@ func (m *MsgAddLinkedRequesterResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgAddLinkedRequesterResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgRemoveLinkedRequester) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgRemoveLinkedRequester: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgRemoveLinkedRequester: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Network", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Network = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgRemoveLinkedRequesterResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgRemoveLinkedRequesterResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgRemoveLinkedRequesterResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

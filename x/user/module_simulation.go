@@ -36,6 +36,10 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgAddLinkedRequester int = 100
 
+	opWeightMsgRemoveLinkedRequester = "op_weight_msg_remove_linked_requester"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgRemoveLinkedRequester int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -101,6 +105,17 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgAddLinkedRequester,
 		usersimulation.SimulateMsgAddLinkedRequester(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgRemoveLinkedRequester int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgRemoveLinkedRequester, &weightMsgRemoveLinkedRequester, nil,
+		func(_ *rand.Rand) {
+			weightMsgRemoveLinkedRequester = defaultWeightMsgRemoveLinkedRequester
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgRemoveLinkedRequester,
+		usersimulation.SimulateMsgRemoveLinkedRequester(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation
