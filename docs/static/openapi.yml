@@ -33976,6 +33976,42 @@ paths:
           format: int64
       tags:
         - Query
+  /Decent/data/params:
+    get:
+      summary: Parameters queries the parameters of the module.
+      operationId: DecentDataParams
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              params:
+                description: params holds all the parameters of this module.
+                type: object
+            description: >-
+              QueryParamsResponse is response type for the Query/Params RPC
+              method.
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      tags:
+        - Query
   /Decent/user/linked_requesters:
     get:
       operationId: DecentUserLinkedRequestersAll
@@ -70938,6 +70974,16 @@ definitions:
             NOTE: The amount field is an Int which implements the custom method
             signatures required by gogoproto.
     description: Period defines a length of time and amount of coins that will vest.
+  decent.data.Params:
+    type: object
+    description: Params defines the parameters for the module.
+  decent.data.QueryParamsResponse:
+    type: object
+    properties:
+      params:
+        description: params holds all the parameters of this module.
+        type: object
+    description: QueryParamsResponse is response type for the Query/Params RPC method.
   decent.user.LinkedRequesters:
     type: object
     properties:
@@ -70950,6 +70996,8 @@ definitions:
   decent.user.MsgAddLinkedRequesterResponse:
     type: object
   decent.user.MsgDepositTokenResponse:
+    type: object
+  decent.user.MsgRemoveLinkedRequesterResponse:
     type: object
   decent.user.MsgWithdrawTokenResponse:
     type: object

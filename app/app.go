@@ -103,6 +103,9 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
+	datamodule "Decent/x/data"
+	datamodulekeeper "Decent/x/data/keeper"
+	datamoduletypes "Decent/x/data/types"
 	usermodule "Decent/x/user"
 	usermodulekeeper "Decent/x/user/keeper"
 	usermoduletypes "Decent/x/user/types"
@@ -165,6 +168,7 @@ var (
 		ica.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		usermodule.AppModuleBasic{},
+		datamodule.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
 	)
 
@@ -179,6 +183,7 @@ var (
 		govtypes.ModuleName:            {authtypes.Burner},
 		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
 		usermoduletypes.ModuleName:     {authtypes.Minter, authtypes.Burner, authtypes.Staking},
+		datamoduletypes.ModuleName:     {authtypes.Minter, authtypes.Burner, authtypes.Staking},
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
@@ -240,6 +245,8 @@ type App struct {
 	ScopedICAHostKeeper  capabilitykeeper.ScopedKeeper
 
 	UserKeeper usermodulekeeper.Keeper
+
+	DataKeeper datamodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// mm is the module manager
@@ -285,6 +292,7 @@ func New(
 		ibctransfertypes.StoreKey, icahosttypes.StoreKey, capabilitytypes.StoreKey, group.StoreKey,
 		icacontrollertypes.StoreKey,
 		usermoduletypes.StoreKey,
+		datamoduletypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
@@ -507,6 +515,17 @@ func New(
 	)
 	userModule := usermodule.NewAppModule(appCodec, app.UserKeeper, app.AccountKeeper, app.BankKeeper)
 
+	app.DataKeeper = *datamodulekeeper.NewKeeper(
+		appCodec,
+		keys[datamoduletypes.StoreKey],
+		keys[datamoduletypes.MemStoreKey],
+		app.GetSubspace(datamoduletypes.ModuleName),
+
+		app.AccountKeeper,
+		app.BankKeeper,
+	)
+	dataModule := datamodule.NewAppModule(appCodec, app.DataKeeper, app.AccountKeeper, app.BankKeeper)
+
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
 	/**** IBC Routing ****/
@@ -573,6 +592,7 @@ func New(
 		transferModule,
 		icaModule,
 		userModule,
+		dataModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 
@@ -603,6 +623,7 @@ func New(
 		paramstypes.ModuleName,
 		vestingtypes.ModuleName,
 		usermoduletypes.ModuleName,
+		datamoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	)
 
@@ -628,6 +649,7 @@ func New(
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
 		usermoduletypes.ModuleName,
+		datamoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	)
 
@@ -658,6 +680,7 @@ func New(
 		upgradetypes.ModuleName,
 		vestingtypes.ModuleName,
 		usermoduletypes.ModuleName,
+		datamoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	)
 
@@ -688,6 +711,7 @@ func New(
 		ibc.NewAppModule(app.IBCKeeper),
 		transferModule,
 		userModule,
+		dataModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 	app.sm.RegisterStoreDecoders()
@@ -893,6 +917,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(icacontrollertypes.SubModuleName)
 	paramsKeeper.Subspace(icahosttypes.SubModuleName)
 	paramsKeeper.Subspace(usermoduletypes.ModuleName)
+	paramsKeeper.Subspace(datamoduletypes.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
 
 	return paramsKeeper
