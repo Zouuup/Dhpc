@@ -1,0 +1,12 @@
+syntax = "proto3";
+package decent.data;
+
+import "gogoproto/gogo.proto";
+import "decent/data/params.proto";
+
+option go_package = "Decent/x/data/types";
+
+// GenesisState defines the data module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+}

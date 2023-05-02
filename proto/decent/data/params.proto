@@ -1,0 +1,12 @@
+syntax = "proto3";
+package decent.data;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "Decent/x/data/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}
