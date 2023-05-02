@@ -71204,6 +71204,8 @@ definitions:
         format: uint64
   decent.data.MsgAddDataResponse:
     type: object
+  decent.data.MsgDeleteDataResponse:
+    type: object
   decent.data.Params:
     type: object
     description: Params defines the parameters for the module.

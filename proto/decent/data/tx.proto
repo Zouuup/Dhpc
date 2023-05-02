@@ -6,7 +6,8 @@ option go_package = "Decent/x/data/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc AddData (MsgAddData) returns (MsgAddDataResponse);
+  rpc AddData    (MsgAddData   ) returns (MsgAddDataResponse   );
+  rpc DeleteData (MsgDeleteData) returns (MsgDeleteDataResponse);
 }
 message MsgAddData {
   string creator = 1;
@@ -18,4 +19,13 @@ message MsgAddData {
 }
 
 message MsgAddDataResponse {}
+
+message MsgDeleteData {
+  string creator = 1;
+  string address = 2;
+  string owner   = 3;
+  string network = 4;
+}
+
+message MsgDeleteDataResponse {}
 
