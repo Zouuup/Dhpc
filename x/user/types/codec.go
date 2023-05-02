@@ -10,6 +10,7 @@ import (
 func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgDepositToken{}, "user/DepositToken", nil)
 	cdc.RegisterConcrete(&MsgWithdrawToken{}, "user/WithdrawToken", nil)
+	cdc.RegisterConcrete(&MsgAddLinkedRequester{}, "user/AddLinkedRequester", nil)
 	// this line is used by starport scaffolding # 2
 }
 
@@ -19,6 +20,9 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	)
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgWithdrawToken{},
+	)
+	registry.RegisterImplementations((*sdk.Msg)(nil),
+		&MsgAddLinkedRequester{},
 	)
 	// this line is used by starport scaffolding # 3
 

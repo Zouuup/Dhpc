@@ -70947,6 +70947,8 @@ definitions:
         type: string
       address:
         type: string
+  decent.user.MsgAddLinkedRequesterResponse:
+    type: object
   decent.user.MsgDepositTokenResponse:
     type: object
   decent.user.MsgWithdrawTokenResponse:

@@ -203,33 +203,135 @@ func (m *MsgWithdrawTokenResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgWithdrawTokenResponse proto.InternalMessageInfo
 
+type MsgAddLinkedRequester struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Network string `protobuf:"bytes,2,opt,name=network,proto3" json:"network,omitempty"`
+	Address string `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *MsgAddLinkedRequester) Reset()         { *m = MsgAddLinkedRequester{} }
+func (m *MsgAddLinkedRequester) String() string { return proto.CompactTextString(m) }
+func (*MsgAddLinkedRequester) ProtoMessage()    {}
+func (*MsgAddLinkedRequester) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1719cb30b3bc4bbd, []int{4}
+}
+func (m *MsgAddLinkedRequester) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgAddLinkedRequester) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgAddLinkedRequester.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgAddLinkedRequester) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgAddLinkedRequester.Merge(m, src)
+}
+func (m *MsgAddLinkedRequester) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgAddLinkedRequester) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgAddLinkedRequester.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgAddLinkedRequester proto.InternalMessageInfo
+
+func (m *MsgAddLinkedRequester) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgAddLinkedRequester) GetNetwork() string {
+	if m != nil {
+		return m.Network
+	}
+	return ""
+}
+
+func (m *MsgAddLinkedRequester) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type MsgAddLinkedRequesterResponse struct {
+}
+
+func (m *MsgAddLinkedRequesterResponse) Reset()         { *m = MsgAddLinkedRequesterResponse{} }
+func (m *MsgAddLinkedRequesterResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgAddLinkedRequesterResponse) ProtoMessage()    {}
+func (*MsgAddLinkedRequesterResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1719cb30b3bc4bbd, []int{5}
+}
+func (m *MsgAddLinkedRequesterResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgAddLinkedRequesterResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgAddLinkedRequesterResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgAddLinkedRequesterResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgAddLinkedRequesterResponse.Merge(m, src)
+}
+func (m *MsgAddLinkedRequesterResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgAddLinkedRequesterResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgAddLinkedRequesterResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgAddLinkedRequesterResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgDepositToken)(nil), "decent.user.MsgDepositToken")
 	proto.RegisterType((*MsgDepositTokenResponse)(nil), "decent.user.MsgDepositTokenResponse")
 	proto.RegisterType((*MsgWithdrawToken)(nil), "decent.user.MsgWithdrawToken")
 	proto.RegisterType((*MsgWithdrawTokenResponse)(nil), "decent.user.MsgWithdrawTokenResponse")
+	proto.RegisterType((*MsgAddLinkedRequester)(nil), "decent.user.MsgAddLinkedRequester")
+	proto.RegisterType((*MsgAddLinkedRequesterResponse)(nil), "decent.user.MsgAddLinkedRequesterResponse")
 }
 
 func init() { proto.RegisterFile("decent/user/tx.proto", fileDescriptor_1719cb30b3bc4bbd) }
 
 var fileDescriptor_1719cb30b3bc4bbd = []byte{
-	// 244 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x49, 0x49, 0x4d, 0x4e,
-	0xcd, 0x2b, 0xd1, 0x2f, 0x2d, 0x4e, 0x2d, 0xd2, 0x2f, 0xa9, 0xd0, 0x2b, 0x28, 0xca, 0x2f, 0xc9,
-	0x17, 0xe2, 0x86, 0x88, 0xea, 0x81, 0x44, 0x95, 0x5c, 0xb9, 0xf8, 0x7d, 0x8b, 0xd3, 0x5d, 0x52,
-	0x0b, 0xf2, 0x8b, 0x33, 0x4b, 0x42, 0xf2, 0xb3, 0x53, 0xf3, 0x84, 0x24, 0xb8, 0xd8, 0x93, 0x8b,
-	0x52, 0x13, 0x4b, 0xf2, 0x8b, 0x24, 0x18, 0x15, 0x18, 0x35, 0x38, 0x83, 0x60, 0x5c, 0x90, 0x4c,
-	0x0a, 0x44, 0xa5, 0x04, 0x13, 0x44, 0x06, 0xca, 0x55, 0x92, 0xe4, 0x12, 0x47, 0x33, 0x26, 0x28,
-	0xb5, 0xb8, 0x20, 0x3f, 0xaf, 0x38, 0x55, 0xc9, 0x83, 0x4b, 0xc0, 0xb7, 0x38, 0x3d, 0x3c, 0xb3,
-	0x24, 0x23, 0xa5, 0x28, 0xb1, 0x9c, 0x90, 0x15, 0x52, 0x5c, 0x1c, 0xe5, 0x50, 0xa5, 0x50, 0x3b,
-	0xe0, 0x7c, 0x25, 0x29, 0x2e, 0x09, 0x74, 0x93, 0x60, 0xb6, 0x18, 0x6d, 0x60, 0xe4, 0x62, 0xf6,
-	0x2d, 0x4e, 0x17, 0x0a, 0xe2, 0xe2, 0x41, 0xf1, 0x8c, 0x8c, 0x1e, 0x92, 0x6f, 0xf5, 0xd0, 0xdc,
-	0x28, 0xa5, 0x82, 0x4f, 0x16, 0x66, 0xb6, 0x50, 0x28, 0x17, 0x2f, 0xaa, 0xf3, 0x65, 0xd1, 0xb5,
-	0xa1, 0x48, 0x4b, 0xa9, 0xe2, 0x95, 0x86, 0x19, 0xeb, 0xa4, 0x7b, 0xe2, 0x91, 0x1c, 0xe3, 0x85,
-	0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9, 0x31, 0x4e, 0x78, 0x2c, 0xc7, 0x70, 0xe1, 0xb1, 0x1c, 0xc3,
-	0x8d, 0xc7, 0x72, 0x0c, 0x51, 0xc2, 0x2e, 0x90, 0x78, 0xab, 0x80, 0xc6, 0x5c, 0x65, 0x41, 0x6a,
-	0x71, 0x12, 0x1b, 0x38, 0xf6, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x93, 0xab, 0x4b, 0x0b,
-	0xd5, 0x01, 0x00, 0x00,
+	// 319 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x52, 0x4d, 0x4b, 0xc3, 0x40,
+	0x10, 0x6d, 0x5a, 0xf0, 0x63, 0x54, 0x94, 0xa8, 0x18, 0x83, 0x5d, 0x65, 0x51, 0x10, 0xc1, 0x14,
+	0xf4, 0x17, 0x28, 0x15, 0x3c, 0x98, 0x4b, 0x50, 0x04, 0x6f, 0xb5, 0x3b, 0xc4, 0x52, 0xc8, 0xc6,
+	0x9d, 0x2d, 0xad, 0xff, 0xc2, 0x93, 0xbf, 0xc9, 0x63, 0x8f, 0x1e, 0xa5, 0xf9, 0x23, 0x12, 0xb3,
+	0x09, 0x26, 0x96, 0xf4, 0xf8, 0xf6, 0xbd, 0x79, 0x6f, 0xe7, 0x31, 0xb0, 0x23, 0xb0, 0x8f, 0x91,
+	0xee, 0x8c, 0x08, 0x55, 0x47, 0x4f, 0xbc, 0x58, 0x49, 0x2d, 0xed, 0xb5, 0xec, 0xd5, 0x4b, 0x5f,
+	0xf9, 0x0d, 0x6c, 0xfa, 0x14, 0x76, 0x31, 0x96, 0x34, 0xd0, 0xf7, 0x72, 0x88, 0x91, 0xed, 0xc0,
+	0x72, 0x5f, 0x61, 0x4f, 0x4b, 0xe5, 0x58, 0x47, 0xd6, 0xe9, 0x6a, 0x90, 0xc3, 0x94, 0x11, 0x99,
+	0xd2, 0x69, 0x66, 0x8c, 0x81, 0x7c, 0x1f, 0xf6, 0x2a, 0x36, 0x01, 0x52, 0x2c, 0x23, 0x42, 0x7e,
+	0x0b, 0x5b, 0x3e, 0x85, 0x8f, 0x03, 0xfd, 0x22, 0x54, 0x6f, 0xbc, 0x28, 0xc2, 0x85, 0x95, 0xb1,
+	0x91, 0x9a, 0x8c, 0x02, 0x73, 0x17, 0x9c, 0xaa, 0x53, 0x91, 0x82, 0xb0, 0xeb, 0x53, 0x78, 0x25,
+	0xc4, 0xdd, 0x20, 0x1a, 0xa2, 0x08, 0xf0, 0x75, 0x84, 0xa4, 0x51, 0xd5, 0x6f, 0x13, 0xa1, 0x1e,
+	0x4b, 0x35, 0xcc, 0xb7, 0x31, 0x30, 0x65, 0x7a, 0x42, 0x28, 0x24, 0x72, 0x5a, 0x19, 0x63, 0x20,
+	0x3f, 0x84, 0xf6, 0xdc, 0x98, 0xfc, 0x1f, 0x17, 0x1f, 0x4d, 0x68, 0xf9, 0x14, 0xda, 0x01, 0xac,
+	0x97, 0x4a, 0x3d, 0xf0, 0xfe, 0xb4, 0xee, 0x55, 0xba, 0x72, 0x8f, 0xeb, 0xd8, 0xdc, 0xdb, 0x7e,
+	0x80, 0x8d, 0x72, 0x8d, 0xed, 0xea, 0x58, 0x89, 0x76, 0x4f, 0x6a, 0xe9, 0xc2, 0x56, 0x80, 0x3d,
+	0xa7, 0x37, 0x5e, 0x1d, 0xfe, 0xaf, 0x71, 0xcf, 0x16, 0x6b, 0xf2, 0x94, 0xeb, 0xf3, 0xcf, 0x19,
+	0xb3, 0xa6, 0x33, 0x66, 0x7d, 0xcf, 0x98, 0xf5, 0x9e, 0xb0, 0xc6, 0x34, 0x61, 0x8d, 0xaf, 0x84,
+	0x35, 0x9e, 0xb6, 0xbb, 0xd9, 0x95, 0x4e, 0xcc, 0x9d, 0xbe, 0xc5, 0x48, 0xcf, 0x4b, 0xbf, 0xb7,
+	0x7a, 0xf9, 0x13, 0x00, 0x00, 0xff, 0xff, 0x0d, 0xfb, 0x85, 0x2a, 0xc3, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -246,6 +348,7 @@ const _ = grpc.SupportPackageIsVersion4
 type MsgClient interface {
 	DepositToken(ctx context.Context, in *MsgDepositToken, opts ...grpc.CallOption) (*MsgDepositTokenResponse, error)
 	WithdrawToken(ctx context.Context, in *MsgWithdrawToken, opts ...grpc.CallOption) (*MsgWithdrawTokenResponse, error)
+	AddLinkedRequester(ctx context.Context, in *MsgAddLinkedRequester, opts ...grpc.CallOption) (*MsgAddLinkedRequesterResponse, error)
 }
 
 type msgClient struct {
@@ -274,10 +377,20 @@ func (c *msgClient) WithdrawToken(ctx context.Context, in *MsgWithdrawToken, opt
 	return out, nil
 }
 
+func (c *msgClient) AddLinkedRequester(ctx context.Context, in *MsgAddLinkedRequester, opts ...grpc.CallOption) (*MsgAddLinkedRequesterResponse, error) {
+	out := new(MsgAddLinkedRequesterResponse)
+	err := c.cc.Invoke(ctx, "/decent.user.Msg/AddLinkedRequester", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	DepositToken(context.Context, *MsgDepositToken) (*MsgDepositTokenResponse, error)
 	WithdrawToken(context.Context, *MsgWithdrawToken) (*MsgWithdrawTokenResponse, error)
+	AddLinkedRequester(context.Context, *MsgAddLinkedRequester) (*MsgAddLinkedRequesterResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -289,6 +402,9 @@ func (*UnimplementedMsgServer) DepositToken(ctx context.Context, req *MsgDeposit
 }
 func (*UnimplementedMsgServer) WithdrawToken(ctx context.Context, req *MsgWithdrawToken) (*MsgWithdrawTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method WithdrawToken not implemented")
+}
+func (*UnimplementedMsgServer) AddLinkedRequester(ctx context.Context, req *MsgAddLinkedRequester) (*MsgAddLinkedRequesterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddLinkedRequester not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -331,6 +447,24 @@ func _Msg_WithdrawToken_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_AddLinkedRequester_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgAddLinkedRequester)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).AddLinkedRequester(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.user.Msg/AddLinkedRequester",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).AddLinkedRequester(ctx, req.(*MsgAddLinkedRequester))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "decent.user.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -342,6 +476,10 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WithdrawToken",
 			Handler:    _Msg_WithdrawToken_Handler,
+		},
+		{
+			MethodName: "AddLinkedRequester",
+			Handler:    _Msg_AddLinkedRequester_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -468,6 +606,73 @@ func (m *MsgWithdrawTokenResponse) MarshalToSizedBuffer(dAtA []byte) (int, error
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgAddLinkedRequester) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgAddLinkedRequester) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgAddLinkedRequester) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Network) > 0 {
+		i -= len(m.Network)
+		copy(dAtA[i:], m.Network)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Network)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgAddLinkedRequesterResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgAddLinkedRequesterResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgAddLinkedRequesterResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -523,6 +728,36 @@ func (m *MsgWithdrawToken) Size() (n int) {
 }
 
 func (m *MsgWithdrawTokenResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgAddLinkedRequester) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Network)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgAddLinkedRequesterResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -842,6 +1077,202 @@ func (m *MsgWithdrawTokenResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgWithdrawTokenResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgAddLinkedRequester) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgAddLinkedRequester: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgAddLinkedRequester: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Network", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Network = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgAddLinkedRequesterResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgAddLinkedRequesterResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgAddLinkedRequesterResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:
