@@ -7,6 +7,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "decent/request/params.proto";
 import "decent/request/miner_response.proto";
+import "decent/request/request_record.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -26,6 +27,16 @@ service Query {
   }
   rpc MinerResponseAll (QueryAllMinerResponseRequest) returns (QueryAllMinerResponseResponse) {
     option (google.api.http).get = "/Decent/request/miner_response";
+  
+  }
+  
+  // Queries a list of RequestRecord items.
+  rpc RequestRecord    (QueryGetRequestRecordRequest) returns (QueryGetRequestRecordResponse) {
+    option (google.api.http).get = "/Decent/request/request_record/{index}";
+  
+  }
+  rpc RequestRecordAll (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
+    option (google.api.http).get = "/Decent/request/request_record";
   
   }
 }
@@ -53,6 +64,23 @@ message QueryAllMinerResponseRequest {
 
 message QueryAllMinerResponseResponse {
   repeated MinerResponse                          minerResponse = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
+}
+
+message QueryGetRequestRecordRequest {
+  string index = 1;
+}
+
+message QueryGetRequestRecordResponse {
+  RequestRecord requestRecord = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllRequestRecordRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllRequestRecordResponse {
+  repeated RequestRecord                          requestRecord = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination    = 2;
 }
 

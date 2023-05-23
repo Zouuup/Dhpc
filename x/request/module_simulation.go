@@ -36,6 +36,18 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteMinerResponse int = 100
 
+	opWeightMsgCreateRequestRecord = "op_weight_msg_request_record"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateRequestRecord int = 100
+
+	opWeightMsgUpdateRequestRecord = "op_weight_msg_request_record"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateRequestRecord int = 100
+
+	opWeightMsgDeleteRequestRecord = "op_weight_msg_request_record"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteRequestRecord int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -48,6 +60,16 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 	requestGenesis := types.GenesisState{
 		Params: types.DefaultParams(),
 		MinerResponseList: []types.MinerResponse{
+			{
+				Creator: sample.AccAddress(),
+				Index:   "0",
+			},
+			{
+				Creator: sample.AccAddress(),
+				Index:   "1",
+			},
+		},
+		RequestRecordList: []types.RequestRecord{
 			{
 				Creator: sample.AccAddress(),
 				Index:   "0",
@@ -111,6 +133,39 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeleteMinerResponse,
 		requestsimulation.SimulateMsgDeleteMinerResponse(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateRequestRecord int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateRequestRecord, &weightMsgCreateRequestRecord, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateRequestRecord = defaultWeightMsgCreateRequestRecord
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateRequestRecord,
+		requestsimulation.SimulateMsgCreateRequestRecord(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateRequestRecord int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateRequestRecord, &weightMsgUpdateRequestRecord, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateRequestRecord = defaultWeightMsgUpdateRequestRecord
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateRequestRecord,
+		requestsimulation.SimulateMsgUpdateRequestRecord(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteRequestRecord int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteRequestRecord, &weightMsgDeleteRequestRecord, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteRequestRecord = defaultWeightMsgDeleteRequestRecord
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteRequestRecord,
+		requestsimulation.SimulateMsgDeleteRequestRecord(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

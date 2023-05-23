@@ -22,6 +22,14 @@ func TestGenesis(t *testing.T) {
 				Index: "1",
 			},
 		},
+		RequestRecordList: []types.RequestRecord{
+			{
+				Index: "0",
+			},
+			{
+				Index: "1",
+			},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -34,5 +42,6 @@ func TestGenesis(t *testing.T) {
 	nullify.Fill(got)
 
 	require.ElementsMatch(t, genesisState.MinerResponseList, got.MinerResponseList)
+	require.ElementsMatch(t, genesisState.RequestRecordList, got.RequestRecordList)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

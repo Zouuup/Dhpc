@@ -1,0 +1,21 @@
+syntax = "proto3";
+package decent.request;
+
+option go_package = "Decent/x/request/types";
+import "decent/request/miner_response.proto"; 
+
+message RequestRecord {
+  string index = 1; 
+  string uUID = 2; 
+  string tXhash = 3; 
+  string network = 4; 
+  string from = 5; 
+  string address = 6; 
+  int32 score = 7; 
+  string oracle = 8; 
+  int32 block = 9; 
+  int32 stage = 10; 
+  MinerResponse miners = 11; 
+  string creator = 12;
+}
+

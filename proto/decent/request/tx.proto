@@ -3,6 +3,7 @@ syntax = "proto3";
 package decent.request;
 
 import "decent/request/miner_response.proto";
+import "decent/request/request_record.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -11,6 +12,9 @@ service Msg {
   rpc CreateMinerResponse (MsgCreateMinerResponse) returns (MsgCreateMinerResponseResponse);
   rpc UpdateMinerResponse (MsgUpdateMinerResponse) returns (MsgUpdateMinerResponseResponse);
   rpc DeleteMinerResponse (MsgDeleteMinerResponse) returns (MsgDeleteMinerResponseResponse);
+  rpc CreateRequestRecord (MsgCreateRequestRecord) returns (MsgCreateRequestRecordResponse);
+  rpc UpdateRequestRecord (MsgUpdateRequestRecord) returns (MsgUpdateRequestRecordResponse);
+  rpc DeleteRequestRecord (MsgDeleteRequestRecord) returns (MsgDeleteRequestRecordResponse);
 }
 message MsgCreateMinerResponse {
   string creator = 1;
@@ -38,4 +42,45 @@ message MsgDeleteMinerResponse {
 }
 
 message MsgDeleteMinerResponseResponse {}
+
+message MsgCreateRequestRecord {
+  string        creator =  1;
+  string        index   =  2;
+  string        uUID    =  3;
+  string        tXhash  =  4;
+  string        network =  5;
+  string        from    =  6;
+  string        address =  7;
+  int32         score   =  8;
+  string        oracle  =  9;
+  int32         block   = 10;
+  int32         stage   = 11;
+  MinerResponse miners  = 12;
+}
+
+message MsgCreateRequestRecordResponse {}
+
+message MsgUpdateRequestRecord {
+  string        creator =  1;
+  string        index   =  2;
+  string        uUID    =  3;
+  string        tXhash  =  4;
+  string        network =  5;
+  string        from    =  6;
+  string        address =  7;
+  int32         score   =  8;
+  string        oracle  =  9;
+  int32         block   = 10;
+  int32         stage   = 11;
+  MinerResponse miners  = 12;
+}
+
+message MsgUpdateRequestRecordResponse {}
+
+message MsgDeleteRequestRecord {
+  string creator = 1;
+  string index   = 2;
+}
+
+message MsgDeleteRequestRecordResponse {}
 
