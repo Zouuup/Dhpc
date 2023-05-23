@@ -1,7 +1,41 @@
 syntax = "proto3";
+
 package decent.request;
+
+import "decent/request/miner_response.proto";
 
 option go_package = "Decent/x/request/types";
 
 // Msg defines the Msg service.
-service Msg {}
+service Msg {
+  rpc CreateMinerResponse (MsgCreateMinerResponse) returns (MsgCreateMinerResponseResponse);
+  rpc UpdateMinerResponse (MsgUpdateMinerResponse) returns (MsgUpdateMinerResponseResponse);
+  rpc DeleteMinerResponse (MsgDeleteMinerResponse) returns (MsgDeleteMinerResponseResponse);
+}
+message MsgCreateMinerResponse {
+  string creator = 1;
+  string index   = 2;
+  string uUID    = 3;
+  string hash    = 4;
+  int32  answer  = 5;
+}
+
+message MsgCreateMinerResponseResponse {}
+
+message MsgUpdateMinerResponse {
+  string creator = 1;
+  string index   = 2;
+  string uUID    = 3;
+  string hash    = 4;
+  int32  answer  = 5;
+}
+
+message MsgUpdateMinerResponseResponse {}
+
+message MsgDeleteMinerResponse {
+  string creator = 1;
+  string index   = 2;
+}
+
+message MsgDeleteMinerResponseResponse {}
+

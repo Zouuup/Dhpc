@@ -1,26 +1,58 @@
 syntax = "proto3";
+
 package decent.request;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "decent/request/params.proto";
+import "decent/request/miner_response.proto";
 
 option go_package = "Decent/x/request/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/Decent/request/params";
+  
+  }
+  
+  // Queries a list of MinerResponse items.
+  rpc MinerResponse    (QueryGetMinerResponseRequest) returns (QueryGetMinerResponseResponse) {
+    option (google.api.http).get = "/Decent/request/miner_response/{index}";
+  
+  }
+  rpc MinerResponseAll (QueryAllMinerResponseRequest) returns (QueryAllMinerResponseResponse) {
+    option (google.api.http).get = "/Decent/request/miner_response";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
+
+message QueryGetMinerResponseRequest {
+  string index = 1;
+}
+
+message QueryGetMinerResponseResponse {
+  MinerResponse minerResponse = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllMinerResponseRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllMinerResponseResponse {
+  repeated MinerResponse                          minerResponse = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
+}
+

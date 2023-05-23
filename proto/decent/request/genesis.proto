@@ -1,12 +1,16 @@
 syntax = "proto3";
+
 package decent.request;
 
 import "gogoproto/gogo.proto";
 import "decent/request/params.proto";
+import "decent/request/miner_response.proto";
 
 option go_package = "Decent/x/request/types";
 
 // GenesisState defines the request module's genesis state.
 message GenesisState {
-  Params params = 1 [(gogoproto.nullable) = false];
+           Params        params            = 1 [(gogoproto.nullable) = false];
+  repeated MinerResponse minerResponseList = 2 [(gogoproto.nullable) = false];
 }
+
