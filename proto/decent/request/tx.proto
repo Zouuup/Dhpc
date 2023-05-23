@@ -1,0 +1,7 @@
+syntax = "proto3";
+package decent.request;
+
+option go_package = "Decent/x/request/types";
+
+// Msg defines the Msg service.
+service Msg {}

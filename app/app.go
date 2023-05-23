@@ -106,6 +106,9 @@ import (
 	datamodule "Decent/x/data"
 	datamodulekeeper "Decent/x/data/keeper"
 	datamoduletypes "Decent/x/data/types"
+	requestmodule "Decent/x/request"
+	requestmodulekeeper "Decent/x/request/keeper"
+	requestmoduletypes "Decent/x/request/types"
 	usermodule "Decent/x/user"
 	usermodulekeeper "Decent/x/user/keeper"
 	usermoduletypes "Decent/x/user/types"
@@ -169,6 +172,7 @@ var (
 		vesting.AppModuleBasic{},
 		usermodule.AppModuleBasic{},
 		datamodule.AppModuleBasic{},
+		requestmodule.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
 	)
 
@@ -247,6 +251,8 @@ type App struct {
 	UserKeeper usermodulekeeper.Keeper
 
 	DataKeeper datamodulekeeper.Keeper
+
+	RequestKeeper requestmodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// mm is the module manager
@@ -293,6 +299,7 @@ func New(
 		icacontrollertypes.StoreKey,
 		usermoduletypes.StoreKey,
 		datamoduletypes.StoreKey,
+		requestmoduletypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
@@ -526,6 +533,14 @@ func New(
 	)
 	dataModule := datamodule.NewAppModule(appCodec, app.DataKeeper, app.AccountKeeper, app.BankKeeper)
 
+	app.RequestKeeper = *requestmodulekeeper.NewKeeper(
+		appCodec,
+		keys[requestmoduletypes.StoreKey],
+		keys[requestmoduletypes.MemStoreKey],
+		app.GetSubspace(requestmoduletypes.ModuleName),
+	)
+	requestModule := requestmodule.NewAppModule(appCodec, app.RequestKeeper, app.AccountKeeper, app.BankKeeper)
+
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
 	/**** IBC Routing ****/
@@ -593,6 +608,7 @@ func New(
 		icaModule,
 		userModule,
 		dataModule,
+		requestModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 
@@ -624,6 +640,7 @@ func New(
 		vestingtypes.ModuleName,
 		usermoduletypes.ModuleName,
 		datamoduletypes.ModuleName,
+		requestmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	)
 
@@ -650,6 +667,7 @@ func New(
 		vestingtypes.ModuleName,
 		usermoduletypes.ModuleName,
 		datamoduletypes.ModuleName,
+		requestmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	)
 
@@ -681,6 +699,7 @@ func New(
 		vestingtypes.ModuleName,
 		usermoduletypes.ModuleName,
 		datamoduletypes.ModuleName,
+		requestmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	)
 
@@ -712,6 +731,7 @@ func New(
 		transferModule,
 		userModule,
 		dataModule,
+		requestModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 	app.sm.RegisterStoreDecoders()
@@ -918,6 +938,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(icahosttypes.SubModuleName)
 	paramsKeeper.Subspace(usermoduletypes.ModuleName)
 	paramsKeeper.Subspace(datamoduletypes.ModuleName)
+	paramsKeeper.Subspace(requestmoduletypes.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
 
 	return paramsKeeper
