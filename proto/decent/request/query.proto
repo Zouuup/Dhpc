@@ -8,6 +8,7 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "decent/request/params.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
+import "decent/request/allowed_oracles.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -37,6 +38,16 @@ service Query {
   }
   rpc RequestRecordAll (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
     option (google.api.http).get = "/Decent/request/request_record";
+  
+  }
+  
+  // Queries a list of AllowedOracles items.
+  rpc AllowedOracles    (QueryGetAllowedOraclesRequest) returns (QueryGetAllowedOraclesResponse) {
+    option (google.api.http).get = "/Decent/request/allowed_oracles/{id}";
+  
+  }
+  rpc AllowedOraclesAll (QueryAllAllowedOraclesRequest) returns (QueryAllAllowedOraclesResponse) {
+    option (google.api.http).get = "/Decent/request/allowed_oracles";
   
   }
 }
@@ -82,5 +93,22 @@ message QueryAllRequestRecordRequest {
 message QueryAllRequestRecordResponse {
   repeated RequestRecord                          requestRecord = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination    = 2;
+}
+
+message QueryGetAllowedOraclesRequest {
+  uint64 id = 1;
+}
+
+message QueryGetAllowedOraclesResponse {
+  AllowedOracles AllowedOracles = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllAllowedOraclesRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllAllowedOraclesResponse {
+  repeated AllowedOracles                         AllowedOracles = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination     = 2;
 }
 

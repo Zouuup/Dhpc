@@ -1,0 +1,11 @@
+syntax = "proto3";
+package decent.request;
+
+option go_package = "Decent/x/request/types";
+
+message AllowedOracles {
+  uint64 id = 1;
+  string name = 2; 
+  string address = 3; 
+  string creator = 4;
+}

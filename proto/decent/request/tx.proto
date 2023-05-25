@@ -4,17 +4,21 @@ package decent.request;
 
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
+import "decent/request/allowed_oracles.proto";
 
 option go_package = "Decent/x/request/types";
 
 // Msg defines the Msg service.
 service Msg {
-  rpc CreateMinerResponse (MsgCreateMinerResponse) returns (MsgCreateMinerResponseResponse);
-  rpc UpdateMinerResponse (MsgUpdateMinerResponse) returns (MsgUpdateMinerResponseResponse);
-  rpc DeleteMinerResponse (MsgDeleteMinerResponse) returns (MsgDeleteMinerResponseResponse);
-  rpc CreateRequestRecord (MsgCreateRequestRecord) returns (MsgCreateRequestRecordResponse);
-  rpc UpdateRequestRecord (MsgUpdateRequestRecord) returns (MsgUpdateRequestRecordResponse);
-  rpc DeleteRequestRecord (MsgDeleteRequestRecord) returns (MsgDeleteRequestRecordResponse);
+  rpc CreateMinerResponse  (MsgCreateMinerResponse ) returns (MsgCreateMinerResponseResponse );
+  rpc UpdateMinerResponse  (MsgUpdateMinerResponse ) returns (MsgUpdateMinerResponseResponse );
+  rpc DeleteMinerResponse  (MsgDeleteMinerResponse ) returns (MsgDeleteMinerResponseResponse );
+  rpc CreateRequestRecord  (MsgCreateRequestRecord ) returns (MsgCreateRequestRecordResponse );
+  rpc UpdateRequestRecord  (MsgUpdateRequestRecord ) returns (MsgUpdateRequestRecordResponse );
+  rpc DeleteRequestRecord  (MsgDeleteRequestRecord ) returns (MsgDeleteRequestRecordResponse );
+  rpc CreateAllowedOracles (MsgCreateAllowedOracles) returns (MsgCreateAllowedOraclesResponse);
+  rpc UpdateAllowedOracles (MsgUpdateAllowedOracles) returns (MsgUpdateAllowedOraclesResponse);
+  rpc DeleteAllowedOracles (MsgDeleteAllowedOracles) returns (MsgDeleteAllowedOraclesResponse);
 }
 message MsgCreateMinerResponse {
   string creator = 1;
@@ -83,4 +87,30 @@ message MsgDeleteRequestRecord {
 }
 
 message MsgDeleteRequestRecordResponse {}
+
+message MsgCreateAllowedOracles {
+  string creator = 1;
+  string name    = 2;
+  string address = 3;
+}
+
+message MsgCreateAllowedOraclesResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateAllowedOracles {
+  string creator = 1;
+  uint64 id      = 2;
+  string name    = 3;
+  string address = 4;
+}
+
+message MsgUpdateAllowedOraclesResponse {}
+
+message MsgDeleteAllowedOracles {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeleteAllowedOraclesResponse {}
 
