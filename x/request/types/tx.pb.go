@@ -763,6 +763,302 @@ func (m *MsgDeleteRequestRecordResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeleteRequestRecordResponse proto.InternalMessageInfo
 
+type MsgCreateAllowedOracles struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Name    string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Address string `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *MsgCreateAllowedOracles) Reset()         { *m = MsgCreateAllowedOracles{} }
+func (m *MsgCreateAllowedOracles) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateAllowedOracles) ProtoMessage()    {}
+func (*MsgCreateAllowedOracles) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{12}
+}
+func (m *MsgCreateAllowedOracles) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateAllowedOracles.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateAllowedOracles) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateAllowedOracles.Merge(m, src)
+}
+func (m *MsgCreateAllowedOracles) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateAllowedOracles) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateAllowedOracles.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateAllowedOracles proto.InternalMessageInfo
+
+func (m *MsgCreateAllowedOracles) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreateAllowedOracles) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *MsgCreateAllowedOracles) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type MsgCreateAllowedOraclesResponse struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgCreateAllowedOraclesResponse) Reset()         { *m = MsgCreateAllowedOraclesResponse{} }
+func (m *MsgCreateAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateAllowedOraclesResponse) ProtoMessage()    {}
+func (*MsgCreateAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{13}
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateAllowedOraclesResponse.Merge(m, src)
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateAllowedOraclesResponse proto.InternalMessageInfo
+
+func (m *MsgCreateAllowedOraclesResponse) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgUpdateAllowedOracles struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Name    string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *MsgUpdateAllowedOracles) Reset()         { *m = MsgUpdateAllowedOracles{} }
+func (m *MsgUpdateAllowedOracles) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateAllowedOracles) ProtoMessage()    {}
+func (*MsgUpdateAllowedOracles) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{14}
+}
+func (m *MsgUpdateAllowedOracles) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateAllowedOracles.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateAllowedOracles) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateAllowedOracles.Merge(m, src)
+}
+func (m *MsgUpdateAllowedOracles) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateAllowedOracles) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateAllowedOracles.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateAllowedOracles proto.InternalMessageInfo
+
+func (m *MsgUpdateAllowedOracles) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgUpdateAllowedOracles) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *MsgUpdateAllowedOracles) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *MsgUpdateAllowedOracles) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type MsgUpdateAllowedOraclesResponse struct {
+}
+
+func (m *MsgUpdateAllowedOraclesResponse) Reset()         { *m = MsgUpdateAllowedOraclesResponse{} }
+func (m *MsgUpdateAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateAllowedOraclesResponse) ProtoMessage()    {}
+func (*MsgUpdateAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{15}
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateAllowedOraclesResponse.Merge(m, src)
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateAllowedOraclesResponse proto.InternalMessageInfo
+
+type MsgDeleteAllowedOracles struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeleteAllowedOracles) Reset()         { *m = MsgDeleteAllowedOracles{} }
+func (m *MsgDeleteAllowedOracles) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteAllowedOracles) ProtoMessage()    {}
+func (*MsgDeleteAllowedOracles) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{16}
+}
+func (m *MsgDeleteAllowedOracles) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteAllowedOracles.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteAllowedOracles) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteAllowedOracles.Merge(m, src)
+}
+func (m *MsgDeleteAllowedOracles) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteAllowedOracles) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteAllowedOracles.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteAllowedOracles proto.InternalMessageInfo
+
+func (m *MsgDeleteAllowedOracles) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeleteAllowedOracles) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeleteAllowedOraclesResponse struct {
+}
+
+func (m *MsgDeleteAllowedOraclesResponse) Reset()         { *m = MsgDeleteAllowedOraclesResponse{} }
+func (m *MsgDeleteAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteAllowedOraclesResponse) ProtoMessage()    {}
+func (*MsgDeleteAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{17}
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteAllowedOraclesResponse.Merge(m, src)
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteAllowedOraclesResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgCreateMinerResponse)(nil), "decent.request.MsgCreateMinerResponse")
 	proto.RegisterType((*MsgCreateMinerResponseResponse)(nil), "decent.request.MsgCreateMinerResponseResponse")
@@ -776,45 +1072,60 @@ func init() {
 	proto.RegisterType((*MsgUpdateRequestRecordResponse)(nil), "decent.request.MsgUpdateRequestRecordResponse")
 	proto.RegisterType((*MsgDeleteRequestRecord)(nil), "decent.request.MsgDeleteRequestRecord")
 	proto.RegisterType((*MsgDeleteRequestRecordResponse)(nil), "decent.request.MsgDeleteRequestRecordResponse")
+	proto.RegisterType((*MsgCreateAllowedOracles)(nil), "decent.request.MsgCreateAllowedOracles")
+	proto.RegisterType((*MsgCreateAllowedOraclesResponse)(nil), "decent.request.MsgCreateAllowedOraclesResponse")
+	proto.RegisterType((*MsgUpdateAllowedOracles)(nil), "decent.request.MsgUpdateAllowedOracles")
+	proto.RegisterType((*MsgUpdateAllowedOraclesResponse)(nil), "decent.request.MsgUpdateAllowedOraclesResponse")
+	proto.RegisterType((*MsgDeleteAllowedOracles)(nil), "decent.request.MsgDeleteAllowedOracles")
+	proto.RegisterType((*MsgDeleteAllowedOraclesResponse)(nil), "decent.request.MsgDeleteAllowedOraclesResponse")
 }
 
 func init() { proto.RegisterFile("decent/request/tx.proto", fileDescriptor_6cba42862c92a3da) }
 
 var fileDescriptor_6cba42862c92a3da = []byte{
-	// 520 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x56, 0xcd, 0x6e, 0xd3, 0x40,
-	0x10, 0xce, 0xb6, 0x8d, 0x4b, 0xb6, 0x88, 0xc3, 0x16, 0x85, 0x55, 0x25, 0x2c, 0xab, 0x48, 0x28,
-	0x27, 0x17, 0x15, 0xf1, 0x02, 0x90, 0x03, 0x1c, 0x72, 0xb1, 0x54, 0x09, 0x71, 0xa9, 0x5c, 0x7b,
-	0x48, 0xab, 0xc6, 0x5e, 0xb3, 0xbb, 0x55, 0xc3, 0x1b, 0x70, 0xe4, 0x0d, 0x78, 0x1d, 0x2e, 0x48,
-	0x3d, 0x72, 0x44, 0xc9, 0x8b, 0xa0, 0xfd, 0x71, 0x52, 0xb7, 0x13, 0x17, 0xa9, 0x39, 0x70, 0xe8,
-	0xc9, 0xfb, 0x8d, 0xbf, 0xcc, 0x37, 0xf9, 0x66, 0x77, 0xd6, 0xf4, 0x59, 0x0e, 0x19, 0x94, 0xfa,
-	0x40, 0xc2, 0x97, 0x0b, 0x50, 0xfa, 0x40, 0x4f, 0xe3, 0x4a, 0x0a, 0x2d, 0xd8, 0x13, 0xf7, 0x22,
-	0xf6, 0x2f, 0xf6, 0x5e, 0xdc, 0x20, 0x16, 0x67, 0x25, 0xc8, 0x63, 0x09, 0xaa, 0x12, 0xa5, 0x02,
-	0xf7, 0xa3, 0x5b, 0x24, 0xff, 0x3c, 0x96, 0x90, 0x09, 0x99, 0x3b, 0xd2, 0xfe, 0x37, 0x42, 0xfb,
-	0x23, 0x35, 0x7e, 0x27, 0x21, 0xd5, 0x30, 0x32, 0x69, 0x12, 0x9f, 0x85, 0x71, 0xba, 0x9d, 0x99,
-	0xb0, 0x90, 0x9c, 0x44, 0x64, 0xd0, 0x4b, 0x6a, 0xc8, 0x9e, 0xd2, 0xee, 0x59, 0x99, 0xc3, 0x94,
-	0x6f, 0xd8, 0xb8, 0x03, 0x8c, 0xd1, 0xad, 0x8b, 0xa3, 0x0f, 0x43, 0xbe, 0x69, 0x83, 0x76, 0x6d,
-	0x62, 0xa7, 0xa9, 0x3a, 0xe5, 0x5b, 0x2e, 0x66, 0xd6, 0xac, 0x4f, 0x83, 0xb4, 0x54, 0x97, 0x20,
-	0x79, 0x37, 0x22, 0x83, 0x6e, 0xe2, 0xd1, 0x7e, 0x44, 0x43, 0xbc, 0x92, 0xfa, 0x59, 0x17, 0x7b,
-	0x54, 0xe5, 0xff, 0x49, 0xb1, 0x48, 0x25, 0x8b, 0x62, 0xdf, 0xdb, 0x5a, 0x87, 0x30, 0x81, 0x7b,
-	0xd6, 0xea, 0xb5, 0x90, 0x4c, 0x0b, 0xad, 0x5f, 0x1b, 0xd7, 0xba, 0x98, 0xb8, 0x3e, 0x27, 0xb6,
-	0xcd, 0x6b, 0x31, 0xa6, 0x4f, 0x03, 0xfd, 0xf1, 0x9a, 0x35, 0x1e, 0x99, 0xdc, 0x25, 0xe8, 0x4b,
-	0x21, 0xcf, 0xad, 0x3b, 0xbd, 0xa4, 0x86, 0x26, 0xcb, 0x67, 0x29, 0x0a, 0x1e, 0xb8, 0x2c, 0x66,
-	0x6d, 0xd8, 0x69, 0x9e, 0x4b, 0x50, 0x8a, 0x6f, 0x3b, 0xb6, 0x87, 0xa6, 0x12, 0x95, 0x09, 0x09,
-	0xfc, 0x91, 0xf5, 0xd8, 0x01, 0xa3, 0x2a, 0x64, 0x9a, 0x4d, 0x80, 0xf7, 0x9c, 0xaa, 0x43, 0x86,
-	0x7d, 0x32, 0x11, 0xd9, 0x39, 0xa7, 0x8e, 0x6d, 0x81, 0xcd, 0xa1, 0xd3, 0x31, 0xf0, 0x1d, 0x9f,
-	0xc3, 0x00, 0xf6, 0x86, 0x06, 0xf6, 0x6c, 0x28, 0xfe, 0x38, 0x22, 0x83, 0x9d, 0xc3, 0xe7, 0x71,
-	0xf3, 0x24, 0xc5, 0x4d, 0x3f, 0x3d, 0xb9, 0xb1, 0x15, 0x1b, 0x76, 0xde, 0x74, 0xdc, 0x6d, 0x80,
-	0x07, 0xc7, 0xd7, 0xe4, 0x38, 0x62, 0x27, 0x7a, 0x9e, 0xee, 0x65, 0x78, 0xe3, 0x3c, 0xa1, 0x5a,
-	0x87, 0x3f, 0xba, 0x74, 0x73, 0xa4, 0xc6, 0xac, 0xa0, 0xbb, 0xd8, 0x64, 0x7c, 0x79, 0xeb, 0x3f,
-	0xa1, 0x73, 0x6b, 0x2f, 0xfe, 0x37, 0xde, 0x22, 0x6f, 0x41, 0x77, 0xb1, 0xd9, 0x86, 0xc9, 0x21,
-	0x3c, 0x54, 0xae, 0x65, 0x42, 0x19, 0x39, 0x6c, 0x3c, 0x61, 0x72, 0x08, 0x0f, 0x95, 0x6b, 0x19,
-	0x52, 0x4b, 0x33, 0x9b, 0xdd, 0x5b, 0x6d, 0x66, 0x83, 0xd7, 0x62, 0x26, 0xda, 0xc3, 0xa5, 0x99,
-	0x77, 0xcb, 0x21, 0xbc, 0x16, 0x33, 0x57, 0xca, 0x61, 0x7b, 0x73, 0xb5, 0x99, 0x77, 0xcb, 0xb5,
-	0xec, 0xd0, 0xb7, 0xaf, 0x7e, 0xce, 0x42, 0x72, 0x35, 0x0b, 0xc9, 0x9f, 0x59, 0x48, 0xbe, 0xcf,
-	0xc3, 0xce, 0xd5, 0x3c, 0xec, 0xfc, 0x9e, 0x87, 0x9d, 0x4f, 0xfd, 0xa1, 0xbb, 0xf6, 0xa7, 0xcb,
-	0xcf, 0x88, 0xaf, 0x15, 0xa8, 0x93, 0xc0, 0x5e, 0xf8, 0xaf, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff,
-	0x2f, 0x3f, 0xf8, 0xc2, 0x65, 0x08, 0x00, 0x00,
+	// 660 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x56, 0x4f, 0x6f, 0x12, 0x41,
+	0x14, 0xef, 0x02, 0x05, 0x99, 0x9a, 0x1e, 0xb6, 0x0d, 0x9d, 0x90, 0xb8, 0x22, 0x1a, 0xe1, 0x04,
+	0x5a, 0xe3, 0x07, 0xd0, 0x72, 0xd0, 0x03, 0x31, 0xd9, 0xa4, 0x89, 0xf1, 0x42, 0xb6, 0xbb, 0x4f,
+	0x4a, 0x0a, 0x3b, 0x74, 0x66, 0x1b, 0xf0, 0x1b, 0x78, 0xf4, 0x63, 0x79, 0x31, 0xe9, 0xd1, 0xa3,
+	0x81, 0xcf, 0xe0, 0xdd, 0xcc, 0x9f, 0x5d, 0x58, 0xfa, 0x76, 0x4b, 0x6c, 0x0f, 0x1e, 0x3c, 0x31,
+	0x6f, 0xf6, 0xc7, 0xfb, 0xfd, 0xf2, 0x9b, 0x79, 0xef, 0x0d, 0x39, 0x0a, 0xc0, 0x87, 0x30, 0xea,
+	0x72, 0xb8, 0xbc, 0x02, 0x11, 0x75, 0xa3, 0x79, 0x67, 0xca, 0x59, 0xc4, 0xec, 0x7d, 0xfd, 0xa1,
+	0x63, 0x3e, 0xd4, 0x9f, 0x6e, 0x00, 0x27, 0xa3, 0x10, 0xf8, 0x80, 0x83, 0x98, 0xb2, 0x50, 0x80,
+	0xfe, 0xd3, 0x0d, 0x90, 0xf9, 0x1d, 0x70, 0xf0, 0x19, 0x0f, 0x0c, 0xe8, 0xd9, 0x06, 0xc8, 0x1b,
+	0x8f, 0xd9, 0x0c, 0x82, 0x01, 0xe3, 0x9e, 0x3f, 0x06, 0xa1, 0x51, 0xcd, 0xaf, 0x16, 0xa9, 0xf5,
+	0xc5, 0xf0, 0x84, 0x83, 0x17, 0x41, 0x5f, 0x92, 0xb9, 0x86, 0xcb, 0xa6, 0xa4, 0xe2, 0xcb, 0x6d,
+	0xc6, 0xa9, 0xd5, 0xb0, 0xda, 0x55, 0x37, 0x0e, 0xed, 0x43, 0xb2, 0x3b, 0x0a, 0x03, 0x98, 0xd3,
+	0x82, 0xda, 0xd7, 0x81, 0x6d, 0x93, 0xd2, 0xd5, 0xe9, 0xfb, 0x1e, 0x2d, 0xaa, 0x4d, 0xb5, 0x96,
+	0x7b, 0xe7, 0x9e, 0x38, 0xa7, 0x25, 0xbd, 0x27, 0xd7, 0x76, 0x8d, 0x94, 0xbd, 0x50, 0xcc, 0x80,
+	0xd3, 0xdd, 0x86, 0xd5, 0xde, 0x75, 0x4d, 0xd4, 0x6c, 0x10, 0x07, 0x57, 0x12, 0xff, 0xc6, 0x62,
+	0x4f, 0xa7, 0xc1, 0x3f, 0x22, 0x16, 0x51, 0x92, 0x88, 0x7d, 0xa7, 0xb4, 0xf6, 0x60, 0x0c, 0x77,
+	0xd4, 0x6a, 0xb8, 0x90, 0x4c, 0x09, 0xd7, 0x8f, 0xc2, 0xda, 0x29, 0xba, 0xfa, 0xc0, 0x5d, 0x75,
+	0x19, 0xee, 0xc5, 0x98, 0x1a, 0x29, 0x47, 0x1f, 0xd7, 0xac, 0x31, 0x91, 0xcc, 0x1d, 0x42, 0x34,
+	0x63, 0xfc, 0x42, 0xb9, 0x53, 0x75, 0xe3, 0x50, 0x66, 0xf9, 0xcc, 0xd9, 0x84, 0x96, 0x75, 0x16,
+	0xb9, 0x96, 0x68, 0x2f, 0x08, 0x38, 0x08, 0x41, 0x2b, 0x1a, 0x6d, 0x42, 0xa9, 0x44, 0xf8, 0x8c,
+	0x03, 0x7d, 0xa0, 0x3c, 0xd6, 0x81, 0x64, 0xd5, 0x77, 0x95, 0x56, 0x35, 0xab, 0x8e, 0x24, 0xfa,
+	0x6c, 0xcc, 0xfc, 0x0b, 0x4a, 0x34, 0x5a, 0x05, 0x2a, 0x47, 0xe4, 0x0d, 0x81, 0xee, 0x99, 0x1c,
+	0x32, 0xb0, 0x5f, 0x93, 0xb2, 0xaa, 0x20, 0x41, 0x1f, 0x36, 0xac, 0xf6, 0xde, 0xf1, 0xa3, 0x4e,
+	0xba, 0xde, 0x3a, 0x69, 0x3f, 0x0d, 0x38, 0x75, 0x15, 0x53, 0x76, 0x6e, 0x3a, 0xae, 0x2f, 0xc0,
+	0x7f, 0xc7, 0xef, 0xc9, 0x71, 0xc4, 0x4e, 0xb4, 0x9e, 0xee, 0x64, 0x78, 0xaa, 0x9e, 0x70, 0x2e,
+	0x8f, 0x1c, 0x25, 0xe7, 0xff, 0x46, 0xf7, 0xcd, 0x0f, 0xba, 0x6d, 0xe6, 0x90, 0xd9, 0xa4, 0x14,
+	0x7a, 0x13, 0x30, 0x5c, 0x6a, 0xbd, 0x7e, 0x02, 0xc5, 0xd4, 0x09, 0x34, 0x5f, 0x92, 0xc7, 0x19,
+	0x14, 0x49, 0x9f, 0xd8, 0x27, 0x85, 0x51, 0xa0, 0x58, 0x4a, 0x6e, 0x61, 0x14, 0x34, 0x2f, 0x95,
+	0x2a, 0xed, 0xd1, 0xd6, 0xaa, 0x74, 0x92, 0x42, 0x9c, 0x24, 0x51, 0x59, 0xc4, 0x55, 0x96, 0xd2,
+	0x2a, 0x9f, 0x28, 0x95, 0x18, 0x65, 0xe2, 0xd5, 0x89, 0x52, 0xa5, 0xdd, 0xfc, 0x5b, 0x55, 0x86,
+	0x07, 0x4b, 0x12, 0xf3, 0x1c, 0xff, 0xae, 0x90, 0x62, 0x5f, 0x0c, 0xed, 0x09, 0x39, 0xc0, 0xa6,
+	0xd5, 0xf3, 0x1b, 0xf7, 0x0c, 0x9d, 0x25, 0xf5, 0xce, 0x76, 0xb8, 0x24, 0xef, 0x84, 0x1c, 0x60,
+	0xf3, 0x06, 0xa3, 0x43, 0x70, 0x28, 0x5d, 0xce, 0xd4, 0x90, 0x74, 0xd8, 0xc8, 0xc0, 0xe8, 0x10,
+	0x1c, 0x4a, 0x97, 0x33, 0x38, 0x56, 0x66, 0xa6, 0x2b, 0x2a, 0xdb, 0xcc, 0x14, 0x2e, 0xc7, 0x4c,
+	0xb4, 0xae, 0x56, 0x66, 0xde, 0x4e, 0x87, 0xe0, 0x72, 0xcc, 0xcc, 0xa4, 0xc3, 0xfa, 0x45, 0xb6,
+	0x99, 0xb7, 0xd3, 0xe5, 0x74, 0x0d, 0x7b, 0x4a, 0x0e, 0xd1, 0x96, 0xd1, 0xca, 0x74, 0x29, 0x0d,
+	0xac, 0x77, 0xb7, 0x04, 0xae, 0x33, 0xa2, 0xed, 0xa0, 0x95, 0x69, 0xd4, 0x16, 0x8c, 0x79, 0xd5,
+	0x2e, 0x19, 0xd1, 0x52, 0x6f, 0x65, 0x7a, 0xb5, 0x05, 0x63, 0x5e, 0xdd, 0xbf, 0x7d, 0xf1, 0x7d,
+	0xe1, 0x58, 0xd7, 0x0b, 0xc7, 0xfa, 0xb5, 0x70, 0xac, 0x6f, 0x4b, 0x67, 0xe7, 0x7a, 0xe9, 0xec,
+	0xfc, 0x5c, 0x3a, 0x3b, 0x9f, 0x6a, 0x3d, 0xfd, 0xc2, 0x9d, 0xaf, 0x9e, 0xd5, 0x5f, 0xa6, 0x20,
+	0xce, 0xca, 0xea, 0x69, 0xfb, 0xea, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x1e, 0x06, 0xe5, 0xaf,
+	0x75, 0x0b, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -835,6 +1146,9 @@ type MsgClient interface {
 	CreateRequestRecord(ctx context.Context, in *MsgCreateRequestRecord, opts ...grpc.CallOption) (*MsgCreateRequestRecordResponse, error)
 	UpdateRequestRecord(ctx context.Context, in *MsgUpdateRequestRecord, opts ...grpc.CallOption) (*MsgUpdateRequestRecordResponse, error)
 	DeleteRequestRecord(ctx context.Context, in *MsgDeleteRequestRecord, opts ...grpc.CallOption) (*MsgDeleteRequestRecordResponse, error)
+	CreateAllowedOracles(ctx context.Context, in *MsgCreateAllowedOracles, opts ...grpc.CallOption) (*MsgCreateAllowedOraclesResponse, error)
+	UpdateAllowedOracles(ctx context.Context, in *MsgUpdateAllowedOracles, opts ...grpc.CallOption) (*MsgUpdateAllowedOraclesResponse, error)
+	DeleteAllowedOracles(ctx context.Context, in *MsgDeleteAllowedOracles, opts ...grpc.CallOption) (*MsgDeleteAllowedOraclesResponse, error)
 }
 
 type msgClient struct {
@@ -899,6 +1213,33 @@ func (c *msgClient) DeleteRequestRecord(ctx context.Context, in *MsgDeleteReques
 	return out, nil
 }
 
+func (c *msgClient) CreateAllowedOracles(ctx context.Context, in *MsgCreateAllowedOracles, opts ...grpc.CallOption) (*MsgCreateAllowedOraclesResponse, error) {
+	out := new(MsgCreateAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/CreateAllowedOracles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateAllowedOracles(ctx context.Context, in *MsgUpdateAllowedOracles, opts ...grpc.CallOption) (*MsgUpdateAllowedOraclesResponse, error) {
+	out := new(MsgUpdateAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/UpdateAllowedOracles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteAllowedOracles(ctx context.Context, in *MsgDeleteAllowedOracles, opts ...grpc.CallOption) (*MsgDeleteAllowedOraclesResponse, error) {
+	out := new(MsgDeleteAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/DeleteAllowedOracles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateMinerResponse(context.Context, *MsgCreateMinerResponse) (*MsgCreateMinerResponseResponse, error)
@@ -907,6 +1248,9 @@ type MsgServer interface {
 	CreateRequestRecord(context.Context, *MsgCreateRequestRecord) (*MsgCreateRequestRecordResponse, error)
 	UpdateRequestRecord(context.Context, *MsgUpdateRequestRecord) (*MsgUpdateRequestRecordResponse, error)
 	DeleteRequestRecord(context.Context, *MsgDeleteRequestRecord) (*MsgDeleteRequestRecordResponse, error)
+	CreateAllowedOracles(context.Context, *MsgCreateAllowedOracles) (*MsgCreateAllowedOraclesResponse, error)
+	UpdateAllowedOracles(context.Context, *MsgUpdateAllowedOracles) (*MsgUpdateAllowedOraclesResponse, error)
+	DeleteAllowedOracles(context.Context, *MsgDeleteAllowedOracles) (*MsgDeleteAllowedOraclesResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -930,6 +1274,15 @@ func (*UnimplementedMsgServer) UpdateRequestRecord(ctx context.Context, req *Msg
 }
 func (*UnimplementedMsgServer) DeleteRequestRecord(ctx context.Context, req *MsgDeleteRequestRecord) (*MsgDeleteRequestRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRequestRecord not implemented")
+}
+func (*UnimplementedMsgServer) CreateAllowedOracles(ctx context.Context, req *MsgCreateAllowedOracles) (*MsgCreateAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateAllowedOracles not implemented")
+}
+func (*UnimplementedMsgServer) UpdateAllowedOracles(ctx context.Context, req *MsgUpdateAllowedOracles) (*MsgUpdateAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAllowedOracles not implemented")
+}
+func (*UnimplementedMsgServer) DeleteAllowedOracles(ctx context.Context, req *MsgDeleteAllowedOracles) (*MsgDeleteAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAllowedOracles not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -1044,6 +1397,60 @@ func _Msg_DeleteRequestRecord_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateAllowedOracles)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateAllowedOracles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Msg/CreateAllowedOracles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateAllowedOracles(ctx, req.(*MsgCreateAllowedOracles))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateAllowedOracles)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateAllowedOracles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Msg/UpdateAllowedOracles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateAllowedOracles(ctx, req.(*MsgUpdateAllowedOracles))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteAllowedOracles)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteAllowedOracles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Msg/DeleteAllowedOracles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteAllowedOracles(ctx, req.(*MsgDeleteAllowedOracles))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "decent.request.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -1071,6 +1478,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteRequestRecord",
 			Handler:    _Msg_DeleteRequestRecord_Handler,
+		},
+		{
+			MethodName: "CreateAllowedOracles",
+			Handler:    _Msg_CreateAllowedOracles_Handler,
+		},
+		{
+			MethodName: "UpdateAllowedOracles",
+			Handler:    _Msg_UpdateAllowedOracles_Handler,
+		},
+		{
+			MethodName: "DeleteAllowedOracles",
+			Handler:    _Msg_DeleteAllowedOracles_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1613,6 +2032,208 @@ func (m *MsgDeleteRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int,
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCreateAllowedOracles) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateAllowedOracles) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateAllowedOracles) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateAllowedOraclesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateAllowedOraclesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateAllowedOraclesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateAllowedOracles) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateAllowedOracles) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateAllowedOracles) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateAllowedOraclesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateAllowedOraclesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateAllowedOraclesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteAllowedOracles) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteAllowedOracles) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteAllowedOracles) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x10
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteAllowedOraclesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteAllowedOraclesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteAllowedOraclesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -1868,6 +2489,97 @@ func (m *MsgDeleteRequestRecord) Size() (n int) {
 }
 
 func (m *MsgDeleteRequestRecordResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCreateAllowedOracles) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Name)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCreateAllowedOraclesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgUpdateAllowedOracles) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	l = len(m.Name)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUpdateAllowedOraclesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteAllowedOracles) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Id != 0 {
+		n += 1 + sovTx(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *MsgDeleteAllowedOraclesResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -3579,6 +4291,587 @@ func (m *MsgDeleteRequestRecordResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgDeleteRequestRecordResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateAllowedOracles) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateAllowedOracles: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateAllowedOracles: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Name = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateAllowedOraclesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateAllowedOraclesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateAllowedOraclesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateAllowedOracles) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateAllowedOracles: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateAllowedOracles: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Name = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateAllowedOraclesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateAllowedOraclesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateAllowedOraclesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteAllowedOracles) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteAllowedOracles: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteAllowedOracles: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteAllowedOraclesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteAllowedOraclesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteAllowedOraclesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

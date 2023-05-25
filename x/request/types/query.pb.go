@@ -481,6 +481,190 @@ func (m *QueryAllRequestRecordResponse) GetPagination() *query.PageResponse {
 	return nil
 }
 
+type QueryGetAllowedOraclesRequest struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *QueryGetAllowedOraclesRequest) Reset()         { *m = QueryGetAllowedOraclesRequest{} }
+func (m *QueryGetAllowedOraclesRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetAllowedOraclesRequest) ProtoMessage()    {}
+func (*QueryGetAllowedOraclesRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e764b566425bfc21, []int{10}
+}
+func (m *QueryGetAllowedOraclesRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetAllowedOraclesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetAllowedOraclesRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetAllowedOraclesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetAllowedOraclesRequest.Merge(m, src)
+}
+func (m *QueryGetAllowedOraclesRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetAllowedOraclesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetAllowedOraclesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetAllowedOraclesRequest proto.InternalMessageInfo
+
+func (m *QueryGetAllowedOraclesRequest) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type QueryGetAllowedOraclesResponse struct {
+	AllowedOracles AllowedOracles `protobuf:"bytes,1,opt,name=AllowedOracles,proto3" json:"AllowedOracles"`
+}
+
+func (m *QueryGetAllowedOraclesResponse) Reset()         { *m = QueryGetAllowedOraclesResponse{} }
+func (m *QueryGetAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetAllowedOraclesResponse) ProtoMessage()    {}
+func (*QueryGetAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e764b566425bfc21, []int{11}
+}
+func (m *QueryGetAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetAllowedOraclesResponse.Merge(m, src)
+}
+func (m *QueryGetAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetAllowedOraclesResponse proto.InternalMessageInfo
+
+func (m *QueryGetAllowedOraclesResponse) GetAllowedOracles() AllowedOracles {
+	if m != nil {
+		return m.AllowedOracles
+	}
+	return AllowedOracles{}
+}
+
+type QueryAllAllowedOraclesRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllAllowedOraclesRequest) Reset()         { *m = QueryAllAllowedOraclesRequest{} }
+func (m *QueryAllAllowedOraclesRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllAllowedOraclesRequest) ProtoMessage()    {}
+func (*QueryAllAllowedOraclesRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e764b566425bfc21, []int{12}
+}
+func (m *QueryAllAllowedOraclesRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllAllowedOraclesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllAllowedOraclesRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllAllowedOraclesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllAllowedOraclesRequest.Merge(m, src)
+}
+func (m *QueryAllAllowedOraclesRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllAllowedOraclesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllAllowedOraclesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllAllowedOraclesRequest proto.InternalMessageInfo
+
+func (m *QueryAllAllowedOraclesRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllAllowedOraclesResponse struct {
+	AllowedOracles []AllowedOracles    `protobuf:"bytes,1,rep,name=AllowedOracles,proto3" json:"AllowedOracles"`
+	Pagination     *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllAllowedOraclesResponse) Reset()         { *m = QueryAllAllowedOraclesResponse{} }
+func (m *QueryAllAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllAllowedOraclesResponse) ProtoMessage()    {}
+func (*QueryAllAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e764b566425bfc21, []int{13}
+}
+func (m *QueryAllAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllAllowedOraclesResponse.Merge(m, src)
+}
+func (m *QueryAllAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllAllowedOraclesResponse proto.InternalMessageInfo
+
+func (m *QueryAllAllowedOraclesResponse) GetAllowedOracles() []AllowedOracles {
+	if m != nil {
+		return m.AllowedOracles
+	}
+	return nil
+}
+
+func (m *QueryAllAllowedOraclesResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "decent.request.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "decent.request.QueryParamsResponse")
@@ -492,48 +676,61 @@ func init() {
 	proto.RegisterType((*QueryGetRequestRecordResponse)(nil), "decent.request.QueryGetRequestRecordResponse")
 	proto.RegisterType((*QueryAllRequestRecordRequest)(nil), "decent.request.QueryAllRequestRecordRequest")
 	proto.RegisterType((*QueryAllRequestRecordResponse)(nil), "decent.request.QueryAllRequestRecordResponse")
+	proto.RegisterType((*QueryGetAllowedOraclesRequest)(nil), "decent.request.QueryGetAllowedOraclesRequest")
+	proto.RegisterType((*QueryGetAllowedOraclesResponse)(nil), "decent.request.QueryGetAllowedOraclesResponse")
+	proto.RegisterType((*QueryAllAllowedOraclesRequest)(nil), "decent.request.QueryAllAllowedOraclesRequest")
+	proto.RegisterType((*QueryAllAllowedOraclesResponse)(nil), "decent.request.QueryAllAllowedOraclesResponse")
 }
 
 func init() { proto.RegisterFile("decent/request/query.proto", fileDescriptor_e764b566425bfc21) }
 
 var fileDescriptor_e764b566425bfc21 = []byte{
-	// 575 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x95, 0xcf, 0x6e, 0xd3, 0x40,
-	0x10, 0xc6, 0xe3, 0x96, 0x44, 0x62, 0x51, 0x11, 0x5a, 0xa2, 0xa8, 0x32, 0xad, 0xa9, 0x5c, 0x29,
-	0x54, 0x08, 0x76, 0x69, 0xe9, 0x0b, 0xb4, 0x42, 0x54, 0x08, 0x21, 0x95, 0x1c, 0xb9, 0x54, 0x9b,
-	0x64, 0xb1, 0x8c, 0x1c, 0xaf, 0xb3, 0x76, 0x51, 0x2b, 0xc4, 0x85, 0x27, 0x40, 0xe2, 0xc0, 0x85,
-	0xb7, 0xe0, 0x25, 0x7a, 0xac, 0xc4, 0x85, 0x13, 0x42, 0x09, 0x47, 0x1e, 0x02, 0x79, 0x77, 0x4c,
-	0xbd, 0xae, 0x37, 0x84, 0x08, 0x4e, 0xf9, 0x33, 0x33, 0x9f, 0x7f, 0x33, 0xdf, 0xec, 0x1a, 0xb9,
-	0x43, 0x3e, 0xe0, 0x71, 0x46, 0x25, 0x1f, 0x1f, 0xf3, 0x34, 0xa3, 0xe3, 0x63, 0x2e, 0x4f, 0x49,
-	0x22, 0x45, 0x26, 0xf0, 0x75, 0x1d, 0x23, 0x10, 0x73, 0xdb, 0x81, 0x08, 0x84, 0x0a, 0xd1, 0xfc,
-	0x9b, 0xce, 0x72, 0xd7, 0x02, 0x21, 0x82, 0x88, 0x53, 0x96, 0x84, 0x94, 0xc5, 0xb1, 0xc8, 0x58,
-	0x16, 0x8a, 0x38, 0x85, 0xe8, 0xdd, 0x81, 0x48, 0x47, 0x22, 0xa5, 0x7d, 0x96, 0x72, 0x2d, 0x4e,
-	0x5f, 0x6f, 0xf7, 0x79, 0xc6, 0xb6, 0x69, 0xc2, 0x82, 0x30, 0x56, 0xc9, 0x90, 0x7b, 0xab, 0xc2,
-	0x92, 0x30, 0xc9, 0x46, 0x85, 0xd0, 0x66, 0x25, 0x38, 0x0a, 0x63, 0x2e, 0x8f, 0x24, 0x4f, 0x13,
-	0x11, 0xa7, 0xdc, 0x92, 0x04, 0x9f, 0x47, 0x92, 0x0f, 0x84, 0x1c, 0xea, 0x24, 0xbf, 0x8d, 0xf0,
-	0xf3, 0x1c, 0xe4, 0x50, 0xc9, 0xf7, 0x74, 0x8a, 0xff, 0x14, 0xdd, 0x34, 0xfe, 0xd5, 0xba, 0x78,
-	0x17, 0xb5, 0x34, 0xc6, 0xaa, 0xb3, 0xe1, 0x6c, 0x5d, 0xdb, 0xe9, 0x10, 0x73, 0x28, 0x44, 0xe7,
-	0xef, 0x5f, 0x39, 0xfb, 0x76, 0xbb, 0xd1, 0x83, 0x5c, 0x7f, 0x17, 0xad, 0x29, 0xb1, 0x03, 0x9e,
-	0x3d, 0xcb, 0x39, 0x0b, 0x39, 0x78, 0x18, 0x6e, 0xa3, 0x66, 0x18, 0x0f, 0xf9, 0x89, 0x12, 0xbd,
-	0xda, 0xd3, 0x3f, 0xfc, 0x57, 0x68, 0xdd, 0x52, 0x05, 0x30, 0x4f, 0xd0, 0xca, 0xa8, 0x1c, 0x00,
-	0xa6, 0xf5, 0x2a, 0x93, 0x51, 0x0d, 0x68, 0x66, 0xa5, 0xff, 0x12, 0x08, 0xf7, 0xa2, 0xa8, 0x96,
-	0xf0, 0x31, 0x42, 0x17, 0xfe, 0xc0, 0x73, 0xba, 0x44, 0x9b, 0x49, 0x72, 0x33, 0x89, 0xde, 0x14,
-	0x30, 0x93, 0x1c, 0xb2, 0xa0, 0xa8, 0xed, 0x95, 0x2a, 0xfd, 0xcf, 0x0e, 0x34, 0x75, 0xf9, 0x41,
-	0xf6, 0xa6, 0x96, 0x17, 0x6b, 0x0a, 0x1f, 0x18, 0xd0, 0x4b, 0x0a, 0xfa, 0xce, 0x1f, 0xa1, 0x81,
-	0xa7, 0x4c, 0x5d, 0xf2, 0xaf, 0x68, 0x4a, 0x6d, 0xd0, 0xdc, 0xfe, 0x55, 0xaa, 0x2e, 0x5a, 0x95,
-	0xe5, 0x80, 0xcd, 0x3f, 0xa3, 0xba, 0x68, 0xd5, 0xa8, 0x2c, 0xfb, 0x57, 0x4b, 0xf8, 0x3f, 0xfc,
-	0x9b, 0xbb, 0xa9, 0xe5, 0xc5, 0x9a, 0xfa, 0x67, 0xfe, 0xed, 0xfc, 0x6c, 0xa2, 0xa6, 0xa2, 0xc6,
-	0x63, 0xd4, 0xd2, 0x27, 0x14, 0xfb, 0x55, 0xa0, 0xcb, 0x97, 0x80, 0xbb, 0x39, 0x33, 0x07, 0x8e,
-	0x8e, 0xf7, 0xee, 0xcb, 0x8f, 0x0f, 0x4b, 0xab, 0xb8, 0x43, 0x1f, 0xd5, 0xdd, 0x57, 0xf8, 0x93,
-	0x83, 0x56, 0x8c, 0x65, 0xc5, 0xf7, 0x6a, 0x65, 0x2d, 0x97, 0x83, 0x7b, 0x7f, 0xce, 0x6c, 0xc0,
-	0x21, 0x0a, 0x67, 0x0b, 0x77, 0xab, 0x38, 0xe6, 0x0d, 0x49, 0xdf, 0xa8, 0x25, 0x7d, 0x8b, 0x3f,
-	0x3a, 0xe8, 0x86, 0xa1, 0xb4, 0x17, 0x45, 0x16, 0x42, 0xcb, 0xe5, 0x60, 0x21, 0xb4, 0x9d, 0x70,
-	0xbf, 0xab, 0x08, 0x37, 0xb0, 0x37, 0x9b, 0x50, 0x0d, 0xce, 0xd8, 0x12, 0xfb, 0xe0, 0xea, 0x76,
-	0xde, 0x3e, 0xb8, 0xda, 0xc5, 0xb5, 0x0f, 0xce, 0x7c, 0x6b, 0x18, 0x83, 0x33, 0x94, 0x66, 0x0e,
-	0xee, 0x2f, 0x08, 0x6d, 0x47, 0xcb, 0x3e, 0x38, 0x93, 0x70, 0xff, 0xc1, 0xd9, 0xc4, 0x73, 0xce,
-	0x27, 0x9e, 0xf3, 0x7d, 0xe2, 0x39, 0xef, 0xa7, 0x5e, 0xe3, 0x7c, 0xea, 0x35, 0xbe, 0x4e, 0xbd,
-	0xc6, 0x8b, 0x0e, 0x14, 0x9e, 0xfc, 0x2e, 0xcd, 0x4e, 0x13, 0x9e, 0xf6, 0x5b, 0xea, 0x55, 0xf8,
-	0xf0, 0x57, 0x00, 0x00, 0x00, 0xff, 0xff, 0xae, 0x93, 0x8b, 0x70, 0xff, 0x07, 0x00, 0x00,
+	// 714 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x96, 0x4f, 0x4f, 0xd4, 0x4e,
+	0x18, 0xc7, 0xb7, 0xcb, 0x9f, 0xfc, 0x7e, 0x63, 0x20, 0x3a, 0x12, 0x42, 0x2a, 0x14, 0x2c, 0x64,
+	0x21, 0x06, 0x3b, 0x82, 0xbc, 0x01, 0x88, 0x91, 0x18, 0x35, 0xe2, 0x1e, 0xbd, 0x90, 0xb2, 0x1d,
+	0x9b, 0x9a, 0x6e, 0xa7, 0xdb, 0x16, 0x85, 0x10, 0x2e, 0xbe, 0x02, 0x13, 0x0f, 0x1e, 0xd4, 0x37,
+	0xe0, 0xd5, 0x83, 0x6f, 0x81, 0x23, 0x89, 0x17, 0x4f, 0xc6, 0xec, 0xfa, 0x42, 0xcc, 0xce, 0x3c,
+	0x75, 0x3b, 0x43, 0x67, 0x59, 0x36, 0xeb, 0x69, 0xff, 0x3c, 0x7f, 0xe6, 0xf3, 0x7c, 0x9f, 0xf6,
+	0xdb, 0x22, 0xd3, 0xa3, 0x0d, 0x1a, 0x65, 0x24, 0xa1, 0xad, 0x43, 0x9a, 0x66, 0xa4, 0x75, 0x48,
+	0x93, 0x63, 0x27, 0x4e, 0x58, 0xc6, 0xf0, 0xb4, 0x88, 0x39, 0x10, 0x33, 0x67, 0x7c, 0xe6, 0x33,
+	0x1e, 0x22, 0xdd, 0x6f, 0x22, 0xcb, 0x9c, 0xf7, 0x19, 0xf3, 0x43, 0x4a, 0xdc, 0x38, 0x20, 0x6e,
+	0x14, 0xb1, 0xcc, 0xcd, 0x02, 0x16, 0xa5, 0x10, 0xbd, 0xd3, 0x60, 0x69, 0x93, 0xa5, 0xe4, 0xc0,
+	0x4d, 0xa9, 0x68, 0x4e, 0x5e, 0x6f, 0x1c, 0xd0, 0xcc, 0xdd, 0x20, 0xb1, 0xeb, 0x07, 0x11, 0x4f,
+	0x86, 0xdc, 0x5b, 0x0a, 0x4b, 0xec, 0x26, 0x6e, 0x33, 0x6f, 0xb4, 0xac, 0x04, 0x9b, 0x41, 0x44,
+	0x93, 0xfd, 0x84, 0xa6, 0x31, 0x8b, 0x52, 0xaa, 0x49, 0x82, 0xcf, 0xfd, 0x84, 0x36, 0x58, 0xe2,
+	0x41, 0xd2, 0x8a, 0x92, 0xe4, 0x86, 0x21, 0x7b, 0x43, 0xbd, 0x7d, 0x96, 0xb8, 0x8d, 0x90, 0xc2,
+	0x79, 0xf6, 0x0c, 0xc2, 0xcf, 0xbb, 0xb8, 0x7b, 0x1c, 0xa2, 0x2e, 0x72, 0xed, 0xc7, 0xe8, 0xa6,
+	0xf4, 0xaf, 0x38, 0x1d, 0x6f, 0xa1, 0x49, 0x01, 0x3b, 0x67, 0x2c, 0x19, 0x6b, 0xd7, 0x36, 0x67,
+	0x1d, 0x59, 0x3a, 0x47, 0xe4, 0xef, 0x8c, 0x9f, 0xfd, 0x5c, 0xac, 0xd4, 0x21, 0xd7, 0xde, 0x42,
+	0xf3, 0xbc, 0xd9, 0x2e, 0xcd, 0x9e, 0x76, 0xa7, 0xc9, 0xdb, 0xc1, 0x61, 0x78, 0x06, 0x4d, 0x04,
+	0x91, 0x47, 0x8f, 0x78, 0xd3, 0xff, 0xeb, 0xe2, 0x87, 0xfd, 0x0a, 0x2d, 0x68, 0xaa, 0x00, 0xe6,
+	0x11, 0x9a, 0x6a, 0x16, 0x03, 0xc0, 0xb4, 0xa0, 0x32, 0x49, 0xd5, 0x80, 0x26, 0x57, 0xda, 0x2f,
+	0x81, 0x70, 0x3b, 0x0c, 0x4b, 0x09, 0x1f, 0x22, 0xd4, 0xdb, 0x22, 0x9c, 0x53, 0x73, 0xc4, 0xca,
+	0x9d, 0xee, 0xca, 0x1d, 0x71, 0x3d, 0xc1, 0xca, 0x9d, 0x3d, 0xd7, 0xcf, 0x6b, 0xeb, 0x85, 0x4a,
+	0xfb, 0xab, 0x01, 0x43, 0x5d, 0x3c, 0x48, 0x3f, 0xd4, 0xd8, 0x70, 0x43, 0xe1, 0x5d, 0x09, 0xba,
+	0xca, 0xa1, 0x57, 0x2f, 0x85, 0x06, 0x9e, 0x22, 0x75, 0x61, 0x7f, 0xf9, 0x50, 0xfc, 0x3a, 0x1b,
+	0x78, 0x7f, 0x4a, 0x55, 0x6f, 0xd4, 0xa4, 0x18, 0xd0, 0xed, 0x4f, 0xaa, 0xce, 0x47, 0x95, 0x2a,
+	0x8b, 0xfb, 0x2b, 0x25, 0xfc, 0x17, 0xfb, 0x1b, 0x78, 0xa8, 0xb1, 0xe1, 0x86, 0x1a, 0xdd, 0xfe,
+	0x48, 0x6f, 0x13, 0xdb, 0xc2, 0x03, 0x9e, 0x09, 0x0b, 0xc8, 0xe5, 0x99, 0x46, 0xd5, 0x40, 0xc8,
+	0x3f, 0x5e, 0xaf, 0x06, 0x9e, 0x1d, 0x21, 0x4b, 0x57, 0x00, 0x63, 0x3e, 0x41, 0xd3, 0x72, 0x04,
+	0x44, 0xb5, 0xd4, 0x39, 0xe5, 0x2c, 0x18, 0x54, 0xa9, 0xb5, 0xfd, 0x9e, 0xaa, 0xe5, 0x80, 0xa3,
+	0xda, 0xdf, 0x37, 0x03, 0x26, 0x2b, 0x39, 0xa9, 0xcf, 0x64, 0x63, 0xc3, 0x4e, 0x36, 0xb2, 0x1d,
+	0x6e, 0x7e, 0xf9, 0x0f, 0x4d, 0x70, 0x72, 0xdc, 0x42, 0x93, 0xc2, 0x65, 0xb1, 0xad, 0x22, 0x5d,
+	0x34, 0x72, 0x73, 0xb9, 0x6f, 0x0e, 0xd8, 0x9f, 0xf5, 0xf6, 0xfb, 0xef, 0xf7, 0xd5, 0x39, 0x3c,
+	0x4b, 0x1e, 0x94, 0x3d, 0x99, 0xf0, 0x27, 0x03, 0x4d, 0x49, 0x86, 0x83, 0xd7, 0x4b, 0xdb, 0x6a,
+	0x0c, 0xde, 0xbc, 0x3b, 0x60, 0x36, 0xe0, 0x38, 0x1c, 0x67, 0x0d, 0xd7, 0x54, 0x1c, 0xf9, 0x59,
+	0x48, 0x4e, 0xb8, 0xd1, 0x9c, 0xe2, 0x0f, 0x06, 0xba, 0x2e, 0x75, 0xda, 0x0e, 0x43, 0x0d, 0xa1,
+	0xc6, 0xe0, 0x35, 0x84, 0x3a, 0x97, 0xb6, 0x6b, 0x9c, 0x70, 0x09, 0x5b, 0xfd, 0x09, 0xb9, 0x70,
+	0xd2, 0x9d, 0xae, 0x17, 0xae, 0xcc, 0xb7, 0xf4, 0xc2, 0x95, 0x9a, 0x8f, 0x5e, 0x38, 0xf9, 0xfd,
+	0x40, 0x12, 0x4e, 0xea, 0xd4, 0x57, 0xb8, 0x2b, 0x10, 0xea, 0xec, 0x51, 0x2f, 0x9c, 0x4c, 0x88,
+	0x3f, 0x1b, 0xea, 0x6d, 0x88, 0xb5, 0x5a, 0x94, 0x5a, 0x86, 0xe9, 0x0c, 0x9a, 0x0e, 0x64, 0xeb,
+	0x9c, 0xac, 0x86, 0x57, 0x54, 0x32, 0xe5, 0xb5, 0x89, 0x9c, 0x04, 0xde, 0x29, 0xfe, 0x68, 0xa0,
+	0x1b, 0x72, 0xa3, 0xae, 0x74, 0x5a, 0x31, 0xae, 0x82, 0xa8, 0xb5, 0x26, 0x7b, 0x95, 0x23, 0xde,
+	0xc6, 0x8b, 0x97, 0x20, 0xee, 0xdc, 0x3b, 0x6b, 0x5b, 0xc6, 0x79, 0xdb, 0x32, 0x7e, 0xb5, 0x2d,
+	0xe3, 0x5d, 0xc7, 0xaa, 0x9c, 0x77, 0xac, 0xca, 0x8f, 0x8e, 0x55, 0x79, 0x31, 0x0b, 0x95, 0x47,
+	0x7f, 0x6b, 0xb3, 0xe3, 0x98, 0xa6, 0x07, 0x93, 0xfc, 0x65, 0xf0, 0xfe, 0x9f, 0x00, 0x00, 0x00,
+	0xff, 0xff, 0xdd, 0x54, 0x99, 0x0f, 0x27, 0x0b, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -556,6 +753,9 @@ type QueryClient interface {
 	// Queries a list of RequestRecord items.
 	RequestRecord(ctx context.Context, in *QueryGetRequestRecordRequest, opts ...grpc.CallOption) (*QueryGetRequestRecordResponse, error)
 	RequestRecordAll(ctx context.Context, in *QueryAllRequestRecordRequest, opts ...grpc.CallOption) (*QueryAllRequestRecordResponse, error)
+	// Queries a list of AllowedOracles items.
+	AllowedOracles(ctx context.Context, in *QueryGetAllowedOraclesRequest, opts ...grpc.CallOption) (*QueryGetAllowedOraclesResponse, error)
+	AllowedOraclesAll(ctx context.Context, in *QueryAllAllowedOraclesRequest, opts ...grpc.CallOption) (*QueryAllAllowedOraclesResponse, error)
 }
 
 type queryClient struct {
@@ -611,6 +811,24 @@ func (c *queryClient) RequestRecordAll(ctx context.Context, in *QueryAllRequestR
 	return out, nil
 }
 
+func (c *queryClient) AllowedOracles(ctx context.Context, in *QueryGetAllowedOraclesRequest, opts ...grpc.CallOption) (*QueryGetAllowedOraclesResponse, error) {
+	out := new(QueryGetAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Query/AllowedOracles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) AllowedOraclesAll(ctx context.Context, in *QueryAllAllowedOraclesRequest, opts ...grpc.CallOption) (*QueryAllAllowedOraclesResponse, error) {
+	out := new(QueryAllAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Query/AllowedOraclesAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
@@ -621,6 +839,9 @@ type QueryServer interface {
 	// Queries a list of RequestRecord items.
 	RequestRecord(context.Context, *QueryGetRequestRecordRequest) (*QueryGetRequestRecordResponse, error)
 	RequestRecordAll(context.Context, *QueryAllRequestRecordRequest) (*QueryAllRequestRecordResponse, error)
+	// Queries a list of AllowedOracles items.
+	AllowedOracles(context.Context, *QueryGetAllowedOraclesRequest) (*QueryGetAllowedOraclesResponse, error)
+	AllowedOraclesAll(context.Context, *QueryAllAllowedOraclesRequest) (*QueryAllAllowedOraclesResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -641,6 +862,12 @@ func (*UnimplementedQueryServer) RequestRecord(ctx context.Context, req *QueryGe
 }
 func (*UnimplementedQueryServer) RequestRecordAll(ctx context.Context, req *QueryAllRequestRecordRequest) (*QueryAllRequestRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RequestRecordAll not implemented")
+}
+func (*UnimplementedQueryServer) AllowedOracles(ctx context.Context, req *QueryGetAllowedOraclesRequest) (*QueryGetAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AllowedOracles not implemented")
+}
+func (*UnimplementedQueryServer) AllowedOraclesAll(ctx context.Context, req *QueryAllAllowedOraclesRequest) (*QueryAllAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AllowedOraclesAll not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -737,6 +964,42 @@ func _Query_RequestRecordAll_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_AllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetAllowedOraclesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).AllowedOracles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Query/AllowedOracles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).AllowedOracles(ctx, req.(*QueryGetAllowedOraclesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_AllowedOraclesAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllAllowedOraclesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).AllowedOraclesAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Query/AllowedOraclesAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).AllowedOraclesAll(ctx, req.(*QueryAllAllowedOraclesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "decent.request.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -760,6 +1023,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RequestRecordAll",
 			Handler:    _Query_RequestRecordAll_Handler,
+		},
+		{
+			MethodName: "AllowedOracles",
+			Handler:    _Query_AllowedOracles_Handler,
+		},
+		{
+			MethodName: "AllowedOraclesAll",
+			Handler:    _Query_AllowedOraclesAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1116,6 +1387,151 @@ func (m *QueryAllRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int, 
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetAllowedOraclesRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetAllowedOraclesRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetAllowedOraclesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetAllowedOraclesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetAllowedOraclesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetAllowedOraclesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.AllowedOracles.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllAllowedOraclesRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllAllowedOraclesRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllAllowedOraclesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllAllowedOraclesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllAllowedOraclesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllAllowedOraclesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.AllowedOracles) > 0 {
+		for iNdEx := len(m.AllowedOracles) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.AllowedOracles[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -1248,6 +1664,61 @@ func (m *QueryAllRequestRecordResponse) Size() (n int) {
 	_ = l
 	if len(m.RequestRecord) > 0 {
 		for _, e := range m.RequestRecord {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetAllowedOraclesRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *QueryGetAllowedOraclesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.AllowedOracles.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllAllowedOraclesRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllAllowedOraclesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.AllowedOracles) > 0 {
+		for _, e := range m.AllowedOracles {
 			l = e.Size()
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -2080,6 +2551,364 @@ func (m *QueryAllRequestRecordResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.RequestRecord = append(m.RequestRecord, RequestRecord{})
 			if err := m.RequestRecord[len(m.RequestRecord)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetAllowedOraclesRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetAllowedOraclesRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetAllowedOraclesRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetAllowedOraclesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetAllowedOraclesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetAllowedOraclesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AllowedOracles", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.AllowedOracles.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllAllowedOraclesRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllAllowedOraclesRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllAllowedOraclesRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllAllowedOraclesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllAllowedOraclesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllAllowedOraclesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field AllowedOracles", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.AllowedOracles = append(m.AllowedOracles, AllowedOracles{})
+			if err := m.AllowedOracles[len(m.AllowedOracles)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

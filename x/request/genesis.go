@@ -16,6 +16,13 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	for _, elem := range genState.RequestRecordList {
 		k.SetRequestRecord(ctx, elem)
 	}
+	// Set all the allowedOracles
+	for _, elem := range genState.AllowedOraclesList {
+		k.SetAllowedOracles(ctx, elem)
+	}
+
+	// Set allowedOracles count
+	k.SetAllowedOraclesCount(ctx, genState.AllowedOraclesCount)
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -27,6 +34,8 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 
 	genesis.MinerResponseList = k.GetAllMinerResponse(ctx)
 	genesis.RequestRecordList = k.GetAllRequestRecord(ctx)
+	genesis.AllowedOraclesList = k.GetAllAllowedOracles(ctx)
+	genesis.AllowedOraclesCount = k.GetAllowedOraclesCount(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

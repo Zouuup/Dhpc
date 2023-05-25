@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"Decent/x/request/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -32,7 +33,6 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 		Oracle:  msg.Oracle,
 		Block:   msg.Block,
 		Stage:   msg.Stage,
-		Miners:  msg.Miners,
 	}
 
 	k.SetRequestRecord(
@@ -71,7 +71,6 @@ func (k msgServer) UpdateRequestRecord(goCtx context.Context, msg *types.MsgUpda
 		Oracle:  msg.Oracle,
 		Block:   msg.Block,
 		Stage:   msg.Stage,
-		Miners:  msg.Miners,
 	}
 
 	k.SetRequestRecord(ctx, requestRecord)
