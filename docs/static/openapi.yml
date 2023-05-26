@@ -34644,19 +34644,21 @@ paths:
                       type: integer
                       format: int32
                     miners:
-                      type: object
-                      properties:
-                        uUID:
-                          type: string
-                        requestUUID:
-                          type: string
-                        hash:
-                          type: string
-                        answer:
-                          type: integer
-                          format: int32
-                        creator:
-                          type: string
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          uUID:
+                            type: string
+                          requestUUID:
+                            type: string
+                          hash:
+                            type: string
+                          answer:
+                            type: integer
+                            format: int32
+                          creator:
+                            type: string
                     creator:
                       type: string
               pagination:
@@ -34799,19 +34801,21 @@ paths:
                     type: integer
                     format: int32
                   miners:
-                    type: object
-                    properties:
-                      uUID:
-                        type: string
-                      requestUUID:
-                        type: string
-                      hash:
-                        type: string
-                      answer:
-                        type: integer
-                        format: int32
-                      creator:
-                        type: string
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uUID:
+                          type: string
+                        requestUUID:
+                          type: string
+                        hash:
+                          type: string
+                        answer:
+                          type: integer
+                          format: int32
+                        creator:
+                          type: string
                   creator:
                     type: string
         default:
@@ -72087,19 +72091,21 @@ definitions:
               type: integer
               format: int32
             miners:
-              type: object
-              properties:
-                uUID:
-                  type: string
-                requestUUID:
-                  type: string
-                hash:
-                  type: string
-                answer:
-                  type: integer
-                  format: int32
-                creator:
-                  type: string
+              type: array
+              items:
+                type: object
+                properties:
+                  uUID:
+                    type: string
+                  requestUUID:
+                    type: string
+                  hash:
+                    type: string
+                  answer:
+                    type: integer
+                    format: int32
+                  creator:
+                    type: string
             creator:
               type: string
       pagination:
@@ -72188,19 +72194,21 @@ definitions:
             type: integer
             format: int32
           miners:
-            type: object
-            properties:
-              uUID:
-                type: string
-              requestUUID:
-                type: string
-              hash:
-                type: string
-              answer:
-                type: integer
-                format: int32
-              creator:
-                type: string
+            type: array
+            items:
+              type: object
+              properties:
+                uUID:
+                  type: string
+                requestUUID:
+                  type: string
+                hash:
+                  type: string
+                answer:
+                  type: integer
+                  format: int32
+                creator:
+                  type: string
           creator:
             type: string
   decent.request.QueryParamsResponse:
@@ -72235,19 +72243,21 @@ definitions:
         type: integer
         format: int32
       miners:
-        type: object
-        properties:
-          uUID:
-            type: string
-          requestUUID:
-            type: string
-          hash:
-            type: string
-          answer:
-            type: integer
-            format: int32
-          creator:
-            type: string
+        type: array
+        items:
+          type: object
+          properties:
+            uUID:
+              type: string
+            requestUUID:
+              type: string
+            hash:
+              type: string
+            answer:
+              type: integer
+              format: int32
+            creator:
+              type: string
       creator:
         type: string
   decent.user.LinkedRequesters:

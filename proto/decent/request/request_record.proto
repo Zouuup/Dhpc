@@ -14,7 +14,7 @@ message RequestRecord {
   string oracle = 7; 
   int32 block = 8; 
   int32 stage = 9; 
-  MinerResponse miners = 10; 
+  repeated MinerResponse miners = 10; 
   string creator = 11;
 }
 

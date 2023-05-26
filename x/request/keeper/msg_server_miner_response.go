@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"Decent/x/request/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -27,6 +28,12 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		Hash:        msg.Hash,
 		Answer:      msg.Answer,
 	}
+	requestRecord, isFound := k.GetRequestRecord(ctx, msg.UUID)
+	if !isFound {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
+	}
+
+	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 
 	k.SetMinerResponse(
 		ctx,
