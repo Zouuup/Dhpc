@@ -33,12 +33,16 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
 	}
 
+	if requestRecord.GetStage() != 0 {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in zero stage, cannot add miner response")
+	}
+
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 
-	k.SetMinerResponse(
-		ctx,
-		minerResponse,
-	)
+	// k.SetMinerResponse(
+	// 	ctx,
+	// 	minerResponse,
+	// )
 	return &types.MsgCreateMinerResponseResponse{}, nil
 }
 
@@ -57,6 +61,15 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	// Checks if the the msg creator is the same as the current owner
 	if msg.Creator != valFound.Creator {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+	}
+
+	requestRecord, isFound := k.GetRequestRecord(ctx, msg.UUID)
+	if !isFound {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
+	}
+
+	if requestRecord.GetStage() != 1 {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in zero stage, cannot add miner response")
 	}
 
 	var minerResponse = types.MinerResponse{
