@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"Decent/x/request/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -18,14 +19,30 @@ func (k msgServer) CreateAllowedOracles(goCtx context.Context, msg *types.MsgCre
 		Address: msg.Address,
 	}
 
-	id := k.AppendAllowedOracles(
-		ctx,
-		allowedOracles,
-	)
+	if k.GetAllowedOraclesCount(ctx) == 0 {
+		id := k.AppendAllowedOracles(
+			ctx,
+			allowedOracles,
+		)
+		return &types.MsgCreateAllowedOraclesResponse{
+			Id: id,
+		}, nil
+	}
 
-	return &types.MsgCreateAllowedOraclesResponse{
-		Id: id,
-	}, nil
+	currentOracles := k.GetAllAllowedOracles(ctx)
+	for _, oracle := range currentOracles {
+		if oracle.Address == msg.Creator {
+			id := k.AppendAllowedOracles(
+				ctx,
+				allowedOracles,
+			)
+			return &types.MsgCreateAllowedOraclesResponse{
+				Id: id,
+			}, nil
+		}
+	}
+
+	return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, fmt.Sprintf("Creator %s is not trusted", msg.Creator))
 }
 
 func (k msgServer) UpdateAllowedOracles(goCtx context.Context, msg *types.MsgUpdateAllowedOracles) (*types.MsgUpdateAllowedOraclesResponse, error) {
