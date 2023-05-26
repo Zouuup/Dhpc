@@ -34407,9 +34407,9 @@ paths:
                 items:
                   type: object
                   properties:
-                    index:
-                      type: string
                     uUID:
+                      type: string
+                    requestUUID:
                       type: string
                     hash:
                       type: string
@@ -34523,7 +34523,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/request/miner_response/{index}:
+  /Decent/request/miner_response/{uUID}:
     get:
       summary: Queries a list of MinerResponse items.
       operationId: DecentRequestMinerResponse
@@ -34536,9 +34536,9 @@ paths:
               minerResponse:
                 type: object
                 properties:
-                  index:
-                    type: string
                   uUID:
+                    type: string
+                  requestUUID:
                     type: string
                   hash:
                     type: string
@@ -34566,7 +34566,7 @@ paths:
                       type: string
                   additionalProperties: {}
       parameters:
-        - name: index
+        - name: uUID
           in: path
           required: true
           type: string
@@ -34622,8 +34622,6 @@ paths:
                 items:
                   type: object
                   properties:
-                    index:
-                      type: string
                     uUID:
                       type: string
                     tXhash:
@@ -34646,21 +34644,19 @@ paths:
                       type: integer
                       format: int32
                     miners:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          index:
-                            type: string
-                          uUID:
-                            type: string
-                          hash:
-                            type: string
-                          answer:
-                            type: integer
-                            format: int32
-                          creator:
-                            type: string
+                      type: object
+                      properties:
+                        uUID:
+                          type: string
+                        requestUUID:
+                          type: string
+                        hash:
+                          type: string
+                        answer:
+                          type: integer
+                          format: int32
+                        creator:
+                          type: string
                     creator:
                       type: string
               pagination:
@@ -34768,7 +34764,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/request/request_record/{index}:
+  /Decent/request/request_record/{uUID}:
     get:
       summary: Queries a list of RequestRecord items.
       operationId: DecentRequestRequestRecord
@@ -34781,8 +34777,6 @@ paths:
               requestRecord:
                 type: object
                 properties:
-                  index:
-                    type: string
                   uUID:
                     type: string
                   tXhash:
@@ -34805,21 +34799,19 @@ paths:
                     type: integer
                     format: int32
                   miners:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        index:
-                          type: string
-                        uUID:
-                          type: string
-                        hash:
-                          type: string
-                        answer:
-                          type: integer
-                          format: int32
-                        creator:
-                          type: string
+                    type: object
+                    properties:
+                      uUID:
+                        type: string
+                      requestUUID:
+                        type: string
+                      hash:
+                        type: string
+                      answer:
+                        type: integer
+                        format: int32
+                      creator:
+                        type: string
                   creator:
                     type: string
         default:
@@ -34841,7 +34833,7 @@ paths:
                       type: string
                   additionalProperties: {}
       parameters:
-        - name: index
+        - name: uUID
           in: path
           required: true
           type: string
@@ -71941,9 +71933,9 @@ definitions:
   decent.request.MinerResponse:
     type: object
     properties:
-      index:
-        type: string
       uUID:
+        type: string
+      requestUUID:
         type: string
       hash:
         type: string
@@ -72028,9 +72020,9 @@ definitions:
         items:
           type: object
           properties:
-            index:
-              type: string
             uUID:
+              type: string
+            requestUUID:
               type: string
             hash:
               type: string
@@ -72073,8 +72065,6 @@ definitions:
         items:
           type: object
           properties:
-            index:
-              type: string
             uUID:
               type: string
             tXhash:
@@ -72097,21 +72087,19 @@ definitions:
               type: integer
               format: int32
             miners:
-              type: array
-              items:
-                type: object
-                properties:
-                  index:
-                    type: string
-                  uUID:
-                    type: string
-                  hash:
-                    type: string
-                  answer:
-                    type: integer
-                    format: int32
-                  creator:
-                    type: string
+              type: object
+              properties:
+                uUID:
+                  type: string
+                requestUUID:
+                  type: string
+                hash:
+                  type: string
+                answer:
+                  type: integer
+                  format: int32
+                creator:
+                  type: string
             creator:
               type: string
       pagination:
@@ -72161,9 +72149,9 @@ definitions:
       minerResponse:
         type: object
         properties:
-          index:
-            type: string
           uUID:
+            type: string
+          requestUUID:
             type: string
           hash:
             type: string
@@ -72178,8 +72166,6 @@ definitions:
       requestRecord:
         type: object
         properties:
-          index:
-            type: string
           uUID:
             type: string
           tXhash:
@@ -72202,21 +72188,19 @@ definitions:
             type: integer
             format: int32
           miners:
-            type: array
-            items:
-              type: object
-              properties:
-                index:
-                  type: string
-                uUID:
-                  type: string
-                hash:
-                  type: string
-                answer:
-                  type: integer
-                  format: int32
-                creator:
-                  type: string
+            type: object
+            properties:
+              uUID:
+                type: string
+              requestUUID:
+                type: string
+              hash:
+                type: string
+              answer:
+                type: integer
+                format: int32
+              creator:
+                type: string
           creator:
             type: string
   decent.request.QueryParamsResponse:
@@ -72229,8 +72213,6 @@ definitions:
   decent.request.RequestRecord:
     type: object
     properties:
-      index:
-        type: string
       uUID:
         type: string
       tXhash:
@@ -72253,21 +72235,19 @@ definitions:
         type: integer
         format: int32
       miners:
-        type: array
-        items:
-          type: object
-          properties:
-            index:
-              type: string
-            uUID:
-              type: string
-            hash:
-              type: string
-            answer:
-              type: integer
-              format: int32
-            creator:
-              type: string
+        type: object
+        properties:
+          uUID:
+            type: string
+          requestUUID:
+            type: string
+          hash:
+            type: string
+          answer:
+            type: integer
+            format: int32
+          creator:
+            type: string
       creator:
         type: string
   decent.user.LinkedRequesters:

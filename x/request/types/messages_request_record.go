@@ -15,7 +15,6 @@ var _ sdk.Msg = &MsgCreateRequestRecord{}
 
 func NewMsgCreateRequestRecord(
 	creator string,
-	index string,
 	uUID string,
 	tXhash string,
 	network string,
@@ -30,7 +29,6 @@ func NewMsgCreateRequestRecord(
 ) *MsgCreateRequestRecord {
 	return &MsgCreateRequestRecord{
 		Creator: creator,
-		Index:   index,
 		UUID:    uUID,
 		TXhash:  tXhash,
 		Network: network,
@@ -77,7 +75,6 @@ var _ sdk.Msg = &MsgUpdateRequestRecord{}
 
 func NewMsgUpdateRequestRecord(
 	creator string,
-	index string,
 	uUID string,
 	tXhash string,
 	network string,
@@ -92,7 +89,6 @@ func NewMsgUpdateRequestRecord(
 ) *MsgUpdateRequestRecord {
 	return &MsgUpdateRequestRecord{
 		Creator: creator,
-		Index:   index,
 		UUID:    uUID,
 		TXhash:  tXhash,
 		Network: network,
@@ -139,12 +135,12 @@ var _ sdk.Msg = &MsgDeleteRequestRecord{}
 
 func NewMsgDeleteRequestRecord(
 	creator string,
-	index string,
+	uUID string,
 
 ) *MsgDeleteRequestRecord {
 	return &MsgDeleteRequestRecord{
 		Creator: creator,
-		Index:   index,
+		UUID:    uUID,
 	}
 }
 func (msg *MsgDeleteRequestRecord) Route() string {

@@ -31,21 +31,21 @@ func TestMinerResponseQuerySingle(t *testing.T) {
 		{
 			desc: "First",
 			request: &types.QueryGetMinerResponseRequest{
-				Index: msgs[0].Index,
+				UUID: msgs[0].UUID,
 			},
 			response: &types.QueryGetMinerResponseResponse{MinerResponse: msgs[0]},
 		},
 		{
 			desc: "Second",
 			request: &types.QueryGetMinerResponseRequest{
-				Index: msgs[1].Index,
+				UUID: msgs[1].UUID,
 			},
 			response: &types.QueryGetMinerResponseResponse{MinerResponse: msgs[1]},
 		},
 		{
 			desc: "KeyNotFound",
 			request: &types.QueryGetMinerResponseRequest{
-				Index: strconv.Itoa(100000),
+				UUID: strconv.Itoa(100000),
 			},
 			err: status.Error(codes.NotFound, "not found"),
 		},

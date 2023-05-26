@@ -28,10 +28,10 @@ func SimulateMsgCreateMinerResponse(
 		i := r.Int()
 		msg := &types.MsgCreateMinerResponse{
 			Creator: simAccount.Address.String(),
-			Index:   strconv.Itoa(i),
+			UUID:    strconv.Itoa(i),
 		}
 
-		_, found := k.GetMinerResponse(ctx, msg.Index)
+		_, found := k.GetMinerResponse(ctx, msg.UUID)
 		if found {
 			return simtypes.NoOpMsg(types.ModuleName, msg.Type(), "MinerResponse already exist"), nil, nil
 		}
@@ -80,7 +80,7 @@ func SimulateMsgUpdateMinerResponse(
 		}
 		msg.Creator = simAccount.Address.String()
 
-		msg.Index = minerResponse.Index
+		msg.UUID = minerResponse.UUID
 
 		txCtx := simulation.OperationInput{
 			R:               r,
@@ -126,7 +126,7 @@ func SimulateMsgDeleteMinerResponse(
 		}
 		msg.Creator = simAccount.Address.String()
 
-		msg.Index = minerResponse.Index
+		msg.UUID = minerResponse.UUID
 
 		txCtx := simulation.OperationInput{
 			R:               r,

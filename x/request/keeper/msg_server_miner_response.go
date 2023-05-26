@@ -14,18 +14,18 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	// Check if the value already exists
 	_, isFound := k.GetMinerResponse(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 	if isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
 	}
 
 	var minerResponse = types.MinerResponse{
-		Creator: msg.Creator,
-		Index:   msg.Index,
-		UUID:    msg.UUID,
-		Hash:    msg.Hash,
-		Answer:  msg.Answer,
+		Creator:     msg.Creator,
+		UUID:        msg.UUID,
+		RequestUUID: msg.RequestUUID,
+		Hash:        msg.Hash,
+		Answer:      msg.Answer,
 	}
 
 	k.SetMinerResponse(
@@ -41,7 +41,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	// Check if the value exists
 	valFound, isFound := k.GetMinerResponse(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
@@ -53,11 +53,11 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	}
 
 	var minerResponse = types.MinerResponse{
-		Creator: msg.Creator,
-		Index:   msg.Index,
-		UUID:    msg.UUID,
-		Hash:    msg.Hash,
-		Answer:  msg.Answer,
+		Creator:     msg.Creator,
+		UUID:        msg.UUID,
+		RequestUUID: msg.RequestUUID,
+		Hash:        msg.Hash,
+		Answer:      msg.Answer,
 	}
 
 	k.SetMinerResponse(ctx, minerResponse)
@@ -71,7 +71,7 @@ func (k msgServer) DeleteMinerResponse(goCtx context.Context, msg *types.MsgDele
 	// Check if the value exists
 	valFound, isFound := k.GetMinerResponse(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
@@ -84,7 +84,7 @@ func (k msgServer) DeleteMinerResponse(goCtx context.Context, msg *types.MsgDele
 
 	k.RemoveMinerResponse(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 
 	return &types.MsgDeleteMinerResponseResponse{}, nil

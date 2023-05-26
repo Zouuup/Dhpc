@@ -27,19 +27,315 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-type MsgCreateMinerResponse struct {
+type MsgCreateAllowedOracles struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Index   string `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
-	UUID    string `protobuf:"bytes,3,opt,name=uUID,proto3" json:"uUID,omitempty"`
-	Hash    string `protobuf:"bytes,4,opt,name=hash,proto3" json:"hash,omitempty"`
-	Answer  int32  `protobuf:"varint,5,opt,name=answer,proto3" json:"answer,omitempty"`
+	Name    string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Address string `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *MsgCreateAllowedOracles) Reset()         { *m = MsgCreateAllowedOracles{} }
+func (m *MsgCreateAllowedOracles) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateAllowedOracles) ProtoMessage()    {}
+func (*MsgCreateAllowedOracles) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{0}
+}
+func (m *MsgCreateAllowedOracles) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateAllowedOracles.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateAllowedOracles) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateAllowedOracles.Merge(m, src)
+}
+func (m *MsgCreateAllowedOracles) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateAllowedOracles) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateAllowedOracles.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateAllowedOracles proto.InternalMessageInfo
+
+func (m *MsgCreateAllowedOracles) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgCreateAllowedOracles) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *MsgCreateAllowedOracles) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type MsgCreateAllowedOraclesResponse struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgCreateAllowedOraclesResponse) Reset()         { *m = MsgCreateAllowedOraclesResponse{} }
+func (m *MsgCreateAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateAllowedOraclesResponse) ProtoMessage()    {}
+func (*MsgCreateAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{1}
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCreateAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateAllowedOraclesResponse.Merge(m, src)
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCreateAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCreateAllowedOraclesResponse proto.InternalMessageInfo
+
+func (m *MsgCreateAllowedOraclesResponse) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgUpdateAllowedOracles struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Name    string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *MsgUpdateAllowedOracles) Reset()         { *m = MsgUpdateAllowedOracles{} }
+func (m *MsgUpdateAllowedOracles) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateAllowedOracles) ProtoMessage()    {}
+func (*MsgUpdateAllowedOracles) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{2}
+}
+func (m *MsgUpdateAllowedOracles) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateAllowedOracles.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateAllowedOracles) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateAllowedOracles.Merge(m, src)
+}
+func (m *MsgUpdateAllowedOracles) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateAllowedOracles) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateAllowedOracles.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateAllowedOracles proto.InternalMessageInfo
+
+func (m *MsgUpdateAllowedOracles) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgUpdateAllowedOracles) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *MsgUpdateAllowedOracles) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *MsgUpdateAllowedOracles) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type MsgUpdateAllowedOraclesResponse struct {
+}
+
+func (m *MsgUpdateAllowedOraclesResponse) Reset()         { *m = MsgUpdateAllowedOraclesResponse{} }
+func (m *MsgUpdateAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateAllowedOraclesResponse) ProtoMessage()    {}
+func (*MsgUpdateAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{3}
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUpdateAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateAllowedOraclesResponse.Merge(m, src)
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUpdateAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUpdateAllowedOraclesResponse proto.InternalMessageInfo
+
+type MsgDeleteAllowedOracles struct {
+	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *MsgDeleteAllowedOracles) Reset()         { *m = MsgDeleteAllowedOracles{} }
+func (m *MsgDeleteAllowedOracles) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteAllowedOracles) ProtoMessage()    {}
+func (*MsgDeleteAllowedOracles) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{4}
+}
+func (m *MsgDeleteAllowedOracles) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteAllowedOracles.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteAllowedOracles) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteAllowedOracles.Merge(m, src)
+}
+func (m *MsgDeleteAllowedOracles) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteAllowedOracles) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteAllowedOracles.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteAllowedOracles proto.InternalMessageInfo
+
+func (m *MsgDeleteAllowedOracles) GetCreator() string {
+	if m != nil {
+		return m.Creator
+	}
+	return ""
+}
+
+func (m *MsgDeleteAllowedOracles) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type MsgDeleteAllowedOraclesResponse struct {
+}
+
+func (m *MsgDeleteAllowedOraclesResponse) Reset()         { *m = MsgDeleteAllowedOraclesResponse{} }
+func (m *MsgDeleteAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteAllowedOraclesResponse) ProtoMessage()    {}
+func (*MsgDeleteAllowedOraclesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6cba42862c92a3da, []int{5}
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDeleteAllowedOraclesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteAllowedOraclesResponse.Merge(m, src)
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDeleteAllowedOraclesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteAllowedOraclesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDeleteAllowedOraclesResponse proto.InternalMessageInfo
+
+type MsgCreateMinerResponse struct {
+	Creator     string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	UUID        string `protobuf:"bytes,2,opt,name=uUID,proto3" json:"uUID,omitempty"`
+	RequestUUID string `protobuf:"bytes,3,opt,name=requestUUID,proto3" json:"requestUUID,omitempty"`
+	Hash        string `protobuf:"bytes,4,opt,name=hash,proto3" json:"hash,omitempty"`
+	Answer      int32  `protobuf:"varint,5,opt,name=answer,proto3" json:"answer,omitempty"`
 }
 
 func (m *MsgCreateMinerResponse) Reset()         { *m = MsgCreateMinerResponse{} }
 func (m *MsgCreateMinerResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgCreateMinerResponse) ProtoMessage()    {}
 func (*MsgCreateMinerResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{0}
+	return fileDescriptor_6cba42862c92a3da, []int{6}
 }
 func (m *MsgCreateMinerResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -75,16 +371,16 @@ func (m *MsgCreateMinerResponse) GetCreator() string {
 	return ""
 }
 
-func (m *MsgCreateMinerResponse) GetIndex() string {
+func (m *MsgCreateMinerResponse) GetUUID() string {
 	if m != nil {
-		return m.Index
+		return m.UUID
 	}
 	return ""
 }
 
-func (m *MsgCreateMinerResponse) GetUUID() string {
+func (m *MsgCreateMinerResponse) GetRequestUUID() string {
 	if m != nil {
-		return m.UUID
+		return m.RequestUUID
 	}
 	return ""
 }
@@ -110,7 +406,7 @@ func (m *MsgCreateMinerResponseResponse) Reset()         { *m = MsgCreateMinerRe
 func (m *MsgCreateMinerResponseResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgCreateMinerResponseResponse) ProtoMessage()    {}
 func (*MsgCreateMinerResponseResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{1}
+	return fileDescriptor_6cba42862c92a3da, []int{7}
 }
 func (m *MsgCreateMinerResponseResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -140,18 +436,18 @@ func (m *MsgCreateMinerResponseResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgCreateMinerResponseResponse proto.InternalMessageInfo
 
 type MsgUpdateMinerResponse struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Index   string `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
-	UUID    string `protobuf:"bytes,3,opt,name=uUID,proto3" json:"uUID,omitempty"`
-	Hash    string `protobuf:"bytes,4,opt,name=hash,proto3" json:"hash,omitempty"`
-	Answer  int32  `protobuf:"varint,5,opt,name=answer,proto3" json:"answer,omitempty"`
+	Creator     string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	UUID        string `protobuf:"bytes,2,opt,name=uUID,proto3" json:"uUID,omitempty"`
+	RequestUUID string `protobuf:"bytes,3,opt,name=requestUUID,proto3" json:"requestUUID,omitempty"`
+	Hash        string `protobuf:"bytes,4,opt,name=hash,proto3" json:"hash,omitempty"`
+	Answer      int32  `protobuf:"varint,5,opt,name=answer,proto3" json:"answer,omitempty"`
 }
 
 func (m *MsgUpdateMinerResponse) Reset()         { *m = MsgUpdateMinerResponse{} }
 func (m *MsgUpdateMinerResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgUpdateMinerResponse) ProtoMessage()    {}
 func (*MsgUpdateMinerResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{2}
+	return fileDescriptor_6cba42862c92a3da, []int{8}
 }
 func (m *MsgUpdateMinerResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -187,16 +483,16 @@ func (m *MsgUpdateMinerResponse) GetCreator() string {
 	return ""
 }
 
-func (m *MsgUpdateMinerResponse) GetIndex() string {
+func (m *MsgUpdateMinerResponse) GetUUID() string {
 	if m != nil {
-		return m.Index
+		return m.UUID
 	}
 	return ""
 }
 
-func (m *MsgUpdateMinerResponse) GetUUID() string {
+func (m *MsgUpdateMinerResponse) GetRequestUUID() string {
 	if m != nil {
-		return m.UUID
+		return m.RequestUUID
 	}
 	return ""
 }
@@ -222,7 +518,7 @@ func (m *MsgUpdateMinerResponseResponse) Reset()         { *m = MsgUpdateMinerRe
 func (m *MsgUpdateMinerResponseResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgUpdateMinerResponseResponse) ProtoMessage()    {}
 func (*MsgUpdateMinerResponseResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{3}
+	return fileDescriptor_6cba42862c92a3da, []int{9}
 }
 func (m *MsgUpdateMinerResponseResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -253,14 +549,14 @@ var xxx_messageInfo_MsgUpdateMinerResponseResponse proto.InternalMessageInfo
 
 type MsgDeleteMinerResponse struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Index   string `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
+	UUID    string `protobuf:"bytes,2,opt,name=uUID,proto3" json:"uUID,omitempty"`
 }
 
 func (m *MsgDeleteMinerResponse) Reset()         { *m = MsgDeleteMinerResponse{} }
 func (m *MsgDeleteMinerResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgDeleteMinerResponse) ProtoMessage()    {}
 func (*MsgDeleteMinerResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{4}
+	return fileDescriptor_6cba42862c92a3da, []int{10}
 }
 func (m *MsgDeleteMinerResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -296,9 +592,9 @@ func (m *MsgDeleteMinerResponse) GetCreator() string {
 	return ""
 }
 
-func (m *MsgDeleteMinerResponse) GetIndex() string {
+func (m *MsgDeleteMinerResponse) GetUUID() string {
 	if m != nil {
-		return m.Index
+		return m.UUID
 	}
 	return ""
 }
@@ -310,7 +606,7 @@ func (m *MsgDeleteMinerResponseResponse) Reset()         { *m = MsgDeleteMinerRe
 func (m *MsgDeleteMinerResponseResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgDeleteMinerResponseResponse) ProtoMessage()    {}
 func (*MsgDeleteMinerResponseResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{5}
+	return fileDescriptor_6cba42862c92a3da, []int{11}
 }
 func (m *MsgDeleteMinerResponseResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -341,24 +637,23 @@ var xxx_messageInfo_MsgDeleteMinerResponseResponse proto.InternalMessageInfo
 
 type MsgCreateRequestRecord struct {
 	Creator string         `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Index   string         `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
-	UUID    string         `protobuf:"bytes,3,opt,name=uUID,proto3" json:"uUID,omitempty"`
-	TXhash  string         `protobuf:"bytes,4,opt,name=tXhash,proto3" json:"tXhash,omitempty"`
-	Network string         `protobuf:"bytes,5,opt,name=network,proto3" json:"network,omitempty"`
-	From    string         `protobuf:"bytes,6,opt,name=from,proto3" json:"from,omitempty"`
-	Address string         `protobuf:"bytes,7,opt,name=address,proto3" json:"address,omitempty"`
-	Score   int32          `protobuf:"varint,8,opt,name=score,proto3" json:"score,omitempty"`
-	Oracle  string         `protobuf:"bytes,9,opt,name=oracle,proto3" json:"oracle,omitempty"`
-	Block   int32          `protobuf:"varint,10,opt,name=block,proto3" json:"block,omitempty"`
-	Stage   int32          `protobuf:"varint,11,opt,name=stage,proto3" json:"stage,omitempty"`
-	Miners  *MinerResponse `protobuf:"bytes,12,opt,name=miners,proto3" json:"miners,omitempty"`
+	UUID    string         `protobuf:"bytes,2,opt,name=uUID,proto3" json:"uUID,omitempty"`
+	TXhash  string         `protobuf:"bytes,3,opt,name=tXhash,proto3" json:"tXhash,omitempty"`
+	Network string         `protobuf:"bytes,4,opt,name=network,proto3" json:"network,omitempty"`
+	From    string         `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
+	Address string         `protobuf:"bytes,6,opt,name=address,proto3" json:"address,omitempty"`
+	Score   int32          `protobuf:"varint,7,opt,name=score,proto3" json:"score,omitempty"`
+	Oracle  string         `protobuf:"bytes,8,opt,name=oracle,proto3" json:"oracle,omitempty"`
+	Block   int32          `protobuf:"varint,9,opt,name=block,proto3" json:"block,omitempty"`
+	Stage   int32          `protobuf:"varint,10,opt,name=stage,proto3" json:"stage,omitempty"`
+	Miners  *MinerResponse `protobuf:"bytes,11,opt,name=miners,proto3" json:"miners,omitempty"`
 }
 
 func (m *MsgCreateRequestRecord) Reset()         { *m = MsgCreateRequestRecord{} }
 func (m *MsgCreateRequestRecord) String() string { return proto.CompactTextString(m) }
 func (*MsgCreateRequestRecord) ProtoMessage()    {}
 func (*MsgCreateRequestRecord) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{6}
+	return fileDescriptor_6cba42862c92a3da, []int{12}
 }
 func (m *MsgCreateRequestRecord) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -390,13 +685,6 @@ var xxx_messageInfo_MsgCreateRequestRecord proto.InternalMessageInfo
 func (m *MsgCreateRequestRecord) GetCreator() string {
 	if m != nil {
 		return m.Creator
-	}
-	return ""
-}
-
-func (m *MsgCreateRequestRecord) GetIndex() string {
-	if m != nil {
-		return m.Index
 	}
 	return ""
 }
@@ -478,7 +766,7 @@ func (m *MsgCreateRequestRecordResponse) Reset()         { *m = MsgCreateRequest
 func (m *MsgCreateRequestRecordResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgCreateRequestRecordResponse) ProtoMessage()    {}
 func (*MsgCreateRequestRecordResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{7}
+	return fileDescriptor_6cba42862c92a3da, []int{13}
 }
 func (m *MsgCreateRequestRecordResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -509,24 +797,23 @@ var xxx_messageInfo_MsgCreateRequestRecordResponse proto.InternalMessageInfo
 
 type MsgUpdateRequestRecord struct {
 	Creator string         `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Index   string         `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
-	UUID    string         `protobuf:"bytes,3,opt,name=uUID,proto3" json:"uUID,omitempty"`
-	TXhash  string         `protobuf:"bytes,4,opt,name=tXhash,proto3" json:"tXhash,omitempty"`
-	Network string         `protobuf:"bytes,5,opt,name=network,proto3" json:"network,omitempty"`
-	From    string         `protobuf:"bytes,6,opt,name=from,proto3" json:"from,omitempty"`
-	Address string         `protobuf:"bytes,7,opt,name=address,proto3" json:"address,omitempty"`
-	Score   int32          `protobuf:"varint,8,opt,name=score,proto3" json:"score,omitempty"`
-	Oracle  string         `protobuf:"bytes,9,opt,name=oracle,proto3" json:"oracle,omitempty"`
-	Block   int32          `protobuf:"varint,10,opt,name=block,proto3" json:"block,omitempty"`
-	Stage   int32          `protobuf:"varint,11,opt,name=stage,proto3" json:"stage,omitempty"`
-	Miners  *MinerResponse `protobuf:"bytes,12,opt,name=miners,proto3" json:"miners,omitempty"`
+	UUID    string         `protobuf:"bytes,2,opt,name=uUID,proto3" json:"uUID,omitempty"`
+	TXhash  string         `protobuf:"bytes,3,opt,name=tXhash,proto3" json:"tXhash,omitempty"`
+	Network string         `protobuf:"bytes,4,opt,name=network,proto3" json:"network,omitempty"`
+	From    string         `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
+	Address string         `protobuf:"bytes,6,opt,name=address,proto3" json:"address,omitempty"`
+	Score   int32          `protobuf:"varint,7,opt,name=score,proto3" json:"score,omitempty"`
+	Oracle  string         `protobuf:"bytes,8,opt,name=oracle,proto3" json:"oracle,omitempty"`
+	Block   int32          `protobuf:"varint,9,opt,name=block,proto3" json:"block,omitempty"`
+	Stage   int32          `protobuf:"varint,10,opt,name=stage,proto3" json:"stage,omitempty"`
+	Miners  *MinerResponse `protobuf:"bytes,11,opt,name=miners,proto3" json:"miners,omitempty"`
 }
 
 func (m *MsgUpdateRequestRecord) Reset()         { *m = MsgUpdateRequestRecord{} }
 func (m *MsgUpdateRequestRecord) String() string { return proto.CompactTextString(m) }
 func (*MsgUpdateRequestRecord) ProtoMessage()    {}
 func (*MsgUpdateRequestRecord) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{8}
+	return fileDescriptor_6cba42862c92a3da, []int{14}
 }
 func (m *MsgUpdateRequestRecord) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -558,13 +845,6 @@ var xxx_messageInfo_MsgUpdateRequestRecord proto.InternalMessageInfo
 func (m *MsgUpdateRequestRecord) GetCreator() string {
 	if m != nil {
 		return m.Creator
-	}
-	return ""
-}
-
-func (m *MsgUpdateRequestRecord) GetIndex() string {
-	if m != nil {
-		return m.Index
 	}
 	return ""
 }
@@ -646,7 +926,7 @@ func (m *MsgUpdateRequestRecordResponse) Reset()         { *m = MsgUpdateRequest
 func (m *MsgUpdateRequestRecordResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgUpdateRequestRecordResponse) ProtoMessage()    {}
 func (*MsgUpdateRequestRecordResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{9}
+	return fileDescriptor_6cba42862c92a3da, []int{15}
 }
 func (m *MsgUpdateRequestRecordResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -677,14 +957,14 @@ var xxx_messageInfo_MsgUpdateRequestRecordResponse proto.InternalMessageInfo
 
 type MsgDeleteRequestRecord struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Index   string `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
+	UUID    string `protobuf:"bytes,2,opt,name=uUID,proto3" json:"uUID,omitempty"`
 }
 
 func (m *MsgDeleteRequestRecord) Reset()         { *m = MsgDeleteRequestRecord{} }
 func (m *MsgDeleteRequestRecord) String() string { return proto.CompactTextString(m) }
 func (*MsgDeleteRequestRecord) ProtoMessage()    {}
 func (*MsgDeleteRequestRecord) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{10}
+	return fileDescriptor_6cba42862c92a3da, []int{16}
 }
 func (m *MsgDeleteRequestRecord) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -720,9 +1000,9 @@ func (m *MsgDeleteRequestRecord) GetCreator() string {
 	return ""
 }
 
-func (m *MsgDeleteRequestRecord) GetIndex() string {
+func (m *MsgDeleteRequestRecord) GetUUID() string {
 	if m != nil {
-		return m.Index
+		return m.UUID
 	}
 	return ""
 }
@@ -734,7 +1014,7 @@ func (m *MsgDeleteRequestRecordResponse) Reset()         { *m = MsgDeleteRequest
 func (m *MsgDeleteRequestRecordResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgDeleteRequestRecordResponse) ProtoMessage()    {}
 func (*MsgDeleteRequestRecordResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{11}
+	return fileDescriptor_6cba42862c92a3da, []int{17}
 }
 func (m *MsgDeleteRequestRecordResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -763,303 +1043,13 @@ func (m *MsgDeleteRequestRecordResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeleteRequestRecordResponse proto.InternalMessageInfo
 
-type MsgCreateAllowedOracles struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Name    string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Address string `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
-}
-
-func (m *MsgCreateAllowedOracles) Reset()         { *m = MsgCreateAllowedOracles{} }
-func (m *MsgCreateAllowedOracles) String() string { return proto.CompactTextString(m) }
-func (*MsgCreateAllowedOracles) ProtoMessage()    {}
-func (*MsgCreateAllowedOracles) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{12}
-}
-func (m *MsgCreateAllowedOracles) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgCreateAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgCreateAllowedOracles.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgCreateAllowedOracles) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgCreateAllowedOracles.Merge(m, src)
-}
-func (m *MsgCreateAllowedOracles) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgCreateAllowedOracles) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgCreateAllowedOracles.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgCreateAllowedOracles proto.InternalMessageInfo
-
-func (m *MsgCreateAllowedOracles) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
-
-func (m *MsgCreateAllowedOracles) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
-
-func (m *MsgCreateAllowedOracles) GetAddress() string {
-	if m != nil {
-		return m.Address
-	}
-	return ""
-}
-
-type MsgCreateAllowedOraclesResponse struct {
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-}
-
-func (m *MsgCreateAllowedOraclesResponse) Reset()         { *m = MsgCreateAllowedOraclesResponse{} }
-func (m *MsgCreateAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgCreateAllowedOraclesResponse) ProtoMessage()    {}
-func (*MsgCreateAllowedOraclesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{13}
-}
-func (m *MsgCreateAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgCreateAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgCreateAllowedOraclesResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgCreateAllowedOraclesResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgCreateAllowedOraclesResponse.Merge(m, src)
-}
-func (m *MsgCreateAllowedOraclesResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgCreateAllowedOraclesResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgCreateAllowedOraclesResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgCreateAllowedOraclesResponse proto.InternalMessageInfo
-
-func (m *MsgCreateAllowedOraclesResponse) GetId() uint64 {
-	if m != nil {
-		return m.Id
-	}
-	return 0
-}
-
-type MsgUpdateAllowedOracles struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
-	Name    string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
-}
-
-func (m *MsgUpdateAllowedOracles) Reset()         { *m = MsgUpdateAllowedOracles{} }
-func (m *MsgUpdateAllowedOracles) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateAllowedOracles) ProtoMessage()    {}
-func (*MsgUpdateAllowedOracles) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{14}
-}
-func (m *MsgUpdateAllowedOracles) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgUpdateAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgUpdateAllowedOracles.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgUpdateAllowedOracles) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateAllowedOracles.Merge(m, src)
-}
-func (m *MsgUpdateAllowedOracles) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgUpdateAllowedOracles) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateAllowedOracles.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgUpdateAllowedOracles proto.InternalMessageInfo
-
-func (m *MsgUpdateAllowedOracles) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
-
-func (m *MsgUpdateAllowedOracles) GetId() uint64 {
-	if m != nil {
-		return m.Id
-	}
-	return 0
-}
-
-func (m *MsgUpdateAllowedOracles) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
-
-func (m *MsgUpdateAllowedOracles) GetAddress() string {
-	if m != nil {
-		return m.Address
-	}
-	return ""
-}
-
-type MsgUpdateAllowedOraclesResponse struct {
-}
-
-func (m *MsgUpdateAllowedOraclesResponse) Reset()         { *m = MsgUpdateAllowedOraclesResponse{} }
-func (m *MsgUpdateAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateAllowedOraclesResponse) ProtoMessage()    {}
-func (*MsgUpdateAllowedOraclesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{15}
-}
-func (m *MsgUpdateAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgUpdateAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgUpdateAllowedOraclesResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgUpdateAllowedOraclesResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateAllowedOraclesResponse.Merge(m, src)
-}
-func (m *MsgUpdateAllowedOraclesResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgUpdateAllowedOraclesResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateAllowedOraclesResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgUpdateAllowedOraclesResponse proto.InternalMessageInfo
-
-type MsgDeleteAllowedOracles struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
-}
-
-func (m *MsgDeleteAllowedOracles) Reset()         { *m = MsgDeleteAllowedOracles{} }
-func (m *MsgDeleteAllowedOracles) String() string { return proto.CompactTextString(m) }
-func (*MsgDeleteAllowedOracles) ProtoMessage()    {}
-func (*MsgDeleteAllowedOracles) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{16}
-}
-func (m *MsgDeleteAllowedOracles) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgDeleteAllowedOracles) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgDeleteAllowedOracles.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgDeleteAllowedOracles) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgDeleteAllowedOracles.Merge(m, src)
-}
-func (m *MsgDeleteAllowedOracles) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgDeleteAllowedOracles) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgDeleteAllowedOracles.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgDeleteAllowedOracles proto.InternalMessageInfo
-
-func (m *MsgDeleteAllowedOracles) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
-
-func (m *MsgDeleteAllowedOracles) GetId() uint64 {
-	if m != nil {
-		return m.Id
-	}
-	return 0
-}
-
-type MsgDeleteAllowedOraclesResponse struct {
-}
-
-func (m *MsgDeleteAllowedOraclesResponse) Reset()         { *m = MsgDeleteAllowedOraclesResponse{} }
-func (m *MsgDeleteAllowedOraclesResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgDeleteAllowedOraclesResponse) ProtoMessage()    {}
-func (*MsgDeleteAllowedOraclesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6cba42862c92a3da, []int{17}
-}
-func (m *MsgDeleteAllowedOraclesResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgDeleteAllowedOraclesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgDeleteAllowedOraclesResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgDeleteAllowedOraclesResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgDeleteAllowedOraclesResponse.Merge(m, src)
-}
-func (m *MsgDeleteAllowedOraclesResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgDeleteAllowedOraclesResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgDeleteAllowedOraclesResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgDeleteAllowedOraclesResponse proto.InternalMessageInfo
-
 func init() {
+	proto.RegisterType((*MsgCreateAllowedOracles)(nil), "decent.request.MsgCreateAllowedOracles")
+	proto.RegisterType((*MsgCreateAllowedOraclesResponse)(nil), "decent.request.MsgCreateAllowedOraclesResponse")
+	proto.RegisterType((*MsgUpdateAllowedOracles)(nil), "decent.request.MsgUpdateAllowedOracles")
+	proto.RegisterType((*MsgUpdateAllowedOraclesResponse)(nil), "decent.request.MsgUpdateAllowedOraclesResponse")
+	proto.RegisterType((*MsgDeleteAllowedOracles)(nil), "decent.request.MsgDeleteAllowedOracles")
+	proto.RegisterType((*MsgDeleteAllowedOraclesResponse)(nil), "decent.request.MsgDeleteAllowedOraclesResponse")
 	proto.RegisterType((*MsgCreateMinerResponse)(nil), "decent.request.MsgCreateMinerResponse")
 	proto.RegisterType((*MsgCreateMinerResponseResponse)(nil), "decent.request.MsgCreateMinerResponseResponse")
 	proto.RegisterType((*MsgUpdateMinerResponse)(nil), "decent.request.MsgUpdateMinerResponse")
@@ -1072,60 +1062,53 @@ func init() {
 	proto.RegisterType((*MsgUpdateRequestRecordResponse)(nil), "decent.request.MsgUpdateRequestRecordResponse")
 	proto.RegisterType((*MsgDeleteRequestRecord)(nil), "decent.request.MsgDeleteRequestRecord")
 	proto.RegisterType((*MsgDeleteRequestRecordResponse)(nil), "decent.request.MsgDeleteRequestRecordResponse")
-	proto.RegisterType((*MsgCreateAllowedOracles)(nil), "decent.request.MsgCreateAllowedOracles")
-	proto.RegisterType((*MsgCreateAllowedOraclesResponse)(nil), "decent.request.MsgCreateAllowedOraclesResponse")
-	proto.RegisterType((*MsgUpdateAllowedOracles)(nil), "decent.request.MsgUpdateAllowedOracles")
-	proto.RegisterType((*MsgUpdateAllowedOraclesResponse)(nil), "decent.request.MsgUpdateAllowedOraclesResponse")
-	proto.RegisterType((*MsgDeleteAllowedOracles)(nil), "decent.request.MsgDeleteAllowedOracles")
-	proto.RegisterType((*MsgDeleteAllowedOraclesResponse)(nil), "decent.request.MsgDeleteAllowedOraclesResponse")
 }
 
 func init() { proto.RegisterFile("decent/request/tx.proto", fileDescriptor_6cba42862c92a3da) }
 
 var fileDescriptor_6cba42862c92a3da = []byte{
-	// 660 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x56, 0x4f, 0x6f, 0x12, 0x41,
-	0x14, 0xef, 0x02, 0x05, 0x99, 0x9a, 0x1e, 0xb6, 0x0d, 0x9d, 0x90, 0xb8, 0x22, 0x1a, 0xe1, 0x04,
-	0x5a, 0xe3, 0x07, 0xd0, 0x72, 0xd0, 0x03, 0x31, 0xd9, 0xa4, 0x89, 0xf1, 0x42, 0xb6, 0xbb, 0x4f,
-	0x4a, 0x0a, 0x3b, 0x74, 0x66, 0x1b, 0xf0, 0x1b, 0x78, 0xf4, 0x63, 0x79, 0x31, 0xe9, 0xd1, 0xa3,
-	0x81, 0xcf, 0xe0, 0xdd, 0xcc, 0x9f, 0x5d, 0x58, 0xfa, 0x76, 0x4b, 0x6c, 0x0f, 0x1e, 0x3c, 0x31,
-	0x6f, 0xf6, 0xc7, 0xfb, 0xfd, 0xf2, 0x9b, 0x79, 0xef, 0x0d, 0x39, 0x0a, 0xc0, 0x87, 0x30, 0xea,
-	0x72, 0xb8, 0xbc, 0x02, 0x11, 0x75, 0xa3, 0x79, 0x67, 0xca, 0x59, 0xc4, 0xec, 0x7d, 0xfd, 0xa1,
-	0x63, 0x3e, 0xd4, 0x9f, 0x6e, 0x00, 0x27, 0xa3, 0x10, 0xf8, 0x80, 0x83, 0x98, 0xb2, 0x50, 0x80,
-	0xfe, 0xd3, 0x0d, 0x90, 0xf9, 0x1d, 0x70, 0xf0, 0x19, 0x0f, 0x0c, 0xe8, 0xd9, 0x06, 0xc8, 0x1b,
-	0x8f, 0xd9, 0x0c, 0x82, 0x01, 0xe3, 0x9e, 0x3f, 0x06, 0xa1, 0x51, 0xcd, 0xaf, 0x16, 0xa9, 0xf5,
-	0xc5, 0xf0, 0x84, 0x83, 0x17, 0x41, 0x5f, 0x92, 0xb9, 0x86, 0xcb, 0xa6, 0xa4, 0xe2, 0xcb, 0x6d,
-	0xc6, 0xa9, 0xd5, 0xb0, 0xda, 0x55, 0x37, 0x0e, 0xed, 0x43, 0xb2, 0x3b, 0x0a, 0x03, 0x98, 0xd3,
-	0x82, 0xda, 0xd7, 0x81, 0x6d, 0x93, 0xd2, 0xd5, 0xe9, 0xfb, 0x1e, 0x2d, 0xaa, 0x4d, 0xb5, 0x96,
-	0x7b, 0xe7, 0x9e, 0x38, 0xa7, 0x25, 0xbd, 0x27, 0xd7, 0x76, 0x8d, 0x94, 0xbd, 0x50, 0xcc, 0x80,
-	0xd3, 0xdd, 0x86, 0xd5, 0xde, 0x75, 0x4d, 0xd4, 0x6c, 0x10, 0x07, 0x57, 0x12, 0xff, 0xc6, 0x62,
-	0x4f, 0xa7, 0xc1, 0x3f, 0x22, 0x16, 0x51, 0x92, 0x88, 0x7d, 0xa7, 0xb4, 0xf6, 0x60, 0x0c, 0x77,
-	0xd4, 0x6a, 0xb8, 0x90, 0x4c, 0x09, 0xd7, 0x8f, 0xc2, 0xda, 0x29, 0xba, 0xfa, 0xc0, 0x5d, 0x75,
-	0x19, 0xee, 0xc5, 0x98, 0x1a, 0x29, 0x47, 0x1f, 0xd7, 0xac, 0x31, 0x91, 0xcc, 0x1d, 0x42, 0x34,
-	0x63, 0xfc, 0x42, 0xb9, 0x53, 0x75, 0xe3, 0x50, 0x66, 0xf9, 0xcc, 0xd9, 0x84, 0x96, 0x75, 0x16,
-	0xb9, 0x96, 0x68, 0x2f, 0x08, 0x38, 0x08, 0x41, 0x2b, 0x1a, 0x6d, 0x42, 0xa9, 0x44, 0xf8, 0x8c,
-	0x03, 0x7d, 0xa0, 0x3c, 0xd6, 0x81, 0x64, 0xd5, 0x77, 0x95, 0x56, 0x35, 0xab, 0x8e, 0x24, 0xfa,
-	0x6c, 0xcc, 0xfc, 0x0b, 0x4a, 0x34, 0x5a, 0x05, 0x2a, 0x47, 0xe4, 0x0d, 0x81, 0xee, 0x99, 0x1c,
-	0x32, 0xb0, 0x5f, 0x93, 0xb2, 0xaa, 0x20, 0x41, 0x1f, 0x36, 0xac, 0xf6, 0xde, 0xf1, 0xa3, 0x4e,
-	0xba, 0xde, 0x3a, 0x69, 0x3f, 0x0d, 0x38, 0x75, 0x15, 0x53, 0x76, 0x6e, 0x3a, 0xae, 0x2f, 0xc0,
-	0x7f, 0xc7, 0xef, 0xc9, 0x71, 0xc4, 0x4e, 0xb4, 0x9e, 0xee, 0x64, 0x78, 0xaa, 0x9e, 0x70, 0x2e,
-	0x8f, 0x1c, 0x25, 0xe7, 0xff, 0x46, 0xf7, 0xcd, 0x0f, 0xba, 0x6d, 0xe6, 0x90, 0xd9, 0xa4, 0x14,
-	0x7a, 0x13, 0x30, 0x5c, 0x6a, 0xbd, 0x7e, 0x02, 0xc5, 0xd4, 0x09, 0x34, 0x5f, 0x92, 0xc7, 0x19,
-	0x14, 0x49, 0x9f, 0xd8, 0x27, 0x85, 0x51, 0xa0, 0x58, 0x4a, 0x6e, 0x61, 0x14, 0x34, 0x2f, 0x95,
-	0x2a, 0xed, 0xd1, 0xd6, 0xaa, 0x74, 0x92, 0x42, 0x9c, 0x24, 0x51, 0x59, 0xc4, 0x55, 0x96, 0xd2,
-	0x2a, 0x9f, 0x28, 0x95, 0x18, 0x65, 0xe2, 0xd5, 0x89, 0x52, 0xa5, 0xdd, 0xfc, 0x5b, 0x55, 0x86,
-	0x07, 0x4b, 0x12, 0xf3, 0x1c, 0xff, 0xae, 0x90, 0x62, 0x5f, 0x0c, 0xed, 0x09, 0x39, 0xc0, 0xa6,
-	0xd5, 0xf3, 0x1b, 0xf7, 0x0c, 0x9d, 0x25, 0xf5, 0xce, 0x76, 0xb8, 0x24, 0xef, 0x84, 0x1c, 0x60,
-	0xf3, 0x06, 0xa3, 0x43, 0x70, 0x28, 0x5d, 0xce, 0xd4, 0x90, 0x74, 0xd8, 0xc8, 0xc0, 0xe8, 0x10,
-	0x1c, 0x4a, 0x97, 0x33, 0x38, 0x56, 0x66, 0xa6, 0x2b, 0x2a, 0xdb, 0xcc, 0x14, 0x2e, 0xc7, 0x4c,
-	0xb4, 0xae, 0x56, 0x66, 0xde, 0x4e, 0x87, 0xe0, 0x72, 0xcc, 0xcc, 0xa4, 0xc3, 0xfa, 0x45, 0xb6,
-	0x99, 0xb7, 0xd3, 0xe5, 0x74, 0x0d, 0x7b, 0x4a, 0x0e, 0xd1, 0x96, 0xd1, 0xca, 0x74, 0x29, 0x0d,
-	0xac, 0x77, 0xb7, 0x04, 0xae, 0x33, 0xa2, 0xed, 0xa0, 0x95, 0x69, 0xd4, 0x16, 0x8c, 0x79, 0xd5,
-	0x2e, 0x19, 0xd1, 0x52, 0x6f, 0x65, 0x7a, 0xb5, 0x05, 0x63, 0x5e, 0xdd, 0xbf, 0x7d, 0xf1, 0x7d,
-	0xe1, 0x58, 0xd7, 0x0b, 0xc7, 0xfa, 0xb5, 0x70, 0xac, 0x6f, 0x4b, 0x67, 0xe7, 0x7a, 0xe9, 0xec,
-	0xfc, 0x5c, 0x3a, 0x3b, 0x9f, 0x6a, 0x3d, 0xfd, 0xc2, 0x9d, 0xaf, 0x9e, 0xd5, 0x5f, 0xa6, 0x20,
-	0xce, 0xca, 0xea, 0x69, 0xfb, 0xea, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x1e, 0x06, 0xe5, 0xaf,
-	0x75, 0x0b, 0x00, 0x00,
+	// 656 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x56, 0xcd, 0x8e, 0xd2, 0x50,
+	0x14, 0xa6, 0xfc, 0xca, 0x25, 0x99, 0x45, 0x25, 0x4c, 0x43, 0x62, 0x45, 0x34, 0xc8, 0x0a, 0x74,
+	0x8c, 0x0f, 0xa0, 0x43, 0x4c, 0x5c, 0x10, 0x93, 0x26, 0x24, 0xc6, 0x0d, 0xe9, 0xb4, 0x47, 0x86,
+	0x0c, 0xf4, 0x76, 0xee, 0xed, 0x84, 0xf1, 0x2d, 0x5c, 0xf8, 0x2e, 0xbe, 0x82, 0xcb, 0x59, 0xba,
+	0x34, 0xf0, 0x0c, 0xee, 0xcd, 0xfd, 0xa1, 0x50, 0x3c, 0x2d, 0x83, 0xb3, 0x71, 0x31, 0x2b, 0xee,
+	0x69, 0x3f, 0xce, 0xf7, 0xf5, 0x3b, 0x3d, 0xe7, 0x94, 0x1c, 0xfb, 0xe0, 0x41, 0x10, 0xf5, 0x19,
+	0x5c, 0x5e, 0x01, 0x8f, 0xfa, 0xd1, 0x75, 0x2f, 0x64, 0x34, 0xa2, 0xe6, 0x91, 0xba, 0xd1, 0xd3,
+	0x37, 0x9a, 0xcf, 0x76, 0x80, 0xee, 0x6c, 0x46, 0x17, 0xe0, 0x8f, 0x29, 0x73, 0xbd, 0x19, 0x70,
+	0xf5, 0xaf, 0xe6, 0xd3, 0x1d, 0xd4, 0x7c, 0x1a, 0x00, 0x1b, 0x33, 0xe0, 0x21, 0x0d, 0x38, 0xa4,
+	0x80, 0xf4, 0xef, 0x98, 0x81, 0x47, 0x99, 0xaf, 0x40, 0x6d, 0x97, 0x1c, 0x0f, 0xf9, 0xe4, 0x94,
+	0x81, 0x1b, 0xc1, 0x1b, 0xc5, 0xf5, 0x41, 0x51, 0x99, 0x16, 0xa9, 0x78, 0xe2, 0x3a, 0x65, 0x96,
+	0xd1, 0x32, 0xba, 0x55, 0x67, 0x1d, 0x9a, 0x26, 0x29, 0x06, 0xee, 0x1c, 0xac, 0xbc, 0xbc, 0x2c,
+	0xcf, 0x02, 0xed, 0xfa, 0x3e, 0x03, 0xce, 0xad, 0x82, 0x42, 0xeb, 0xb0, 0xfd, 0x92, 0x3c, 0x4e,
+	0xa1, 0x70, 0xb4, 0x60, 0xf3, 0x88, 0xe4, 0xa7, 0xbe, 0x64, 0x29, 0x3a, 0xf9, 0xa9, 0xdf, 0xbe,
+	0x94, 0xaa, 0x46, 0xa1, 0x7f, 0x88, 0x2a, 0x95, 0x24, 0xbf, 0x4e, 0x12, 0xab, 0x2c, 0xe0, 0x2a,
+	0x8b, 0x49, 0x95, 0x4f, 0xa4, 0x4a, 0x8c, 0x72, 0xad, 0xb2, 0x7d, 0x2a, 0x55, 0x0d, 0x60, 0x06,
+	0xff, 0xae, 0x4a, 0xf3, 0x60, 0x49, 0x62, 0x9e, 0x6f, 0x06, 0x69, 0xc4, 0x8e, 0x0d, 0x45, 0x69,
+	0x63, 0xa3, 0x32, 0x6b, 0x72, 0x35, 0x7a, 0x3f, 0x58, 0xd7, 0x44, 0x9c, 0xcd, 0x16, 0xa9, 0xe9,
+	0xa2, 0x8f, 0xc4, 0x2d, 0x65, 0xc4, 0xf6, 0x25, 0xf1, 0xaf, 0x73, 0x97, 0x9f, 0x6b, 0x33, 0xe4,
+	0xd9, 0x6c, 0x90, 0xb2, 0x1b, 0xf0, 0x05, 0x30, 0xab, 0xd4, 0x32, 0xba, 0x25, 0x47, 0x47, 0xed,
+	0x16, 0xb1, 0x71, 0x55, 0xbb, 0xc2, 0x95, 0x89, 0xff, 0x9b, 0x70, 0x44, 0x55, 0x2c, 0xfc, 0x9d,
+	0xd4, 0xad, 0x8a, 0x72, 0x07, 0xdd, 0x9a, 0x09, 0xc9, 0x13, 0x33, 0x7d, 0xcf, 0x6f, 0xd5, 0xd6,
+	0x51, 0x0f, 0xe4, 0xc8, 0x86, 0x3c, 0xd0, 0xa2, 0x06, 0x29, 0x47, 0x1f, 0xa5, 0x05, 0xca, 0x1d,
+	0x1d, 0x89, 0x2c, 0x01, 0x44, 0x0b, 0xca, 0x2e, 0xd6, 0x6f, 0xb8, 0x0e, 0x45, 0x96, 0xcf, 0x8c,
+	0xce, 0xa5, 0x39, 0x55, 0x47, 0x9e, 0xb7, 0xfb, 0xa1, 0x9c, 0xe8, 0x07, 0xb3, 0x4e, 0x4a, 0xdc,
+	0xa3, 0x0c, 0xac, 0x8a, 0xf4, 0x52, 0x05, 0x82, 0x55, 0x4d, 0x22, 0xeb, 0x81, 0x62, 0x55, 0x91,
+	0x40, 0x9f, 0xcd, 0xa8, 0x77, 0x61, 0x55, 0x15, 0x5a, 0x06, 0x32, 0x47, 0xe4, 0x4e, 0xc0, 0x22,
+	0x3a, 0x87, 0x08, 0xcc, 0xd7, 0xa4, 0x2c, 0xe7, 0x15, 0xb7, 0x6a, 0x2d, 0xa3, 0x5b, 0x3b, 0x79,
+	0xd4, 0x4b, 0xce, 0xc0, 0x5e, 0xd2, 0x39, 0x0d, 0x4e, 0xbc, 0x7e, 0x09, 0xe3, 0x76, 0xbd, 0x55,
+	0x85, 0xbe, 0xf7, 0xf6, 0x60, 0x6f, 0x11, 0xe3, 0xd0, 0x0e, 0xb9, 0x83, 0xb5, 0x89, 0x0e, 0x41,
+	0x99, 0x4e, 0x7e, 0x57, 0x48, 0x61, 0xc8, 0x27, 0x66, 0x48, 0xea, 0xe8, 0x5a, 0x7a, 0xfe, 0xd7,
+	0x23, 0xe1, 0xcb, 0xa5, 0xd9, 0xbf, 0x25, 0x30, 0xee, 0xf5, 0x90, 0xd4, 0xd1, 0x95, 0x83, 0x31,
+	0x62, 0x40, 0x94, 0x31, 0x6b, 0xa3, 0x08, 0x46, 0x74, 0x9d, 0x60, 0x8c, 0x18, 0x10, 0x65, 0xcc,
+	0xda, 0x2d, 0xe6, 0x9c, 0x3c, 0xc4, 0xf6, 0x4a, 0x27, 0xd5, 0xab, 0x04, 0xae, 0xd9, 0xbb, 0x1d,
+	0x6e, 0x9b, 0x0e, 0xdb, 0x06, 0x9d, 0x54, 0xa3, 0xf6, 0xd3, 0x65, 0xcc, 0x71, 0x41, 0x87, 0x0d,
+	0xf1, 0x4e, 0xaa, 0x4b, 0xfb, 0xe9, 0x32, 0x86, 0xf9, 0xc6, 0xcc, 0x64, 0x47, 0xa4, 0x9b, 0x99,
+	0xc0, 0x65, 0x98, 0x89, 0x76, 0xc6, 0xc6, 0xcc, 0xfd, 0x74, 0x08, 0x2e, 0xc3, 0xcc, 0x54, 0x3a,
+	0xac, 0xdf, 0xd3, 0xcd, 0xdc, 0x4f, 0x97, 0xd1, 0xf7, 0x6f, 0x5f, 0xfc, 0x58, 0xda, 0xc6, 0xcd,
+	0xd2, 0x36, 0x7e, 0x2d, 0x6d, 0xe3, 0xeb, 0xca, 0xce, 0xdd, 0xac, 0xec, 0xdc, 0xcf, 0x95, 0x9d,
+	0xfb, 0xd4, 0x18, 0xa8, 0x0f, 0xd9, 0xeb, 0xcd, 0xe7, 0xf3, 0x97, 0x10, 0xf8, 0x59, 0x59, 0x7e,
+	0xc2, 0xbe, 0xfa, 0x13, 0x00, 0x00, 0xff, 0xff, 0xf4, 0x9b, 0x38, 0xb9, 0x5d, 0x0b, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1140,15 +1123,15 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MsgClient interface {
+	CreateAllowedOracles(ctx context.Context, in *MsgCreateAllowedOracles, opts ...grpc.CallOption) (*MsgCreateAllowedOraclesResponse, error)
+	UpdateAllowedOracles(ctx context.Context, in *MsgUpdateAllowedOracles, opts ...grpc.CallOption) (*MsgUpdateAllowedOraclesResponse, error)
+	DeleteAllowedOracles(ctx context.Context, in *MsgDeleteAllowedOracles, opts ...grpc.CallOption) (*MsgDeleteAllowedOraclesResponse, error)
 	CreateMinerResponse(ctx context.Context, in *MsgCreateMinerResponse, opts ...grpc.CallOption) (*MsgCreateMinerResponseResponse, error)
 	UpdateMinerResponse(ctx context.Context, in *MsgUpdateMinerResponse, opts ...grpc.CallOption) (*MsgUpdateMinerResponseResponse, error)
 	DeleteMinerResponse(ctx context.Context, in *MsgDeleteMinerResponse, opts ...grpc.CallOption) (*MsgDeleteMinerResponseResponse, error)
 	CreateRequestRecord(ctx context.Context, in *MsgCreateRequestRecord, opts ...grpc.CallOption) (*MsgCreateRequestRecordResponse, error)
 	UpdateRequestRecord(ctx context.Context, in *MsgUpdateRequestRecord, opts ...grpc.CallOption) (*MsgUpdateRequestRecordResponse, error)
 	DeleteRequestRecord(ctx context.Context, in *MsgDeleteRequestRecord, opts ...grpc.CallOption) (*MsgDeleteRequestRecordResponse, error)
-	CreateAllowedOracles(ctx context.Context, in *MsgCreateAllowedOracles, opts ...grpc.CallOption) (*MsgCreateAllowedOraclesResponse, error)
-	UpdateAllowedOracles(ctx context.Context, in *MsgUpdateAllowedOracles, opts ...grpc.CallOption) (*MsgUpdateAllowedOraclesResponse, error)
-	DeleteAllowedOracles(ctx context.Context, in *MsgDeleteAllowedOracles, opts ...grpc.CallOption) (*MsgDeleteAllowedOraclesResponse, error)
 }
 
 type msgClient struct {
@@ -1157,6 +1140,33 @@ type msgClient struct {
 
 func NewMsgClient(cc grpc1.ClientConn) MsgClient {
 	return &msgClient{cc}
+}
+
+func (c *msgClient) CreateAllowedOracles(ctx context.Context, in *MsgCreateAllowedOracles, opts ...grpc.CallOption) (*MsgCreateAllowedOraclesResponse, error) {
+	out := new(MsgCreateAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/CreateAllowedOracles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateAllowedOracles(ctx context.Context, in *MsgUpdateAllowedOracles, opts ...grpc.CallOption) (*MsgUpdateAllowedOraclesResponse, error) {
+	out := new(MsgUpdateAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/UpdateAllowedOracles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteAllowedOracles(ctx context.Context, in *MsgDeleteAllowedOracles, opts ...grpc.CallOption) (*MsgDeleteAllowedOraclesResponse, error) {
+	out := new(MsgDeleteAllowedOraclesResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/DeleteAllowedOracles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *msgClient) CreateMinerResponse(ctx context.Context, in *MsgCreateMinerResponse, opts ...grpc.CallOption) (*MsgCreateMinerResponseResponse, error) {
@@ -1213,50 +1223,32 @@ func (c *msgClient) DeleteRequestRecord(ctx context.Context, in *MsgDeleteReques
 	return out, nil
 }
 
-func (c *msgClient) CreateAllowedOracles(ctx context.Context, in *MsgCreateAllowedOracles, opts ...grpc.CallOption) (*MsgCreateAllowedOraclesResponse, error) {
-	out := new(MsgCreateAllowedOraclesResponse)
-	err := c.cc.Invoke(ctx, "/decent.request.Msg/CreateAllowedOracles", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *msgClient) UpdateAllowedOracles(ctx context.Context, in *MsgUpdateAllowedOracles, opts ...grpc.CallOption) (*MsgUpdateAllowedOraclesResponse, error) {
-	out := new(MsgUpdateAllowedOraclesResponse)
-	err := c.cc.Invoke(ctx, "/decent.request.Msg/UpdateAllowedOracles", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *msgClient) DeleteAllowedOracles(ctx context.Context, in *MsgDeleteAllowedOracles, opts ...grpc.CallOption) (*MsgDeleteAllowedOraclesResponse, error) {
-	out := new(MsgDeleteAllowedOraclesResponse)
-	err := c.cc.Invoke(ctx, "/decent.request.Msg/DeleteAllowedOracles", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
+	CreateAllowedOracles(context.Context, *MsgCreateAllowedOracles) (*MsgCreateAllowedOraclesResponse, error)
+	UpdateAllowedOracles(context.Context, *MsgUpdateAllowedOracles) (*MsgUpdateAllowedOraclesResponse, error)
+	DeleteAllowedOracles(context.Context, *MsgDeleteAllowedOracles) (*MsgDeleteAllowedOraclesResponse, error)
 	CreateMinerResponse(context.Context, *MsgCreateMinerResponse) (*MsgCreateMinerResponseResponse, error)
 	UpdateMinerResponse(context.Context, *MsgUpdateMinerResponse) (*MsgUpdateMinerResponseResponse, error)
 	DeleteMinerResponse(context.Context, *MsgDeleteMinerResponse) (*MsgDeleteMinerResponseResponse, error)
 	CreateRequestRecord(context.Context, *MsgCreateRequestRecord) (*MsgCreateRequestRecordResponse, error)
 	UpdateRequestRecord(context.Context, *MsgUpdateRequestRecord) (*MsgUpdateRequestRecordResponse, error)
 	DeleteRequestRecord(context.Context, *MsgDeleteRequestRecord) (*MsgDeleteRequestRecordResponse, error)
-	CreateAllowedOracles(context.Context, *MsgCreateAllowedOracles) (*MsgCreateAllowedOraclesResponse, error)
-	UpdateAllowedOracles(context.Context, *MsgUpdateAllowedOracles) (*MsgUpdateAllowedOraclesResponse, error)
-	DeleteAllowedOracles(context.Context, *MsgDeleteAllowedOracles) (*MsgDeleteAllowedOraclesResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
 type UnimplementedMsgServer struct {
 }
 
+func (*UnimplementedMsgServer) CreateAllowedOracles(ctx context.Context, req *MsgCreateAllowedOracles) (*MsgCreateAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateAllowedOracles not implemented")
+}
+func (*UnimplementedMsgServer) UpdateAllowedOracles(ctx context.Context, req *MsgUpdateAllowedOracles) (*MsgUpdateAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAllowedOracles not implemented")
+}
+func (*UnimplementedMsgServer) DeleteAllowedOracles(ctx context.Context, req *MsgDeleteAllowedOracles) (*MsgDeleteAllowedOraclesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAllowedOracles not implemented")
+}
 func (*UnimplementedMsgServer) CreateMinerResponse(ctx context.Context, req *MsgCreateMinerResponse) (*MsgCreateMinerResponseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateMinerResponse not implemented")
 }
@@ -1275,18 +1267,63 @@ func (*UnimplementedMsgServer) UpdateRequestRecord(ctx context.Context, req *Msg
 func (*UnimplementedMsgServer) DeleteRequestRecord(ctx context.Context, req *MsgDeleteRequestRecord) (*MsgDeleteRequestRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRequestRecord not implemented")
 }
-func (*UnimplementedMsgServer) CreateAllowedOracles(ctx context.Context, req *MsgCreateAllowedOracles) (*MsgCreateAllowedOraclesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateAllowedOracles not implemented")
-}
-func (*UnimplementedMsgServer) UpdateAllowedOracles(ctx context.Context, req *MsgUpdateAllowedOracles) (*MsgUpdateAllowedOraclesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateAllowedOracles not implemented")
-}
-func (*UnimplementedMsgServer) DeleteAllowedOracles(ctx context.Context, req *MsgDeleteAllowedOracles) (*MsgDeleteAllowedOraclesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteAllowedOracles not implemented")
-}
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
 	s.RegisterService(&_Msg_serviceDesc, srv)
+}
+
+func _Msg_CreateAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateAllowedOracles)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateAllowedOracles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Msg/CreateAllowedOracles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateAllowedOracles(ctx, req.(*MsgCreateAllowedOracles))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateAllowedOracles)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateAllowedOracles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Msg/UpdateAllowedOracles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateAllowedOracles(ctx, req.(*MsgUpdateAllowedOracles))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteAllowedOracles)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteAllowedOracles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/decent.request.Msg/DeleteAllowedOracles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteAllowedOracles(ctx, req.(*MsgDeleteAllowedOracles))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Msg_CreateMinerResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1397,64 +1434,22 @@ func _Msg_DeleteRequestRecord_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_CreateAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgCreateAllowedOracles)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).CreateAllowedOracles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/decent.request.Msg/CreateAllowedOracles",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).CreateAllowedOracles(ctx, req.(*MsgCreateAllowedOracles))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Msg_UpdateAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateAllowedOracles)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).UpdateAllowedOracles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/decent.request.Msg/UpdateAllowedOracles",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateAllowedOracles(ctx, req.(*MsgUpdateAllowedOracles))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Msg_DeleteAllowedOracles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgDeleteAllowedOracles)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).DeleteAllowedOracles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/decent.request.Msg/DeleteAllowedOracles",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).DeleteAllowedOracles(ctx, req.(*MsgDeleteAllowedOracles))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "decent.request.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateAllowedOracles",
+			Handler:    _Msg_CreateAllowedOracles_Handler,
+		},
+		{
+			MethodName: "UpdateAllowedOracles",
+			Handler:    _Msg_UpdateAllowedOracles_Handler,
+		},
+		{
+			MethodName: "DeleteAllowedOracles",
+			Handler:    _Msg_DeleteAllowedOracles_Handler,
+		},
 		{
 			MethodName: "CreateMinerResponse",
 			Handler:    _Msg_CreateMinerResponse_Handler,
@@ -1479,557 +1474,9 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 			MethodName: "DeleteRequestRecord",
 			Handler:    _Msg_DeleteRequestRecord_Handler,
 		},
-		{
-			MethodName: "CreateAllowedOracles",
-			Handler:    _Msg_CreateAllowedOracles_Handler,
-		},
-		{
-			MethodName: "UpdateAllowedOracles",
-			Handler:    _Msg_UpdateAllowedOracles_Handler,
-		},
-		{
-			MethodName: "DeleteAllowedOracles",
-			Handler:    _Msg_DeleteAllowedOracles_Handler,
-		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "decent/request/tx.proto",
-}
-
-func (m *MsgCreateMinerResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgCreateMinerResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgCreateMinerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Answer != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Answer))
-		i--
-		dAtA[i] = 0x28
-	}
-	if len(m.Hash) > 0 {
-		i -= len(m.Hash)
-		copy(dAtA[i:], m.Hash)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Hash)))
-		i--
-		dAtA[i] = 0x22
-	}
-	if len(m.UUID) > 0 {
-		i -= len(m.UUID)
-		copy(dAtA[i:], m.UUID)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
-		i--
-		dAtA[i] = 0x1a
-	}
-	if len(m.Index) > 0 {
-		i -= len(m.Index)
-		copy(dAtA[i:], m.Index)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Index)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgCreateMinerResponseResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgCreateMinerResponseResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgCreateMinerResponseResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUpdateMinerResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUpdateMinerResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUpdateMinerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Answer != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Answer))
-		i--
-		dAtA[i] = 0x28
-	}
-	if len(m.Hash) > 0 {
-		i -= len(m.Hash)
-		copy(dAtA[i:], m.Hash)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Hash)))
-		i--
-		dAtA[i] = 0x22
-	}
-	if len(m.UUID) > 0 {
-		i -= len(m.UUID)
-		copy(dAtA[i:], m.UUID)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
-		i--
-		dAtA[i] = 0x1a
-	}
-	if len(m.Index) > 0 {
-		i -= len(m.Index)
-		copy(dAtA[i:], m.Index)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Index)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUpdateMinerResponseResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUpdateMinerResponseResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUpdateMinerResponseResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgDeleteMinerResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgDeleteMinerResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgDeleteMinerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Index) > 0 {
-		i -= len(m.Index)
-		copy(dAtA[i:], m.Index)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Index)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgDeleteMinerResponseResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgDeleteMinerResponseResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgDeleteMinerResponseResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgCreateRequestRecord) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgCreateRequestRecord) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgCreateRequestRecord) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Miners != nil {
-		{
-			size, err := m.Miners.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintTx(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0x62
-	}
-	if m.Stage != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Stage))
-		i--
-		dAtA[i] = 0x58
-	}
-	if m.Block != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Block))
-		i--
-		dAtA[i] = 0x50
-	}
-	if len(m.Oracle) > 0 {
-		i -= len(m.Oracle)
-		copy(dAtA[i:], m.Oracle)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Oracle)))
-		i--
-		dAtA[i] = 0x4a
-	}
-	if m.Score != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Score))
-		i--
-		dAtA[i] = 0x40
-	}
-	if len(m.Address) > 0 {
-		i -= len(m.Address)
-		copy(dAtA[i:], m.Address)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
-		i--
-		dAtA[i] = 0x3a
-	}
-	if len(m.From) > 0 {
-		i -= len(m.From)
-		copy(dAtA[i:], m.From)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.From)))
-		i--
-		dAtA[i] = 0x32
-	}
-	if len(m.Network) > 0 {
-		i -= len(m.Network)
-		copy(dAtA[i:], m.Network)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Network)))
-		i--
-		dAtA[i] = 0x2a
-	}
-	if len(m.TXhash) > 0 {
-		i -= len(m.TXhash)
-		copy(dAtA[i:], m.TXhash)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.TXhash)))
-		i--
-		dAtA[i] = 0x22
-	}
-	if len(m.UUID) > 0 {
-		i -= len(m.UUID)
-		copy(dAtA[i:], m.UUID)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
-		i--
-		dAtA[i] = 0x1a
-	}
-	if len(m.Index) > 0 {
-		i -= len(m.Index)
-		copy(dAtA[i:], m.Index)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Index)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgCreateRequestRecordResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgCreateRequestRecordResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgCreateRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUpdateRequestRecord) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUpdateRequestRecord) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUpdateRequestRecord) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Miners != nil {
-		{
-			size, err := m.Miners.MarshalToSizedBuffer(dAtA[:i])
-			if err != nil {
-				return 0, err
-			}
-			i -= size
-			i = encodeVarintTx(dAtA, i, uint64(size))
-		}
-		i--
-		dAtA[i] = 0x62
-	}
-	if m.Stage != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Stage))
-		i--
-		dAtA[i] = 0x58
-	}
-	if m.Block != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Block))
-		i--
-		dAtA[i] = 0x50
-	}
-	if len(m.Oracle) > 0 {
-		i -= len(m.Oracle)
-		copy(dAtA[i:], m.Oracle)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Oracle)))
-		i--
-		dAtA[i] = 0x4a
-	}
-	if m.Score != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Score))
-		i--
-		dAtA[i] = 0x40
-	}
-	if len(m.Address) > 0 {
-		i -= len(m.Address)
-		copy(dAtA[i:], m.Address)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
-		i--
-		dAtA[i] = 0x3a
-	}
-	if len(m.From) > 0 {
-		i -= len(m.From)
-		copy(dAtA[i:], m.From)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.From)))
-		i--
-		dAtA[i] = 0x32
-	}
-	if len(m.Network) > 0 {
-		i -= len(m.Network)
-		copy(dAtA[i:], m.Network)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Network)))
-		i--
-		dAtA[i] = 0x2a
-	}
-	if len(m.TXhash) > 0 {
-		i -= len(m.TXhash)
-		copy(dAtA[i:], m.TXhash)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.TXhash)))
-		i--
-		dAtA[i] = 0x22
-	}
-	if len(m.UUID) > 0 {
-		i -= len(m.UUID)
-		copy(dAtA[i:], m.UUID)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
-		i--
-		dAtA[i] = 0x1a
-	}
-	if len(m.Index) > 0 {
-		i -= len(m.Index)
-		copy(dAtA[i:], m.Index)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Index)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUpdateRequestRecordResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUpdateRequestRecordResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUpdateRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgDeleteRequestRecord) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgDeleteRequestRecord) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgDeleteRequestRecord) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Index) > 0 {
-		i -= len(m.Index)
-		copy(dAtA[i:], m.Index)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Index)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgDeleteRequestRecordResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgDeleteRequestRecordResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgDeleteRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
 }
 
 func (m *MsgCreateAllowedOracles) Marshal() (dAtA []byte, err error) {
@@ -2234,6 +1681,528 @@ func (m *MsgDeleteAllowedOraclesResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgCreateMinerResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateMinerResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateMinerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Answer != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Answer))
+		i--
+		dAtA[i] = 0x28
+	}
+	if len(m.Hash) > 0 {
+		i -= len(m.Hash)
+		copy(dAtA[i:], m.Hash)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Hash)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.RequestUUID) > 0 {
+		i -= len(m.RequestUUID)
+		copy(dAtA[i:], m.RequestUUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RequestUUID)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.UUID) > 0 {
+		i -= len(m.UUID)
+		copy(dAtA[i:], m.UUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateMinerResponseResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateMinerResponseResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateMinerResponseResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateMinerResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateMinerResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateMinerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Answer != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Answer))
+		i--
+		dAtA[i] = 0x28
+	}
+	if len(m.Hash) > 0 {
+		i -= len(m.Hash)
+		copy(dAtA[i:], m.Hash)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Hash)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.RequestUUID) > 0 {
+		i -= len(m.RequestUUID)
+		copy(dAtA[i:], m.RequestUUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.RequestUUID)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.UUID) > 0 {
+		i -= len(m.UUID)
+		copy(dAtA[i:], m.UUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateMinerResponseResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateMinerResponseResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateMinerResponseResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteMinerResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteMinerResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteMinerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.UUID) > 0 {
+		i -= len(m.UUID)
+		copy(dAtA[i:], m.UUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteMinerResponseResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteMinerResponseResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteMinerResponseResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateRequestRecord) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateRequestRecord) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateRequestRecord) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Miners != nil {
+		{
+			size, err := m.Miners.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x5a
+	}
+	if m.Stage != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Stage))
+		i--
+		dAtA[i] = 0x50
+	}
+	if m.Block != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Block))
+		i--
+		dAtA[i] = 0x48
+	}
+	if len(m.Oracle) > 0 {
+		i -= len(m.Oracle)
+		copy(dAtA[i:], m.Oracle)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Oracle)))
+		i--
+		dAtA[i] = 0x42
+	}
+	if m.Score != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Score))
+		i--
+		dAtA[i] = 0x38
+	}
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x32
+	}
+	if len(m.From) > 0 {
+		i -= len(m.From)
+		copy(dAtA[i:], m.From)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.From)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if len(m.Network) > 0 {
+		i -= len(m.Network)
+		copy(dAtA[i:], m.Network)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Network)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.TXhash) > 0 {
+		i -= len(m.TXhash)
+		copy(dAtA[i:], m.TXhash)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.TXhash)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.UUID) > 0 {
+		i -= len(m.UUID)
+		copy(dAtA[i:], m.UUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateRequestRecordResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateRequestRecordResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateRequestRecord) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateRequestRecord) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateRequestRecord) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Miners != nil {
+		{
+			size, err := m.Miners.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x5a
+	}
+	if m.Stage != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Stage))
+		i--
+		dAtA[i] = 0x50
+	}
+	if m.Block != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Block))
+		i--
+		dAtA[i] = 0x48
+	}
+	if len(m.Oracle) > 0 {
+		i -= len(m.Oracle)
+		copy(dAtA[i:], m.Oracle)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Oracle)))
+		i--
+		dAtA[i] = 0x42
+	}
+	if m.Score != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Score))
+		i--
+		dAtA[i] = 0x38
+	}
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x32
+	}
+	if len(m.From) > 0 {
+		i -= len(m.From)
+		copy(dAtA[i:], m.From)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.From)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	if len(m.Network) > 0 {
+		i -= len(m.Network)
+		copy(dAtA[i:], m.Network)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Network)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.TXhash) > 0 {
+		i -= len(m.TXhash)
+		copy(dAtA[i:], m.TXhash)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.TXhash)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.UUID) > 0 {
+		i -= len(m.UUID)
+		copy(dAtA[i:], m.UUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateRequestRecordResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateRequestRecordResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteRequestRecord) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteRequestRecord) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteRequestRecord) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.UUID) > 0 {
+		i -= len(m.UUID)
+		copy(dAtA[i:], m.UUID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.UUID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteRequestRecordResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteRequestRecordResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -2245,258 +2214,6 @@ func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *MsgCreateMinerResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Index)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.UUID)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Hash)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Answer != 0 {
-		n += 1 + sovTx(uint64(m.Answer))
-	}
-	return n
-}
-
-func (m *MsgCreateMinerResponseResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgUpdateMinerResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Index)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.UUID)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Hash)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Answer != 0 {
-		n += 1 + sovTx(uint64(m.Answer))
-	}
-	return n
-}
-
-func (m *MsgUpdateMinerResponseResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgDeleteMinerResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Index)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgDeleteMinerResponseResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgCreateRequestRecord) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Index)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.UUID)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.TXhash)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Network)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.From)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Address)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Score != 0 {
-		n += 1 + sovTx(uint64(m.Score))
-	}
-	l = len(m.Oracle)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Block != 0 {
-		n += 1 + sovTx(uint64(m.Block))
-	}
-	if m.Stage != 0 {
-		n += 1 + sovTx(uint64(m.Stage))
-	}
-	if m.Miners != nil {
-		l = m.Miners.Size()
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgCreateRequestRecordResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgUpdateRequestRecord) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Index)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.UUID)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.TXhash)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Network)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.From)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Address)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Score != 0 {
-		n += 1 + sovTx(uint64(m.Score))
-	}
-	l = len(m.Oracle)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Block != 0 {
-		n += 1 + sovTx(uint64(m.Block))
-	}
-	if m.Stage != 0 {
-		n += 1 + sovTx(uint64(m.Stage))
-	}
-	if m.Miners != nil {
-		l = m.Miners.Size()
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgUpdateRequestRecordResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgDeleteRequestRecord) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	l = len(m.Index)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgDeleteRequestRecordResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
 func (m *MsgCreateAllowedOracles) Size() (n int) {
 	if m == nil {
 		return 0
@@ -2588,1731 +2305,255 @@ func (m *MsgDeleteAllowedOraclesResponse) Size() (n int) {
 	return n
 }
 
+func (m *MsgCreateMinerResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.UUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.RequestUUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Hash)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Answer != 0 {
+		n += 1 + sovTx(uint64(m.Answer))
+	}
+	return n
+}
+
+func (m *MsgCreateMinerResponseResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgUpdateMinerResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.UUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.RequestUUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Hash)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Answer != 0 {
+		n += 1 + sovTx(uint64(m.Answer))
+	}
+	return n
+}
+
+func (m *MsgUpdateMinerResponseResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteMinerResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.UUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDeleteMinerResponseResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCreateRequestRecord) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.UUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.TXhash)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Network)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.From)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Score != 0 {
+		n += 1 + sovTx(uint64(m.Score))
+	}
+	l = len(m.Oracle)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Block != 0 {
+		n += 1 + sovTx(uint64(m.Block))
+	}
+	if m.Stage != 0 {
+		n += 1 + sovTx(uint64(m.Stage))
+	}
+	if m.Miners != nil {
+		l = m.Miners.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCreateRequestRecordResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgUpdateRequestRecord) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.UUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.TXhash)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Network)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.From)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Score != 0 {
+		n += 1 + sovTx(uint64(m.Score))
+	}
+	l = len(m.Oracle)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if m.Block != 0 {
+		n += 1 + sovTx(uint64(m.Block))
+	}
+	if m.Stage != 0 {
+		n += 1 + sovTx(uint64(m.Stage))
+	}
+	if m.Miners != nil {
+		l = m.Miners.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUpdateRequestRecordResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteRequestRecord) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.UUID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDeleteRequestRecordResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
 func sovTx(x uint64) (n int) {
 	return (math_bits.Len64(x|1) + 6) / 7
 }
 func sozTx(x uint64) (n int) {
 	return sovTx(uint64((x << 1) ^ uint64((int64(x) >> 63))))
-}
-func (m *MsgCreateMinerResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreateMinerResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreateMinerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Index = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.UUID = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Hash = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 5:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Answer", wireType)
-			}
-			m.Answer = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Answer |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgCreateMinerResponseResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreateMinerResponseResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreateMinerResponseResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUpdateMinerResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateMinerResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateMinerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Index = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.UUID = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Hash = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 5:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Answer", wireType)
-			}
-			m.Answer = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Answer |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUpdateMinerResponseResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateMinerResponseResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateMinerResponseResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgDeleteMinerResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDeleteMinerResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDeleteMinerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Index = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgDeleteMinerResponseResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDeleteMinerResponseResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDeleteMinerResponseResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgCreateRequestRecord) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreateRequestRecord: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreateRequestRecord: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Index = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.UUID = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field TXhash", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.TXhash = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 5:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Network", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Network = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 6:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field From", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.From = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 7:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Address = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 8:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Score", wireType)
-			}
-			m.Score = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Score |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 9:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Oracle", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Oracle = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 10:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Block", wireType)
-			}
-			m.Block = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Block |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 11:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Stage", wireType)
-			}
-			m.Stage = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Stage |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 12:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Miners", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.Miners == nil {
-				m.Miners = &MinerResponse{}
-			}
-			if err := m.Miners.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgCreateRequestRecordResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreateRequestRecordResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreateRequestRecordResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUpdateRequestRecord) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateRequestRecord: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateRequestRecord: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Index = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.UUID = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field TXhash", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.TXhash = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 5:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Network", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Network = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 6:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field From", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.From = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 7:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Address = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 8:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Score", wireType)
-			}
-			m.Score = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Score |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 9:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Oracle", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Oracle = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 10:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Block", wireType)
-			}
-			m.Block = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Block |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 11:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Stage", wireType)
-			}
-			m.Stage = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Stage |= int32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 12:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Miners", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			if m.Miners == nil {
-				m.Miners = &MinerResponse{}
-			}
-			if err := m.Miners.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUpdateRequestRecordResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateRequestRecordResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateRequestRecordResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgDeleteRequestRecord) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDeleteRequestRecord: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDeleteRequestRecord: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Index = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgDeleteRequestRecordResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDeleteRequestRecordResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDeleteRequestRecordResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
 }
 func (m *MsgCreateAllowedOracles) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
@@ -4872,6 +3113,1662 @@ func (m *MsgDeleteAllowedOraclesResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgDeleteAllowedOraclesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateMinerResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateMinerResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateMinerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RequestUUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RequestUUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Hash = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Answer", wireType)
+			}
+			m.Answer = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Answer |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateMinerResponseResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateMinerResponseResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateMinerResponseResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateMinerResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateMinerResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateMinerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RequestUUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.RequestUUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Hash = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Answer", wireType)
+			}
+			m.Answer = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Answer |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateMinerResponseResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateMinerResponseResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateMinerResponseResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteMinerResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteMinerResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteMinerResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteMinerResponseResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteMinerResponseResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteMinerResponseResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateRequestRecord) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateRequestRecord: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateRequestRecord: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TXhash", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TXhash = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Network", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Network = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field From", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.From = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 7:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Score", wireType)
+			}
+			m.Score = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Score |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 8:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Oracle", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Oracle = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 9:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Block", wireType)
+			}
+			m.Block = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Block |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 10:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Stage", wireType)
+			}
+			m.Stage = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Stage |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 11:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Miners", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Miners == nil {
+				m.Miners = &MinerResponse{}
+			}
+			if err := m.Miners.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateRequestRecordResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateRequestRecordResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateRequestRecordResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateRequestRecord) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateRequestRecord: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateRequestRecord: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TXhash", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TXhash = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Network", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Network = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field From", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.From = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 7:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Score", wireType)
+			}
+			m.Score = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Score |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 8:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Oracle", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Oracle = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 9:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Block", wireType)
+			}
+			m.Block = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Block |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 10:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Stage", wireType)
+			}
+			m.Stage = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Stage |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 11:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Miners", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Miners == nil {
+				m.Miners = &MinerResponse{}
+			}
+			if err := m.Miners.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateRequestRecordResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateRequestRecordResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateRequestRecordResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteRequestRecord) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteRequestRecord: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteRequestRecord: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UUID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteRequestRecordResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteRequestRecordResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteRequestRecordResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

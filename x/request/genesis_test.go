@@ -14,22 +14,6 @@ func TestGenesis(t *testing.T) {
 	genesisState := types.GenesisState{
 		Params: types.DefaultParams(),
 
-		MinerResponseList: []types.MinerResponse{
-			{
-				Index: "0",
-			},
-			{
-				Index: "1",
-			},
-		},
-		RequestRecordList: []types.RequestRecord{
-			{
-				Index: "0",
-			},
-			{
-				Index: "1",
-			},
-		},
 		AllowedOraclesList: []types.AllowedOracles{
 			{
 				Id: 0,
@@ -39,6 +23,22 @@ func TestGenesis(t *testing.T) {
 			},
 		},
 		AllowedOraclesCount: 2,
+		MinerResponseList: []types.MinerResponse{
+			{
+				UUID: "0",
+			},
+			{
+				UUID: "1",
+			},
+		},
+		RequestRecordList: []types.RequestRecord{
+			{
+				UUID: "0",
+			},
+			{
+				UUID: "1",
+			},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -50,9 +50,9 @@ func TestGenesis(t *testing.T) {
 	nullify.Fill(&genesisState)
 	nullify.Fill(got)
 
-	require.ElementsMatch(t, genesisState.MinerResponseList, got.MinerResponseList)
-	require.ElementsMatch(t, genesisState.RequestRecordList, got.RequestRecordList)
 	require.ElementsMatch(t, genesisState.AllowedOraclesList, got.AllowedOraclesList)
 	require.Equal(t, genesisState.AllowedOraclesCount, got.AllowedOraclesCount)
+	require.ElementsMatch(t, genesisState.MinerResponseList, got.MinerResponseList)
+	require.ElementsMatch(t, genesisState.RequestRecordList, got.RequestRecordList)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

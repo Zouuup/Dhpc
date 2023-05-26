@@ -11,20 +11,20 @@ func (k Keeper) SetRequestRecord(ctx sdk.Context, requestRecord types.RequestRec
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RequestRecordKeyPrefix))
 	b := k.cdc.MustMarshal(&requestRecord)
 	store.Set(types.RequestRecordKey(
-		requestRecord.Index,
+		requestRecord.UUID,
 	), b)
 }
 
 // GetRequestRecord returns a requestRecord from its index
 func (k Keeper) GetRequestRecord(
 	ctx sdk.Context,
-	index string,
+	uUID string,
 
 ) (val types.RequestRecord, found bool) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RequestRecordKeyPrefix))
 
 	b := store.Get(types.RequestRecordKey(
-		index,
+		uUID,
 	))
 	if b == nil {
 		return val, false
@@ -37,12 +37,12 @@ func (k Keeper) GetRequestRecord(
 // RemoveRequestRecord removes a requestRecord from the store
 func (k Keeper) RemoveRequestRecord(
 	ctx sdk.Context,
-	index string,
+	uUID string,
 
 ) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.RequestRecordKeyPrefix))
 	store.Delete(types.RequestRecordKey(
-		index,
+		uUID,
 	))
 }
 

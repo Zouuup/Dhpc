@@ -23,12 +23,12 @@ func TestMinerResponseMsgServerCreate(t *testing.T) {
 	creator := "A"
 	for i := 0; i < 5; i++ {
 		expected := &types.MsgCreateMinerResponse{Creator: creator,
-			Index: strconv.Itoa(i),
+			UUID: strconv.Itoa(i),
 		}
 		_, err := srv.CreateMinerResponse(wctx, expected)
 		require.NoError(t, err)
 		rst, found := k.GetMinerResponse(ctx,
-			expected.Index,
+			expected.UUID,
 		)
 		require.True(t, found)
 		require.Equal(t, expected.Creator, rst.Creator)
@@ -46,20 +46,20 @@ func TestMinerResponseMsgServerUpdate(t *testing.T) {
 		{
 			desc: "Completed",
 			request: &types.MsgUpdateMinerResponse{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 		},
 		{
 			desc: "Unauthorized",
 			request: &types.MsgUpdateMinerResponse{Creator: "B",
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 			err: sdkerrors.ErrUnauthorized,
 		},
 		{
 			desc: "KeyNotFound",
 			request: &types.MsgUpdateMinerResponse{Creator: creator,
-				Index: strconv.Itoa(100000),
+				UUID: strconv.Itoa(100000),
 			},
 			err: sdkerrors.ErrKeyNotFound,
 		},
@@ -69,7 +69,7 @@ func TestMinerResponseMsgServerUpdate(t *testing.T) {
 			srv := keeper.NewMsgServerImpl(*k)
 			wctx := sdk.WrapSDKContext(ctx)
 			expected := &types.MsgCreateMinerResponse{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			}
 			_, err := srv.CreateMinerResponse(wctx, expected)
 			require.NoError(t, err)
@@ -80,7 +80,7 @@ func TestMinerResponseMsgServerUpdate(t *testing.T) {
 			} else {
 				require.NoError(t, err)
 				rst, found := k.GetMinerResponse(ctx,
-					expected.Index,
+					expected.UUID,
 				)
 				require.True(t, found)
 				require.Equal(t, expected.Creator, rst.Creator)
@@ -100,20 +100,20 @@ func TestMinerResponseMsgServerDelete(t *testing.T) {
 		{
 			desc: "Completed",
 			request: &types.MsgDeleteMinerResponse{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 		},
 		{
 			desc: "Unauthorized",
 			request: &types.MsgDeleteMinerResponse{Creator: "B",
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 			err: sdkerrors.ErrUnauthorized,
 		},
 		{
 			desc: "KeyNotFound",
 			request: &types.MsgDeleteMinerResponse{Creator: creator,
-				Index: strconv.Itoa(100000),
+				UUID: strconv.Itoa(100000),
 			},
 			err: sdkerrors.ErrKeyNotFound,
 		},
@@ -124,7 +124,7 @@ func TestMinerResponseMsgServerDelete(t *testing.T) {
 			wctx := sdk.WrapSDKContext(ctx)
 
 			_, err := srv.CreateMinerResponse(wctx, &types.MsgCreateMinerResponse{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			})
 			require.NoError(t, err)
 			_, err = srv.DeleteMinerResponse(wctx, tc.request)
@@ -133,7 +133,7 @@ func TestMinerResponseMsgServerDelete(t *testing.T) {
 			} else {
 				require.NoError(t, err)
 				_, found := k.GetMinerResponse(ctx,
-					tc.request.Index,
+					tc.request.UUID,
 				)
 				require.False(t, found)
 			}

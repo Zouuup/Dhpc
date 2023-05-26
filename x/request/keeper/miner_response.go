@@ -11,20 +11,20 @@ func (k Keeper) SetMinerResponse(ctx sdk.Context, minerResponse types.MinerRespo
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.MinerResponseKeyPrefix))
 	b := k.cdc.MustMarshal(&minerResponse)
 	store.Set(types.MinerResponseKey(
-		minerResponse.Index,
+		minerResponse.UUID,
 	), b)
 }
 
 // GetMinerResponse returns a minerResponse from its index
 func (k Keeper) GetMinerResponse(
 	ctx sdk.Context,
-	index string,
+	uUID string,
 
 ) (val types.MinerResponse, found bool) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.MinerResponseKeyPrefix))
 
 	b := store.Get(types.MinerResponseKey(
-		index,
+		uUID,
 	))
 	if b == nil {
 		return val, false
@@ -37,12 +37,12 @@ func (k Keeper) GetMinerResponse(
 // RemoveMinerResponse removes a minerResponse from the store
 func (k Keeper) RemoveMinerResponse(
 	ctx sdk.Context,
-	index string,
+	uUID string,
 
 ) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.MinerResponseKeyPrefix))
 	store.Delete(types.MinerResponseKey(
-		index,
+		uUID,
 	))
 }
 

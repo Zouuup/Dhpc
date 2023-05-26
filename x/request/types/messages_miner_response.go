@@ -15,18 +15,18 @@ var _ sdk.Msg = &MsgCreateMinerResponse{}
 
 func NewMsgCreateMinerResponse(
 	creator string,
-	index string,
 	uUID string,
+	requestUUID string,
 	hash string,
 	answer int32,
 
 ) *MsgCreateMinerResponse {
 	return &MsgCreateMinerResponse{
-		Creator: creator,
-		Index:   index,
-		UUID:    uUID,
-		Hash:    hash,
-		Answer:  answer,
+		Creator:     creator,
+		UUID:        uUID,
+		RequestUUID: requestUUID,
+		Hash:        hash,
+		Answer:      answer,
 	}
 }
 
@@ -63,18 +63,18 @@ var _ sdk.Msg = &MsgUpdateMinerResponse{}
 
 func NewMsgUpdateMinerResponse(
 	creator string,
-	index string,
 	uUID string,
+	requestUUID string,
 	hash string,
 	answer int32,
 
 ) *MsgUpdateMinerResponse {
 	return &MsgUpdateMinerResponse{
-		Creator: creator,
-		Index:   index,
-		UUID:    uUID,
-		Hash:    hash,
-		Answer:  answer,
+		Creator:     creator,
+		UUID:        uUID,
+		RequestUUID: requestUUID,
+		Hash:        hash,
+		Answer:      answer,
 	}
 }
 
@@ -111,12 +111,12 @@ var _ sdk.Msg = &MsgDeleteMinerResponse{}
 
 func NewMsgDeleteMinerResponse(
 	creator string,
-	index string,
+	uUID string,
 
 ) *MsgDeleteMinerResponse {
 	return &MsgDeleteMinerResponse{
 		Creator: creator,
-		Index:   index,
+		UUID:    uUID,
 	}
 }
 func (msg *MsgDeleteMinerResponse) Route() string {

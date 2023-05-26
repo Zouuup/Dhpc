@@ -47,7 +47,7 @@ func (k Keeper) RequestRecord(goCtx context.Context, req *types.QueryGetRequestR
 
 	val, found := k.GetRequestRecord(
 		ctx,
-		req.Index,
+		req.UUID,
 	)
 	if !found {
 		return nil, status.Error(codes.NotFound, "not found")

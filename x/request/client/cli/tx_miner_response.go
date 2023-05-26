@@ -11,15 +11,15 @@ import (
 
 func CmdCreateMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-miner-response [index] [uuid] [hash] [answer]",
+		Use:   "create-miner-response [uuid] [request-uuid] [hash] [answer]",
 		Short: "Create a new minerResponse",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
-			indexIndex := args[0]
+			indexUUID := args[0]
 
 			// Get value arguments
-			argUUID := args[1]
+			argRequestUUID := args[1]
 			argHash := args[2]
 			argAnswer, err := cast.ToInt32E(args[3])
 			if err != nil {
@@ -33,8 +33,8 @@ func CmdCreateMinerResponse() *cobra.Command {
 
 			msg := types.NewMsgCreateMinerResponse(
 				clientCtx.GetFromAddress().String(),
-				indexIndex,
-				argUUID,
+				indexUUID,
+				argRequestUUID,
 				argHash,
 				argAnswer,
 			)
@@ -52,15 +52,15 @@ func CmdCreateMinerResponse() *cobra.Command {
 
 func CmdUpdateMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-miner-response [index] [uuid] [hash] [answer]",
+		Use:   "update-miner-response [uuid] [request-uuid] [hash] [answer]",
 		Short: "Update a minerResponse",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
-			indexIndex := args[0]
+			indexUUID := args[0]
 
 			// Get value arguments
-			argUUID := args[1]
+			argRequestUUID := args[1]
 			argHash := args[2]
 			argAnswer, err := cast.ToInt32E(args[3])
 			if err != nil {
@@ -74,8 +74,8 @@ func CmdUpdateMinerResponse() *cobra.Command {
 
 			msg := types.NewMsgUpdateMinerResponse(
 				clientCtx.GetFromAddress().String(),
-				indexIndex,
-				argUUID,
+				indexUUID,
+				argRequestUUID,
 				argHash,
 				argAnswer,
 			)
@@ -93,11 +93,11 @@ func CmdUpdateMinerResponse() *cobra.Command {
 
 func CmdDeleteMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "delete-miner-response [index]",
+		Use:   "delete-miner-response [uuid]",
 		Short: "Delete a minerResponse",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			indexIndex := args[0]
+			indexUUID := args[0]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -106,7 +106,7 @@ func CmdDeleteMinerResponse() *cobra.Command {
 
 			msg := types.NewMsgDeleteMinerResponse(
 				clientCtx.GetFromAddress().String(),
-				indexIndex,
+				indexUUID,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

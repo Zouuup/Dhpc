@@ -2,92 +2,24 @@ syntax = "proto3";
 
 package decent.request;
 
+import "decent/request/allowed_oracles.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
-import "decent/request/allowed_oracles.proto";
 
 option go_package = "Decent/x/request/types";
 
 // Msg defines the Msg service.
 service Msg {
+  rpc CreateAllowedOracles (MsgCreateAllowedOracles) returns (MsgCreateAllowedOraclesResponse);
+  rpc UpdateAllowedOracles (MsgUpdateAllowedOracles) returns (MsgUpdateAllowedOraclesResponse);
+  rpc DeleteAllowedOracles (MsgDeleteAllowedOracles) returns (MsgDeleteAllowedOraclesResponse);
   rpc CreateMinerResponse  (MsgCreateMinerResponse ) returns (MsgCreateMinerResponseResponse );
   rpc UpdateMinerResponse  (MsgUpdateMinerResponse ) returns (MsgUpdateMinerResponseResponse );
   rpc DeleteMinerResponse  (MsgDeleteMinerResponse ) returns (MsgDeleteMinerResponseResponse );
   rpc CreateRequestRecord  (MsgCreateRequestRecord ) returns (MsgCreateRequestRecordResponse );
   rpc UpdateRequestRecord  (MsgUpdateRequestRecord ) returns (MsgUpdateRequestRecordResponse );
   rpc DeleteRequestRecord  (MsgDeleteRequestRecord ) returns (MsgDeleteRequestRecordResponse );
-  rpc CreateAllowedOracles (MsgCreateAllowedOracles) returns (MsgCreateAllowedOraclesResponse);
-  rpc UpdateAllowedOracles (MsgUpdateAllowedOracles) returns (MsgUpdateAllowedOraclesResponse);
-  rpc DeleteAllowedOracles (MsgDeleteAllowedOracles) returns (MsgDeleteAllowedOraclesResponse);
 }
-message MsgCreateMinerResponse {
-  string creator = 1;
-  string index   = 2;
-  string uUID    = 3;
-  string hash    = 4;
-  int32  answer  = 5;
-}
-
-message MsgCreateMinerResponseResponse {}
-
-message MsgUpdateMinerResponse {
-  string creator = 1;
-  string index   = 2;
-  string uUID    = 3;
-  string hash    = 4;
-  int32  answer  = 5;
-}
-
-message MsgUpdateMinerResponseResponse {}
-
-message MsgDeleteMinerResponse {
-  string creator = 1;
-  string index   = 2;
-}
-
-message MsgDeleteMinerResponseResponse {}
-
-message MsgCreateRequestRecord {
-  string        creator =  1;
-  string        index   =  2;
-  string        uUID    =  3;
-  string        tXhash  =  4;
-  string        network =  5;
-  string        from    =  6;
-  string        address =  7;
-  int32         score   =  8;
-  string        oracle  =  9;
-  int32         block   = 10;
-  int32         stage   = 11;
-  MinerResponse miners  = 12;
-}
-
-message MsgCreateRequestRecordResponse {}
-
-message MsgUpdateRequestRecord {
-  string        creator =  1;
-  string        index   =  2;
-  string        uUID    =  3;
-  string        tXhash  =  4;
-  string        network =  5;
-  string        from    =  6;
-  string        address =  7;
-  int32         score   =  8;
-  string        oracle  =  9;
-  int32         block   = 10;
-  int32         stage   = 11;
-  MinerResponse miners  = 12;
-}
-
-message MsgUpdateRequestRecordResponse {}
-
-message MsgDeleteRequestRecord {
-  string creator = 1;
-  string index   = 2;
-}
-
-message MsgDeleteRequestRecordResponse {}
-
 message MsgCreateAllowedOracles {
   string creator = 1;
   string name    = 2;
@@ -113,4 +45,70 @@ message MsgDeleteAllowedOracles {
 }
 
 message MsgDeleteAllowedOraclesResponse {}
+
+message MsgCreateMinerResponse {
+  string creator     = 1;
+  string uUID        = 2;
+  string requestUUID = 3;
+  string hash        = 4;
+  int32  answer      = 5;
+}
+
+message MsgCreateMinerResponseResponse {}
+
+message MsgUpdateMinerResponse {
+  string creator     = 1;
+  string uUID        = 2;
+  string requestUUID = 3;
+  string hash        = 4;
+  int32  answer      = 5;
+}
+
+message MsgUpdateMinerResponseResponse {}
+
+message MsgDeleteMinerResponse {
+  string creator = 1;
+  string uUID    = 2;
+}
+
+message MsgDeleteMinerResponseResponse {}
+
+message MsgCreateRequestRecord {
+  string        creator =  1;
+  string        uUID    =  2;
+  string        tXhash  =  3;
+  string        network =  4;
+  string        from    =  5;
+  string        address =  6;
+  int32         score   =  7;
+  string        oracle  =  8;
+  int32         block   =  9;
+  int32         stage   = 10;
+  MinerResponse miners  = 11;
+}
+
+message MsgCreateRequestRecordResponse {}
+
+message MsgUpdateRequestRecord {
+  string        creator =  1;
+  string        uUID    =  2;
+  string        tXhash  =  3;
+  string        network =  4;
+  string        from    =  5;
+  string        address =  6;
+  int32         score   =  7;
+  string        oracle  =  8;
+  int32         block   =  9;
+  int32         stage   = 10;
+  MinerResponse miners  = 11;
+}
+
+message MsgUpdateRequestRecordResponse {}
+
+message MsgDeleteRequestRecord {
+  string creator = 1;
+  string uUID    = 2;
+}
+
+message MsgDeleteRequestRecordResponse {}
 

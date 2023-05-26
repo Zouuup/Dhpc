@@ -30,15 +30,15 @@ func GetTxCmd() *cobra.Command {
 		RunE:                       client.ValidateCmd,
 	}
 
+	cmd.AddCommand(CmdCreateAllowedOracles())
+	cmd.AddCommand(CmdUpdateAllowedOracles())
+	cmd.AddCommand(CmdDeleteAllowedOracles())
 	cmd.AddCommand(CmdCreateMinerResponse())
 	cmd.AddCommand(CmdUpdateMinerResponse())
 	cmd.AddCommand(CmdDeleteMinerResponse())
 	cmd.AddCommand(CmdCreateRequestRecord())
 	cmd.AddCommand(CmdUpdateRequestRecord())
 	cmd.AddCommand(CmdDeleteRequestRecord())
-	cmd.AddCommand(CmdCreateAllowedOracles())
-	cmd.AddCommand(CmdUpdateAllowedOracles())
-	cmd.AddCommand(CmdDeleteAllowedOracles())
 	// this line is used by starport scaffolding # 1
 
 	return cmd

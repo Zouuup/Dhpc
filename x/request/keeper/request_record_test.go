@@ -18,7 +18,7 @@ var _ = strconv.IntSize
 func createNRequestRecord(keeper *keeper.Keeper, ctx sdk.Context, n int) []types.RequestRecord {
 	items := make([]types.RequestRecord, n)
 	for i := range items {
-		items[i].Index = strconv.Itoa(i)
+		items[i].UUID = strconv.Itoa(i)
 
 		keeper.SetRequestRecord(ctx, items[i])
 	}
@@ -30,7 +30,7 @@ func TestRequestRecordGet(t *testing.T) {
 	items := createNRequestRecord(keeper, ctx, 10)
 	for _, item := range items {
 		rst, found := keeper.GetRequestRecord(ctx,
-			item.Index,
+			item.UUID,
 		)
 		require.True(t, found)
 		require.Equal(t,
@@ -44,10 +44,10 @@ func TestRequestRecordRemove(t *testing.T) {
 	items := createNRequestRecord(keeper, ctx, 10)
 	for _, item := range items {
 		keeper.RemoveRequestRecord(ctx,
-			item.Index,
+			item.UUID,
 		)
 		_, found := keeper.GetRequestRecord(ctx,
-			item.Index,
+			item.UUID,
 		)
 		require.False(t, found)
 	}

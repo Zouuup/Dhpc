@@ -18,7 +18,7 @@ var _ = strconv.IntSize
 func createNMinerResponse(keeper *keeper.Keeper, ctx sdk.Context, n int) []types.MinerResponse {
 	items := make([]types.MinerResponse, n)
 	for i := range items {
-		items[i].Index = strconv.Itoa(i)
+		items[i].UUID = strconv.Itoa(i)
 
 		keeper.SetMinerResponse(ctx, items[i])
 	}
@@ -30,7 +30,7 @@ func TestMinerResponseGet(t *testing.T) {
 	items := createNMinerResponse(keeper, ctx, 10)
 	for _, item := range items {
 		rst, found := keeper.GetMinerResponse(ctx,
-			item.Index,
+			item.UUID,
 		)
 		require.True(t, found)
 		require.Equal(t,
@@ -44,10 +44,10 @@ func TestMinerResponseRemove(t *testing.T) {
 	items := createNMinerResponse(keeper, ctx, 10)
 	for _, item := range items {
 		keeper.RemoveMinerResponse(ctx,
-			item.Index,
+			item.UUID,
 		)
 		_, found := keeper.GetMinerResponse(ctx,
-			item.Index,
+			item.UUID,
 		)
 		require.False(t, found)
 	}

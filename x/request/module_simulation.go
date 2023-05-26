@@ -24,6 +24,18 @@ var (
 )
 
 const (
+	opWeightMsgCreateAllowedOracles = "op_weight_msg_allowed_oracles"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateAllowedOracles int = 100
+
+	opWeightMsgUpdateAllowedOracles = "op_weight_msg_allowed_oracles"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateAllowedOracles int = 100
+
+	opWeightMsgDeleteAllowedOracles = "op_weight_msg_allowed_oracles"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteAllowedOracles int = 100
+
 	opWeightMsgCreateMinerResponse = "op_weight_msg_miner_response"
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgCreateMinerResponse int = 100
@@ -48,18 +60,6 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteRequestRecord int = 100
 
-	opWeightMsgCreateAllowedOracles = "op_weight_msg_allowed_oracles"
-	// TODO: Determine the simulation weight value
-	defaultWeightMsgCreateAllowedOracles int = 100
-
-	opWeightMsgUpdateAllowedOracles = "op_weight_msg_allowed_oracles"
-	// TODO: Determine the simulation weight value
-	defaultWeightMsgUpdateAllowedOracles int = 100
-
-	opWeightMsgDeleteAllowedOracles = "op_weight_msg_allowed_oracles"
-	// TODO: Determine the simulation weight value
-	defaultWeightMsgDeleteAllowedOracles int = 100
-
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -71,26 +71,6 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 	}
 	requestGenesis := types.GenesisState{
 		Params: types.DefaultParams(),
-		MinerResponseList: []types.MinerResponse{
-			{
-				Creator: sample.AccAddress(),
-				Index:   "0",
-			},
-			{
-				Creator: sample.AccAddress(),
-				Index:   "1",
-			},
-		},
-		RequestRecordList: []types.RequestRecord{
-			{
-				Creator: sample.AccAddress(),
-				Index:   "0",
-			},
-			{
-				Creator: sample.AccAddress(),
-				Index:   "1",
-			},
-		},
 		AllowedOraclesList: []types.AllowedOracles{
 			{
 				Id:      0,
@@ -102,6 +82,26 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 			},
 		},
 		AllowedOraclesCount: 2,
+		MinerResponseList: []types.MinerResponse{
+			{
+				Creator: sample.AccAddress(),
+				UUID:    "0",
+			},
+			{
+				Creator: sample.AccAddress(),
+				UUID:    "1",
+			},
+		},
+		RequestRecordList: []types.RequestRecord{
+			{
+				Creator: sample.AccAddress(),
+				UUID:    "0",
+			},
+			{
+				Creator: sample.AccAddress(),
+				UUID:    "1",
+			},
+		},
 		// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&requestGenesis)
@@ -124,6 +124,39 @@ func (am AppModule) RegisterStoreDecoder(_ sdk.StoreDecoderRegistry) {}
 // WeightedOperations returns the all the gov module operations with their respective weights.
 func (am AppModule) WeightedOperations(simState module.SimulationState) []simtypes.WeightedOperation {
 	operations := make([]simtypes.WeightedOperation, 0)
+
+	var weightMsgCreateAllowedOracles int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateAllowedOracles, &weightMsgCreateAllowedOracles, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateAllowedOracles = defaultWeightMsgCreateAllowedOracles
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateAllowedOracles,
+		requestsimulation.SimulateMsgCreateAllowedOracles(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateAllowedOracles int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateAllowedOracles, &weightMsgUpdateAllowedOracles, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateAllowedOracles = defaultWeightMsgUpdateAllowedOracles
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateAllowedOracles,
+		requestsimulation.SimulateMsgUpdateAllowedOracles(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteAllowedOracles int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteAllowedOracles, &weightMsgDeleteAllowedOracles, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteAllowedOracles = defaultWeightMsgDeleteAllowedOracles
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteAllowedOracles,
+		requestsimulation.SimulateMsgDeleteAllowedOracles(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
 
 	var weightMsgCreateMinerResponse int
 	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateMinerResponse, &weightMsgCreateMinerResponse, nil,
@@ -189,39 +222,6 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeleteRequestRecord,
 		requestsimulation.SimulateMsgDeleteRequestRecord(am.accountKeeper, am.bankKeeper, am.keeper),
-	))
-
-	var weightMsgCreateAllowedOracles int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateAllowedOracles, &weightMsgCreateAllowedOracles, nil,
-		func(_ *rand.Rand) {
-			weightMsgCreateAllowedOracles = defaultWeightMsgCreateAllowedOracles
-		},
-	)
-	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgCreateAllowedOracles,
-		requestsimulation.SimulateMsgCreateAllowedOracles(am.accountKeeper, am.bankKeeper, am.keeper),
-	))
-
-	var weightMsgUpdateAllowedOracles int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateAllowedOracles, &weightMsgUpdateAllowedOracles, nil,
-		func(_ *rand.Rand) {
-			weightMsgUpdateAllowedOracles = defaultWeightMsgUpdateAllowedOracles
-		},
-	)
-	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgUpdateAllowedOracles,
-		requestsimulation.SimulateMsgUpdateAllowedOracles(am.accountKeeper, am.bankKeeper, am.keeper),
-	))
-
-	var weightMsgDeleteAllowedOracles int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteAllowedOracles, &weightMsgDeleteAllowedOracles, nil,
-		func(_ *rand.Rand) {
-			weightMsgDeleteAllowedOracles = defaultWeightMsgDeleteAllowedOracles
-		},
-	)
-	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgDeleteAllowedOracles,
-		requestsimulation.SimulateMsgDeleteAllowedOracles(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

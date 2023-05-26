@@ -6,9 +6,9 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "decent/request/params.proto";
+import "decent/request/allowed_oracles.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
-import "decent/request/allowed_oracles.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -21,9 +21,19 @@ service Query {
   
   }
   
+  // Queries a list of AllowedOracles items.
+  rpc AllowedOracles    (QueryGetAllowedOraclesRequest) returns (QueryGetAllowedOraclesResponse) {
+    option (google.api.http).get = "/Decent/request/allowed_oracles/{id}";
+  
+  }
+  rpc AllowedOraclesAll (QueryAllAllowedOraclesRequest) returns (QueryAllAllowedOraclesResponse) {
+    option (google.api.http).get = "/Decent/request/allowed_oracles";
+  
+  }
+  
   // Queries a list of MinerResponse items.
   rpc MinerResponse    (QueryGetMinerResponseRequest) returns (QueryGetMinerResponseResponse) {
-    option (google.api.http).get = "/Decent/request/miner_response/{index}";
+    option (google.api.http).get = "/Decent/request/miner_response/{uUID}";
   
   }
   rpc MinerResponseAll (QueryAllMinerResponseRequest) returns (QueryAllMinerResponseResponse) {
@@ -33,21 +43,11 @@ service Query {
   
   // Queries a list of RequestRecord items.
   rpc RequestRecord    (QueryGetRequestRecordRequest) returns (QueryGetRequestRecordResponse) {
-    option (google.api.http).get = "/Decent/request/request_record/{index}";
+    option (google.api.http).get = "/Decent/request/request_record/{uUID}";
   
   }
   rpc RequestRecordAll (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
     option (google.api.http).get = "/Decent/request/request_record";
-  
-  }
-  
-  // Queries a list of AllowedOracles items.
-  rpc AllowedOracles    (QueryGetAllowedOraclesRequest) returns (QueryGetAllowedOraclesResponse) {
-    option (google.api.http).get = "/Decent/request/allowed_oracles/{id}";
-  
-  }
-  rpc AllowedOraclesAll (QueryAllAllowedOraclesRequest) returns (QueryAllAllowedOraclesResponse) {
-    option (google.api.http).get = "/Decent/request/allowed_oracles";
   
   }
 }
@@ -59,40 +59,6 @@ message QueryParamsResponse {
   
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
-}
-
-message QueryGetMinerResponseRequest {
-  string index = 1;
-}
-
-message QueryGetMinerResponseResponse {
-  MinerResponse minerResponse = 1 [(gogoproto.nullable) = false];
-}
-
-message QueryAllMinerResponseRequest {
-  cosmos.base.query.v1beta1.PageRequest pagination = 1;
-}
-
-message QueryAllMinerResponseResponse {
-  repeated MinerResponse                          minerResponse = 1 [(gogoproto.nullable) = false];
-           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
-}
-
-message QueryGetRequestRecordRequest {
-  string index = 1;
-}
-
-message QueryGetRequestRecordResponse {
-  RequestRecord requestRecord = 1 [(gogoproto.nullable) = false];
-}
-
-message QueryAllRequestRecordRequest {
-  cosmos.base.query.v1beta1.PageRequest pagination = 1;
-}
-
-message QueryAllRequestRecordResponse {
-  repeated RequestRecord                          requestRecord = 1 [(gogoproto.nullable) = false];
-           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
 }
 
 message QueryGetAllowedOraclesRequest {
@@ -110,5 +76,39 @@ message QueryAllAllowedOraclesRequest {
 message QueryAllAllowedOraclesResponse {
   repeated AllowedOracles                         AllowedOracles = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination     = 2;
+}
+
+message QueryGetMinerResponseRequest {
+  string uUID = 1;
+}
+
+message QueryGetMinerResponseResponse {
+  MinerResponse minerResponse = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllMinerResponseRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllMinerResponseResponse {
+  repeated MinerResponse                          minerResponse = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
+}
+
+message QueryGetRequestRecordRequest {
+  string uUID = 1;
+}
+
+message QueryGetRequestRecordResponse {
+  RequestRecord requestRecord = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllRequestRecordRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllRequestRecordResponse {
+  repeated RequestRecord                          requestRecord = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination    = 2;
 }
 

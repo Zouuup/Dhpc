@@ -44,7 +44,7 @@ func CmdListRequestRecord() *cobra.Command {
 
 func CmdShowRequestRecord() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "show-request-record [index]",
+		Use:   "show-request-record [uuid]",
 		Short: "shows a requestRecord",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
@@ -52,10 +52,10 @@ func CmdShowRequestRecord() *cobra.Command {
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			argIndex := args[0]
+			argUUID := args[0]
 
 			params := &types.QueryGetRequestRecordRequest{
-				Index: argIndex,
+				UUID: argUUID,
 			}
 
 			res, err := queryClient.RequestRecord(context.Background(), params)

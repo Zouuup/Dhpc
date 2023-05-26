@@ -11,12 +11,12 @@ const (
 
 // MinerResponseKey returns the store key to retrieve a MinerResponse from the index fields
 func MinerResponseKey(
-	index string,
+	uUID string,
 ) []byte {
 	var key []byte
 
-	indexBytes := []byte(index)
-	key = append(key, indexBytes...)
+	uUIDBytes := []byte(uUID)
+	key = append(key, uUIDBytes...)
 	key = append(key, []byte("/")...)
 
 	return key

@@ -26,15 +26,15 @@ func TestCreateMinerResponse(t *testing.T) {
 
 	fields := []string{"xyz", "xyz", "111"}
 	for _, tc := range []struct {
-		desc    string
-		idIndex string
+		desc   string
+		idUUID string
 
 		args []string
 		err  error
 		code uint32
 	}{
 		{
-			idIndex: strconv.Itoa(0),
+			idUUID: strconv.Itoa(0),
 
 			desc: "valid",
 			args: []string{
@@ -47,7 +47,7 @@ func TestCreateMinerResponse(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex,
+				tc.idUUID,
 			}
 			args = append(args, fields...)
 			args = append(args, tc.args...)
@@ -85,22 +85,22 @@ func TestUpdateMinerResponse(t *testing.T) {
 	require.NoError(t, err)
 
 	for _, tc := range []struct {
-		desc    string
-		idIndex string
+		desc   string
+		idUUID string
 
 		args []string
 		code uint32
 		err  error
 	}{
 		{
-			desc:    "valid",
-			idIndex: strconv.Itoa(0),
+			desc:   "valid",
+			idUUID: strconv.Itoa(0),
 
 			args: common,
 		},
 		{
-			desc:    "key not found",
-			idIndex: strconv.Itoa(100000),
+			desc:   "key not found",
+			idUUID: strconv.Itoa(100000),
 
 			args: common,
 			code: sdkerrors.ErrKeyNotFound.ABCICode(),
@@ -108,7 +108,7 @@ func TestUpdateMinerResponse(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex,
+				tc.idUUID,
 			}
 			args = append(args, fields...)
 			args = append(args, tc.args...)
@@ -147,22 +147,22 @@ func TestDeleteMinerResponse(t *testing.T) {
 	require.NoError(t, err)
 
 	for _, tc := range []struct {
-		desc    string
-		idIndex string
+		desc   string
+		idUUID string
 
 		args []string
 		code uint32
 		err  error
 	}{
 		{
-			desc:    "valid",
-			idIndex: strconv.Itoa(0),
+			desc:   "valid",
+			idUUID: strconv.Itoa(0),
 
 			args: common,
 		},
 		{
-			desc:    "key not found",
-			idIndex: strconv.Itoa(100000),
+			desc:   "key not found",
+			idUUID: strconv.Itoa(100000),
 
 			args: common,
 			code: sdkerrors.ErrKeyNotFound.ABCICode(),
@@ -170,7 +170,7 @@ func TestDeleteMinerResponse(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex,
+				tc.idUUID,
 			}
 			args = append(args, tc.args...)
 			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdDeleteMinerResponse(), args)

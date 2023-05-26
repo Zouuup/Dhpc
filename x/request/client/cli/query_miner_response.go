@@ -44,7 +44,7 @@ func CmdListMinerResponse() *cobra.Command {
 
 func CmdShowMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "show-miner-response [index]",
+		Use:   "show-miner-response [uuid]",
 		Short: "shows a minerResponse",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
@@ -52,10 +52,10 @@ func CmdShowMinerResponse() *cobra.Command {
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			argIndex := args[0]
+			argUUID := args[0]
 
 			params := &types.QueryGetMinerResponseRequest{
-				Index: argIndex,
+				UUID: argUUID,
 			}
 
 			res, err := queryClient.MinerResponse(context.Background(), params)

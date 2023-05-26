@@ -12,34 +12,33 @@ import (
 
 func CmdCreateRequestRecord() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-request-record [index] [uuid] [t-xhash] [network] [from] [address] [score] [oracle] [block] [stage] [miners]",
+		Use:   "create-request-record [uuid] [t-xhash] [network] [from] [address] [score] [oracle] [block] [stage] [miners]",
 		Short: "Create a new requestRecord",
-		Args:  cobra.ExactArgs(11),
+		Args:  cobra.ExactArgs(10),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
-			indexIndex := args[0]
+			indexUUID := args[0]
 
 			// Get value arguments
-			argUUID := args[1]
-			argTXhash := args[2]
-			argNetwork := args[3]
-			argFrom := args[4]
-			argAddress := args[5]
-			argScore, err := cast.ToInt32E(args[6])
+			argTXhash := args[1]
+			argNetwork := args[2]
+			argFrom := args[3]
+			argAddress := args[4]
+			argScore, err := cast.ToInt32E(args[5])
 			if err != nil {
 				return err
 			}
-			argOracle := args[7]
-			argBlock, err := cast.ToInt32E(args[8])
+			argOracle := args[6]
+			argBlock, err := cast.ToInt32E(args[7])
 			if err != nil {
 				return err
 			}
-			argStage, err := cast.ToInt32E(args[9])
+			argStage, err := cast.ToInt32E(args[8])
 			if err != nil {
 				return err
 			}
 			argMiners := new(types.MinerResponse)
-			err = json.Unmarshal([]byte(args[10]), argMiners)
+			err = json.Unmarshal([]byte(args[9]), argMiners)
 			if err != nil {
 				return err
 			}
@@ -51,8 +50,7 @@ func CmdCreateRequestRecord() *cobra.Command {
 
 			msg := types.NewMsgCreateRequestRecord(
 				clientCtx.GetFromAddress().String(),
-				indexIndex,
-				argUUID,
+				indexUUID,
 				argTXhash,
 				argNetwork,
 				argFrom,
@@ -77,34 +75,33 @@ func CmdCreateRequestRecord() *cobra.Command {
 
 func CmdUpdateRequestRecord() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-request-record [index] [uuid] [t-xhash] [network] [from] [address] [score] [oracle] [block] [stage] [miners]",
+		Use:   "update-request-record [uuid] [t-xhash] [network] [from] [address] [score] [oracle] [block] [stage] [miners]",
 		Short: "Update a requestRecord",
-		Args:  cobra.ExactArgs(11),
+		Args:  cobra.ExactArgs(10),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
-			indexIndex := args[0]
+			indexUUID := args[0]
 
 			// Get value arguments
-			argUUID := args[1]
-			argTXhash := args[2]
-			argNetwork := args[3]
-			argFrom := args[4]
-			argAddress := args[5]
-			argScore, err := cast.ToInt32E(args[6])
+			argTXhash := args[1]
+			argNetwork := args[2]
+			argFrom := args[3]
+			argAddress := args[4]
+			argScore, err := cast.ToInt32E(args[5])
 			if err != nil {
 				return err
 			}
-			argOracle := args[7]
-			argBlock, err := cast.ToInt32E(args[8])
+			argOracle := args[6]
+			argBlock, err := cast.ToInt32E(args[7])
 			if err != nil {
 				return err
 			}
-			argStage, err := cast.ToInt32E(args[9])
+			argStage, err := cast.ToInt32E(args[8])
 			if err != nil {
 				return err
 			}
 			argMiners := new(types.MinerResponse)
-			err = json.Unmarshal([]byte(args[10]), argMiners)
+			err = json.Unmarshal([]byte(args[9]), argMiners)
 			if err != nil {
 				return err
 			}
@@ -116,8 +113,7 @@ func CmdUpdateRequestRecord() *cobra.Command {
 
 			msg := types.NewMsgUpdateRequestRecord(
 				clientCtx.GetFromAddress().String(),
-				indexIndex,
-				argUUID,
+				indexUUID,
 				argTXhash,
 				argNetwork,
 				argFrom,
@@ -142,11 +138,11 @@ func CmdUpdateRequestRecord() *cobra.Command {
 
 func CmdDeleteRequestRecord() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "delete-request-record [index]",
+		Use:   "delete-request-record [uuid]",
 		Short: "Delete a requestRecord",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			indexIndex := args[0]
+			indexUUID := args[0]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -155,7 +151,7 @@ func CmdDeleteRequestRecord() *cobra.Command {
 
 			msg := types.NewMsgDeleteRequestRecord(
 				clientCtx.GetFromAddress().String(),
-				indexIndex,
+				indexUUID,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

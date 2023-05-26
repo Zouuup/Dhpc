@@ -28,10 +28,10 @@ func SimulateMsgCreateRequestRecord(
 		i := r.Int()
 		msg := &types.MsgCreateRequestRecord{
 			Creator: simAccount.Address.String(),
-			Index:   strconv.Itoa(i),
+			UUID:    strconv.Itoa(i),
 		}
 
-		_, found := k.GetRequestRecord(ctx, msg.Index)
+		_, found := k.GetRequestRecord(ctx, msg.UUID)
 		if found {
 			return simtypes.NoOpMsg(types.ModuleName, msg.Type(), "RequestRecord already exist"), nil, nil
 		}
@@ -80,7 +80,7 @@ func SimulateMsgUpdateRequestRecord(
 		}
 		msg.Creator = simAccount.Address.String()
 
-		msg.Index = requestRecord.Index
+		msg.UUID = requestRecord.UUID
 
 		txCtx := simulation.OperationInput{
 			R:               r,
@@ -126,7 +126,7 @@ func SimulateMsgDeleteRequestRecord(
 		}
 		msg.Creator = simAccount.Address.String()
 
-		msg.Index = requestRecord.Index
+		msg.UUID = requestRecord.UUID
 
 		txCtx := simulation.OperationInput{
 			R:               r,

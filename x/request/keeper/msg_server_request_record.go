@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"Decent/x/request/types"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -15,7 +14,7 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 	// Check if the value already exists
 	_, isFound := k.GetRequestRecord(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 	if isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
@@ -23,7 +22,6 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 
 	var requestRecord = types.RequestRecord{
 		Creator: msg.Creator,
-		Index:   msg.Index,
 		UUID:    msg.UUID,
 		TXhash:  msg.TXhash,
 		Network: msg.Network,
@@ -33,6 +31,7 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 		Oracle:  msg.Oracle,
 		Block:   msg.Block,
 		Stage:   msg.Stage,
+		Miners:  msg.Miners,
 	}
 
 	k.SetRequestRecord(
@@ -48,7 +47,7 @@ func (k msgServer) UpdateRequestRecord(goCtx context.Context, msg *types.MsgUpda
 	// Check if the value exists
 	valFound, isFound := k.GetRequestRecord(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
@@ -61,7 +60,6 @@ func (k msgServer) UpdateRequestRecord(goCtx context.Context, msg *types.MsgUpda
 
 	var requestRecord = types.RequestRecord{
 		Creator: msg.Creator,
-		Index:   msg.Index,
 		UUID:    msg.UUID,
 		TXhash:  msg.TXhash,
 		Network: msg.Network,
@@ -71,6 +69,7 @@ func (k msgServer) UpdateRequestRecord(goCtx context.Context, msg *types.MsgUpda
 		Oracle:  msg.Oracle,
 		Block:   msg.Block,
 		Stage:   msg.Stage,
+		Miners:  msg.Miners,
 	}
 
 	k.SetRequestRecord(ctx, requestRecord)
@@ -84,7 +83,7 @@ func (k msgServer) DeleteRequestRecord(goCtx context.Context, msg *types.MsgDele
 	// Check if the value exists
 	valFound, isFound := k.GetRequestRecord(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
@@ -97,7 +96,7 @@ func (k msgServer) DeleteRequestRecord(goCtx context.Context, msg *types.MsgDele
 
 	k.RemoveRequestRecord(
 		ctx,
-		msg.Index,
+		msg.UUID,
 	)
 
 	return &types.MsgDeleteRequestRecordResponse{}, nil

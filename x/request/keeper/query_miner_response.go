@@ -47,7 +47,7 @@ func (k Keeper) MinerResponse(goCtx context.Context, req *types.QueryGetMinerRes
 
 	val, found := k.GetMinerResponse(
 		ctx,
-		req.Index,
+		req.UUID,
 	)
 	if !found {
 		return nil, status.Error(codes.NotFound, "not found")

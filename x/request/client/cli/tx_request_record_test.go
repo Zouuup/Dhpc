@@ -24,17 +24,17 @@ func TestCreateRequestRecord(t *testing.T) {
 	val := net.Validators[0]
 	ctx := val.ClientCtx
 
-	fields := []string{"xyz", "xyz", "xyz", "xyz", "xyz", "111", "xyz", "111", "111", "null"}
+	fields := []string{"xyz", "xyz", "xyz", "xyz", "111", "xyz", "111", "111", "null"}
 	for _, tc := range []struct {
-		desc    string
-		idIndex string
+		desc   string
+		idUUID string
 
 		args []string
 		err  error
 		code uint32
 	}{
 		{
-			idIndex: strconv.Itoa(0),
+			idUUID: strconv.Itoa(0),
 
 			desc: "valid",
 			args: []string{
@@ -47,7 +47,7 @@ func TestCreateRequestRecord(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex,
+				tc.idUUID,
 			}
 			args = append(args, fields...)
 			args = append(args, tc.args...)
@@ -69,7 +69,7 @@ func TestUpdateRequestRecord(t *testing.T) {
 	val := net.Validators[0]
 	ctx := val.ClientCtx
 
-	fields := []string{"xyz", "xyz", "xyz", "xyz", "xyz", "111", "xyz", "111", "111", "null"}
+	fields := []string{"xyz", "xyz", "xyz", "xyz", "111", "xyz", "111", "111", "null"}
 	common := []string{
 		fmt.Sprintf("--%s=%s", flags.FlagFrom, val.Address.String()),
 		fmt.Sprintf("--%s=true", flags.FlagSkipConfirmation),
@@ -85,22 +85,22 @@ func TestUpdateRequestRecord(t *testing.T) {
 	require.NoError(t, err)
 
 	for _, tc := range []struct {
-		desc    string
-		idIndex string
+		desc   string
+		idUUID string
 
 		args []string
 		code uint32
 		err  error
 	}{
 		{
-			desc:    "valid",
-			idIndex: strconv.Itoa(0),
+			desc:   "valid",
+			idUUID: strconv.Itoa(0),
 
 			args: common,
 		},
 		{
-			desc:    "key not found",
-			idIndex: strconv.Itoa(100000),
+			desc:   "key not found",
+			idUUID: strconv.Itoa(100000),
 
 			args: common,
 			code: sdkerrors.ErrKeyNotFound.ABCICode(),
@@ -108,7 +108,7 @@ func TestUpdateRequestRecord(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex,
+				tc.idUUID,
 			}
 			args = append(args, fields...)
 			args = append(args, tc.args...)
@@ -131,7 +131,7 @@ func TestDeleteRequestRecord(t *testing.T) {
 	val := net.Validators[0]
 	ctx := val.ClientCtx
 
-	fields := []string{"xyz", "xyz", "xyz", "xyz", "xyz", "111", "xyz", "111", "111", "null"}
+	fields := []string{"xyz", "xyz", "xyz", "xyz", "111", "xyz", "111", "111", "null"}
 	common := []string{
 		fmt.Sprintf("--%s=%s", flags.FlagFrom, val.Address.String()),
 		fmt.Sprintf("--%s=true", flags.FlagSkipConfirmation),
@@ -147,22 +147,22 @@ func TestDeleteRequestRecord(t *testing.T) {
 	require.NoError(t, err)
 
 	for _, tc := range []struct {
-		desc    string
-		idIndex string
+		desc   string
+		idUUID string
 
 		args []string
 		code uint32
 		err  error
 	}{
 		{
-			desc:    "valid",
-			idIndex: strconv.Itoa(0),
+			desc:   "valid",
+			idUUID: strconv.Itoa(0),
 
 			args: common,
 		},
 		{
-			desc:    "key not found",
-			idIndex: strconv.Itoa(100000),
+			desc:   "key not found",
+			idUUID: strconv.Itoa(100000),
 
 			args: common,
 			code: sdkerrors.ErrKeyNotFound.ABCICode(),
@@ -170,7 +170,7 @@ func TestDeleteRequestRecord(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex,
+				tc.idUUID,
 			}
 			args = append(args, tc.args...)
 			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdDeleteRequestRecord(), args)

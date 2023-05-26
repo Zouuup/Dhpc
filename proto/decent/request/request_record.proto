@@ -5,17 +5,16 @@ option go_package = "Decent/x/request/types";
 import "decent/request/miner_response.proto"; 
 
 message RequestRecord {
-  string index = 1; 
-  string uUID = 2; 
-  string tXhash = 3; 
-  string network = 4; 
-  string from = 5; 
-  string address = 6; 
-  int32 score = 7; 
-  string oracle = 8; 
-  int32 block = 9; 
-  int32 stage = 10; 
-  repeated MinerResponse miners = 11; 
-  string creator = 12;
+  string uUID = 1; 
+  string tXhash = 2; 
+  string network = 3; 
+  string from = 4; 
+  string address = 5; 
+  int32 score = 6; 
+  string oracle = 7; 
+  int32 block = 8; 
+  int32 stage = 9; 
+  MinerResponse miners = 10; 
+  string creator = 11;
 }
 

@@ -29,7 +29,7 @@ func networkWithRequestRecordObjects(t *testing.T, n int) (*network.Network, []t
 
 	for i := 0; i < n; i++ {
 		requestRecord := types.RequestRecord{
-			Index: strconv.Itoa(i),
+			UUID: strconv.Itoa(i),
 		}
 		nullify.Fill(&requestRecord)
 		state.RequestRecordList = append(state.RequestRecordList, requestRecord)
@@ -48,23 +48,23 @@ func TestShowRequestRecord(t *testing.T) {
 		fmt.Sprintf("--%s=json", tmcli.OutputFlag),
 	}
 	for _, tc := range []struct {
-		desc    string
-		idIndex string
+		desc   string
+		idUUID string
 
 		args []string
 		err  error
 		obj  types.RequestRecord
 	}{
 		{
-			desc:    "found",
-			idIndex: objs[0].Index,
+			desc:   "found",
+			idUUID: objs[0].UUID,
 
 			args: common,
 			obj:  objs[0],
 		},
 		{
-			desc:    "not found",
-			idIndex: strconv.Itoa(100000),
+			desc:   "not found",
+			idUUID: strconv.Itoa(100000),
 
 			args: common,
 			err:  status.Error(codes.NotFound, "not found"),
@@ -72,7 +72,7 @@ func TestShowRequestRecord(t *testing.T) {
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			args := []string{
-				tc.idIndex,
+				tc.idUUID,
 			}
 			args = append(args, tc.args...)
 			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdShowRequestRecord(), args)

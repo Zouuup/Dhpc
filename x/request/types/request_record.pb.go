@@ -23,18 +23,17 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type RequestRecord struct {
-	Index   string           `protobuf:"bytes,1,opt,name=index,proto3" json:"index,omitempty"`
-	UUID    string           `protobuf:"bytes,2,opt,name=uUID,proto3" json:"uUID,omitempty"`
-	TXhash  string           `protobuf:"bytes,3,opt,name=tXhash,proto3" json:"tXhash,omitempty"`
-	Network string           `protobuf:"bytes,4,opt,name=network,proto3" json:"network,omitempty"`
-	From    string           `protobuf:"bytes,5,opt,name=from,proto3" json:"from,omitempty"`
-	Address string           `protobuf:"bytes,6,opt,name=address,proto3" json:"address,omitempty"`
-	Score   int32            `protobuf:"varint,7,opt,name=score,proto3" json:"score,omitempty"`
-	Oracle  string           `protobuf:"bytes,8,opt,name=oracle,proto3" json:"oracle,omitempty"`
-	Block   int32            `protobuf:"varint,9,opt,name=block,proto3" json:"block,omitempty"`
-	Stage   int32            `protobuf:"varint,10,opt,name=stage,proto3" json:"stage,omitempty"`
-	Miners  []*MinerResponse `protobuf:"bytes,11,rep,name=miners,proto3" json:"miners,omitempty"`
-	Creator string           `protobuf:"bytes,12,opt,name=creator,proto3" json:"creator,omitempty"`
+	UUID    string         `protobuf:"bytes,1,opt,name=uUID,proto3" json:"uUID,omitempty"`
+	TXhash  string         `protobuf:"bytes,2,opt,name=tXhash,proto3" json:"tXhash,omitempty"`
+	Network string         `protobuf:"bytes,3,opt,name=network,proto3" json:"network,omitempty"`
+	From    string         `protobuf:"bytes,4,opt,name=from,proto3" json:"from,omitempty"`
+	Address string         `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
+	Score   int32          `protobuf:"varint,6,opt,name=score,proto3" json:"score,omitempty"`
+	Oracle  string         `protobuf:"bytes,7,opt,name=oracle,proto3" json:"oracle,omitempty"`
+	Block   int32          `protobuf:"varint,8,opt,name=block,proto3" json:"block,omitempty"`
+	Stage   int32          `protobuf:"varint,9,opt,name=stage,proto3" json:"stage,omitempty"`
+	Miners  *MinerResponse `protobuf:"bytes,10,opt,name=miners,proto3" json:"miners,omitempty"`
+	Creator string         `protobuf:"bytes,11,opt,name=creator,proto3" json:"creator,omitempty"`
 }
 
 func (m *RequestRecord) Reset()         { *m = RequestRecord{} }
@@ -69,13 +68,6 @@ func (m *RequestRecord) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_RequestRecord proto.InternalMessageInfo
-
-func (m *RequestRecord) GetIndex() string {
-	if m != nil {
-		return m.Index
-	}
-	return ""
-}
 
 func (m *RequestRecord) GetUUID() string {
 	if m != nil {
@@ -140,7 +132,7 @@ func (m *RequestRecord) GetStage() int32 {
 	return 0
 }
 
-func (m *RequestRecord) GetMiners() []*MinerResponse {
+func (m *RequestRecord) GetMiners() *MinerResponse {
 	if m != nil {
 		return m.Miners
 	}
@@ -163,27 +155,26 @@ func init() {
 }
 
 var fileDescriptor_5dd4093d0ee40417 = []byte{
-	// 315 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x5c, 0x91, 0xcf, 0x4a, 0x03, 0x31,
-	0x10, 0xc6, 0xbb, 0xfd, 0xb3, 0xb5, 0xa9, 0x7a, 0x08, 0x52, 0x06, 0xc1, 0xa5, 0xe8, 0xa5, 0xa7,
-	0x55, 0x14, 0x5f, 0x40, 0x7a, 0xf1, 0xe0, 0x65, 0x41, 0x10, 0x2f, 0x65, 0x9b, 0x1d, 0x6d, 0x69,
-	0xbb, 0xa9, 0x93, 0x14, 0xeb, 0x5b, 0xf8, 0x50, 0x1e, 0x3c, 0xf6, 0xe8, 0x51, 0xba, 0x2f, 0x22,
-	0xc9, 0xc4, 0x82, 0x9e, 0x92, 0x5f, 0xe6, 0xcb, 0x37, 0xc3, 0x37, 0xe2, 0xac, 0x40, 0x85, 0xa5,
-	0x3d, 0x27, 0x7c, 0x59, 0xa1, 0xd9, 0x9d, 0x23, 0x42, 0xa5, 0xa9, 0x48, 0x97, 0xa4, 0xad, 0x96,
-	0x87, 0x2c, 0x4a, 0x43, 0xf1, 0xf8, 0xff, 0xa7, 0xc5, 0xb4, 0x44, 0x1a, 0x11, 0x9a, 0xa5, 0x2e,
-	0x0d, 0xf2, 0xa7, 0xd3, 0x8f, 0xba, 0x38, 0xc8, 0x58, 0x90, 0x79, 0x33, 0x79, 0x24, 0x5a, 0xd3,
-	0xb2, 0xc0, 0x35, 0x44, 0xfd, 0x68, 0xd0, 0xc9, 0x18, 0xa4, 0x14, 0xcd, 0xd5, 0xfd, 0xed, 0x10,
-	0xea, 0xfe, 0xd1, 0xdf, 0x65, 0x4f, 0xc4, 0xf6, 0x61, 0x92, 0x9b, 0x09, 0x34, 0xfc, 0x6b, 0x20,
-	0x09, 0xa2, 0x5d, 0xa2, 0x7d, 0xd5, 0x34, 0x83, 0xa6, 0x2f, 0xfc, 0xa2, 0x73, 0x79, 0x22, 0xbd,
-	0x80, 0x16, 0xbb, 0xb8, 0xbb, 0x53, 0xe7, 0x45, 0x41, 0x68, 0x0c, 0xc4, 0xac, 0x0e, 0xe8, 0x26,
-	0x31, 0x4a, 0x13, 0x42, 0xbb, 0x1f, 0x0d, 0x5a, 0x19, 0x83, 0xeb, 0xaa, 0x29, 0x57, 0x73, 0x84,
-	0x3d, 0xee, 0xca, 0xe4, 0xd4, 0xe3, 0xb9, 0x56, 0x33, 0xe8, 0xb0, 0xda, 0x83, 0xf7, 0xb0, 0xf9,
-	0x33, 0x82, 0x08, 0x1e, 0x0e, 0xe4, 0xb5, 0x88, 0x7d, 0x1a, 0x06, 0xba, 0xfd, 0xc6, 0xa0, 0x7b,
-	0x79, 0x92, 0xfe, 0xcd, 0x2e, 0xbd, 0x73, 0xd5, 0x2c, 0x44, 0x95, 0x05, 0xb1, 0x1b, 0x55, 0x11,
-	0xe6, 0x56, 0x13, 0xec, 0xf3, 0xa8, 0x01, 0x6f, 0x2e, 0x3e, 0xb7, 0x49, 0xb4, 0xd9, 0x26, 0xd1,
-	0xf7, 0x36, 0x89, 0xde, 0xab, 0xa4, 0xb6, 0xa9, 0x92, 0xda, 0x57, 0x95, 0xd4, 0x1e, 0x7b, 0x43,
-	0xde, 0xc2, 0x7a, 0xb7, 0x07, 0xfb, 0xb6, 0x44, 0x33, 0x8e, 0x7d, 0xfe, 0x57, 0x3f, 0x01, 0x00,
-	0x00, 0xff, 0xff, 0xb8, 0xee, 0x1b, 0x14, 0xdb, 0x01, 0x00, 0x00,
+	// 304 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x5c, 0x90, 0xbf, 0x4a, 0x03, 0x41,
+	0x10, 0xc6, 0xb3, 0x31, 0xb9, 0x98, 0x0d, 0x5a, 0x2c, 0x12, 0x06, 0xc1, 0x25, 0x68, 0x93, 0xea,
+	0x14, 0xc5, 0x17, 0x90, 0x34, 0x16, 0x36, 0x0b, 0x82, 0xd8, 0x84, 0xcb, 0xde, 0x68, 0x24, 0xc9,
+	0x6d, 0x9c, 0xdd, 0xa0, 0xbe, 0x85, 0x4f, 0xe2, 0x73, 0x58, 0xa6, 0xb4, 0x94, 0xdc, 0x8b, 0xc8,
+	0xfe, 0x31, 0xa0, 0xd5, 0xcd, 0xef, 0xe6, 0x9b, 0x6f, 0x66, 0x3f, 0x7e, 0x52, 0xa2, 0xc6, 0xca,
+	0x9d, 0x12, 0x3e, 0xaf, 0xd0, 0x6e, 0xbf, 0x63, 0x42, 0x6d, 0xa8, 0xcc, 0x97, 0x64, 0x9c, 0x11,
+	0xfb, 0x51, 0x94, 0xa7, 0xe6, 0xe1, 0xff, 0xa1, 0xc5, 0x53, 0x85, 0x34, 0x26, 0xb4, 0x4b, 0x53,
+	0x59, 0x8c, 0x43, 0xc7, 0x1f, 0x4d, 0xbe, 0xa7, 0xa2, 0x40, 0x05, 0x33, 0x21, 0x78, 0x6b, 0x75,
+	0x7b, 0x3d, 0x02, 0x36, 0x60, 0xc3, 0xae, 0x0a, 0xb5, 0xe8, 0xf3, 0xcc, 0xdd, 0x4d, 0x0b, 0x3b,
+	0x85, 0x66, 0xf8, 0x9b, 0x48, 0x00, 0xef, 0x54, 0xe8, 0x5e, 0x0c, 0xcd, 0x60, 0x27, 0x34, 0x7e,
+	0xd1, 0xbb, 0x3c, 0x90, 0x59, 0x40, 0x2b, 0xba, 0xf8, 0xda, 0xab, 0x8b, 0xb2, 0x24, 0xb4, 0x16,
+	0xda, 0x51, 0x9d, 0x50, 0x1c, 0xf0, 0xb6, 0xd5, 0x86, 0x10, 0xb2, 0x01, 0x1b, 0xb6, 0x55, 0x04,
+	0xbf, 0xd5, 0x50, 0xa1, 0xe7, 0x08, 0x9d, 0xb8, 0x35, 0x92, 0x57, 0x4f, 0xe6, 0x46, 0xcf, 0x60,
+	0x37, 0xaa, 0x03, 0x04, 0x0f, 0x57, 0x3c, 0x22, 0x74, 0x93, 0x87, 0x07, 0x71, 0xc9, 0xb3, 0xf0,
+	0x6e, 0x0b, 0x7c, 0xc0, 0x86, 0xbd, 0xf3, 0xa3, 0xfc, 0x6f, 0x4a, 0xf9, 0x8d, 0xef, 0xaa, 0x14,
+	0x8a, 0x4a, 0x62, 0x7f, 0xaa, 0x26, 0x2c, 0x9c, 0x21, 0xe8, 0xc5, 0x53, 0x13, 0x5e, 0x9d, 0x7d,
+	0x6e, 0x24, 0x5b, 0x6f, 0x24, 0xfb, 0xde, 0x48, 0xf6, 0x5e, 0xcb, 0xc6, 0xba, 0x96, 0x8d, 0xaf,
+	0x5a, 0x36, 0xee, 0xfb, 0xa3, 0x98, 0xf7, 0xeb, 0x36, 0x71, 0xf7, 0xb6, 0x44, 0x3b, 0xc9, 0x42,
+	0xd2, 0x17, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x6a, 0xb0, 0x0d, 0xea, 0xc5, 0x01, 0x00, 0x00,
 }
 
 func (m *RequestRecord) Marshal() (dAtA []byte, err error) {
@@ -211,83 +202,74 @@ func (m *RequestRecord) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		copy(dAtA[i:], m.Creator)
 		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.Creator)))
 		i--
-		dAtA[i] = 0x62
+		dAtA[i] = 0x5a
 	}
-	if len(m.Miners) > 0 {
-		for iNdEx := len(m.Miners) - 1; iNdEx >= 0; iNdEx-- {
-			{
-				size, err := m.Miners[iNdEx].MarshalToSizedBuffer(dAtA[:i])
-				if err != nil {
-					return 0, err
-				}
-				i -= size
-				i = encodeVarintRequestRecord(dAtA, i, uint64(size))
+	if m.Miners != nil {
+		{
+			size, err := m.Miners.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
 			}
-			i--
-			dAtA[i] = 0x5a
+			i -= size
+			i = encodeVarintRequestRecord(dAtA, i, uint64(size))
 		}
+		i--
+		dAtA[i] = 0x52
 	}
 	if m.Stage != 0 {
 		i = encodeVarintRequestRecord(dAtA, i, uint64(m.Stage))
 		i--
-		dAtA[i] = 0x50
+		dAtA[i] = 0x48
 	}
 	if m.Block != 0 {
 		i = encodeVarintRequestRecord(dAtA, i, uint64(m.Block))
 		i--
-		dAtA[i] = 0x48
+		dAtA[i] = 0x40
 	}
 	if len(m.Oracle) > 0 {
 		i -= len(m.Oracle)
 		copy(dAtA[i:], m.Oracle)
 		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.Oracle)))
 		i--
-		dAtA[i] = 0x42
+		dAtA[i] = 0x3a
 	}
 	if m.Score != 0 {
 		i = encodeVarintRequestRecord(dAtA, i, uint64(m.Score))
 		i--
-		dAtA[i] = 0x38
+		dAtA[i] = 0x30
 	}
 	if len(m.Address) > 0 {
 		i -= len(m.Address)
 		copy(dAtA[i:], m.Address)
 		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.Address)))
 		i--
-		dAtA[i] = 0x32
+		dAtA[i] = 0x2a
 	}
 	if len(m.From) > 0 {
 		i -= len(m.From)
 		copy(dAtA[i:], m.From)
 		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.From)))
 		i--
-		dAtA[i] = 0x2a
+		dAtA[i] = 0x22
 	}
 	if len(m.Network) > 0 {
 		i -= len(m.Network)
 		copy(dAtA[i:], m.Network)
 		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.Network)))
 		i--
-		dAtA[i] = 0x22
+		dAtA[i] = 0x1a
 	}
 	if len(m.TXhash) > 0 {
 		i -= len(m.TXhash)
 		copy(dAtA[i:], m.TXhash)
 		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.TXhash)))
 		i--
-		dAtA[i] = 0x1a
+		dAtA[i] = 0x12
 	}
 	if len(m.UUID) > 0 {
 		i -= len(m.UUID)
 		copy(dAtA[i:], m.UUID)
 		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.UUID)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Index) > 0 {
-		i -= len(m.Index)
-		copy(dAtA[i:], m.Index)
-		i = encodeVarintRequestRecord(dAtA, i, uint64(len(m.Index)))
 		i--
 		dAtA[i] = 0xa
 	}
@@ -311,10 +293,6 @@ func (m *RequestRecord) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Index)
-	if l > 0 {
-		n += 1 + l + sovRequestRecord(uint64(l))
-	}
 	l = len(m.UUID)
 	if l > 0 {
 		n += 1 + l + sovRequestRecord(uint64(l))
@@ -348,11 +326,9 @@ func (m *RequestRecord) Size() (n int) {
 	if m.Stage != 0 {
 		n += 1 + sovRequestRecord(uint64(m.Stage))
 	}
-	if len(m.Miners) > 0 {
-		for _, e := range m.Miners {
-			l = e.Size()
-			n += 1 + l + sovRequestRecord(uint64(l))
-		}
+	if m.Miners != nil {
+		l = m.Miners.Size()
+		n += 1 + l + sovRequestRecord(uint64(l))
 	}
 	l = len(m.Creator)
 	if l > 0 {
@@ -398,38 +374,6 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowRequestRecord
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthRequestRecord
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthRequestRecord
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Index = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field UUID", wireType)
 			}
 			var stringLen uint64
@@ -460,7 +404,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 			}
 			m.UUID = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 3:
+		case 2:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field TXhash", wireType)
 			}
@@ -492,7 +436,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 			}
 			m.TXhash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 4:
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Network", wireType)
 			}
@@ -524,7 +468,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 			}
 			m.Network = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 5:
+		case 4:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field From", wireType)
 			}
@@ -556,7 +500,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 			}
 			m.From = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 6:
+		case 5:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
 			}
@@ -588,7 +532,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 			}
 			m.Address = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 7:
+		case 6:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Score", wireType)
 			}
@@ -607,7 +551,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
-		case 8:
+		case 7:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Oracle", wireType)
 			}
@@ -639,7 +583,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 			}
 			m.Oracle = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 9:
+		case 8:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Block", wireType)
 			}
@@ -658,7 +602,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
-		case 10:
+		case 9:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Stage", wireType)
 			}
@@ -677,7 +621,7 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
-		case 11:
+		case 10:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Miners", wireType)
 			}
@@ -706,12 +650,14 @@ func (m *RequestRecord) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Miners = append(m.Miners, &MinerResponse{})
-			if err := m.Miners[len(m.Miners)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if m.Miners == nil {
+				m.Miners = &MinerResponse{}
+			}
+			if err := m.Miners.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
-		case 12:
+		case 11:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
 			}

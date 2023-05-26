@@ -22,22 +22,6 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
 
-				MinerResponseList: []types.MinerResponse{
-					{
-						Index: "0",
-					},
-					{
-						Index: "1",
-					},
-				},
-				RequestRecordList: []types.RequestRecord{
-					{
-						Index: "0",
-					},
-					{
-						Index: "1",
-					},
-				},
 				AllowedOraclesList: []types.AllowedOracles{
 					{
 						Id: 0,
@@ -47,37 +31,25 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				AllowedOraclesCount: 2,
+				MinerResponseList: []types.MinerResponse{
+					{
+						UUID: "0",
+					},
+					{
+						UUID: "1",
+					},
+				},
+				RequestRecordList: []types.RequestRecord{
+					{
+						UUID: "0",
+					},
+					{
+						UUID: "1",
+					},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
-		},
-		{
-			desc: "duplicated minerResponse",
-			genState: &types.GenesisState{
-				MinerResponseList: []types.MinerResponse{
-					{
-						Index: "0",
-					},
-					{
-						Index: "0",
-					},
-				},
-			},
-			valid: false,
-		},
-		{
-			desc: "duplicated requestRecord",
-			genState: &types.GenesisState{
-				RequestRecordList: []types.RequestRecord{
-					{
-						Index: "0",
-					},
-					{
-						Index: "0",
-					},
-				},
-			},
-			valid: false,
 		},
 		{
 			desc: "duplicated allowedOracles",
@@ -102,6 +74,34 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				AllowedOraclesCount: 0,
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated minerResponse",
+			genState: &types.GenesisState{
+				MinerResponseList: []types.MinerResponse{
+					{
+						UUID: "0",
+					},
+					{
+						UUID: "0",
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated requestRecord",
+			genState: &types.GenesisState{
+				RequestRecordList: []types.RequestRecord{
+					{
+						UUID: "0",
+					},
+					{
+						UUID: "0",
+					},
+				},
 			},
 			valid: false,
 		},

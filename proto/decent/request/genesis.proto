@@ -4,18 +4,18 @@ package decent.request;
 
 import "gogoproto/gogo.proto";
 import "decent/request/params.proto";
+import "decent/request/allowed_oracles.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
-import "decent/request/allowed_oracles.proto";
 
 option go_package = "Decent/x/request/types";
 
 // GenesisState defines the request module's genesis state.
 message GenesisState {
            Params         params              = 1 [(gogoproto.nullable) = false];
-  repeated MinerResponse  minerResponseList   = 2 [(gogoproto.nullable) = false];
-  repeated RequestRecord  requestRecordList   = 3 [(gogoproto.nullable) = false];
-  repeated AllowedOracles allowedOraclesList  = 4 [(gogoproto.nullable) = false];
-           uint64         allowedOraclesCount = 5;
+  repeated AllowedOracles allowedOraclesList  = 2 [(gogoproto.nullable) = false];
+           uint64         allowedOraclesCount = 3;
+  repeated MinerResponse  minerResponseList   = 4 [(gogoproto.nullable) = false];
+  repeated RequestRecord  requestRecordList   = 5 [(gogoproto.nullable) = false];
 }
 

@@ -31,21 +31,21 @@ func TestRequestRecordQuerySingle(t *testing.T) {
 		{
 			desc: "First",
 			request: &types.QueryGetRequestRecordRequest{
-				Index: msgs[0].Index,
+				UUID: msgs[0].UUID,
 			},
 			response: &types.QueryGetRequestRecordResponse{RequestRecord: msgs[0]},
 		},
 		{
 			desc: "Second",
 			request: &types.QueryGetRequestRecordRequest{
-				Index: msgs[1].Index,
+				UUID: msgs[1].UUID,
 			},
 			response: &types.QueryGetRequestRecordResponse{RequestRecord: msgs[1]},
 		},
 		{
 			desc: "KeyNotFound",
 			request: &types.QueryGetRequestRecordRequest{
-				Index: strconv.Itoa(100000),
+				UUID: strconv.Itoa(100000),
 			},
 			err: status.Error(codes.NotFound, "not found"),
 		},

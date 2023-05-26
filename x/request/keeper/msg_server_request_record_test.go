@@ -23,12 +23,12 @@ func TestRequestRecordMsgServerCreate(t *testing.T) {
 	creator := "A"
 	for i := 0; i < 5; i++ {
 		expected := &types.MsgCreateRequestRecord{Creator: creator,
-			Index: strconv.Itoa(i),
+			UUID: strconv.Itoa(i),
 		}
 		_, err := srv.CreateRequestRecord(wctx, expected)
 		require.NoError(t, err)
 		rst, found := k.GetRequestRecord(ctx,
-			expected.Index,
+			expected.UUID,
 		)
 		require.True(t, found)
 		require.Equal(t, expected.Creator, rst.Creator)
@@ -46,20 +46,20 @@ func TestRequestRecordMsgServerUpdate(t *testing.T) {
 		{
 			desc: "Completed",
 			request: &types.MsgUpdateRequestRecord{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 		},
 		{
 			desc: "Unauthorized",
 			request: &types.MsgUpdateRequestRecord{Creator: "B",
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 			err: sdkerrors.ErrUnauthorized,
 		},
 		{
 			desc: "KeyNotFound",
 			request: &types.MsgUpdateRequestRecord{Creator: creator,
-				Index: strconv.Itoa(100000),
+				UUID: strconv.Itoa(100000),
 			},
 			err: sdkerrors.ErrKeyNotFound,
 		},
@@ -69,7 +69,7 @@ func TestRequestRecordMsgServerUpdate(t *testing.T) {
 			srv := keeper.NewMsgServerImpl(*k)
 			wctx := sdk.WrapSDKContext(ctx)
 			expected := &types.MsgCreateRequestRecord{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			}
 			_, err := srv.CreateRequestRecord(wctx, expected)
 			require.NoError(t, err)
@@ -80,7 +80,7 @@ func TestRequestRecordMsgServerUpdate(t *testing.T) {
 			} else {
 				require.NoError(t, err)
 				rst, found := k.GetRequestRecord(ctx,
-					expected.Index,
+					expected.UUID,
 				)
 				require.True(t, found)
 				require.Equal(t, expected.Creator, rst.Creator)
@@ -100,20 +100,20 @@ func TestRequestRecordMsgServerDelete(t *testing.T) {
 		{
 			desc: "Completed",
 			request: &types.MsgDeleteRequestRecord{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 		},
 		{
 			desc: "Unauthorized",
 			request: &types.MsgDeleteRequestRecord{Creator: "B",
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			},
 			err: sdkerrors.ErrUnauthorized,
 		},
 		{
 			desc: "KeyNotFound",
 			request: &types.MsgDeleteRequestRecord{Creator: creator,
-				Index: strconv.Itoa(100000),
+				UUID: strconv.Itoa(100000),
 			},
 			err: sdkerrors.ErrKeyNotFound,
 		},
@@ -124,7 +124,7 @@ func TestRequestRecordMsgServerDelete(t *testing.T) {
 			wctx := sdk.WrapSDKContext(ctx)
 
 			_, err := srv.CreateRequestRecord(wctx, &types.MsgCreateRequestRecord{Creator: creator,
-				Index: strconv.Itoa(0),
+				UUID: strconv.Itoa(0),
 			})
 			require.NoError(t, err)
 			_, err = srv.DeleteRequestRecord(wctx, tc.request)
@@ -133,7 +133,7 @@ func TestRequestRecordMsgServerDelete(t *testing.T) {
 			} else {
 				require.NoError(t, err)
 				_, found := k.GetRequestRecord(ctx,
-					tc.request.Index,
+					tc.request.UUID,
 				)
 				require.False(t, found)
 			}
