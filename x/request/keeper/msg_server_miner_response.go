@@ -28,7 +28,7 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		Hash:        msg.Hash,
 		Answer:      msg.Answer,
 	}
-	requestRecord, isFound := k.GetRequestRecord(ctx, msg.UUID)
+	requestRecord, isFound := k.GetRequestRecord(ctx, msg.RequestUUID)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
 	}
@@ -38,11 +38,8 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	}
 
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
+	k.SetRequestRecord(ctx, requestRecord)
 
-	// k.SetMinerResponse(
-	// 	ctx,
-	// 	minerResponse,
-	// )
 	return &types.MsgCreateMinerResponseResponse{}, nil
 }
 
@@ -63,7 +60,8 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
-	requestRecord, isFound := k.GetRequestRecord(ctx, msg.UUID)
+	requestRecord, isFound := k.GetRequestRecord(ctx, msg.RequestUUID)
+
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
 	}
