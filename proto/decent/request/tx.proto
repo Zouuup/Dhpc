@@ -64,6 +64,7 @@ message MsgUpdateMinerResponse {
   string hash        = 4;
   int32  answer      = 5;
   string dataUsed    = 6;
+  int32  salt        = 7;
 }
 
 message MsgUpdateMinerResponseResponse {}

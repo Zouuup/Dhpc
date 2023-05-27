@@ -34424,6 +34424,9 @@ paths:
                       type: string
                     dataUsed:
                       type: string
+                    salt:
+                      type: integer
+                      format: int32
               pagination:
                 type: object
                 properties:
@@ -34555,6 +34558,9 @@ paths:
                     type: string
                   dataUsed:
                     type: string
+                  salt:
+                    type: integer
+                    format: int32
         default:
           description: An unexpected error response.
           schema:
@@ -34669,6 +34675,9 @@ paths:
                             type: string
                           dataUsed:
                             type: string
+                          salt:
+                            type: integer
+                            format: int32
                     creator:
                       type: string
               pagination:
@@ -34828,6 +34837,9 @@ paths:
                           type: string
                         dataUsed:
                           type: string
+                        salt:
+                          type: integer
+                          format: int32
                   creator:
                     type: string
         default:
@@ -71968,6 +71980,9 @@ definitions:
         type: string
       dataUsed:
         type: string
+      salt:
+        type: integer
+        format: int32
   decent.request.MsgCreateAllowedOraclesResponse:
     type: object
     properties:
@@ -72057,6 +72072,9 @@ definitions:
               type: string
             dataUsed:
               type: string
+            salt:
+              type: integer
+              format: int32
       pagination:
         type: object
         properties:
@@ -72130,6 +72148,9 @@ definitions:
                     type: string
                   dataUsed:
                     type: string
+                  salt:
+                    type: integer
+                    format: int32
             creator:
               type: string
       pagination:
@@ -72192,6 +72213,9 @@ definitions:
             type: string
           dataUsed:
             type: string
+          salt:
+            type: integer
+            format: int32
   decent.request.QueryGetRequestRecordResponse:
     type: object
     properties:
@@ -72237,6 +72261,9 @@ definitions:
                   type: string
                 dataUsed:
                   type: string
+                salt:
+                  type: integer
+                  format: int32
           creator:
             type: string
   decent.request.QueryParamsResponse:
@@ -72288,6 +72315,9 @@ definitions:
               type: string
             dataUsed:
               type: string
+            salt:
+              type: integer
+              format: int32
       creator:
         type: string
   decent.user.LinkedRequesters:

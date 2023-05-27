@@ -89,6 +89,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		Hash:        msg.Hash,
 		Answer:      msg.Answer,
 		DataUsed:    msg.DataUsed,
+		Salt:        msg.Salt,
 	}
 
 	for i, miner := range requestRecord.Miners {

@@ -10,5 +10,6 @@ message MinerResponse {
   int32 answer = 4; 
   string creator = 5;
   string dataUsed = 6;
+  int32 salt = 7;
 }
 
