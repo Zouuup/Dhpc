@@ -102,13 +102,16 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	for _, miner := range requestRecord.Miners {
 		if miner.GetAnswer() != 0 {
 			// TODO: make sure hash matches the answer
+			// IMPORTANT TODO: in fact it's crucial that we pay all miners as soon as we find a hash matching most of the answers, if we don't do this, bad players
+			// will copy both hash and answers from other miners and will get paid without doing any work
 			nonZeroAnswerMiners = append(nonZeroAnswerMiners, *miner)
 		}
 	}
 	// if the number of miners who have responded with non zero answer is more than 2/3 of the total number of miners, then change the stage to 2
 	if len(nonZeroAnswerMiners) > (len(requestRecord.Miners) * 2 / 3) {
-		// if requestrecord block is older than 3 blocks compared to current block, proceed
-		if ctx.BlockHeight() > int64(requestRecord.GetBlock())+3 {
+		// if requestrecord block is older than 5 blocks compared to current block, proceed
+		// TODO: 5 blocks is arbitrary, should be configurable
+		if ctx.BlockHeight() > int64(requestRecord.GetBlock())+5 {
 			requestRecord.Stage = 2
 			k.SetRequestRecord(ctx, requestRecord)
 
