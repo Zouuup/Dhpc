@@ -112,6 +112,7 @@ import (
 	usermodule "Decent/x/user"
 	usermodulekeeper "Decent/x/user/keeper"
 	usermoduletypes "Decent/x/user/types"
+
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
 	appparams "Decent/app/params"

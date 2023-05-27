@@ -43,11 +43,16 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		}
 	}
 
+	if requestRecord.GetScore() != 0 {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Score must be set to zero at this stage")
+	}
+
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 	k.SetRequestRecord(ctx, requestRecord)
 
 	// if number of numbers of miners is more than 2/3 of the total number of miners, then change the stage to 1
-	if len(requestRecord.Miners) > (1) {
+	// TODO: value should come from the configuration
+	if len(requestRecord.Miners) > (2) {
 		requestRecord.Stage = 1
 		k.SetRequestRecord(ctx, requestRecord)
 	}
@@ -68,6 +73,10 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 
 	if valFound.GetStage() != 1 {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage one, cannot add miner response")
+	}
+
+	if valFound.GetScore() == 0 {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Score can not be zero at this stage")
 	}
 
 	var minerResponse = types.MinerResponse{
