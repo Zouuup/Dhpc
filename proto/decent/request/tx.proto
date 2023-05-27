@@ -52,6 +52,7 @@ message MsgCreateMinerResponse {
   string requestUUID = 3;
   string hash        = 4;
   int32  answer      = 5;
+  string dataUsed    = 6;
 }
 
 message MsgCreateMinerResponseResponse {}
@@ -62,6 +63,7 @@ message MsgUpdateMinerResponse {
   string requestUUID = 3;
   string hash        = 4;
   int32  answer      = 5;
+  string dataUsed    = 6;
 }
 
 message MsgUpdateMinerResponseResponse {}

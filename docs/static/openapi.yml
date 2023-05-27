@@ -34422,7 +34422,7 @@ paths:
                       format: int32
                     creator:
                       type: string
-                    dataused:
+                    dataUsed:
                       type: string
               pagination:
                 type: object
@@ -34553,7 +34553,7 @@ paths:
                     format: int32
                   creator:
                     type: string
-                  dataused:
+                  dataUsed:
                     type: string
         default:
           description: An unexpected error response.
@@ -34667,7 +34667,7 @@ paths:
                             format: int32
                           creator:
                             type: string
-                          dataused:
+                          dataUsed:
                             type: string
                     creator:
                       type: string
@@ -34826,7 +34826,7 @@ paths:
                           format: int32
                         creator:
                           type: string
-                        dataused:
+                        dataUsed:
                           type: string
                   creator:
                     type: string
@@ -71966,7 +71966,7 @@ definitions:
         format: int32
       creator:
         type: string
-      dataused:
+      dataUsed:
         type: string
   decent.request.MsgCreateAllowedOraclesResponse:
     type: object
@@ -72055,7 +72055,7 @@ definitions:
               format: int32
             creator:
               type: string
-            dataused:
+            dataUsed:
               type: string
       pagination:
         type: object
@@ -72128,7 +72128,7 @@ definitions:
                     format: int32
                   creator:
                     type: string
-                  dataused:
+                  dataUsed:
                     type: string
             creator:
               type: string
@@ -72190,7 +72190,7 @@ definitions:
             format: int32
           creator:
             type: string
-          dataused:
+          dataUsed:
             type: string
   decent.request.QueryGetRequestRecordResponse:
     type: object
@@ -72235,7 +72235,7 @@ definitions:
                   format: int32
                 creator:
                   type: string
-                dataused:
+                dataUsed:
                   type: string
           creator:
             type: string
@@ -72286,7 +72286,7 @@ definitions:
               format: int32
             creator:
               type: string
-            dataused:
+            dataUsed:
               type: string
       creator:
         type: string

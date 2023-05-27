@@ -2,11 +2,13 @@ package keeper
 
 import (
 	"context"
+	"strconv"
 
 	"Decent/x/request/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/tendermint/crypto/sha3"
 )
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
@@ -27,6 +29,7 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		RequestUUID: msg.RequestUUID,
 		Hash:        msg.Hash,
 		Answer:      msg.Answer,
+		DataUsed:    msg.DataUsed,
 	}
 	requestRecord, isFound := k.GetRequestRecord(ctx, msg.RequestUUID)
 	if !isFound {
@@ -85,6 +88,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		RequestUUID: msg.RequestUUID,
 		Hash:        msg.Hash,
 		Answer:      msg.Answer,
+		DataUsed:    msg.DataUsed,
 	}
 
 	for i, miner := range requestRecord.Miners {
@@ -101,10 +105,18 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	var nonZeroAnswerMiners []types.MinerResponse
 	for _, miner := range requestRecord.Miners {
 		if miner.GetAnswer() != 0 {
-			// TODO: make sure hash matches the answer
 			// IMPORTANT TODO: in fact it's crucial that we pay all miners as soon as we find a hash matching most of the answers, if we don't do this, bad players
 			// will copy both hash and answers from other miners and will get paid without doing any work
-			nonZeroAnswerMiners = append(nonZeroAnswerMiners, *miner)
+
+			// check if the hash matches the answer, hash should be sha3 of the answer
+			h := sha3.New256()
+			h.Write([]byte(strconv.Itoa(int(miner.Answer))))
+			answerHash := string(h.Sum(nil))
+			if miner.GetHash() == answerHash {
+				nonZeroAnswerMiners = append(nonZeroAnswerMiners, *miner)
+			} else {
+				return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Hash does not match the answer")
+			}
 		}
 	}
 	// if the number of miners who have responded with non zero answer is more than 2/3 of the total number of miners, then change the stage to 2

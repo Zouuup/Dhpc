@@ -2,6 +2,7 @@ package cli
 
 import (
 	"Decent/x/request/types"
+
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -11,9 +12,9 @@ import (
 
 func CmdCreateMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-miner-response [uuid] [request-uuid] [hash] [answer]",
+		Use:   "create-miner-response [uuid] [request-uuid] [hash] [answer] [dataUsed]",
 		Short: "Create a new minerResponse",
-		Args:  cobra.ExactArgs(4),
+		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
 			indexUUID := args[0]
@@ -30,6 +31,7 @@ func CmdCreateMinerResponse() *cobra.Command {
 			if err != nil {
 				return err
 			}
+			argDataUsed := args[4]
 
 			msg := types.NewMsgCreateMinerResponse(
 				clientCtx.GetFromAddress().String(),
@@ -37,6 +39,7 @@ func CmdCreateMinerResponse() *cobra.Command {
 				argRequestUUID,
 				argHash,
 				argAnswer,
+				argDataUsed,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
@@ -66,6 +69,7 @@ func CmdUpdateMinerResponse() *cobra.Command {
 			if err != nil {
 				return err
 			}
+			argDataUsed := args[4]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -78,6 +82,7 @@ func CmdUpdateMinerResponse() *cobra.Command {
 				argRequestUUID,
 				argHash,
 				argAnswer,
+				argDataUsed,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

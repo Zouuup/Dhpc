@@ -28,7 +28,7 @@ type MinerResponse struct {
 	Hash        string `protobuf:"bytes,3,opt,name=hash,proto3" json:"hash,omitempty"`
 	Answer      int32  `protobuf:"varint,4,opt,name=answer,proto3" json:"answer,omitempty"`
 	Creator     string `protobuf:"bytes,5,opt,name=creator,proto3" json:"creator,omitempty"`
-	Dataused    string `protobuf:"bytes,6,opt,name=dataused,proto3" json:"dataused,omitempty"`
+	DataUsed    string `protobuf:"bytes,6,opt,name=dataUsed,proto3" json:"dataUsed,omitempty"`
 }
 
 func (m *MinerResponse) Reset()         { *m = MinerResponse{} }
@@ -99,9 +99,9 @@ func (m *MinerResponse) GetCreator() string {
 	return ""
 }
 
-func (m *MinerResponse) GetDataused() string {
+func (m *MinerResponse) GetDataUsed() string {
 	if m != nil {
-		return m.Dataused
+		return m.DataUsed
 	}
 	return ""
 }
@@ -125,11 +125,11 @@ var fileDescriptor_d5e8810e07127561 = []byte{
 	0x20, 0x5d, 0x19, 0x89, 0xc5, 0x19, 0x12, 0xcc, 0x10, 0x5d, 0x20, 0xb6, 0x90, 0x18, 0x17, 0x5b,
 	0x62, 0x5e, 0x71, 0x79, 0x6a, 0x91, 0x04, 0x8b, 0x02, 0xa3, 0x06, 0x6b, 0x10, 0x94, 0x27, 0x24,
 	0xc1, 0xc5, 0x9e, 0x5c, 0x94, 0x9a, 0x58, 0x92, 0x5f, 0x24, 0xc1, 0x0a, 0x56, 0x0e, 0xe3, 0x0a,
-	0x49, 0x71, 0x71, 0xa4, 0x24, 0x96, 0x24, 0x96, 0x16, 0xa7, 0xa6, 0x48, 0xb0, 0x81, 0xa5, 0xe0,
+	0x49, 0x71, 0x71, 0xa4, 0x24, 0x96, 0x24, 0x86, 0x16, 0xa7, 0xa6, 0x48, 0xb0, 0x81, 0xa5, 0xe0,
 	0x7c, 0x27, 0x83, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71,
 	0xc2, 0x63, 0x39, 0x86, 0x0b, 0x8f, 0xe5, 0x18, 0x6e, 0x3c, 0x96, 0x63, 0x88, 0x12, 0x73, 0x81,
 	0x78, 0xbc, 0x02, 0xee, 0xf5, 0x92, 0xca, 0x82, 0xd4, 0xe2, 0x24, 0x36, 0xb0, 0x97, 0x8d, 0x01,
-	0x01, 0x00, 0x00, 0xff, 0xff, 0xcf, 0x66, 0xb6, 0xd6, 0x19, 0x01, 0x00, 0x00,
+	0x01, 0x00, 0x00, 0xff, 0xff, 0x63, 0x87, 0xe4, 0x17, 0x19, 0x01, 0x00, 0x00,
 }
 
 func (m *MinerResponse) Marshal() (dAtA []byte, err error) {
@@ -152,10 +152,10 @@ func (m *MinerResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Dataused) > 0 {
-		i -= len(m.Dataused)
-		copy(dAtA[i:], m.Dataused)
-		i = encodeVarintMinerResponse(dAtA, i, uint64(len(m.Dataused)))
+	if len(m.DataUsed) > 0 {
+		i -= len(m.DataUsed)
+		copy(dAtA[i:], m.DataUsed)
+		i = encodeVarintMinerResponse(dAtA, i, uint64(len(m.DataUsed)))
 		i--
 		dAtA[i] = 0x32
 	}
@@ -231,7 +231,7 @@ func (m *MinerResponse) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovMinerResponse(uint64(l))
 	}
-	l = len(m.Dataused)
+	l = len(m.DataUsed)
 	if l > 0 {
 		n += 1 + l + sovMinerResponse(uint64(l))
 	}
@@ -422,7 +422,7 @@ func (m *MinerResponse) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 6:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Dataused", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field DataUsed", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -450,7 +450,7 @@ func (m *MinerResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Dataused = string(dAtA[iNdEx:postIndex])
+			m.DataUsed = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
