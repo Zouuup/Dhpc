@@ -34,11 +34,23 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	}
 
 	if requestRecord.GetStage() != 0 {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in zero stage, cannot add miner response")
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage zero, cannot add miner response")
+	}
+
+	for _, miner := range requestRecord.Miners {
+		if miner.GetCreator() == msg.Creator {
+			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Miner already responded to this request")
+		}
 	}
 
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 	k.SetRequestRecord(ctx, requestRecord)
+
+	// if number of numbers of miners is more than 2/3 of the total number of miners, then change the stage to 1
+	if len(requestRecord.Miners) > (1) {
+		requestRecord.Stage = 1
+		k.SetRequestRecord(ctx, requestRecord)
+	}
 
 	return &types.MsgCreateMinerResponseResponse{}, nil
 }
@@ -46,28 +58,16 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpdateMinerResponse) (*types.MsgUpdateMinerResponseResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	// Check if the value exists
-	valFound, isFound := k.GetMinerResponse(
+	valFound, isFound := k.GetRequestRecord(
 		ctx,
-		msg.UUID,
+		msg.RequestUUID,
 	)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
 	}
 
-	// Checks if the the msg creator is the same as the current owner
-	if msg.Creator != valFound.Creator {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
-	}
-
-	requestRecord, isFound := k.GetRequestRecord(ctx, msg.RequestUUID)
-
-	if !isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
-	}
-
-	if requestRecord.GetStage() != 1 {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in zero stage, cannot add miner response")
+	if valFound.GetStage() != 1 {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage one, cannot add miner response")
 	}
 
 	var minerResponse = types.MinerResponse{
@@ -78,7 +78,14 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		Answer:      msg.Answer,
 	}
 
-	k.SetMinerResponse(ctx, minerResponse)
+	for i, miner := range valFound.Miners {
+		if miner.GetCreator() == msg.Creator {
+			valFound.Miners = append(valFound.Miners[:i], valFound.Miners[i+1:]...)
+			valFound.Miners = append(valFound.Miners, &minerResponse)
+			k.SetRequestRecord(ctx, valFound)
+			break
+		}
+	}
 
 	return &types.MsgUpdateMinerResponseResponse{}, nil
 }
@@ -87,7 +94,7 @@ func (k msgServer) DeleteMinerResponse(goCtx context.Context, msg *types.MsgDele
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	// Check if the value exists
-	valFound, isFound := k.GetMinerResponse(
+	valFound, isFound := k.GetRequestRecord(
 		ctx,
 		msg.UUID,
 	)
@@ -100,10 +107,13 @@ func (k msgServer) DeleteMinerResponse(goCtx context.Context, msg *types.MsgDele
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
-	k.RemoveMinerResponse(
-		ctx,
-		msg.UUID,
-	)
+	for i, miner := range valFound.Miners {
+		if miner.GetCreator() == msg.Creator {
+			valFound.Miners = append(valFound.Miners[:i], valFound.Miners[i+1:]...)
+			k.SetRequestRecord(ctx, valFound)
+			break
+		}
+	}
 
 	return &types.MsgDeleteMinerResponseResponse{}, nil
 }
