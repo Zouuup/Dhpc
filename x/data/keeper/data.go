@@ -2,6 +2,7 @@ package keeper
 
 import (
 	"Decent/x/data/types"
+
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
@@ -70,4 +71,22 @@ func (k Keeper) GetAllData(ctx sdk.Context) (list []types.Data) {
 	}
 
 	return
+}
+
+// GetAllData returns all data
+func (k Keeper) GetDataByUUID(ctx sdk.Context, uuid string) (bool, types.Data) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.DataKeyPrefix))
+	iterator := sdk.KVStorePrefixIterator(store, []byte{})
+
+	defer iterator.Close()
+
+	for ; iterator.Valid(); iterator.Next() {
+		var val types.Data
+		k.cdc.MustUnmarshal(iterator.Value(), &val)
+		if val.Uuid == uuid {
+			return true, val
+		}
+	}
+
+	return false, types.Data{}
 }

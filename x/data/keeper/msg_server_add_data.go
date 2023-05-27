@@ -6,6 +6,7 @@ import (
 	"Decent/x/data/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/google/uuid"
 )
 
 func (k msgServer) AddData(goCtx context.Context, msg *types.MsgAddData) (*types.MsgAddDataResponse, error) {
@@ -19,6 +20,7 @@ func (k msgServer) AddData(goCtx context.Context, msg *types.MsgAddData) (*types
 	data.Score = msg.Score
 	data.DateAdded = uint64(ctx.BlockTime().Unix())
 	data.DateUpdated = uint64(ctx.BlockTime().Unix())
+	data.Uuid = uuid.New().String()
 
 	k.SetData(ctx, *data)
 

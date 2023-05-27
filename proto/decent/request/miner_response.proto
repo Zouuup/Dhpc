@@ -9,5 +9,6 @@ message MinerResponse {
   string hash = 3; 
   int32 answer = 4; 
   string creator = 5;
+  string dataused = 6;
 }
 

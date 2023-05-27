@@ -101,6 +101,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	var nonZeroAnswerMiners []types.MinerResponse
 	for _, miner := range requestRecord.Miners {
 		if miner.GetAnswer() != 0 {
+			// TODO: make sure hash matches the answer
 			nonZeroAnswerMiners = append(nonZeroAnswerMiners, *miner)
 		}
 	}

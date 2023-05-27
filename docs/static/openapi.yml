@@ -34010,6 +34010,8 @@ paths:
                     hit:
                       type: string
                       format: uint64
+                    uuid:
+                      type: string
               pagination:
                 type: object
                 properties:
@@ -34148,6 +34150,8 @@ paths:
                   hit:
                     type: string
                     format: uint64
+                  uuid:
+                    type: string
         default:
           description: An unexpected error response.
           schema:
@@ -34418,6 +34422,8 @@ paths:
                       format: int32
                     creator:
                       type: string
+                    dataused:
+                      type: string
               pagination:
                 type: object
                 properties:
@@ -34547,6 +34553,8 @@ paths:
                     format: int32
                   creator:
                     type: string
+                  dataused:
+                    type: string
         default:
           description: An unexpected error response.
           schema:
@@ -34658,6 +34666,8 @@ paths:
                             type: integer
                             format: int32
                           creator:
+                            type: string
+                          dataused:
                             type: string
                     creator:
                       type: string
@@ -34815,6 +34825,8 @@ paths:
                           type: integer
                           format: int32
                         creator:
+                          type: string
+                        dataused:
                           type: string
                   creator:
                     type: string
@@ -71828,6 +71840,8 @@ definitions:
       hit:
         type: string
         format: uint64
+      uuid:
+        type: string
   decent.data.MsgAddDataResponse:
     type: object
   decent.data.MsgDeleteDataResponse:
@@ -71863,6 +71877,8 @@ definitions:
             hit:
               type: string
               format: uint64
+            uuid:
+              type: string
       pagination:
         type: object
         properties:
@@ -71915,6 +71931,8 @@ definitions:
           hit:
             type: string
             format: uint64
+          uuid:
+            type: string
   decent.data.QueryParamsResponse:
     type: object
     properties:
@@ -71947,6 +71965,8 @@ definitions:
         type: integer
         format: int32
       creator:
+        type: string
+      dataused:
         type: string
   decent.request.MsgCreateAllowedOraclesResponse:
     type: object
@@ -72035,6 +72055,8 @@ definitions:
               format: int32
             creator:
               type: string
+            dataused:
+              type: string
       pagination:
         type: object
         properties:
@@ -72106,6 +72128,8 @@ definitions:
                     format: int32
                   creator:
                     type: string
+                  dataused:
+                    type: string
             creator:
               type: string
       pagination:
@@ -72166,6 +72190,8 @@ definitions:
             format: int32
           creator:
             type: string
+          dataused:
+            type: string
   decent.request.QueryGetRequestRecordResponse:
     type: object
     properties:
@@ -72208,6 +72234,8 @@ definitions:
                   type: integer
                   format: int32
                 creator:
+                  type: string
+                dataused:
                   type: string
           creator:
             type: string
@@ -72257,6 +72285,8 @@ definitions:
               type: integer
               format: int32
             creator:
+              type: string
+            dataused:
               type: string
       creator:
         type: string
