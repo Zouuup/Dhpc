@@ -11,6 +11,11 @@ import (
 	"github.com/tendermint/crypto/sha3"
 )
 
+const (
+	MinimumMiners = 2
+	BlackWait     = 5
+)
+
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
@@ -53,11 +58,12 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 	k.SetRequestRecord(ctx, requestRecord)
 
-	// if number of numbers of miners is more than 2/3 of the total number of miners, then change the stage to 1
 	// TODO: value should come from the configuration
-	if len(requestRecord.Miners) > (2) {
-		requestRecord.Stage = 1
-		k.SetRequestRecord(ctx, requestRecord)
+	if len(requestRecord.Miners) > (MinimumMiners) {
+		if ctx.BlockHeight() > int64(requestRecord.GetBlock())+BlackWait {
+			requestRecord.Stage = 1
+			k.SetRequestRecord(ctx, requestRecord)
+		}
 	}
 
 	return &types.MsgCreateMinerResponseResponse{}, nil
@@ -76,10 +82,6 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 
 	if requestRecord.GetStage() != 1 {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage one, cannot add miner response")
-	}
-
-	if requestRecord.GetScore() == 0 {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Score can not be zero at this stage")
 	}
 
 	var minerResponse = types.MinerResponse{

@@ -55,9 +55,9 @@ func CmdCreateMinerResponse() *cobra.Command {
 
 func CmdUpdateMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-miner-response [uuid] [request-uuid] [hash] [answer]",
+		Use:   "update-miner-response [uuid] [request-uuid] [hash] [answer] [salt]",
 		Short: "Update a minerResponse",
-		Args:  cobra.ExactArgs(4),
+		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
 			indexUUID := args[0]
@@ -70,6 +70,10 @@ func CmdUpdateMinerResponse() *cobra.Command {
 				return err
 			}
 			argDataUsed := args[4]
+			argSalt, err := cast.ToInt32E(args[5])
+			if err != nil {
+				return err
+			}
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -83,6 +87,7 @@ func CmdUpdateMinerResponse() *cobra.Command {
 				argHash,
 				argAnswer,
 				argDataUsed,
+				argSalt,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

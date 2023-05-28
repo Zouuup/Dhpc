@@ -70,6 +70,7 @@ func NewMsgUpdateMinerResponse(
 	hash string,
 	answer int32,
 	dataUsed string,
+	salt int32,
 
 ) *MsgUpdateMinerResponse {
 	return &MsgUpdateMinerResponse{
@@ -79,6 +80,7 @@ func NewMsgUpdateMinerResponse(
 		Hash:        hash,
 		Answer:      answer,
 		DataUsed:    dataUsed,
+		Salt:        salt,
 	}
 }
 
