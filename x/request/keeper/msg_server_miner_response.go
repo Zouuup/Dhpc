@@ -10,11 +10,14 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/davecgh/go-spew/spew"
 )
 
 const (
-	MinimumMiners = 4
-	BlackWait     = 10
+	MinimumMiners          = 4
+	BlackWait              = 10
+	depositPerRequest      = 10
+	depositPerRequestToken = "10dhpc"
 )
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
@@ -42,6 +45,12 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
 	}
 
+	// stage 0:
+	// on giving answers
+	// if 5 blocks passed since creation record
+	// if at least 10 miners provided response
+	// switch to stage 1
+
 	if requestRecord.GetStage() != 0 {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage zero, cannot add miner response")
 	}
@@ -55,6 +64,8 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	if requestRecord.GetScore() != 0 {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Score must be set to zero at this stage")
 	}
+
+	//TODO: make sure Dataused doesn't have any duplicated fields
 
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 	k.SetRequestRecord(ctx, requestRecord)
@@ -94,6 +105,13 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			break
 		}
 	}
+	// stage 2.0:
+	// start accepting salt and answers
+	// if 5 blocks since switch to stage 1.0
+	// if at least half + 1 miners provided response
+
+	// stage 2.1:
+	// start processing answers and salts, and payments
 
 	minerResponse.Answer = msg.Answer
 	minerResponse.Salt = msg.Salt
@@ -106,7 +124,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		if miner.GetAnswer() != 0 {
 			// IMPORTANT TODO: in fact it's crucial that we pay all miners as soon as we find a hash matching most of the answers, if we don't do this, bad players
 			// will copy both hash and answers from other miners and will get paid without doing any work
-
+			//
 			// check if the hash matches the answer, hash should be sha3 of the answer
 			sum := miner.Answer + miner.Salt
 			sumStr := strconv.Itoa(int(sum))
@@ -122,14 +140,28 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		}
 	}
 	// if the number of miners who have responded with non zero answer is more than 2/3 of the total number of miners, then change the stage to 2
+
 	if len(nonZeroAnswerMiners) > (len(requestRecord.Miners) * 2 / 3) {
 		// if requestrecord block is older than 5 blocks compared to current block, proceed
 		// TODO: 5 blocks is arbitrary, should be configurable
-		if ctx.BlockHeight() > int64(requestRecord.GetBlock())+5 {
+		if ctx.BlockHeight() > int64(requestRecord.GetUpdatedBlock())+BlackWait {
 			requestRecord.Stage = 2
 			k.SetRequestRecord(ctx, requestRecord)
 
+			deposit, err := sdk.ParseCoinNormalized(depositPerRequestToken)
+			if err != nil {
+				return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
+			}
+			// get 40% of the deposit for miners
+			minerAmount := deposit.Amount.MulRaw(40).QuoRaw(100)
+			// get 55% of the deposit for data providers
+			//dataProviderAmount := deposit.Amount.MulRaw(55).QuoRaw(100)
+			// get 5% of the deposit for protocol
+			//protocolAmount := deposit.Amount.MulRaw(5).QuoRaw(100)
+
+			spew.Dump(minerAmount)
 			// TODO: pay reward to miners who have responded with non zero answer
+
 			// TODO: set the score of the request record to the average of the non zero answers
 			// TODO: pay data providers, if a datarecord is specific in all of the miners responses, it should be paid
 		}
