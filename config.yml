@@ -2,39 +2,47 @@ version: 1
 accounts:
   - name: alice
     coins:
-      - 100dhpc
+      - 100000dhpc
       - 20000token
       - 200000000stake
   - name: bob
     coins:
+      - 0dhpc
       - 10000token
       - 100000000stake
   - name: arthur
     coins:
+      - 0dhpc
       - 10000token
       - 100000000stake
   - name: carl
     coins:
+      - 0dhpc
       - 10000token
       - 100000000stake
   - name: issac
     coins:
+      - 0dhpc
       - 10000token
       - 100000000stake
   - name: stan
     coins:
+      - 0dhpc
       - 10000token
       - 100000000stake
   - name: andy
     coins:
+      - 0dhpc
       - 10000token
       - 100000000stake
   - name: bogh
     coins:
+      - 0dhpc
       - 10000token
       - 100000000stake
   - name: oracle
     coins:
+      - 0dhpc
       - 100token
       - 100stake
 client:
@@ -43,7 +51,7 @@ client:
 faucet:
   name: bob
   coins:
-    - 100000dhpc
+    - 10000000dhpc
     - 5token
     - 100000stake
 validators:

@@ -10,14 +10,12 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/davecgh/go-spew/spew"
 )
 
 const (
-	MinimumMiners          = 4
+	MinimumMiners          = 5
 	BlackWait              = 10
-	depositPerRequest      = 10
-	depositPerRequestToken = "10dhpc"
+	depositPerRequestToken = "1000dhpc"
 )
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
@@ -71,12 +69,10 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	k.SetRequestRecord(ctx, requestRecord)
 
 	// TODO: value should come from the configuration
-	if len(requestRecord.Miners) >= (MinimumMiners) {
-		if ctx.BlockHeight() > int64(requestRecord.GetCreatedBlock())+BlackWait {
-			requestRecord.Stage = 1
-			requestRecord.UpdatedBlock = ctx.BlockHeight()
-			k.SetRequestRecord(ctx, requestRecord)
-		}
+	if len(requestRecord.Miners) >= (MinimumMiners) || ctx.BlockHeight() > int64(requestRecord.GetCreatedBlock())+BlackWait {
+		requestRecord.Stage = 1
+		requestRecord.UpdatedBlock = ctx.BlockHeight()
+		k.SetRequestRecord(ctx, requestRecord)
 	}
 
 	return &types.MsgCreateMinerResponseResponse{}, nil
@@ -120,6 +116,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	// if number of miners responses where answer is not zero is more than 2/3 of the total number of miners, then change the stage to 2
 	// create a list of miners who have responded with non zero answer
 	var nonZeroAnswerMiners []types.MinerResponse
+	var rewardedMiners []types.MinerResponse
 	for _, miner := range requestRecord.Miners {
 		if miner.GetAnswer() != 0 {
 			// IMPORTANT TODO: in fact it's crucial that we pay all miners as soon as we find a hash matching most of the answers, if we don't do this, bad players
@@ -139,32 +136,66 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			}
 		}
 	}
-	// if the number of miners who have responded with non zero answer is more than 2/3 of the total number of miners, then change the stage to 2
+	if len(nonZeroAnswerMiners) > (len(requestRecord.Miners)*2/3) || ctx.BlockHeight() > int64(requestRecord.GetUpdatedBlock())+BlackWait {
 
-	if len(nonZeroAnswerMiners) > (len(requestRecord.Miners) * 2 / 3) {
-		// if requestrecord block is older than 5 blocks compared to current block, proceed
-		// TODO: 5 blocks is arbitrary, should be configurable
-		if ctx.BlockHeight() > int64(requestRecord.GetUpdatedBlock())+BlackWait {
-			requestRecord.Stage = 2
-			k.SetRequestRecord(ctx, requestRecord)
+		// if more than half of the miners have the same answer, then we can switch to stage 2
 
-			deposit, err := sdk.ParseCoinNormalized(depositPerRequestToken)
-			if err != nil {
-				return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
-			}
-			// get 40% of the deposit for miners
-			minerAmount := deposit.Amount.MulRaw(40).QuoRaw(100)
-			// get 55% of the deposit for data providers
-			//dataProviderAmount := deposit.Amount.MulRaw(55).QuoRaw(100)
-			// get 5% of the deposit for protocol
-			//protocolAmount := deposit.Amount.MulRaw(5).QuoRaw(100)
-
-			spew.Dump(minerAmount)
-			// TODO: pay reward to miners who have responded with non zero answer
-
-			// TODO: set the score of the request record to the average of the non zero answers
-			// TODO: pay data providers, if a datarecord is specific in all of the miners responses, it should be paid
+		// Find the most common answer
+		answerCount := make(map[int32]int)
+		for _, miner := range nonZeroAnswerMiners {
+			answerCount[miner.Answer]++
 		}
+		var maxAnswerCount int
+		var maxAnswer int32
+		for answer, count := range answerCount {
+			if count > maxAnswerCount {
+				maxAnswerCount = count
+				maxAnswer = answer
+			}
+		}
+
+		for _, miner := range nonZeroAnswerMiners {
+			if miner.Answer == maxAnswer {
+				rewardedMiners = append(rewardedMiners, miner)
+			}
+		}
+
+		deposit, err := sdk.ParseCoinsNormalized(depositPerRequestToken)
+		if err != nil {
+			return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
+		}
+		// get 40% of the deposit for miners
+		minerAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(40).QuoRaw(100).QuoRaw(int64(len(rewardedMiners))))
+		minerAmount := sdk.NewCoins(minerAmountCoin)
+
+		// get 55% of the deposit for data providers
+		//dataProviderAmount := deposit.Amount.MulRaw(55).QuoRaw(100)
+		// get 5% of the deposit for protocol
+		//protocolAmount := deposit.Amount.MulRaw(5).QuoRaw(100)
+		ctx.Logger().Info("Finishing Request", "miners", len(rewardedMiners), "amount", minerAmount, "UUID", requestRecord.UUID)
+
+		// iterate through nonZeroAnswerMiners and pay each miner amount
+		for _, miner := range rewardedMiners {
+			minerAddress, err := sdk.AccAddressFromBech32(miner.Creator)
+			if err != nil {
+				return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
+			}
+			sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, minerAddress, minerAmount)
+			if sdkError != nil {
+				return nil, sdkError
+			}
+		}
+
+		// switch to Stage 2
+		requestRecord.Stage = 2
+		requestRecord.Score = maxAnswer
+		k.SetRequestRecord(ctx, requestRecord)
+
+		// TODO: pay reward to miners who have responded with non zero answer
+
+		// TODO: set the score of the request record to the average of the non zero answers
+		// TODO: pay data providers, if a datarecord is specific in all of the miners responses, it should be paid
+
 	}
 
 	return &types.MsgUpdateMinerResponseResponse{}, nil

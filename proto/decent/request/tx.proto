@@ -61,9 +61,7 @@ message MsgUpdateMinerResponse {
   string creator     = 1;
   string uUID        = 2;
   string requestUUID = 3;
-  string hash        = 4;
   int32  answer      = 5;
-  string dataUsed    = 6;
   int32  salt        = 7;
 }
 

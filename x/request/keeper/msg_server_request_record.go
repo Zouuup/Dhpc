@@ -50,6 +50,8 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 		CreatedBlock: ctx.BlockHeight(),
 	}
 
+	ctx.Logger().Info("Creating Request record", "UUID", requestRecord.UUID)
+
 	k.SetRequestRecord(
 		ctx,
 		requestRecord,
