@@ -189,6 +189,7 @@ var (
 		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
 		usermoduletypes.ModuleName:     {authtypes.Minter, authtypes.Burner, authtypes.Staking},
 		datamoduletypes.ModuleName:     {authtypes.Minter, authtypes.Burner, authtypes.Staking},
+		requestmoduletypes.ModuleName:  {authtypes.Minter, authtypes.Burner, authtypes.Staking},
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 )
@@ -539,6 +540,8 @@ func New(
 		keys[requestmoduletypes.StoreKey],
 		keys[requestmoduletypes.MemStoreKey],
 		app.GetSubspace(requestmoduletypes.ModuleName),
+		app.AccountKeeper,
+		app.BankKeeper,
 	)
 	requestModule := requestmodule.NewAppModule(appCodec, app.RequestKeeper, app.AccountKeeper, app.BankKeeper)
 

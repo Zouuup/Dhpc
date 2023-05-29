@@ -9,6 +9,10 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
+const (
+	depositPerRequest = "10dhpc"
+)
+
 func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCreateRequestRecord) (*types.MsgCreateRequestRecordResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
@@ -19,6 +23,21 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 	)
 	if isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
+	}
+
+	deposit, err := sdk.ParseCoinsNormalized(depositPerRequest)
+	if err != nil {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
+	}
+
+	from, err := sdk.AccAddressFromBech32(msg.From)
+	if err != nil {
+		panic(err)
+	}
+
+	sdkError := k.bankKeeper.SendCoinsFromAccountToModule(ctx, from, types.ModuleName, deposit)
+	if sdkError != nil {
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to deposit coins for creating request record")
 	}
 
 	var requestRecord = types.RequestRecord{

@@ -13,8 +13,8 @@ import (
 )
 
 const (
-	MinimumMiners = 1
-	BlackWait     = 1
+	MinimumMiners = 4
+	BlackWait     = 10
 )
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
