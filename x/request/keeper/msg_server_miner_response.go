@@ -2,18 +2,19 @@ package keeper
 
 import (
 	"context"
+	"crypto/md5"
+	"encoding/hex"
 	"strconv"
 
 	"Decent/x/request/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/tendermint/crypto/sha3"
 )
 
 const (
-	MinimumMiners = 4
-	BlackWait     = 10
+	MinimumMiners = 1
+	BlackWait     = 1
 )
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
@@ -85,24 +86,18 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage one, cannot add miner response")
 	}
 
-	var minerResponse = types.MinerResponse{
-		Creator:     msg.Creator,
-		UUID:        msg.UUID,
-		RequestUUID: msg.RequestUUID,
-		Hash:        msg.Hash,
-		Answer:      msg.Answer,
-		DataUsed:    msg.DataUsed,
-		Salt:        msg.Salt,
-	}
+	var minerResponse *types.MinerResponse
 
-	for i, miner := range requestRecord.Miners {
+	for _, miner := range requestRecord.Miners {
 		if miner.GetCreator() == msg.Creator {
-			requestRecord.Miners = append(requestRecord.Miners[:i], requestRecord.Miners[i+1:]...)
-			requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
-			k.SetRequestRecord(ctx, requestRecord)
+			minerResponse = miner
 			break
 		}
 	}
+
+	minerResponse.Answer = msg.Answer
+	minerResponse.Salt = msg.Salt
+	k.SetRequestRecord(ctx, requestRecord)
 
 	// if number of miners responses where answer is not zero is more than 2/3 of the total number of miners, then change the stage to 2
 	// create a list of miners who have responded with non zero answer
@@ -113,9 +108,12 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			// will copy both hash and answers from other miners and will get paid without doing any work
 
 			// check if the hash matches the answer, hash should be sha3 of the answer
-			h := sha3.New256()
-			h.Write([]byte(strconv.Itoa(int(miner.Answer))))
-			answerHash := string(h.Sum(nil))
+			sum := miner.Answer + miner.Salt
+			sumStr := strconv.Itoa(int(sum))
+			hasher := md5.New()
+			hasher.Write([]byte(sumStr))
+			answerHash := hex.EncodeToString(hasher.Sum(nil))
+
 			if miner.GetHash() == answerHash {
 				nonZeroAnswerMiners = append(nonZeroAnswerMiners, *miner)
 			} else {
@@ -136,6 +134,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			// TODO: pay data providers, if a datarecord is specific in all of the miners responses, it should be paid
 		}
 	}
+
 	return &types.MsgUpdateMinerResponseResponse{}, nil
 }
 
