@@ -18,7 +18,6 @@ func NewMsgCreateMinerResponse(
 	uUID string,
 	requestUUID string,
 	hash string,
-	answer int32,
 	dataUsed string,
 
 ) *MsgCreateMinerResponse {
@@ -27,7 +26,6 @@ func NewMsgCreateMinerResponse(
 		UUID:        uUID,
 		RequestUUID: requestUUID,
 		Hash:        hash,
-		Answer:      answer,
 		DataUsed:    dataUsed,
 	}
 }
@@ -67,9 +65,7 @@ func NewMsgUpdateMinerResponse(
 	creator string,
 	uUID string,
 	requestUUID string,
-	hash string,
 	answer int32,
-	dataUsed string,
 	salt int32,
 
 ) *MsgUpdateMinerResponse {
@@ -77,9 +73,7 @@ func NewMsgUpdateMinerResponse(
 		Creator:     creator,
 		UUID:        uUID,
 		RequestUUID: requestUUID,
-		Hash:        hash,
 		Answer:      answer,
-		DataUsed:    dataUsed,
 		Salt:        salt,
 	}
 }

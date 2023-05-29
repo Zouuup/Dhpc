@@ -34680,6 +34680,12 @@ paths:
                             format: int32
                     creator:
                       type: string
+                    createdBlock:
+                      type: string
+                      format: int64
+                    updatedBlock:
+                      type: string
+                      format: int64
               pagination:
                 type: object
                 properties:
@@ -34842,6 +34848,12 @@ paths:
                           format: int32
                   creator:
                     type: string
+                  createdBlock:
+                    type: string
+                    format: int64
+                  updatedBlock:
+                    type: string
+                    format: int64
         default:
           description: An unexpected error response.
           schema:
@@ -72153,6 +72165,12 @@ definitions:
                     format: int32
             creator:
               type: string
+            createdBlock:
+              type: string
+              format: int64
+            updatedBlock:
+              type: string
+              format: int64
       pagination:
         type: object
         properties:
@@ -72266,6 +72284,12 @@ definitions:
                   format: int32
           creator:
             type: string
+          createdBlock:
+            type: string
+            format: int64
+          updatedBlock:
+            type: string
+            format: int64
   decent.request.QueryParamsResponse:
     type: object
     properties:
@@ -72320,6 +72344,12 @@ definitions:
               format: int32
       creator:
         type: string
+      createdBlock:
+        type: string
+        format: int64
+      updatedBlock:
+        type: string
+        format: int64
   decent.user.LinkedRequesters:
     type: object
     properties:

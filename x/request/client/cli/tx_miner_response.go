@@ -12,9 +12,9 @@ import (
 
 func CmdCreateMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-miner-response [uuid] [request-uuid] [hash] [answer] [dataUsed]",
+		Use:   "create-miner-response [uuid] [request-uuid] [hash] [dataUsed]",
 		Short: "Create a new minerResponse",
-		Args:  cobra.ExactArgs(5),
+		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
 			indexUUID := args[0]
@@ -22,7 +22,6 @@ func CmdCreateMinerResponse() *cobra.Command {
 			// Get value arguments
 			argRequestUUID := args[1]
 			argHash := args[2]
-			argAnswer, err := cast.ToInt32E(args[3])
 			if err != nil {
 				return err
 			}
@@ -31,14 +30,13 @@ func CmdCreateMinerResponse() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			argDataUsed := args[4]
+			argDataUsed := args[3]
 
 			msg := types.NewMsgCreateMinerResponse(
 				clientCtx.GetFromAddress().String(),
 				indexUUID,
 				argRequestUUID,
 				argHash,
-				argAnswer,
 				argDataUsed,
 			)
 			if err := msg.ValidateBasic(); err != nil {
@@ -53,24 +51,25 @@ func CmdCreateMinerResponse() *cobra.Command {
 	return cmd
 }
 
+// TODO: make sure that we only use parameters we actually need for this interfaces
 func CmdUpdateMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-miner-response [uuid] [request-uuid] [hash] [answer] [salt]",
+		Use:   "update-miner-response [uuid] [request-uuid] [answer] [salt]",
 		Short: "Update a minerResponse",
-		Args:  cobra.ExactArgs(5),
+		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
 			indexUUID := args[0]
 
 			// Get value arguments
 			argRequestUUID := args[1]
-			argHash := args[2]
-			argAnswer, err := cast.ToInt32E(args[3])
+
+			argAnswer, err := cast.ToInt32E(args[2])
 			if err != nil {
 				return err
 			}
-			argDataUsed := args[4]
-			argSalt, err := cast.ToInt32E(args[5])
+
+			argSalt, err := cast.ToInt32E(args[3])
 			if err != nil {
 				return err
 			}
@@ -84,9 +83,7 @@ func CmdUpdateMinerResponse() *cobra.Command {
 				clientCtx.GetFromAddress().String(),
 				indexUUID,
 				argRequestUUID,
-				argHash,
 				argAnswer,
-				argDataUsed,
 				argSalt,
 			)
 			if err := msg.ValidateBasic(); err != nil {

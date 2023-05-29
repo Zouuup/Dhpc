@@ -20,11 +20,8 @@ func NewMsgCreateRequestRecord(
 	network string,
 	from string,
 	address string,
-	score int32,
 	oracle string,
 	block int32,
-	stage int32,
-	miners *MinerResponse,
 
 ) *MsgCreateRequestRecord {
 	return &MsgCreateRequestRecord{
@@ -34,11 +31,8 @@ func NewMsgCreateRequestRecord(
 		Network: network,
 		From:    from,
 		Address: address,
-		Score:   score,
 		Oracle:  oracle,
 		Block:   block,
-		Stage:   stage,
-		Miners:  miners,
 	}
 }
 

@@ -22,16 +22,17 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 	}
 
 	var requestRecord = types.RequestRecord{
-		Creator: msg.Creator,
-		UUID:    msg.UUID,
-		TXhash:  msg.TXhash,
-		Network: msg.Network,
-		From:    msg.From,
-		Address: msg.Address,
-		Score:   msg.Score,
-		Oracle:  msg.Oracle,
-		Block:   msg.Block,
-		Stage:   msg.Stage,
+		Creator:      msg.Creator,
+		UUID:         msg.UUID,
+		TXhash:       msg.TXhash,
+		Network:      msg.Network,
+		From:         msg.From,
+		Address:      msg.Address,
+		Score:        msg.Score,
+		Oracle:       msg.Oracle,
+		Block:        msg.Block,
+		Stage:        0,
+		CreatedBlock: ctx.BlockHeight(),
 	}
 
 	k.SetRequestRecord(
@@ -58,22 +59,7 @@ func (k msgServer) UpdateRequestRecord(goCtx context.Context, msg *types.MsgUpda
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
-	var requestRecord = types.RequestRecord{
-		Creator: msg.Creator,
-		UUID:    msg.UUID,
-		TXhash:  msg.TXhash,
-		Network: msg.Network,
-		From:    msg.From,
-		Address: msg.Address,
-		Score:   msg.Score,
-		Oracle:  msg.Oracle,
-		Block:   msg.Block,
-		Stage:   msg.Stage,
-	}
-
-	k.SetRequestRecord(ctx, requestRecord)
-
-	return &types.MsgUpdateRequestRecordResponse{}, nil
+	return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "Can't update records after creation")
 }
 
 func (k msgServer) DeleteRequestRecord(goCtx context.Context, msg *types.MsgDeleteRequestRecord) (*types.MsgDeleteRequestRecordResponse, error) {

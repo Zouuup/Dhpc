@@ -3,6 +3,7 @@ package cli
 import (
 	"Decent/x/request/types"
 	"encoding/json"
+
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -12,9 +13,9 @@ import (
 
 func CmdCreateRequestRecord() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-request-record [uuid] [t-xhash] [network] [from] [address] [score] [oracle] [block] [stage] [miners]",
+		Use:   "create-request-record [uuid] [t-xhash] [network] [from] [address] [oracle] [block]",
 		Short: "Create a new requestRecord",
-		Args:  cobra.ExactArgs(10),
+		Args:  cobra.ExactArgs(7),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			// Get indexes
 			indexUUID := args[0]
@@ -24,21 +25,8 @@ func CmdCreateRequestRecord() *cobra.Command {
 			argNetwork := args[2]
 			argFrom := args[3]
 			argAddress := args[4]
-			argScore, err := cast.ToInt32E(args[5])
-			if err != nil {
-				return err
-			}
-			argOracle := args[6]
-			argBlock, err := cast.ToInt32E(args[7])
-			if err != nil {
-				return err
-			}
-			argStage, err := cast.ToInt32E(args[8])
-			if err != nil {
-				return err
-			}
-			argMiners := new(types.MinerResponse)
-			err = json.Unmarshal([]byte(args[9]), argMiners)
+			argOracle := args[5]
+			argBlock, err := cast.ToInt32E(args[6])
 			if err != nil {
 				return err
 			}
@@ -55,11 +43,8 @@ func CmdCreateRequestRecord() *cobra.Command {
 				argNetwork,
 				argFrom,
 				argAddress,
-				argScore,
 				argOracle,
 				argBlock,
-				argStage,
-				argMiners,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	MinimumMiners = 2
-	BlackWait     = 5
+	MinimumMiners = 4
+	BlackWait     = 10
 )
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
@@ -59,9 +59,10 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	k.SetRequestRecord(ctx, requestRecord)
 
 	// TODO: value should come from the configuration
-	if len(requestRecord.Miners) > (MinimumMiners) {
-		if ctx.BlockHeight() > int64(requestRecord.GetBlock())+BlackWait {
+	if len(requestRecord.Miners) >= (MinimumMiners) {
+		if ctx.BlockHeight() > int64(requestRecord.GetCreatedBlock())+BlackWait {
 			requestRecord.Stage = 1
+			requestRecord.UpdatedBlock = ctx.BlockHeight()
 			k.SetRequestRecord(ctx, requestRecord)
 		}
 	}

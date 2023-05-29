@@ -16,5 +16,7 @@ message RequestRecord {
   int32 stage = 9; 
   repeated MinerResponse miners = 10; 
   string creator = 11;
+  int64 createdBlock = 12;
+  int64 updatedBlock = 13;
 }
 
