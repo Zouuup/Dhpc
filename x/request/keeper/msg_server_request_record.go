@@ -21,7 +21,7 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
 	}
 
-	// TODO: if From and Creator are not the same, check if address is a in the list of allowed oracles
+	// if From and Creator are not the same, check if address is a in the list of allowed oracles
 	if msg.From != msg.Creator {
 		allowedOracles := k.GetAllAllowedOracles(ctx)
 		allowed := false

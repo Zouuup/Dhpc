@@ -51,7 +51,6 @@ func CmdCreateMinerResponse() *cobra.Command {
 	return cmd
 }
 
-// TODO: make sure that we only use parameters we actually need for this interfaces
 func CmdUpdateMinerResponse() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "update-miner-response [uuid] [request-uuid] [answer] [salt]",

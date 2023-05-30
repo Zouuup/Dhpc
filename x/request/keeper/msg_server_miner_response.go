@@ -57,12 +57,6 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
 	}
 
-	// stage 0:
-	// on giving answers
-	// if 5 blocks passed since creation record
-	// if at least 10 miners provided response
-	// switch to stage 1
-
 	if requestRecord.GetStage() != 0 {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage zero, cannot add miner response")
 	}
@@ -77,12 +71,9 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Score must be set to zero at this stage")
 	}
 
-	//TODO: make sure Dataused doesn't have any duplicated fields
-
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 	k.SetRequestRecord(ctx, requestRecord)
 
-	// TODO: value should come from the configuration
 	if len(requestRecord.Miners) >= (MinimumMiners) || ctx.BlockHeight() > int64(requestRecord.GetCreatedBlock())+BlackWait {
 		requestRecord.Stage = 1
 		requestRecord.UpdatedBlock = ctx.BlockHeight()
@@ -133,10 +124,6 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 	var rewardedMiners []types.MinerResponse
 	for _, miner := range requestRecord.Miners {
 		if miner.GetAnswer() != 0 {
-			// IMPORTANT TODO: in fact it's crucial that we pay all miners as soon as we find a hash matching most of the answers, if we don't do this, bad players
-			// will copy both hash and answers from other miners and will get paid without doing any work
-			//
-			// check if the hash matches the answer, hash should be sha3 of the answer
 			sum := miner.Answer + miner.Salt
 			sumStr := strconv.Itoa(int(sum))
 			hasher := md5.New()
