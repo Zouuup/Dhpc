@@ -27,6 +27,7 @@ oneNotFound=25ac0fb34dce2b232dc95fc204075af9
 rightPlusExtra=$rightAddress,$oneExtra
 rightPlusNotFound=$rightAddress,$oneNotFound
 
+Decentd tx request create-allowed-oracles main `Decentd keys show oracle -a` --from alice -y
 
 Decentd tx request create-request-record aea7cfd3-1e63-4f90-9311-1c32dacf41cb 0xa0fb4b5e51e55405e5b9e6c5defe381409e99204a3a23b5ef994e3951ded26e0 ethereum `Decentd keys show dapp -a` 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 `Decentd keys show oracle -a` 12345678 --from oracle -y --gas 500237
 

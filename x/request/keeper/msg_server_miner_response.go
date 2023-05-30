@@ -222,6 +222,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			}
 		}
 
+		// TODO: not ideal, instead we should send all remaining tokens to the treasury
 		treasuryAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(5).QuoRaw(100))
 		treasuryAmount := sdk.NewCoins(treasuryAmountCoin)
 

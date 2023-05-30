@@ -22,6 +22,20 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 	}
 
 	// TODO: if From and Creator are not the same, check if address is a in the list of allowed oracles
+	if msg.From != msg.Creator {
+		allowedOracles := k.GetAllAllowedOracles(ctx)
+		allowed := false
+		for _, oracle := range allowedOracles {
+			if oracle.Address == msg.Creator {
+				allowed = true
+			}
+		}
+		if !allowed {
+			return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "not allowed as oracle, submit request with your own address")
+		}
+
+	}
+
 	deposit, err := sdk.ParseCoinsNormalized(depositPerRequestToken)
 	if err != nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
