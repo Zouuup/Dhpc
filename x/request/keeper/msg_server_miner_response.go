@@ -11,7 +11,6 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/davecgh/go-spew/spew"
 )
 
 const (
@@ -23,7 +22,6 @@ const (
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
-	spew.Dump(k)
 	// Check if the value already exists
 	_, isFound := k.GetMinerResponse(
 		ctx,
