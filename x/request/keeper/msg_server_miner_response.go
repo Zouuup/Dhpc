@@ -31,6 +31,19 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
 	}
 
+	// iterate through dataused and make sure they are all unique
+
+	if strings.Contains(msg.DataUsed, ",") {
+		dataUsedList := strings.Split(msg.DataUsed, ",")
+		for i := 0; i < len(dataUsedList); i++ {
+			for j := i + 1; j < len(dataUsedList); j++ {
+				if dataUsedList[i] == dataUsedList[j] {
+					return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Provided Data used should be unique")
+				}
+			}
+		}
+	}
+
 	var minerResponse = types.MinerResponse{
 		Creator:     msg.Creator,
 		UUID:        msg.UUID,
