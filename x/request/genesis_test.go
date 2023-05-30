@@ -39,6 +39,15 @@ func TestGenesis(t *testing.T) {
 				UUID: "1",
 			},
 		},
+		AddTreasuryList: []types.AddTreasury{
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
+		},
+		AddTreasuryCount: 2,
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -54,5 +63,7 @@ func TestGenesis(t *testing.T) {
 	require.Equal(t, genesisState.AllowedOraclesCount, got.AllowedOraclesCount)
 	require.ElementsMatch(t, genesisState.MinerResponseList, got.MinerResponseList)
 	require.ElementsMatch(t, genesisState.RequestRecordList, got.RequestRecordList)
+	require.ElementsMatch(t, genesisState.AddTreasuryList, got.AddTreasuryList)
+	require.Equal(t, genesisState.AddTreasuryCount, got.AddTreasuryCount)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

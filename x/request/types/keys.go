@@ -22,3 +22,8 @@ const (
 	AllowedOraclesKey      = "AllowedOracles/value/"
 	AllowedOraclesCountKey = "AllowedOracles/count/"
 )
+
+const (
+	AddTreasuryKey      = "AddTreasury/value/"
+	AddTreasuryCountKey = "AddTreasury/count/"
+)

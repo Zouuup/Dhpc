@@ -5,6 +5,7 @@ package decent.request;
 import "decent/request/allowed_oracles.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
+import "decent/request/add_treasury.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -19,6 +20,9 @@ service Msg {
   rpc CreateRequestRecord  (MsgCreateRequestRecord ) returns (MsgCreateRequestRecordResponse );
   rpc UpdateRequestRecord  (MsgUpdateRequestRecord ) returns (MsgUpdateRequestRecordResponse );
   rpc DeleteRequestRecord  (MsgDeleteRequestRecord ) returns (MsgDeleteRequestRecordResponse );
+  rpc CreateAddTreasury    (MsgCreateAddTreasury   ) returns (MsgCreateAddTreasuryResponse   );
+  rpc UpdateAddTreasury    (MsgUpdateAddTreasury   ) returns (MsgUpdateAddTreasuryResponse   );
+  rpc DeleteAddTreasury    (MsgDeleteAddTreasury   ) returns (MsgDeleteAddTreasuryResponse   );
 }
 message MsgCreateAllowedOracles {
   string creator = 1;
@@ -112,4 +116,26 @@ message MsgDeleteRequestRecord {
 }
 
 message MsgDeleteRequestRecordResponse {}
+
+message MsgCreateAddTreasury {
+  string creator = 1;
+}
+
+message MsgCreateAddTreasuryResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateAddTreasury {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgUpdateAddTreasuryResponse {}
+
+message MsgDeleteAddTreasury {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgDeleteAddTreasuryResponse {}
 
