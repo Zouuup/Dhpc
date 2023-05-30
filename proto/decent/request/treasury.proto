@@ -1,0 +1,9 @@
+syntax = "proto3";
+package decent.request;
+
+option go_package = "Decent/x/request/types";
+
+message Treasury {
+  string address = 1; 
+  string creator = 2;
+}

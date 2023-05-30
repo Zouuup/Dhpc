@@ -23,13 +23,10 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	for _, elem := range genState.RequestRecordList {
 		k.SetRequestRecord(ctx, elem)
 	}
-	// Set all the addTreasury
-	for _, elem := range genState.AddTreasuryList {
-		k.SetAddTreasury(ctx, elem)
+	// Set if defined
+	if genState.Treasury != nil {
+		k.SetTreasury(ctx, *genState.Treasury)
 	}
-
-	// Set addTreasury count
-	k.SetAddTreasuryCount(ctx, genState.AddTreasuryCount)
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
@@ -43,8 +40,11 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis.AllowedOraclesCount = k.GetAllowedOraclesCount(ctx)
 	genesis.MinerResponseList = k.GetAllMinerResponse(ctx)
 	genesis.RequestRecordList = k.GetAllRequestRecord(ctx)
-	genesis.AddTreasuryList = k.GetAllAddTreasury(ctx)
-	genesis.AddTreasuryCount = k.GetAddTreasuryCount(ctx)
+	// Get all treasury
+	treasury, found := k.GetTreasury(ctx)
+	if found {
+		genesis.Treasury = &treasury
+	}
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

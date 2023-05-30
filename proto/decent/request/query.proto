@@ -9,7 +9,7 @@ import "decent/request/params.proto";
 import "decent/request/allowed_oracles.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
-import "decent/request/add_treasury.proto";
+import "decent/request/treasury.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -52,13 +52,9 @@ service Query {
   
   }
   
-  // Queries a list of AddTreasury items.
-  rpc AddTreasury    (QueryGetAddTreasuryRequest) returns (QueryGetAddTreasuryResponse) {
-    option (google.api.http).get = "/Decent/request/add_treasury/{id}";
-  
-  }
-  rpc AddTreasuryAll (QueryAllAddTreasuryRequest) returns (QueryAllAddTreasuryResponse) {
-    option (google.api.http).get = "/Decent/request/add_treasury";
+  // Queries a Treasury by index.
+  rpc Treasury (QueryGetTreasuryRequest) returns (QueryGetTreasuryResponse) {
+    option (google.api.http).get = "/Decent/request/treasury";
   
   }
 }
@@ -123,20 +119,9 @@ message QueryAllRequestRecordResponse {
            cosmos.base.query.v1beta1.PageResponse pagination    = 2;
 }
 
-message QueryGetAddTreasuryRequest {
-  uint64 id = 1;
-}
+message QueryGetTreasuryRequest {}
 
-message QueryGetAddTreasuryResponse {
-  AddTreasury AddTreasury = 1 [(gogoproto.nullable) = false];
-}
-
-message QueryAllAddTreasuryRequest {
-  cosmos.base.query.v1beta1.PageRequest pagination = 1;
-}
-
-message QueryAllAddTreasuryResponse {
-  repeated AddTreasury                            AddTreasury = 1 [(gogoproto.nullable) = false];
-           cosmos.base.query.v1beta1.PageResponse pagination  = 2;
+message QueryGetTreasuryResponse {
+  Treasury Treasury = 1 [(gogoproto.nullable) = false];
 }
 

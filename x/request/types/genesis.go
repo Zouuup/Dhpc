@@ -13,7 +13,7 @@ func DefaultGenesis() *GenesisState {
 		AllowedOraclesList: []AllowedOracles{},
 		MinerResponseList:  []MinerResponse{},
 		RequestRecordList:  []RequestRecord{},
-		AddTreasuryList:    []AddTreasury{},
+		Treasury:           nil,
 		// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
@@ -53,18 +53,6 @@ func (gs GenesisState) Validate() error {
 			return fmt.Errorf("duplicated index for requestRecord")
 		}
 		requestRecordIndexMap[index] = struct{}{}
-	}
-	// Check for duplicated ID in addTreasury
-	addTreasuryIdMap := make(map[uint64]bool)
-	addTreasuryCount := gs.GetAddTreasuryCount()
-	for _, elem := range gs.AddTreasuryList {
-		if _, ok := addTreasuryIdMap[elem.Id]; ok {
-			return fmt.Errorf("duplicated id for addTreasury")
-		}
-		if elem.Id >= addTreasuryCount {
-			return fmt.Errorf("addTreasury id should be lower or equal than the last id")
-		}
-		addTreasuryIdMap[elem.Id] = true
 	}
 	// this line is used by starport scaffolding # genesis/types/validate
 

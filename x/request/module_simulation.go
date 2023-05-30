@@ -60,17 +60,17 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteRequestRecord int = 100
 
-	opWeightMsgCreateAddTreasury = "op_weight_msg_add_treasury"
+	opWeightMsgCreateTreasury = "op_weight_msg_treasury"
 	// TODO: Determine the simulation weight value
-	defaultWeightMsgCreateAddTreasury int = 100
+	defaultWeightMsgCreateTreasury int = 100
 
-	opWeightMsgUpdateAddTreasury = "op_weight_msg_add_treasury"
+	opWeightMsgUpdateTreasury = "op_weight_msg_treasury"
 	// TODO: Determine the simulation weight value
-	defaultWeightMsgUpdateAddTreasury int = 100
+	defaultWeightMsgUpdateTreasury int = 100
 
-	opWeightMsgDeleteAddTreasury = "op_weight_msg_add_treasury"
+	opWeightMsgDeleteTreasury = "op_weight_msg_treasury"
 	// TODO: Determine the simulation weight value
-	defaultWeightMsgDeleteAddTreasury int = 100
+	defaultWeightMsgDeleteTreasury int = 100
 
 	// this line is used by starport scaffolding # simapp/module/const
 )
@@ -114,17 +114,6 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 				UUID:    "1",
 			},
 		},
-		AddTreasuryList: []types.AddTreasury{
-			{
-				Id:      0,
-				Creator: sample.AccAddress(),
-			},
-			{
-				Id:      1,
-				Creator: sample.AccAddress(),
-			},
-		},
-		AddTreasuryCount: 2,
 		// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&requestGenesis)
@@ -247,37 +236,37 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 		requestsimulation.SimulateMsgDeleteRequestRecord(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
-	var weightMsgCreateAddTreasury int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateAddTreasury, &weightMsgCreateAddTreasury, nil,
+	var weightMsgCreateTreasury int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateTreasury, &weightMsgCreateTreasury, nil,
 		func(_ *rand.Rand) {
-			weightMsgCreateAddTreasury = defaultWeightMsgCreateAddTreasury
+			weightMsgCreateTreasury = defaultWeightMsgCreateTreasury
 		},
 	)
 	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgCreateAddTreasury,
-		requestsimulation.SimulateMsgCreateAddTreasury(am.accountKeeper, am.bankKeeper, am.keeper),
+		weightMsgCreateTreasury,
+		requestsimulation.SimulateMsgCreateTreasury(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
-	var weightMsgUpdateAddTreasury int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateAddTreasury, &weightMsgUpdateAddTreasury, nil,
+	var weightMsgUpdateTreasury int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateTreasury, &weightMsgUpdateTreasury, nil,
 		func(_ *rand.Rand) {
-			weightMsgUpdateAddTreasury = defaultWeightMsgUpdateAddTreasury
+			weightMsgUpdateTreasury = defaultWeightMsgUpdateTreasury
 		},
 	)
 	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgUpdateAddTreasury,
-		requestsimulation.SimulateMsgUpdateAddTreasury(am.accountKeeper, am.bankKeeper, am.keeper),
+		weightMsgUpdateTreasury,
+		requestsimulation.SimulateMsgUpdateTreasury(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
-	var weightMsgDeleteAddTreasury int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteAddTreasury, &weightMsgDeleteAddTreasury, nil,
+	var weightMsgDeleteTreasury int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteTreasury, &weightMsgDeleteTreasury, nil,
 		func(_ *rand.Rand) {
-			weightMsgDeleteAddTreasury = defaultWeightMsgDeleteAddTreasury
+			weightMsgDeleteTreasury = defaultWeightMsgDeleteTreasury
 		},
 	)
 	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgDeleteAddTreasury,
-		requestsimulation.SimulateMsgDeleteAddTreasury(am.accountKeeper, am.bankKeeper, am.keeper),
+		weightMsgDeleteTreasury,
+		requestsimulation.SimulateMsgDeleteTreasury(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

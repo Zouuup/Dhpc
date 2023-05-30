@@ -5,7 +5,7 @@ package decent.request;
 import "decent/request/allowed_oracles.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
-import "decent/request/add_treasury.proto";
+import "decent/request/treasury.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -20,9 +20,9 @@ service Msg {
   rpc CreateRequestRecord  (MsgCreateRequestRecord ) returns (MsgCreateRequestRecordResponse );
   rpc UpdateRequestRecord  (MsgUpdateRequestRecord ) returns (MsgUpdateRequestRecordResponse );
   rpc DeleteRequestRecord  (MsgDeleteRequestRecord ) returns (MsgDeleteRequestRecordResponse );
-  rpc CreateAddTreasury    (MsgCreateAddTreasury   ) returns (MsgCreateAddTreasuryResponse   );
-  rpc UpdateAddTreasury    (MsgUpdateAddTreasury   ) returns (MsgUpdateAddTreasuryResponse   );
-  rpc DeleteAddTreasury    (MsgDeleteAddTreasury   ) returns (MsgDeleteAddTreasuryResponse   );
+  rpc CreateTreasury       (MsgCreateTreasury      ) returns (MsgCreateTreasuryResponse      );
+  rpc UpdateTreasury       (MsgUpdateTreasury      ) returns (MsgUpdateTreasuryResponse      );
+  rpc DeleteTreasury       (MsgDeleteTreasury      ) returns (MsgDeleteTreasuryResponse      );
 }
 message MsgCreateAllowedOracles {
   string creator = 1;
@@ -117,25 +117,23 @@ message MsgDeleteRequestRecord {
 
 message MsgDeleteRequestRecordResponse {}
 
-message MsgCreateAddTreasury {
+message MsgCreateTreasury {
+  string creator = 1;
+  string address = 3;
+}
+
+message MsgCreateTreasuryResponse {}
+
+message MsgUpdateTreasury {
+  string creator = 1;
+  string address = 3;
+}
+
+message MsgUpdateTreasuryResponse {}
+
+message MsgDeleteTreasury {
   string creator = 1;
 }
 
-message MsgCreateAddTreasuryResponse {
-  uint64 id = 1;
-}
-
-message MsgUpdateAddTreasury {
-  string creator = 1;
-  uint64 id      = 2;
-}
-
-message MsgUpdateAddTreasuryResponse {}
-
-message MsgDeleteAddTreasury {
-  string creator = 1;
-  uint64 id      = 2;
-}
-
-message MsgDeleteAddTreasuryResponse {}
+message MsgDeleteTreasuryResponse {}
 

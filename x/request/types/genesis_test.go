@@ -47,15 +47,9 @@ func TestGenesisState_Validate(t *testing.T) {
 						UUID: "1",
 					},
 				},
-				AddTreasuryList: []types.AddTreasury{
-					{
-						Id: 0,
-					},
-					{
-						Id: 1,
-					},
+				Treasury: &types.Treasury{
+					Address: "18",
 				},
-				AddTreasuryCount: 2,
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
@@ -111,32 +105,6 @@ func TestGenesisState_Validate(t *testing.T) {
 						UUID: "0",
 					},
 				},
-			},
-			valid: false,
-		},
-		{
-			desc: "duplicated addTreasury",
-			genState: &types.GenesisState{
-				AddTreasuryList: []types.AddTreasury{
-					{
-						Id: 0,
-					},
-					{
-						Id: 0,
-					},
-				},
-			},
-			valid: false,
-		},
-		{
-			desc: "invalid addTreasury count",
-			genState: &types.GenesisState{
-				AddTreasuryList: []types.AddTreasury{
-					{
-						Id: 1,
-					},
-				},
-				AddTreasuryCount: 0,
 			},
 			valid: false,
 		},

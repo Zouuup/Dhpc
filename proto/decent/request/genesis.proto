@@ -7,7 +7,7 @@ import "decent/request/params.proto";
 import "decent/request/allowed_oracles.proto";
 import "decent/request/miner_response.proto";
 import "decent/request/request_record.proto";
-import "decent/request/add_treasury.proto";
+import "decent/request/treasury.proto";
 
 option go_package = "Decent/x/request/types";
 
@@ -18,7 +18,6 @@ message GenesisState {
            uint64         allowedOraclesCount = 3;
   repeated MinerResponse  minerResponseList   = 4 [(gogoproto.nullable) = false];
   repeated RequestRecord  requestRecordList   = 5 [(gogoproto.nullable) = false];
-  repeated AddTreasury    addTreasuryList     = 6 [(gogoproto.nullable) = false];
-           uint64         addTreasuryCount    = 7;
+           Treasury       treasury            = 6;
 }
 

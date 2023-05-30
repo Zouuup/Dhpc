@@ -24,6 +24,5 @@ const (
 )
 
 const (
-	AddTreasuryKey      = "AddTreasury/value/"
-	AddTreasuryCountKey = "AddTreasury/count/"
+	TreasuryKey = "Treasury/value/"
 )

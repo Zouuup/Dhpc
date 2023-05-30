@@ -1051,22 +1051,23 @@ func (m *MsgDeleteRequestRecordResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgDeleteRequestRecordResponse proto.InternalMessageInfo
 
-type MsgCreateAddTreasury struct {
+type MsgCreateTreasury struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Address string `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *MsgCreateAddTreasury) Reset()         { *m = MsgCreateAddTreasury{} }
-func (m *MsgCreateAddTreasury) String() string { return proto.CompactTextString(m) }
-func (*MsgCreateAddTreasury) ProtoMessage()    {}
-func (*MsgCreateAddTreasury) Descriptor() ([]byte, []int) {
+func (m *MsgCreateTreasury) Reset()         { *m = MsgCreateTreasury{} }
+func (m *MsgCreateTreasury) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateTreasury) ProtoMessage()    {}
+func (*MsgCreateTreasury) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6cba42862c92a3da, []int{18}
 }
-func (m *MsgCreateAddTreasury) XXX_Unmarshal(b []byte) error {
+func (m *MsgCreateTreasury) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgCreateAddTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgCreateTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgCreateAddTreasury.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgCreateTreasury.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -1076,41 +1077,47 @@ func (m *MsgCreateAddTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return b[:n], nil
 	}
 }
-func (m *MsgCreateAddTreasury) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgCreateAddTreasury.Merge(m, src)
+func (m *MsgCreateTreasury) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateTreasury.Merge(m, src)
 }
-func (m *MsgCreateAddTreasury) XXX_Size() int {
+func (m *MsgCreateTreasury) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgCreateAddTreasury) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgCreateAddTreasury.DiscardUnknown(m)
+func (m *MsgCreateTreasury) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateTreasury.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgCreateAddTreasury proto.InternalMessageInfo
+var xxx_messageInfo_MsgCreateTreasury proto.InternalMessageInfo
 
-func (m *MsgCreateAddTreasury) GetCreator() string {
+func (m *MsgCreateTreasury) GetCreator() string {
 	if m != nil {
 		return m.Creator
 	}
 	return ""
 }
 
-type MsgCreateAddTreasuryResponse struct {
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+func (m *MsgCreateTreasury) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
 }
 
-func (m *MsgCreateAddTreasuryResponse) Reset()         { *m = MsgCreateAddTreasuryResponse{} }
-func (m *MsgCreateAddTreasuryResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgCreateAddTreasuryResponse) ProtoMessage()    {}
-func (*MsgCreateAddTreasuryResponse) Descriptor() ([]byte, []int) {
+type MsgCreateTreasuryResponse struct {
+}
+
+func (m *MsgCreateTreasuryResponse) Reset()         { *m = MsgCreateTreasuryResponse{} }
+func (m *MsgCreateTreasuryResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCreateTreasuryResponse) ProtoMessage()    {}
+func (*MsgCreateTreasuryResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6cba42862c92a3da, []int{19}
 }
-func (m *MsgCreateAddTreasuryResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgCreateTreasuryResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgCreateAddTreasuryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgCreateTreasuryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgCreateAddTreasuryResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgCreateTreasuryResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -1120,42 +1127,35 @@ func (m *MsgCreateAddTreasuryResponse) XXX_Marshal(b []byte, deterministic bool)
 		return b[:n], nil
 	}
 }
-func (m *MsgCreateAddTreasuryResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgCreateAddTreasuryResponse.Merge(m, src)
+func (m *MsgCreateTreasuryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCreateTreasuryResponse.Merge(m, src)
 }
-func (m *MsgCreateAddTreasuryResponse) XXX_Size() int {
+func (m *MsgCreateTreasuryResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgCreateAddTreasuryResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgCreateAddTreasuryResponse.DiscardUnknown(m)
+func (m *MsgCreateTreasuryResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCreateTreasuryResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgCreateAddTreasuryResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgCreateTreasuryResponse proto.InternalMessageInfo
 
-func (m *MsgCreateAddTreasuryResponse) GetId() uint64 {
-	if m != nil {
-		return m.Id
-	}
-	return 0
-}
-
-type MsgUpdateAddTreasury struct {
+type MsgUpdateTreasury struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Address string `protobuf:"bytes,3,opt,name=address,proto3" json:"address,omitempty"`
 }
 
-func (m *MsgUpdateAddTreasury) Reset()         { *m = MsgUpdateAddTreasury{} }
-func (m *MsgUpdateAddTreasury) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateAddTreasury) ProtoMessage()    {}
-func (*MsgUpdateAddTreasury) Descriptor() ([]byte, []int) {
+func (m *MsgUpdateTreasury) Reset()         { *m = MsgUpdateTreasury{} }
+func (m *MsgUpdateTreasury) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateTreasury) ProtoMessage()    {}
+func (*MsgUpdateTreasury) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6cba42862c92a3da, []int{20}
 }
-func (m *MsgUpdateAddTreasury) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateTreasury) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateAddTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateAddTreasury.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateTreasury.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -1165,47 +1165,47 @@ func (m *MsgUpdateAddTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateAddTreasury) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateAddTreasury.Merge(m, src)
+func (m *MsgUpdateTreasury) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateTreasury.Merge(m, src)
 }
-func (m *MsgUpdateAddTreasury) XXX_Size() int {
+func (m *MsgUpdateTreasury) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateAddTreasury) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateAddTreasury.DiscardUnknown(m)
+func (m *MsgUpdateTreasury) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateTreasury.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateAddTreasury proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateTreasury proto.InternalMessageInfo
 
-func (m *MsgUpdateAddTreasury) GetCreator() string {
+func (m *MsgUpdateTreasury) GetCreator() string {
 	if m != nil {
 		return m.Creator
 	}
 	return ""
 }
 
-func (m *MsgUpdateAddTreasury) GetId() uint64 {
+func (m *MsgUpdateTreasury) GetAddress() string {
 	if m != nil {
-		return m.Id
+		return m.Address
 	}
-	return 0
+	return ""
 }
 
-type MsgUpdateAddTreasuryResponse struct {
+type MsgUpdateTreasuryResponse struct {
 }
 
-func (m *MsgUpdateAddTreasuryResponse) Reset()         { *m = MsgUpdateAddTreasuryResponse{} }
-func (m *MsgUpdateAddTreasuryResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUpdateAddTreasuryResponse) ProtoMessage()    {}
-func (*MsgUpdateAddTreasuryResponse) Descriptor() ([]byte, []int) {
+func (m *MsgUpdateTreasuryResponse) Reset()         { *m = MsgUpdateTreasuryResponse{} }
+func (m *MsgUpdateTreasuryResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUpdateTreasuryResponse) ProtoMessage()    {}
+func (*MsgUpdateTreasuryResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6cba42862c92a3da, []int{21}
 }
-func (m *MsgUpdateAddTreasuryResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgUpdateTreasuryResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgUpdateAddTreasuryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgUpdateTreasuryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgUpdateAddTreasuryResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgUpdateTreasuryResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -1215,35 +1215,34 @@ func (m *MsgUpdateAddTreasuryResponse) XXX_Marshal(b []byte, deterministic bool)
 		return b[:n], nil
 	}
 }
-func (m *MsgUpdateAddTreasuryResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUpdateAddTreasuryResponse.Merge(m, src)
+func (m *MsgUpdateTreasuryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUpdateTreasuryResponse.Merge(m, src)
 }
-func (m *MsgUpdateAddTreasuryResponse) XXX_Size() int {
+func (m *MsgUpdateTreasuryResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgUpdateAddTreasuryResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUpdateAddTreasuryResponse.DiscardUnknown(m)
+func (m *MsgUpdateTreasuryResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUpdateTreasuryResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgUpdateAddTreasuryResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgUpdateTreasuryResponse proto.InternalMessageInfo
 
-type MsgDeleteAddTreasury struct {
+type MsgDeleteTreasury struct {
 	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *MsgDeleteAddTreasury) Reset()         { *m = MsgDeleteAddTreasury{} }
-func (m *MsgDeleteAddTreasury) String() string { return proto.CompactTextString(m) }
-func (*MsgDeleteAddTreasury) ProtoMessage()    {}
-func (*MsgDeleteAddTreasury) Descriptor() ([]byte, []int) {
+func (m *MsgDeleteTreasury) Reset()         { *m = MsgDeleteTreasury{} }
+func (m *MsgDeleteTreasury) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteTreasury) ProtoMessage()    {}
+func (*MsgDeleteTreasury) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6cba42862c92a3da, []int{22}
 }
-func (m *MsgDeleteAddTreasury) XXX_Unmarshal(b []byte) error {
+func (m *MsgDeleteTreasury) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgDeleteAddTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgDeleteTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgDeleteAddTreasury.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgDeleteTreasury.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -1253,47 +1252,40 @@ func (m *MsgDeleteAddTreasury) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return b[:n], nil
 	}
 }
-func (m *MsgDeleteAddTreasury) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgDeleteAddTreasury.Merge(m, src)
+func (m *MsgDeleteTreasury) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteTreasury.Merge(m, src)
 }
-func (m *MsgDeleteAddTreasury) XXX_Size() int {
+func (m *MsgDeleteTreasury) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgDeleteAddTreasury) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgDeleteAddTreasury.DiscardUnknown(m)
+func (m *MsgDeleteTreasury) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteTreasury.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgDeleteAddTreasury proto.InternalMessageInfo
+var xxx_messageInfo_MsgDeleteTreasury proto.InternalMessageInfo
 
-func (m *MsgDeleteAddTreasury) GetCreator() string {
+func (m *MsgDeleteTreasury) GetCreator() string {
 	if m != nil {
 		return m.Creator
 	}
 	return ""
 }
 
-func (m *MsgDeleteAddTreasury) GetId() uint64 {
-	if m != nil {
-		return m.Id
-	}
-	return 0
+type MsgDeleteTreasuryResponse struct {
 }
 
-type MsgDeleteAddTreasuryResponse struct {
-}
-
-func (m *MsgDeleteAddTreasuryResponse) Reset()         { *m = MsgDeleteAddTreasuryResponse{} }
-func (m *MsgDeleteAddTreasuryResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgDeleteAddTreasuryResponse) ProtoMessage()    {}
-func (*MsgDeleteAddTreasuryResponse) Descriptor() ([]byte, []int) {
+func (m *MsgDeleteTreasuryResponse) Reset()         { *m = MsgDeleteTreasuryResponse{} }
+func (m *MsgDeleteTreasuryResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDeleteTreasuryResponse) ProtoMessage()    {}
+func (*MsgDeleteTreasuryResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_6cba42862c92a3da, []int{23}
 }
-func (m *MsgDeleteAddTreasuryResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgDeleteTreasuryResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgDeleteAddTreasuryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgDeleteTreasuryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgDeleteAddTreasuryResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgDeleteTreasuryResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -1303,17 +1295,17 @@ func (m *MsgDeleteAddTreasuryResponse) XXX_Marshal(b []byte, deterministic bool)
 		return b[:n], nil
 	}
 }
-func (m *MsgDeleteAddTreasuryResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgDeleteAddTreasuryResponse.Merge(m, src)
+func (m *MsgDeleteTreasuryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDeleteTreasuryResponse.Merge(m, src)
 }
-func (m *MsgDeleteAddTreasuryResponse) XXX_Size() int {
+func (m *MsgDeleteTreasuryResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgDeleteAddTreasuryResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgDeleteAddTreasuryResponse.DiscardUnknown(m)
+func (m *MsgDeleteTreasuryResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDeleteTreasuryResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgDeleteAddTreasuryResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgDeleteTreasuryResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*MsgCreateAllowedOracles)(nil), "decent.request.MsgCreateAllowedOracles")
@@ -1334,68 +1326,67 @@ func init() {
 	proto.RegisterType((*MsgUpdateRequestRecordResponse)(nil), "decent.request.MsgUpdateRequestRecordResponse")
 	proto.RegisterType((*MsgDeleteRequestRecord)(nil), "decent.request.MsgDeleteRequestRecord")
 	proto.RegisterType((*MsgDeleteRequestRecordResponse)(nil), "decent.request.MsgDeleteRequestRecordResponse")
-	proto.RegisterType((*MsgCreateAddTreasury)(nil), "decent.request.MsgCreateAddTreasury")
-	proto.RegisterType((*MsgCreateAddTreasuryResponse)(nil), "decent.request.MsgCreateAddTreasuryResponse")
-	proto.RegisterType((*MsgUpdateAddTreasury)(nil), "decent.request.MsgUpdateAddTreasury")
-	proto.RegisterType((*MsgUpdateAddTreasuryResponse)(nil), "decent.request.MsgUpdateAddTreasuryResponse")
-	proto.RegisterType((*MsgDeleteAddTreasury)(nil), "decent.request.MsgDeleteAddTreasury")
-	proto.RegisterType((*MsgDeleteAddTreasuryResponse)(nil), "decent.request.MsgDeleteAddTreasuryResponse")
+	proto.RegisterType((*MsgCreateTreasury)(nil), "decent.request.MsgCreateTreasury")
+	proto.RegisterType((*MsgCreateTreasuryResponse)(nil), "decent.request.MsgCreateTreasuryResponse")
+	proto.RegisterType((*MsgUpdateTreasury)(nil), "decent.request.MsgUpdateTreasury")
+	proto.RegisterType((*MsgUpdateTreasuryResponse)(nil), "decent.request.MsgUpdateTreasuryResponse")
+	proto.RegisterType((*MsgDeleteTreasury)(nil), "decent.request.MsgDeleteTreasury")
+	proto.RegisterType((*MsgDeleteTreasuryResponse)(nil), "decent.request.MsgDeleteTreasuryResponse")
 }
 
 func init() { proto.RegisterFile("decent/request/tx.proto", fileDescriptor_6cba42862c92a3da) }
 
 var fileDescriptor_6cba42862c92a3da = []byte{
-	// 790 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x57, 0xcf, 0x4e, 0xdb, 0x4e,
-	0x10, 0xc6, 0x21, 0x04, 0x18, 0x24, 0xa4, 0xdf, 0xfe, 0xa2, 0x60, 0x45, 0xad, 0x1b, 0xd2, 0x88,
-	0x72, 0xa8, 0x02, 0xa5, 0xea, 0xbd, 0x2d, 0xa8, 0x52, 0x0f, 0xa8, 0x92, 0xd5, 0x48, 0x55, 0x2f,
-	0xd1, 0x92, 0xdd, 0x06, 0x44, 0x12, 0x87, 0x5d, 0x23, 0xe0, 0x2d, 0x7a, 0xe8, 0x83, 0x70, 0xeb,
-	0x2b, 0xf4, 0xc8, 0xb1, 0xc7, 0x0a, 0x5e, 0xa4, 0xda, 0x3f, 0x71, 0xe2, 0x78, 0xd6, 0x09, 0x45,
-	0xbd, 0xf5, 0x94, 0x9d, 0xf5, 0xe7, 0xf9, 0xbe, 0xfd, 0x26, 0x3b, 0x23, 0xc3, 0x06, 0xe3, 0x1d,
-	0x3e, 0x88, 0x77, 0x04, 0x3f, 0x3b, 0xe7, 0x32, 0xde, 0x89, 0x2f, 0x9b, 0x43, 0x11, 0xc5, 0x11,
-	0x59, 0x37, 0x0f, 0x9a, 0xf6, 0x41, 0xb5, 0x31, 0x05, 0xa4, 0xbd, 0x5e, 0x74, 0xc1, 0x59, 0x3b,
-	0x12, 0xb4, 0xd3, 0xe3, 0xd2, 0xbc, 0x55, 0x7d, 0x3a, 0x85, 0xea, 0x9f, 0x0c, 0xb8, 0x68, 0x0b,
-	0x2e, 0x87, 0xd1, 0x40, 0x72, 0x07, 0xc8, 0xfe, 0xb6, 0x05, 0xef, 0x44, 0x82, 0x59, 0xd0, 0xe6,
-	0x34, 0x1f, 0x63, 0xed, 0x58, 0x70, 0x2a, 0xcf, 0xc5, 0x95, 0x81, 0xd4, 0x29, 0x6c, 0x1c, 0xca,
-	0xee, 0xbe, 0xe0, 0x34, 0xe6, 0x6f, 0x8c, 0x9c, 0x0f, 0x46, 0x0d, 0xf1, 0x61, 0xb9, 0xa3, 0xf6,
-	0x23, 0xe1, 0x7b, 0x35, 0x6f, 0x7b, 0x35, 0x1c, 0x85, 0x84, 0x40, 0x71, 0x40, 0xfb, 0xdc, 0x2f,
-	0xe8, 0x6d, 0xbd, 0x56, 0x68, 0xca, 0x98, 0xe0, 0x52, 0xfa, 0x8b, 0x06, 0x6d, 0xc3, 0xfa, 0x0b,
-	0x78, 0xe2, 0xa0, 0x08, 0xed, 0x99, 0xc8, 0x3a, 0x14, 0x4e, 0x98, 0x66, 0x29, 0x86, 0x85, 0x13,
-	0x56, 0x3f, 0xd3, 0xaa, 0x5a, 0x43, 0x76, 0x1f, 0x55, 0x26, 0x49, 0x61, 0x94, 0x24, 0x51, 0xb9,
-	0x88, 0xab, 0x2c, 0xa6, 0x55, 0x6e, 0x6a, 0x95, 0x18, 0xe5, 0x48, 0x65, 0x7d, 0x5f, 0xab, 0x3a,
-	0xe0, 0x3d, 0xfe, 0xe7, 0xaa, 0x2c, 0x0f, 0x96, 0x24, 0xe1, 0xb9, 0xf6, 0xa0, 0x92, 0x38, 0x76,
-	0xa8, 0xaa, 0x9f, 0x18, 0x95, 0x5b, 0x93, 0xf3, 0xd6, 0xfb, 0x83, 0x51, 0x4d, 0xd4, 0x9a, 0xd4,
-	0x60, 0xcd, 0x96, 0xbe, 0xa5, 0x1e, 0x19, 0x23, 0x26, 0xb7, 0xd4, 0x5b, 0xc7, 0x54, 0x1e, 0x5b,
-	0x33, 0xf4, 0x9a, 0x54, 0xa0, 0x44, 0x07, 0xf2, 0x82, 0x0b, 0x7f, 0xa9, 0xe6, 0x6d, 0x2f, 0x85,
-	0x36, 0x22, 0x55, 0x58, 0x61, 0x34, 0xa6, 0x2d, 0xc9, 0x99, 0x5f, 0xd2, 0xf8, 0x24, 0xae, 0xd7,
-	0x20, 0xc0, 0x15, 0x27, 0x87, 0xfa, 0x66, 0x0e, 0x65, 0x0c, 0xfe, 0xbb, 0x87, 0x72, 0x1d, 0x80,
-	0x40, 0x51, 0xd2, 0x5e, 0xec, 0x2f, 0xeb, 0x5d, 0xbd, 0xb6, 0xc2, 0x11, 0x55, 0x89, 0xf0, 0x77,
-	0x5a, 0xb7, 0x29, 0xd8, 0x03, 0x74, 0x5b, 0x26, 0x24, 0x4f, 0xc2, 0xf4, 0xbd, 0x30, 0x51, 0xf7,
-	0xd0, 0x1c, 0x28, 0xd4, 0xf7, 0xf9, 0x9e, 0x16, 0x55, 0xa0, 0x14, 0x7f, 0xd2, 0x75, 0x35, 0xee,
-	0xd8, 0x48, 0x65, 0x19, 0xf0, 0xf8, 0x22, 0x12, 0xa7, 0xa3, 0x7f, 0xbf, 0x0d, 0x55, 0x96, 0x2f,
-	0x22, 0xea, 0x6b, 0xc3, 0x56, 0x43, 0xbd, 0x9e, 0xbc, 0x2b, 0xa5, 0xd4, 0x5d, 0x21, 0x65, 0x58,
-	0x92, 0x9d, 0x48, 0x70, 0xeb, 0xa4, 0x09, 0x14, 0xab, 0x69, 0x64, 0xfe, 0x8a, 0x61, 0x35, 0x91,
-	0x42, 0x1f, 0xf5, 0xa2, 0xce, 0xa9, 0xbf, 0x6a, 0xd0, 0x3a, 0xd0, 0x39, 0x62, 0xda, 0xe5, 0x3e,
-	0xd8, 0x1c, 0x2a, 0x20, 0xaf, 0xa0, 0xa4, 0xdb, 0x9d, 0xf4, 0xd7, 0x6a, 0xde, 0xf6, 0xda, 0xde,
-	0xe3, 0x66, 0xba, 0x85, 0x36, 0xd3, 0xce, 0x59, 0x70, 0xea, 0xef, 0x97, 0x32, 0x6e, 0xda, 0x5b,
-	0x53, 0xe8, 0x7f, 0xde, 0xde, 0xdb, 0x5b, 0xc4, 0x38, 0xf4, 0x86, 0x3c, 0xc0, 0xda, 0xd4, 0x0d,
-	0xc1, 0x99, 0x76, 0xa1, 0x3c, 0x1e, 0x25, 0x8c, 0x7d, 0xb4, 0xb3, 0xcc, 0xcd, 0x53, 0x6f, 0xc2,
-	0x23, 0xec, 0x0d, 0xe7, 0xe4, 0x79, 0xad, 0x19, 0xec, 0x18, 0x98, 0x87, 0x21, 0xd3, 0xe0, 0x03,
-	0xcd, 0x98, 0xc9, 0x90, 0x9c, 0xc1, 0x30, 0xd8, 0x01, 0xf0, 0x00, 0x86, 0x4c, 0x86, 0x11, 0xc3,
-	0xde, 0x35, 0xc0, 0xe2, 0xa1, 0xec, 0x92, 0x21, 0x94, 0xd1, 0xc1, 0xfe, 0x2c, 0x53, 0x78, 0x7c,
-	0x3c, 0x57, 0x77, 0xe6, 0x04, 0x26, 0x6e, 0x0e, 0xa1, 0x8c, 0x0e, 0x6d, 0x8c, 0x11, 0x03, 0xa2,
-	0x8c, 0x79, 0x33, 0x59, 0x31, 0xa2, 0x03, 0x19, 0x63, 0xc4, 0x80, 0x28, 0x63, 0xde, 0x74, 0x26,
-	0x7d, 0xf8, 0x1f, 0x9b, 0xcc, 0x5b, 0x4e, 0xaf, 0x52, 0xb8, 0x6a, 0x73, 0x3e, 0xdc, 0x24, 0x1d,
-	0x36, 0x33, 0xb7, 0x9c, 0x46, 0xcd, 0xa6, 0xcb, 0x99, 0x76, 0x8a, 0x0e, 0x1b, 0x75, 0x5b, 0x4e,
-	0x97, 0x66, 0xd3, 0xe5, 0x8c, 0xbc, 0xb1, 0x99, 0xe9, 0xbe, 0xe1, 0x36, 0x33, 0x85, 0xcb, 0x31,
-	0x13, 0xed, 0x1f, 0x63, 0x33, 0x67, 0xd3, 0x21, 0xb8, 0x1c, 0x33, 0x9d, 0x74, 0x58, 0x57, 0x74,
-	0x9b, 0x39, 0x9b, 0x2e, 0xa7, 0x3b, 0x92, 0x2e, 0xfc, 0x97, 0x6d, 0x8d, 0x0d, 0xf7, 0x1d, 0x1e,
-	0xa3, 0xaa, 0xcf, 0xe7, 0x41, 0x4d, 0x12, 0x65, 0x3b, 0x64, 0xc3, 0x7d, 0x75, 0x67, 0x10, 0x39,
-	0x7b, 0xa5, 0x22, 0xca, 0x36, 0xca, 0x86, 0xfb, 0xc6, 0xce, 0x20, 0x72, 0xb6, 0xcc, 0xb7, 0xbb,
-	0x3f, 0x6e, 0x03, 0xef, 0xe6, 0x36, 0xf0, 0x7e, 0xdd, 0x06, 0xde, 0xd7, 0xbb, 0x60, 0xe1, 0xe6,
-	0x2e, 0x58, 0xf8, 0x79, 0x17, 0x2c, 0x7c, 0xae, 0x1c, 0x98, 0x6f, 0xa8, 0xcb, 0xf1, 0xe7, 0xdd,
-	0xd5, 0x90, 0xcb, 0xa3, 0x92, 0xfe, 0x7e, 0x7a, 0xf9, 0x3b, 0x00, 0x00, 0xff, 0xff, 0xff, 0xc2,
-	0xf8, 0x1c, 0xfd, 0x0d, 0x00, 0x00,
+	// 780 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x57, 0x4f, 0x4f, 0x13, 0x41,
+	0x14, 0x67, 0x4b, 0x29, 0xf0, 0x48, 0x48, 0x1c, 0x49, 0x59, 0x6b, 0x58, 0xdb, 0x6a, 0x10, 0x0f,
+	0x16, 0xc5, 0xf8, 0x01, 0x14, 0xa2, 0xf1, 0x40, 0x4c, 0x36, 0x36, 0x31, 0x1e, 0x24, 0x43, 0x77,
+	0x04, 0x42, 0xdb, 0x2d, 0x33, 0x4b, 0x80, 0x6f, 0xe1, 0x41, 0xbf, 0x87, 0x37, 0xbf, 0x82, 0x47,
+	0x8e, 0x1e, 0x0d, 0x7c, 0x11, 0x33, 0x7f, 0x76, 0xe9, 0x2c, 0x6f, 0x76, 0x41, 0xf4, 0xe6, 0xa9,
+	0xf3, 0x76, 0x7e, 0x7d, 0xbf, 0xdf, 0xfc, 0xde, 0xce, 0x7b, 0x59, 0x58, 0x8c, 0x58, 0x8f, 0x0d,
+	0x93, 0x55, 0xce, 0x0e, 0x0e, 0x99, 0x48, 0x56, 0x93, 0xe3, 0xce, 0x88, 0xc7, 0x49, 0x4c, 0xe6,
+	0xf5, 0x46, 0xc7, 0x6c, 0x34, 0x1e, 0xe4, 0x80, 0xb4, 0xdf, 0x8f, 0x8f, 0x58, 0xb4, 0x15, 0x73,
+	0xda, 0xeb, 0x33, 0xa1, 0xff, 0xd5, 0xb8, 0x9f, 0x43, 0x0d, 0xf6, 0x86, 0x8c, 0x6f, 0x71, 0x26,
+	0x46, 0xf1, 0x50, 0x30, 0x07, 0xc8, 0xfc, 0x6e, 0x71, 0xd6, 0x8b, 0x79, 0x64, 0x40, 0x4b, 0x79,
+	0x61, 0x9c, 0x51, 0x71, 0xc8, 0x4f, 0xf4, 0x76, 0x9b, 0xc2, 0xe2, 0xa6, 0xd8, 0x59, 0xe7, 0x8c,
+	0x26, 0xec, 0x85, 0x96, 0xf2, 0x56, 0x2b, 0x21, 0x3e, 0x4c, 0xf7, 0xe4, 0xf3, 0x98, 0xfb, 0x5e,
+	0xd3, 0x5b, 0x99, 0x0d, 0xd3, 0x90, 0x10, 0xa8, 0x0e, 0xe9, 0x80, 0xf9, 0x15, 0xf5, 0x58, 0xad,
+	0x25, 0x9a, 0x46, 0x11, 0x67, 0x42, 0xf8, 0x93, 0x1a, 0x6d, 0xc2, 0xf6, 0x53, 0xb8, 0xe7, 0xa0,
+	0x08, 0xcd, 0x79, 0xc8, 0x3c, 0x54, 0xf6, 0x22, 0xc5, 0x52, 0x0d, 0x2b, 0x7b, 0x51, 0xfb, 0x40,
+	0xa9, 0xea, 0x8e, 0xa2, 0xeb, 0xa8, 0xd2, 0x49, 0x2a, 0x69, 0x92, 0x4c, 0xe5, 0x24, 0xae, 0xb2,
+	0x6a, 0xab, 0x6c, 0x29, 0x95, 0x18, 0x65, 0xaa, 0xb2, 0xbd, 0xae, 0x54, 0x6d, 0xb0, 0x3e, 0xfb,
+	0x73, 0x55, 0x86, 0x07, 0x4b, 0x92, 0xf1, 0x7c, 0xf3, 0xa0, 0x9e, 0x39, 0xb6, 0x29, 0x2b, 0x9f,
+	0x19, 0x55, 0x58, 0x93, 0xc3, 0xee, 0x9b, 0x8d, 0xb4, 0x26, 0x72, 0x4d, 0x9a, 0x30, 0x67, 0xca,
+	0xde, 0x95, 0x5b, 0xda, 0x88, 0xf1, 0x47, 0xf2, 0x5f, 0xbb, 0x54, 0xec, 0x1a, 0x33, 0xd4, 0x9a,
+	0xd4, 0xa1, 0x46, 0x87, 0xe2, 0x88, 0x71, 0x7f, 0xaa, 0xe9, 0xad, 0x4c, 0x85, 0x26, 0x22, 0x0d,
+	0x98, 0x89, 0x68, 0x42, 0xbb, 0x82, 0x45, 0x7e, 0x4d, 0xe1, 0xb3, 0xb8, 0xdd, 0x84, 0x00, 0x57,
+	0x9c, 0x1d, 0xea, 0x8b, 0x3e, 0x94, 0x36, 0xf8, 0xdf, 0x1e, 0xca, 0x75, 0x00, 0x02, 0x55, 0x41,
+	0xfb, 0x89, 0x3f, 0xad, 0x9e, 0xaa, 0xb5, 0x11, 0x8e, 0xa8, 0xca, 0x84, 0xbf, 0x52, 0xba, 0x75,
+	0xc1, 0x6e, 0xa0, 0xdb, 0x30, 0x21, 0x79, 0x32, 0xa6, 0xef, 0x95, 0xb1, 0xba, 0x87, 0xfa, 0x40,
+	0xa1, 0xba, 0xcb, 0xd7, 0xb4, 0xa8, 0x0e, 0xb5, 0xe4, 0xbd, 0xaa, 0xab, 0x76, 0xc7, 0x44, 0x32,
+	0xcb, 0x90, 0x25, 0x47, 0x31, 0xdf, 0x4f, 0xdf, 0x7e, 0x13, 0xca, 0x2c, 0x9f, 0x78, 0x3c, 0x50,
+	0x86, 0xcd, 0x86, 0x6a, 0x3d, 0x7e, 0x57, 0x6a, 0xd6, 0x5d, 0x21, 0x0b, 0x30, 0x25, 0x7a, 0x31,
+	0x67, 0xc6, 0x49, 0x1d, 0x48, 0x56, 0xdd, 0xc4, 0xfc, 0x19, 0xcd, 0xaa, 0x23, 0x89, 0xde, 0xee,
+	0xc7, 0xbd, 0x7d, 0x7f, 0x56, 0xa3, 0x55, 0xa0, 0x72, 0x24, 0x74, 0x87, 0xf9, 0x60, 0x72, 0xc8,
+	0x80, 0x3c, 0x87, 0x9a, 0x6a, 0x75, 0xc2, 0x9f, 0x6b, 0x7a, 0x2b, 0x73, 0x6b, 0x4b, 0x1d, 0xbb,
+	0x7d, 0x76, 0x6c, 0xe7, 0x0c, 0xd8, 0x7a, 0xfd, 0x2c, 0xe3, 0xf2, 0xde, 0xea, 0x42, 0xff, 0xf7,
+	0xf6, 0xda, 0xde, 0x22, 0xc6, 0xa1, 0x37, 0xe4, 0x06, 0xd6, 0x5a, 0x37, 0x04, 0x67, 0x7a, 0x0d,
+	0xb7, 0xb2, 0x3a, 0xbf, 0x33, 0x83, 0xac, 0x80, 0xc4, 0x3d, 0x93, 0xee, 0xc2, 0x9d, 0x4b, 0x89,
+	0x72, 0x2c, 0xfa, 0xc4, 0x7f, 0x81, 0xc5, 0x4e, 0x94, 0xb1, 0x3c, 0x56, 0x2c, 0xfa, 0xb4, 0xe5,
+	0x2c, 0x26, 0x97, 0x0d, 0x4f, 0x73, 0xad, 0x7d, 0x05, 0x98, 0xdc, 0x14, 0x3b, 0x64, 0x04, 0x0b,
+	0xe8, 0x28, 0x7f, 0x78, 0xa9, 0xd4, 0xf8, 0x40, 0x6e, 0xac, 0x5e, 0x11, 0x98, 0xf5, 0xc0, 0x11,
+	0x2c, 0xa0, 0x63, 0x1a, 0x63, 0xc4, 0x80, 0x28, 0x63, 0xd1, 0x14, 0x96, 0x8c, 0xe8, 0x08, 0xc6,
+	0x18, 0x31, 0x20, 0xca, 0x58, 0x34, 0x8f, 0xc9, 0x00, 0x6e, 0x63, 0xb3, 0x78, 0xd9, 0xe9, 0x95,
+	0x85, 0x6b, 0x74, 0xae, 0x86, 0x1b, 0xa7, 0xc3, 0xa6, 0xe4, 0xb2, 0xd3, 0xa8, 0x72, 0xba, 0x82,
+	0xf9, 0x26, 0xe9, 0xb0, 0xe1, 0xb6, 0xec, 0x74, 0xa9, 0x9c, 0xae, 0x60, 0xc8, 0x5d, 0x98, 0x69,
+	0x77, 0x0a, 0xb7, 0x99, 0x16, 0xae, 0xc0, 0x4c, 0xb4, 0x63, 0x5c, 0x98, 0x59, 0x4e, 0x87, 0xe0,
+	0x0a, 0xcc, 0x74, 0xd2, 0x61, 0x7d, 0xd0, 0x6d, 0x66, 0x39, 0x5d, 0x41, 0x3f, 0x24, 0x1f, 0x61,
+	0x3e, 0xd7, 0x0c, 0x5b, 0x4e, 0x7f, 0x52, 0x48, 0xe3, 0x51, 0x29, 0x64, 0x3c, 0x7f, 0xae, 0x0d,
+	0xb6, 0x9c, 0x86, 0x14, 0xe6, 0xc7, 0x7b, 0xa0, 0xcc, 0x9f, 0x6b, 0x80, 0x2d, 0xa7, 0x03, 0x85,
+	0xf9, 0xf1, 0xbe, 0xf8, 0xf2, 0xc9, 0x8f, 0xb3, 0xc0, 0x3b, 0x3d, 0x0b, 0xbc, 0x5f, 0x67, 0x81,
+	0xf7, 0xf9, 0x3c, 0x98, 0x38, 0x3d, 0x0f, 0x26, 0x7e, 0x9e, 0x07, 0x13, 0x1f, 0xea, 0x1b, 0xfa,
+	0xb3, 0xe8, 0xf8, 0xe2, 0xc3, 0xe8, 0x64, 0xc4, 0xc4, 0x76, 0x4d, 0x7d, 0x16, 0x3d, 0xfb, 0x1d,
+	0x00, 0x00, 0xff, 0xff, 0xf1, 0x86, 0x0e, 0x8d, 0xd0, 0x0d, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1419,9 +1410,9 @@ type MsgClient interface {
 	CreateRequestRecord(ctx context.Context, in *MsgCreateRequestRecord, opts ...grpc.CallOption) (*MsgCreateRequestRecordResponse, error)
 	UpdateRequestRecord(ctx context.Context, in *MsgUpdateRequestRecord, opts ...grpc.CallOption) (*MsgUpdateRequestRecordResponse, error)
 	DeleteRequestRecord(ctx context.Context, in *MsgDeleteRequestRecord, opts ...grpc.CallOption) (*MsgDeleteRequestRecordResponse, error)
-	CreateAddTreasury(ctx context.Context, in *MsgCreateAddTreasury, opts ...grpc.CallOption) (*MsgCreateAddTreasuryResponse, error)
-	UpdateAddTreasury(ctx context.Context, in *MsgUpdateAddTreasury, opts ...grpc.CallOption) (*MsgUpdateAddTreasuryResponse, error)
-	DeleteAddTreasury(ctx context.Context, in *MsgDeleteAddTreasury, opts ...grpc.CallOption) (*MsgDeleteAddTreasuryResponse, error)
+	CreateTreasury(ctx context.Context, in *MsgCreateTreasury, opts ...grpc.CallOption) (*MsgCreateTreasuryResponse, error)
+	UpdateTreasury(ctx context.Context, in *MsgUpdateTreasury, opts ...grpc.CallOption) (*MsgUpdateTreasuryResponse, error)
+	DeleteTreasury(ctx context.Context, in *MsgDeleteTreasury, opts ...grpc.CallOption) (*MsgDeleteTreasuryResponse, error)
 }
 
 type msgClient struct {
@@ -1513,27 +1504,27 @@ func (c *msgClient) DeleteRequestRecord(ctx context.Context, in *MsgDeleteReques
 	return out, nil
 }
 
-func (c *msgClient) CreateAddTreasury(ctx context.Context, in *MsgCreateAddTreasury, opts ...grpc.CallOption) (*MsgCreateAddTreasuryResponse, error) {
-	out := new(MsgCreateAddTreasuryResponse)
-	err := c.cc.Invoke(ctx, "/decent.request.Msg/CreateAddTreasury", in, out, opts...)
+func (c *msgClient) CreateTreasury(ctx context.Context, in *MsgCreateTreasury, opts ...grpc.CallOption) (*MsgCreateTreasuryResponse, error) {
+	out := new(MsgCreateTreasuryResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/CreateTreasury", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) UpdateAddTreasury(ctx context.Context, in *MsgUpdateAddTreasury, opts ...grpc.CallOption) (*MsgUpdateAddTreasuryResponse, error) {
-	out := new(MsgUpdateAddTreasuryResponse)
-	err := c.cc.Invoke(ctx, "/decent.request.Msg/UpdateAddTreasury", in, out, opts...)
+func (c *msgClient) UpdateTreasury(ctx context.Context, in *MsgUpdateTreasury, opts ...grpc.CallOption) (*MsgUpdateTreasuryResponse, error) {
+	out := new(MsgUpdateTreasuryResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/UpdateTreasury", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *msgClient) DeleteAddTreasury(ctx context.Context, in *MsgDeleteAddTreasury, opts ...grpc.CallOption) (*MsgDeleteAddTreasuryResponse, error) {
-	out := new(MsgDeleteAddTreasuryResponse)
-	err := c.cc.Invoke(ctx, "/decent.request.Msg/DeleteAddTreasury", in, out, opts...)
+func (c *msgClient) DeleteTreasury(ctx context.Context, in *MsgDeleteTreasury, opts ...grpc.CallOption) (*MsgDeleteTreasuryResponse, error) {
+	out := new(MsgDeleteTreasuryResponse)
+	err := c.cc.Invoke(ctx, "/decent.request.Msg/DeleteTreasury", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1551,9 +1542,9 @@ type MsgServer interface {
 	CreateRequestRecord(context.Context, *MsgCreateRequestRecord) (*MsgCreateRequestRecordResponse, error)
 	UpdateRequestRecord(context.Context, *MsgUpdateRequestRecord) (*MsgUpdateRequestRecordResponse, error)
 	DeleteRequestRecord(context.Context, *MsgDeleteRequestRecord) (*MsgDeleteRequestRecordResponse, error)
-	CreateAddTreasury(context.Context, *MsgCreateAddTreasury) (*MsgCreateAddTreasuryResponse, error)
-	UpdateAddTreasury(context.Context, *MsgUpdateAddTreasury) (*MsgUpdateAddTreasuryResponse, error)
-	DeleteAddTreasury(context.Context, *MsgDeleteAddTreasury) (*MsgDeleteAddTreasuryResponse, error)
+	CreateTreasury(context.Context, *MsgCreateTreasury) (*MsgCreateTreasuryResponse, error)
+	UpdateTreasury(context.Context, *MsgUpdateTreasury) (*MsgUpdateTreasuryResponse, error)
+	DeleteTreasury(context.Context, *MsgDeleteTreasury) (*MsgDeleteTreasuryResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -1587,14 +1578,14 @@ func (*UnimplementedMsgServer) UpdateRequestRecord(ctx context.Context, req *Msg
 func (*UnimplementedMsgServer) DeleteRequestRecord(ctx context.Context, req *MsgDeleteRequestRecord) (*MsgDeleteRequestRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRequestRecord not implemented")
 }
-func (*UnimplementedMsgServer) CreateAddTreasury(ctx context.Context, req *MsgCreateAddTreasury) (*MsgCreateAddTreasuryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateAddTreasury not implemented")
+func (*UnimplementedMsgServer) CreateTreasury(ctx context.Context, req *MsgCreateTreasury) (*MsgCreateTreasuryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTreasury not implemented")
 }
-func (*UnimplementedMsgServer) UpdateAddTreasury(ctx context.Context, req *MsgUpdateAddTreasury) (*MsgUpdateAddTreasuryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateAddTreasury not implemented")
+func (*UnimplementedMsgServer) UpdateTreasury(ctx context.Context, req *MsgUpdateTreasury) (*MsgUpdateTreasuryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateTreasury not implemented")
 }
-func (*UnimplementedMsgServer) DeleteAddTreasury(ctx context.Context, req *MsgDeleteAddTreasury) (*MsgDeleteAddTreasuryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteAddTreasury not implemented")
+func (*UnimplementedMsgServer) DeleteTreasury(ctx context.Context, req *MsgDeleteTreasury) (*MsgDeleteTreasuryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteTreasury not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -1763,56 +1754,56 @@ func _Msg_DeleteRequestRecord_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_CreateAddTreasury_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgCreateAddTreasury)
+func _Msg_CreateTreasury_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateTreasury)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).CreateAddTreasury(ctx, in)
+		return srv.(MsgServer).CreateTreasury(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/decent.request.Msg/CreateAddTreasury",
+		FullMethod: "/decent.request.Msg/CreateTreasury",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).CreateAddTreasury(ctx, req.(*MsgCreateAddTreasury))
+		return srv.(MsgServer).CreateTreasury(ctx, req.(*MsgCreateTreasury))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_UpdateAddTreasury_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUpdateAddTreasury)
+func _Msg_UpdateTreasury_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateTreasury)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).UpdateAddTreasury(ctx, in)
+		return srv.(MsgServer).UpdateTreasury(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/decent.request.Msg/UpdateAddTreasury",
+		FullMethod: "/decent.request.Msg/UpdateTreasury",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UpdateAddTreasury(ctx, req.(*MsgUpdateAddTreasury))
+		return srv.(MsgServer).UpdateTreasury(ctx, req.(*MsgUpdateTreasury))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_DeleteAddTreasury_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgDeleteAddTreasury)
+func _Msg_DeleteTreasury_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteTreasury)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).DeleteAddTreasury(ctx, in)
+		return srv.(MsgServer).DeleteTreasury(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/decent.request.Msg/DeleteAddTreasury",
+		FullMethod: "/decent.request.Msg/DeleteTreasury",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).DeleteAddTreasury(ctx, req.(*MsgDeleteAddTreasury))
+		return srv.(MsgServer).DeleteTreasury(ctx, req.(*MsgDeleteTreasury))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1858,16 +1849,16 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Msg_DeleteRequestRecord_Handler,
 		},
 		{
-			MethodName: "CreateAddTreasury",
-			Handler:    _Msg_CreateAddTreasury_Handler,
+			MethodName: "CreateTreasury",
+			Handler:    _Msg_CreateTreasury_Handler,
 		},
 		{
-			MethodName: "UpdateAddTreasury",
-			Handler:    _Msg_UpdateAddTreasury_Handler,
+			MethodName: "UpdateTreasury",
+			Handler:    _Msg_UpdateTreasury_Handler,
 		},
 		{
-			MethodName: "DeleteAddTreasury",
-			Handler:    _Msg_DeleteAddTreasury_Handler,
+			MethodName: "DeleteTreasury",
+			Handler:    _Msg_DeleteTreasury_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2603,7 +2594,7 @@ func (m *MsgDeleteRequestRecordResponse) MarshalToSizedBuffer(dAtA []byte) (int,
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgCreateAddTreasury) Marshal() (dAtA []byte, err error) {
+func (m *MsgCreateTreasury) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -2613,12 +2604,132 @@ func (m *MsgCreateAddTreasury) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgCreateAddTreasury) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgCreateTreasury) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgCreateAddTreasury) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgCreateTreasury) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCreateTreasuryResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCreateTreasuryResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCreateTreasuryResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateTreasury) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateTreasury) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateTreasury) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Creator) > 0 {
+		i -= len(m.Creator)
+		copy(dAtA[i:], m.Creator)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUpdateTreasuryResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUpdateTreasuryResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUpdateTreasuryResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDeleteTreasury) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDeleteTreasury) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDeleteTreasury) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -2633,7 +2744,7 @@ func (m *MsgCreateAddTreasury) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgCreateAddTreasuryResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgDeleteTreasuryResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -2643,133 +2754,12 @@ func (m *MsgCreateAddTreasuryResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgCreateAddTreasuryResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgDeleteTreasuryResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgCreateAddTreasuryResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Id != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Id))
-		i--
-		dAtA[i] = 0x8
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUpdateAddTreasury) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUpdateAddTreasury) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUpdateAddTreasury) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Id != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Id))
-		i--
-		dAtA[i] = 0x10
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUpdateAddTreasuryResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUpdateAddTreasuryResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUpdateAddTreasuryResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgDeleteAddTreasury) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgDeleteAddTreasury) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgDeleteAddTreasury) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.Id != 0 {
-		i = encodeVarintTx(dAtA, i, uint64(m.Id))
-		i--
-		dAtA[i] = 0x10
-	}
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgDeleteAddTreasuryResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgDeleteAddTreasuryResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgDeleteAddTreasuryResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgDeleteTreasuryResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -3126,7 +3116,59 @@ func (m *MsgDeleteRequestRecordResponse) Size() (n int) {
 	return n
 }
 
-func (m *MsgCreateAddTreasury) Size() (n int) {
+func (m *MsgCreateTreasury) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCreateTreasuryResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgUpdateTreasury) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Creator)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUpdateTreasuryResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgDeleteTreasury) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -3139,60 +3181,7 @@ func (m *MsgCreateAddTreasury) Size() (n int) {
 	return n
 }
 
-func (m *MsgCreateAddTreasuryResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.Id != 0 {
-		n += 1 + sovTx(uint64(m.Id))
-	}
-	return n
-}
-
-func (m *MsgUpdateAddTreasury) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Id != 0 {
-		n += 1 + sovTx(uint64(m.Id))
-	}
-	return n
-}
-
-func (m *MsgUpdateAddTreasuryResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgDeleteAddTreasury) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	if m.Id != 0 {
-		n += 1 + sovTx(uint64(m.Id))
-	}
-	return n
-}
-
-func (m *MsgDeleteAddTreasuryResponse) Size() (n int) {
+func (m *MsgDeleteTreasuryResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -5463,7 +5452,7 @@ func (m *MsgDeleteRequestRecordResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgCreateAddTreasury) Unmarshal(dAtA []byte) error {
+func (m *MsgCreateTreasury) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -5486,10 +5475,338 @@ func (m *MsgCreateAddTreasury) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreateAddTreasury: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgCreateTreasury: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreateAddTreasury: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgCreateTreasury: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCreateTreasuryResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCreateTreasuryResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCreateTreasuryResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateTreasury) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateTreasury: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateTreasury: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Creator = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUpdateTreasuryResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUpdateTreasuryResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUpdateTreasuryResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDeleteTreasury) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDeleteTreasury: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDeleteTreasury: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -5545,7 +5862,7 @@ func (m *MsgCreateAddTreasury) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgCreateAddTreasuryResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgDeleteTreasuryResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -5568,331 +5885,10 @@ func (m *MsgCreateAddTreasuryResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgCreateAddTreasuryResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgDeleteTreasuryResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgCreateAddTreasuryResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
-			}
-			m.Id = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Id |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUpdateAddTreasury) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateAddTreasury: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateAddTreasury: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
-			}
-			m.Id = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Id |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUpdateAddTreasuryResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUpdateAddTreasuryResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUpdateAddTreasuryResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgDeleteAddTreasury) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDeleteAddTreasury: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDeleteAddTreasury: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
-			}
-			m.Id = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.Id |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgDeleteAddTreasuryResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgDeleteAddTreasuryResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgDeleteAddTreasuryResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgDeleteTreasuryResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

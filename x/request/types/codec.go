@@ -17,9 +17,9 @@ func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgCreateRequestRecord{}, "request/CreateRequestRecord", nil)
 	cdc.RegisterConcrete(&MsgUpdateRequestRecord{}, "request/UpdateRequestRecord", nil)
 	cdc.RegisterConcrete(&MsgDeleteRequestRecord{}, "request/DeleteRequestRecord", nil)
-	cdc.RegisterConcrete(&MsgCreateAddTreasury{}, "request/CreateAddTreasury", nil)
-	cdc.RegisterConcrete(&MsgUpdateAddTreasury{}, "request/UpdateAddTreasury", nil)
-	cdc.RegisterConcrete(&MsgDeleteAddTreasury{}, "request/DeleteAddTreasury", nil)
+	cdc.RegisterConcrete(&MsgCreateTreasury{}, "request/CreateTreasury", nil)
+	cdc.RegisterConcrete(&MsgUpdateTreasury{}, "request/UpdateTreasury", nil)
+	cdc.RegisterConcrete(&MsgDeleteTreasury{}, "request/DeleteTreasury", nil)
 	// this line is used by starport scaffolding # 2
 }
 
@@ -40,9 +40,9 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 		&MsgDeleteRequestRecord{},
 	)
 	registry.RegisterImplementations((*sdk.Msg)(nil),
-		&MsgCreateAddTreasury{},
-		&MsgUpdateAddTreasury{},
-		&MsgDeleteAddTreasury{},
+		&MsgCreateTreasury{},
+		&MsgUpdateTreasury{},
+		&MsgDeleteTreasury{},
 	)
 	// this line is used by starport scaffolding # 3
 
