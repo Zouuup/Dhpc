@@ -9,19 +9,17 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
+// CreateRequestRecord creates a request record
 func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCreateRequestRecord) (*types.MsgCreateRequestRecordResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	// Check if the value already exists
-	_, isFound := k.GetRequestRecord(
-		ctx,
-		msg.UUID,
-	)
+	_, isFound := k.GetRequestRecord(ctx, msg.UUID)
 	if isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
 	}
 
-	// if From and Creator are not the same, check if address is a in the list of allowed oracles
+	// If From and Creator are not the same, check if the address is in the list of allowed oracles
 	if msg.From != msg.Creator {
 		allowedOracles := k.GetAllAllowedOracles(ctx)
 		allowed := false
@@ -31,14 +29,13 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 			}
 		}
 		if !allowed {
-			return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "not allowed as oracle, submit request with your own address")
+			return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "not allowed as an oracle, submit the request with your own address")
 		}
-
 	}
 
 	deposit, err := sdk.ParseCoinsNormalized(depositPerRequestToken)
 	if err != nil {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating the request record")
 	}
 
 	from, err := sdk.AccAddressFromBech32(msg.From)
@@ -48,7 +45,7 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 
 	sdkError := k.bankKeeper.SendCoinsFromAccountToModule(ctx, from, types.ModuleName, deposit)
 	if sdkError != nil {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to deposit coins for creating request record")
+		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to deposit coins for creating the request record")
 	}
 
 	var requestRecord = types.RequestRecord{
@@ -67,54 +64,45 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 
 	ctx.Logger().Info("Creating Request record", "UUID", requestRecord.UUID)
 
-	k.SetRequestRecord(
-		ctx,
-		requestRecord,
-	)
+	k.SetRequestRecord(ctx, requestRecord)
+
 	return &types.MsgCreateRequestRecordResponse{}, nil
 }
 
+// UpdateRequestRecord updates a request record
 func (k msgServer) UpdateRequestRecord(goCtx context.Context, msg *types.MsgUpdateRequestRecord) (*types.MsgUpdateRequestRecordResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	// Check if the value exists
-	valFound, isFound := k.GetRequestRecord(
-		ctx,
-		msg.UUID,
-	)
+	valFound, isFound := k.GetRequestRecord(ctx, msg.UUID)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
 	}
 
-	// Checks if the the msg creator is the same as the current owner
+	// Check if the msg creator is the same as the current owner
 	if msg.Creator != valFound.Creator {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
-	return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "Can't update records after creation")
+	return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "Cannot update records after creation")
 }
 
+// DeleteRequestRecord deletes a request record
 func (k msgServer) DeleteRequestRecord(goCtx context.Context, msg *types.MsgDeleteRequestRecord) (*types.MsgDeleteRequestRecordResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	// Check if the value exists
-	valFound, isFound := k.GetRequestRecord(
-		ctx,
-		msg.UUID,
-	)
+	valFound, isFound := k.GetRequestRecord(ctx, msg.UUID)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
 	}
 
-	// Checks if the the msg creator is the same as the current owner
+	// Check if the msg creator is the same as the current owner
 	if msg.Creator != valFound.Creator {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
-	k.RemoveRequestRecord(
-		ctx,
-		msg.UUID,
-	)
+	k.RemoveRequestRecord(ctx, msg.UUID)
 
 	return &types.MsgDeleteRequestRecordResponse{}, nil
 }

@@ -13,26 +13,26 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
 
-const (
-	MinimumMiners          = 5
-	BlackWait              = 10
-	depositPerRequestToken = "1000dhpc"
-	treasury               = "decent1cd5e5vr9ftlpzkw45n9d4snpf3vuanl4cf5yyc"
-)
+// MinimumMiners defines the minimum number of miners required
+const MinimumMiners = 5
 
+// BlackWait defines the wait time in blocks
+const BlackWait = 10
+
+// depositPerRequestToken is the deposit amount per request token
+const depositPerRequestToken = "1000dhpc"
+
+// CreateMinerResponse creates a miner response
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
+
 	// Check if the value already exists
-	_, isFound := k.GetMinerResponse(
-		ctx,
-		msg.UUID,
-	)
+	_, isFound := k.GetMinerResponse(ctx, msg.UUID)
 	if isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
 	}
 
-	// iterate through dataused and make sure they are all unique
-
+	// Iterate through dataused and make sure they are all unique
 	if strings.Contains(msg.DataUsed, ",") {
 		dataUsedList := strings.Split(msg.DataUsed, ",")
 		for i := 0; i < len(dataUsedList); i++ {
@@ -74,7 +74,7 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
 	k.SetRequestRecord(ctx, requestRecord)
 
-	if len(requestRecord.Miners) >= (MinimumMiners) || ctx.BlockHeight() > int64(requestRecord.GetCreatedBlock())+BlackWait {
+	if len(requestRecord.Miners) >= MinimumMiners || ctx.BlockHeight() > int64(requestRecord.GetCreatedBlock())+BlackWait {
 		requestRecord.Stage = 1
 		requestRecord.UpdatedBlock = ctx.BlockHeight()
 		k.SetRequestRecord(ctx, requestRecord)
@@ -83,13 +83,11 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	return &types.MsgCreateMinerResponseResponse{}, nil
 }
 
+// UpdateMinerResponse updates a miner response
 func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpdateMinerResponse) (*types.MsgUpdateMinerResponseResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	requestRecord, isFound := k.GetRequestRecord(
-		ctx,
-		msg.RequestUUID,
-	)
+	requestRecord, isFound := k.GetRequestRecord(ctx, msg.RequestUUID)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
 	}
@@ -106,20 +104,22 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			break
 		}
 	}
-	// stage 2.0:
-	// start accepting salt and answers
-	// if 5 blocks since switch to stage 1.0
-	// if at least half + 1 miners provided response
 
-	// stage 2.1:
-	// start processing answers and salts, and payments
+	// Stage 2.0:
+	// Start accepting salt and answers
+	// If 5 blocks have passed since switch to stage 1.0
+	// If at least half + 1 miners provided a response
+
+	// Stage 2.1:
+	// Start processing answers and salts, and payments
 
 	minerResponse.Answer = msg.Answer
 	minerResponse.Salt = msg.Salt
 	k.SetRequestRecord(ctx, requestRecord)
 
-	// if number of miners responses where answer is not zero is more than 2/3 of the total number of miners, then change the stage to 2
-	// create a list of miners who have responded with non zero answer
+	// If the number of miners' responses where the answer is not zero is more than 2/3 of the total number of miners,
+	// then change the stage to 2
+	// Create a list of miners who have responded with a non-zero answer
 	var nonZeroAnswerMiners []types.MinerResponse
 	var rewardedMiners []types.MinerResponse
 	for _, miner := range requestRecord.Miners {
@@ -138,8 +138,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		}
 	}
 	if len(nonZeroAnswerMiners) > (len(requestRecord.Miners)*2/3) || ctx.BlockHeight() > int64(requestRecord.GetUpdatedBlock())+BlackWait {
-
-		// if more than half of the miners have the same answer, then we can switch to stage 2
+		// If more than half of the miners have the same answer, then we can switch to stage 2
 
 		// Find the most common answer
 		answerCount := make(map[int32]int)
@@ -165,11 +164,12 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		if err != nil {
 			return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
 		}
-		// get 40% of the deposit for miners
+
+		// Get 40% of the deposit for miners
 		minerAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(40).QuoRaw(100).QuoRaw(int64(len(rewardedMiners))))
 		minerAmount := sdk.NewCoins(minerAmountCoin)
 
-		// iterate through nonZeroAnswerMiners and pay each miner amount
+		// Iterate through rewardedMiners and pay each miner amount
 		for _, miner := range rewardedMiners {
 			minerAddress, err := sdk.AccAddressFromBech32(miner.Creator)
 			if err != nil {
@@ -181,10 +181,10 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			}
 		}
 
-		// iterate through rewardedMiners dataused, find data that's used by 80% of the miners and pay data providers for that data
+		// Iterate through rewardedMiners' dataused, find data that's used by 80% of the miners, and pay data providers for that data
 		dataCounts := make(map[string]int)
 		for _, miner := range rewardedMiners {
-			// Dataused is MD5 string divided by comma, split it and iterate through it
+			// Dataused is an MD5 string divided by commas, split it and iterate through it
 			dataUsed := strings.Split(miner.DataUsed, ",")
 			for _, data := range dataUsed {
 				found, _ := k.dataKeeper.GetOwnerByHash(ctx, data)
@@ -194,7 +194,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			}
 		}
 
-		// create a list of data that's used by 80% of the miners, which means count of it equal or more than 80% of the rewardedMiners
+		// Create a list of data that's used by 80% of the miners, which means the count is equal to or more than 80% of rewardedMiners
 		var dataUsedBy80Percent []string
 		for data, count := range dataCounts {
 			if count >= len(rewardedMiners)*80/100 {
@@ -202,11 +202,11 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			}
 		}
 
-		// get 55% of the deposit for data providers
+		// Get 55% of the deposit for data providers
 		dataProviderAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(55).QuoRaw(100).QuoRaw(int64(len(dataUsedBy80Percent))))
 		dataProviderAmount := sdk.NewCoins(dataProviderAmountCoin)
 
-		// iterate through dataUsedBy80Percent and pay each data provider amount
+		// Iterate through dataUsedBy80Percent and pay each data provider amount
 		for _, data := range dataUsedBy80Percent {
 			_, owner := k.dataKeeper.GetOwnerByHash(ctx, data)
 			ownerAddress, err := sdk.AccAddressFromBech32(owner)
@@ -220,7 +220,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			}
 		}
 
-		// TODO: not ideal, instead we should send all remaining tokens to the treasury
+		// TODO: Not ideal, instead we should send all remaining tokens to the treasury
 		treasuryAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(5).QuoRaw(100))
 		treasuryAmount := sdk.NewCoins(treasuryAmountCoin)
 
@@ -240,30 +240,28 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		}
 
 		ctx.Logger().Info("Finishing Request", "UUID", requestRecord.UUID, "miners", len(rewardedMiners), "minerAmount", minerAmount, "dataProviders", len(dataUsedBy80Percent), "dataAmount", dataProviderAmount, "treasury", treasuryAmount)
-		// // switch to Stage 2
+
+		// Switch to Stage 2
 		requestRecord.Stage = 2
 		requestRecord.Score = maxAnswer
 		requestRecord.UpdatedBlock = ctx.BlockHeight()
 		k.SetRequestRecord(ctx, requestRecord)
-
 	}
 
 	return &types.MsgUpdateMinerResponseResponse{}, nil
 }
 
+// DeleteMinerResponse deletes a miner response
 func (k msgServer) DeleteMinerResponse(goCtx context.Context, msg *types.MsgDeleteMinerResponse) (*types.MsgDeleteMinerResponseResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	// Check if the value exists
-	requestRecord, isFound := k.GetRequestRecord(
-		ctx,
-		msg.UUID,
-	)
+	requestRecord, isFound := k.GetRequestRecord(ctx, msg.UUID)
 	if !isFound {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
 	}
 
-	// Checks if the the msg creator is the same as the current owner
+	// Checks if the msg creator is the same as the current owner
 	if msg.Creator != requestRecord.Creator {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
