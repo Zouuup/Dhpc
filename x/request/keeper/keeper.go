@@ -21,6 +21,7 @@ type (
 
 		accountKeeper types.AccountKeeper
 		bankKeeper    types.BankKeeper
+		dataKeeper    types.DataKeeper
 	}
 )
 
@@ -32,6 +33,7 @@ func NewKeeper(
 
 	accountKeeper types.AccountKeeper,
 	bankKeeper types.BankKeeper,
+	dataKeeper types.DataKeeper,
 
 ) *Keeper {
 	// set KeyTable if it has not already been set
@@ -47,6 +49,7 @@ func NewKeeper(
 
 		accountKeeper: accountKeeper,
 		bankKeeper:    bankKeeper,
+		dataKeeper:    dataKeeper,
 	}
 }
 

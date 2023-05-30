@@ -35,16 +35,28 @@ accounts:
       - 0dhpc
       - 10000token
       - 100000000stake
-  - name: bogh
+  - name: dataProvider1
     coins:
       - 0dhpc
       - 10000token
-      - 100000000stake
+  - name: dataProvider2
+    coins:
+      - 0dhpc
+      - 10000token
+  - name: dataProvider3
+    coins:
+      - 0dhpc
+      - 10000token
   - name: oracle
     coins:
       - 0dhpc
       - 100token
       - 100stake
+  - name: dapp
+    coins:
+      - 10000000dhpc
+      - 0token
+      - 0stake
 client:
   openapi:
     path: docs/static/openapi.yml

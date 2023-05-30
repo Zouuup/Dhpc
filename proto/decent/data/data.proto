@@ -12,7 +12,7 @@ message Data {
   string method = 6; 
   int32 score = 7; 
   uint64 hit = 8; 
-  string uuid = 9;
+  string hash = 9;
 
 }
 

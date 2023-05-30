@@ -74,7 +74,7 @@ func (k Keeper) GetAllData(ctx sdk.Context) (list []types.Data) {
 }
 
 // GetAllData returns all data
-func (k Keeper) GetDataByUUID(ctx sdk.Context, uuid string) (bool, types.Data) {
+func (k Keeper) GetOwnerByHash(ctx sdk.Context, hash string) (bool, string) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.DataKeyPrefix))
 	iterator := sdk.KVStorePrefixIterator(store, []byte{})
 
@@ -83,10 +83,10 @@ func (k Keeper) GetDataByUUID(ctx sdk.Context, uuid string) (bool, types.Data) {
 	for ; iterator.Valid(); iterator.Next() {
 		var val types.Data
 		k.cdc.MustUnmarshal(iterator.Value(), &val)
-		if val.Uuid == uuid {
-			return true, val
+		if val.Hash == hash {
+			return true, val.Owner
 		}
 	}
 
-	return false, types.Data{}
+	return false, ""
 }

@@ -16,6 +16,7 @@ message MsgAddData {
   string network = 4;
   string method  = 5;
   int32  score   = 6;
+  string hash    = 7;
 }
 
 message MsgAddDataResponse {}

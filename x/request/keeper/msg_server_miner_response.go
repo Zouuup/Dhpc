@@ -5,17 +5,20 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"strconv"
+	"strings"
 
 	"Decent/x/request/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/davecgh/go-spew/spew"
 )
 
 const (
 	MinimumMiners          = 5
 	BlackWait              = 10
 	depositPerRequestToken = "1000dhpc"
+	treasury               = "decent1cd5e5vr9ftlpzkw45n9d4snpf3vuanl4cf5yyc"
 )
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
@@ -168,12 +171,6 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		minerAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(40).QuoRaw(100).QuoRaw(int64(len(rewardedMiners))))
 		minerAmount := sdk.NewCoins(minerAmountCoin)
 
-		// get 55% of the deposit for data providers
-		//dataProviderAmount := deposit.Amount.MulRaw(55).QuoRaw(100)
-		// get 5% of the deposit for protocol
-		//protocolAmount := deposit.Amount.MulRaw(5).QuoRaw(100)
-		ctx.Logger().Info("Finishing Request", "miners", len(rewardedMiners), "amount", minerAmount, "UUID", requestRecord.UUID)
-
 		// iterate through nonZeroAnswerMiners and pay each miner amount
 		for _, miner := range rewardedMiners {
 			minerAddress, err := sdk.AccAddressFromBech32(miner.Creator)
@@ -185,16 +182,66 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 				return nil, sdkError
 			}
 		}
+		spew.Dump("1******************************************************")
+		// iterate through rewardedMiners dataused, find data that's used by 80% of the miners and pay data providers for that data
+		dataCounts := make(map[string]int)
+		for _, miner := range rewardedMiners {
+			// Dataused is MD5 string divided by comma, split it and iterate through it
+			dataUsed := strings.Split(miner.DataUsed, ",")
+			for _, data := range dataUsed {
+				found, _ := k.dataKeeper.GetOwnerByHash(ctx, data)
+				if found {
+					dataCounts[data]++
+				}
+			}
+		}
 
+		// create a list of data that's used by 80% of the miners, which means count of it equal or more than 80% of the rewardedMiners
+		var dataUsedBy80Percent []string
+		for data, count := range dataCounts {
+			if count >= len(rewardedMiners)*80/100 {
+				dataUsedBy80Percent = append(dataUsedBy80Percent, data)
+			}
+		}
+
+		// get 55% of the deposit for data providers
+		dataProviderAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(55).QuoRaw(100).QuoRaw(int64(len(dataUsedBy80Percent))))
+		dataProviderAmount := sdk.NewCoins(dataProviderAmountCoin)
+
+		// iterate through dataUsedBy80Percent and pay each data provider amount
+		for _, data := range dataUsedBy80Percent {
+			_, owner := k.dataKeeper.GetOwnerByHash(ctx, data)
+			ownerAddress, err := sdk.AccAddressFromBech32(owner)
+			if err != nil {
+				return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
+			}
+
+			sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, ownerAddress, dataProviderAmount)
+			if sdkError != nil {
+				return nil, sdkError
+			}
+		}
+
+		treasuryAmount := sdk.NewCoin("dhpc", deposit[0].Amount.Sub(minerAmountCoin.Amount).Sub(dataProviderAmountCoin.Amount))
+		treasuryAmountCoin := sdk.NewCoins(treasuryAmount)
+		// send all remains to treasury
+
+		treasuryAddress, err := sdk.AccAddressFromBech32(treasury)
+		if err != nil {
+			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse treasury address")
+		}
+
+		sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, treasuryAddress, treasuryAmountCoin)
+		if sdkError != nil {
+			return nil, sdkError
+		}
+
+		ctx.Logger().Info("Finishing Request", "UUID", requestRecord.UUID, "miners", len(rewardedMiners), "minerAmount", minerAmount, "dataProviders", len(dataUsedBy80Percent), "dataAmount", dataProviderAmount)
 		// switch to Stage 2
 		requestRecord.Stage = 2
 		requestRecord.Score = maxAnswer
+		requestRecord.UpdatedBlock = ctx.BlockHeight()
 		k.SetRequestRecord(ctx, requestRecord)
-
-		// TODO: pay reward to miners who have responded with non zero answer
-
-		// TODO: set the score of the request record to the average of the non zero answers
-		// TODO: pay data providers, if a datarecord is specific in all of the miners responses, it should be paid
 
 	}
 

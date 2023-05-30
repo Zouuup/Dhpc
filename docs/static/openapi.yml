@@ -34010,7 +34010,7 @@ paths:
                     hit:
                       type: string
                       format: uint64
-                    uuid:
+                    hash:
                       type: string
               pagination:
                 type: object
@@ -34150,7 +34150,7 @@ paths:
                   hit:
                     type: string
                     format: uint64
-                  uuid:
+                  hash:
                     type: string
         default:
           description: An unexpected error response.
@@ -71864,7 +71864,7 @@ definitions:
       hit:
         type: string
         format: uint64
-      uuid:
+      hash:
         type: string
   decent.data.MsgAddDataResponse:
     type: object
@@ -71901,7 +71901,7 @@ definitions:
             hit:
               type: string
               format: uint64
-            uuid:
+            hash:
               type: string
       pagination:
         type: object
@@ -71955,7 +71955,7 @@ definitions:
           hit:
             type: string
             format: uint64
-          uuid:
+          hash:
             type: string
   decent.data.QueryParamsResponse:
     type: object

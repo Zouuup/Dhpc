@@ -540,8 +540,10 @@ func New(
 		keys[requestmoduletypes.StoreKey],
 		keys[requestmoduletypes.MemStoreKey],
 		app.GetSubspace(requestmoduletypes.ModuleName),
+
 		app.AccountKeeper,
 		app.BankKeeper,
+		app.DataKeeper,
 	)
 	requestModule := requestmodule.NewAppModule(appCodec, app.RequestKeeper, app.AccountKeeper, app.BankKeeper)
 
