@@ -57,6 +57,11 @@ accounts:
       - 10000000dhpc
       - 0token
       - 0stake
+  - name: treasury
+    coins:
+      - 0dhpc
+      - 0token
+      - 0stake
 client:
   openapi:
     path: docs/static/openapi.yml

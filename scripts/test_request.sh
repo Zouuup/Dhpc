@@ -15,6 +15,8 @@ Decentd tx data add-data 0xc236eb8aed128275c8f224de2f1dd202c0ab5830 decent16stss
 Decentd tx data add-data 0xc136eb8aed128275c8f224de2f1dd202c0ab5830 decent16stssnndzktenrpjpy0sk84pvqh8800u0h80s3 ethereum any 350 --from dataProvider3 -y --gas 500237
 Decentd tx data add-data 0xc536eb8aed128275c8f224de2f1dd202c0ab5830 decent16stssnndzktenrpjpy0sk84pvqh8800u0h80s3 ethereum any 450 --from dataProvider3 -y --gas 500237
 
+Decentd tx request create-treasury `Decentd keys show treasury -a` -y --from alice
+
 provider1Key=`Decentd keys show dataProvider1 -a`
 provider2Key=`Decentd keys show dataProvider2 -a`
 provider3Key=`Decentd keys show dataProvider3 -a`
@@ -56,5 +58,4 @@ Decentd tx request update-miner-response Issacrandomuuid aea7cfd3-1e63-4f90-9311
 Decentd tx request update-miner-response Stanrandomuuid aea7cfd3-1e63-4f90-9311-1c32dacf41cb 5 65765893 --from stan -y --gas 500237
 
 
-# Add data, correct ones from all three data providers 
-# run test, see if they get rewarded
+# Add treasury address similar to how we added oracles 

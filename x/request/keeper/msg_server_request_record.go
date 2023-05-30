@@ -21,6 +21,7 @@ func (k msgServer) CreateRequestRecord(goCtx context.Context, msg *types.MsgCrea
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
 	}
 
+	// TODO: if From and Creator are not the same, check if address is a in the list of allowed oracles
 	deposit, err := sdk.ParseCoinsNormalized(depositPerRequestToken)
 	if err != nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")

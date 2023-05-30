@@ -23,7 +23,7 @@ const (
 
 func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCreateMinerResponse) (*types.MsgCreateMinerResponseResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
-
+	spew.Dump(k)
 	// Check if the value already exists
 	_, isFound := k.GetMinerResponse(
 		ctx,
@@ -182,7 +182,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 				return nil, sdkError
 			}
 		}
-		spew.Dump("1******************************************************")
+
 		// iterate through rewardedMiners dataused, find data that's used by 80% of the miners and pay data providers for that data
 		dataCounts := make(map[string]int)
 		for _, miner := range rewardedMiners {
@@ -222,9 +222,8 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			}
 		}
 
-		treasuryAmount := sdk.NewCoin("dhpc", deposit[0].Amount.Sub(minerAmountCoin.Amount).Sub(dataProviderAmountCoin.Amount))
-		treasuryAmountCoin := sdk.NewCoins(treasuryAmount)
-		// send all remains to treasury
+		treasuryAmountCoin := sdk.NewCoin("dhpc", deposit[0].Amount.MulRaw(5).QuoRaw(100))
+		treasuryAmount := sdk.NewCoins(treasuryAmountCoin)
 
 		treasury, found := k.GetTreasury(ctx)
 		if !found {
@@ -233,16 +232,16 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 
 		treasuryAddress, err := sdk.AccAddressFromBech32(treasury.Address)
 		if err != nil {
-			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
+			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse treasury address")
 		}
 
-		sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, treasuryAddress, treasuryAmountCoin)
+		sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, treasuryAddress, treasuryAmount)
 		if sdkError != nil {
 			return nil, sdkError
 		}
 
-		ctx.Logger().Info("Finishing Request", "UUID", requestRecord.UUID, "miners", len(rewardedMiners), "minerAmount", minerAmount, "dataProviders", len(dataUsedBy80Percent), "dataAmount", dataProviderAmount)
-		// switch to Stage 2
+		ctx.Logger().Info("Finishing Request", "UUID", requestRecord.UUID, "miners", len(rewardedMiners), "minerAmount", minerAmount, "dataProviders", len(dataUsedBy80Percent), "dataAmount", dataProviderAmount, "treasury", treasuryAmount)
+		// // switch to Stage 2
 		requestRecord.Stage = 2
 		requestRecord.Score = maxAnswer
 		requestRecord.UpdatedBlock = ctx.BlockHeight()
