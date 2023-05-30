@@ -226,9 +226,14 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		treasuryAmountCoin := sdk.NewCoins(treasuryAmount)
 		// send all remains to treasury
 
-		treasuryAddress, err := sdk.AccAddressFromBech32(treasury)
+		treasury, found := k.GetTreasury(ctx)
+		if !found {
+			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to find treasury address")
+		}
+
+		treasuryAddress, err := sdk.AccAddressFromBech32(treasury.Address)
 		if err != nil {
-			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse treasury address")
+			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
 		}
 
 		sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, treasuryAddress, treasuryAmountCoin)
