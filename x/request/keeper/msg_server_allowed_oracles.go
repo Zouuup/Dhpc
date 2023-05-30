@@ -6,6 +6,7 @@ import (
 
 	"Decent/x/request/types"
 
+	"cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -42,7 +43,7 @@ func (k msgServer) CreateAllowedOracles(goCtx context.Context, msg *types.MsgCre
 		}
 	}
 
-	return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, fmt.Sprintf("Creator %s is not trusted", msg.Creator))
+	return nil, errors.Wrap(sdkerrors.ErrKeyNotFound, fmt.Sprintf("Creator %s is not trusted", msg.Creator))
 }
 
 func (k msgServer) UpdateAllowedOracles(goCtx context.Context, msg *types.MsgUpdateAllowedOracles) (*types.MsgUpdateAllowedOraclesResponse, error) {
@@ -58,12 +59,12 @@ func (k msgServer) UpdateAllowedOracles(goCtx context.Context, msg *types.MsgUpd
 	// Checks that the element exists
 	val, found := k.GetAllowedOracles(ctx, msg.Id)
 	if !found {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, fmt.Sprintf("key %d doesn't exist", msg.Id))
+		return nil, errors.Wrap(sdkerrors.ErrKeyNotFound, fmt.Sprintf("key %d doesn't exist", msg.Id))
 	}
 
 	// Checks if the msg creator is the same as the current owner
 	if msg.Creator != val.Creator {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+		return nil, errors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
 	k.SetAllowedOracles(ctx, allowedOracles)
@@ -77,12 +78,12 @@ func (k msgServer) DeleteAllowedOracles(goCtx context.Context, msg *types.MsgDel
 	// Checks that the element exists
 	val, found := k.GetAllowedOracles(ctx, msg.Id)
 	if !found {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, fmt.Sprintf("key %d doesn't exist", msg.Id))
+		return nil, errors.Wrap(sdkerrors.ErrKeyNotFound, fmt.Sprintf("key %d doesn't exist", msg.Id))
 	}
 
 	// Checks if the msg creator is the same as the current owner
 	if msg.Creator != val.Creator {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+		return nil, errors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
 	k.RemoveAllowedOracles(ctx, msg.Id)

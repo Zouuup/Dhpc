@@ -4,6 +4,8 @@ import (
 	"context"
 
 	"Decent/x/request/types"
+
+	"cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -14,7 +16,7 @@ func (k msgServer) CreateTreasury(goCtx context.Context, msg *types.MsgCreateTre
 	// Check if the value already exists
 	_, isFound := k.GetTreasury(ctx)
 	if isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "already set")
+		return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "already set")
 	}
 
 	var treasury = types.Treasury{
@@ -35,12 +37,12 @@ func (k msgServer) UpdateTreasury(goCtx context.Context, msg *types.MsgUpdateTre
 	// Check if the value exists
 	valFound, isFound := k.GetTreasury(ctx)
 	if !isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "not set")
+		return nil, errors.Wrap(sdkerrors.ErrKeyNotFound, "not set")
 	}
 
 	// Checks if the the msg creator is the same as the current owner
 	if msg.Creator != valFound.Creator {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+		return nil, errors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
 	var treasury = types.Treasury{
@@ -59,12 +61,12 @@ func (k msgServer) DeleteTreasury(goCtx context.Context, msg *types.MsgDeleteTre
 	// Check if the value exists
 	valFound, isFound := k.GetTreasury(ctx)
 	if !isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "not set")
+		return nil, errors.Wrap(sdkerrors.ErrKeyNotFound, "not set")
 	}
 
 	// Checks if the the msg creator is the same as the current owner
 	if msg.Creator != valFound.Creator {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+		return nil, errors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
 	k.RemoveTreasury(ctx)

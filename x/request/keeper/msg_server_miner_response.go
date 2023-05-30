@@ -9,6 +9,7 @@ import (
 
 	"Decent/x/request/types"
 
+	"cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 )
@@ -29,7 +30,7 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	// Check if the value already exists
 	_, isFound := k.GetMinerResponse(ctx, msg.UUID)
 	if isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
+		return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "index already set")
 	}
 
 	// Iterate through dataused and make sure they are all unique
@@ -38,7 +39,7 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 		for i := 0; i < len(dataUsedList); i++ {
 			for j := i + 1; j < len(dataUsedList); j++ {
 				if dataUsedList[i] == dataUsedList[j] {
-					return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Provided Data used should be unique")
+					return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "Provided Data used should be unique")
 				}
 			}
 		}
@@ -54,21 +55,21 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	}
 	requestRecord, isFound := k.GetRequestRecord(ctx, msg.RequestUUID)
 	if !isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
+		return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "Specified request record does not exist")
 	}
 
 	if requestRecord.GetStage() != 0 {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage zero, cannot add miner response")
+		return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage zero, cannot add miner response")
 	}
 
 	for _, miner := range requestRecord.Miners {
 		if miner.GetCreator() == msg.Creator {
-			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Miner already responded to this request")
+			return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "Miner already responded to this request")
 		}
 	}
 
 	if requestRecord.GetScore() != 0 {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Score must be set to zero at this stage")
+		return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "Score must be set to zero at this stage")
 	}
 
 	requestRecord.Miners = append(requestRecord.Miners, &minerResponse)
@@ -89,11 +90,11 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 
 	requestRecord, isFound := k.GetRequestRecord(ctx, msg.RequestUUID)
 	if !isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
+		return nil, errors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
 	}
 
 	if requestRecord.GetStage() != 1 {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage one, cannot add miner response")
+		return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "Request is not in stage one, cannot add miner response")
 	}
 
 	var minerResponse *types.MinerResponse
@@ -133,7 +134,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			if miner.GetHash() == answerHash {
 				nonZeroAnswerMiners = append(nonZeroAnswerMiners, *miner)
 			} else {
-				return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "Hash does not match the answer")
+				return nil, errors.Wrap(sdkerrors.ErrInvalidRequest, "Hash does not match the answer")
 			}
 		}
 	}
@@ -162,7 +163,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 
 		deposit, err := sdk.ParseCoinsNormalized(depositPerRequestToken)
 		if err != nil {
-			return nil, sdkerrors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
+			return nil, errors.Wrap(sdkerrors.ErrInsufficientFunds, "Unable to parse coins for creating request record")
 		}
 
 		// Get 40% of the deposit for miners
@@ -173,7 +174,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 		for _, miner := range rewardedMiners {
 			minerAddress, err := sdk.AccAddressFromBech32(miner.Creator)
 			if err != nil {
-				return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
+				return nil, errors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
 			}
 			sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, minerAddress, minerAmount)
 			if sdkError != nil {
@@ -211,7 +212,7 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 			_, owner := k.dataKeeper.GetOwnerByHash(ctx, data)
 			ownerAddress, err := sdk.AccAddressFromBech32(owner)
 			if err != nil {
-				return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
+				return nil, errors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse miner address")
 			}
 
 			sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, ownerAddress, dataProviderAmount)
@@ -226,12 +227,12 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 
 		treasury, found := k.GetTreasury(ctx)
 		if !found {
-			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to find treasury address")
+			return nil, errors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to find treasury address")
 		}
 
 		treasuryAddress, err := sdk.AccAddressFromBech32(treasury.Address)
 		if err != nil {
-			return nil, sdkerrors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse treasury address")
+			return nil, errors.Wrap(sdkerrors.ErrInvalidAddress, "Unable to parse treasury address")
 		}
 
 		sdkError := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, treasuryAddress, treasuryAmount)
@@ -258,12 +259,12 @@ func (k msgServer) DeleteMinerResponse(goCtx context.Context, msg *types.MsgDele
 	// Check if the value exists
 	requestRecord, isFound := k.GetRequestRecord(ctx, msg.UUID)
 	if !isFound {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
+		return nil, errors.Wrap(sdkerrors.ErrKeyNotFound, "index not set")
 	}
 
 	// Checks if the msg creator is the same as the current owner
 	if msg.Creator != requestRecord.Creator {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
+		return nil, errors.Wrap(sdkerrors.ErrUnauthorized, "incorrect owner")
 	}
 
 	for i, miner := range requestRecord.Miners {
