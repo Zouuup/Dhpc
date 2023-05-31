@@ -3,10 +3,10 @@ package user_test
 import (
 	"testing"
 
-	keepertest "Decent/testutil/keeper"
-	"Decent/testutil/nullify"
-	"Decent/x/user"
-	"Decent/x/user/types"
+	keepertest "Dhpc/testutil/keeper"
+	"Dhpc/testutil/nullify"
+	"Dhpc/x/user"
+	"Dhpc/x/user/types"
 	"github.com/stretchr/testify/require"
 )
 

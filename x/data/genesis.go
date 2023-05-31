@@ -1,8 +1,8 @@
 package data
 
 import (
-	"Decent/x/data/keeper"
-	"Decent/x/data/types"
+	"Dhpc/x/data/keeper"
+	"Dhpc/x/data/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

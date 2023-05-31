@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"Decent/x/user/types"
+	"Dhpc/x/user/types"
 	"github.com/stretchr/testify/require"
 )
 

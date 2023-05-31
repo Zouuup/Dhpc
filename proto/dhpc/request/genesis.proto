@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-package decent.request;
+package dhpc.request;
 
 import "gogoproto/gogo.proto";
-import "decent/request/params.proto";
-import "decent/request/allowed_oracles.proto";
-import "decent/request/miner_response.proto";
-import "decent/request/request_record.proto";
-import "decent/request/treasury.proto";
+import "dhpc/request/params.proto";
+import "dhpc/request/allowed_oracles.proto";
+import "dhpc/request/miner_response.proto";
+import "dhpc/request/request_record.proto";
+import "dhpc/request/treasury.proto";
 
-option go_package = "Decent/x/request/types";
+option go_package = "Dhpc/x/request/types";
 
 // GenesisState defines the request module's genesis state.
 message GenesisState {

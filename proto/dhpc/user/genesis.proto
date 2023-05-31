@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-package decent.user;
+package dhpc.user;
 
 import "gogoproto/gogo.proto";
-import "decent/user/params.proto";
-import "decent/user/linked_requesters.proto";
-import "decent/user/slash_history.proto";
-import "decent/user/user.proto";
+import "dhpc/user/params.proto";
+import "dhpc/user/linked_requesters.proto";
+import "dhpc/user/slash_history.proto";
+import "dhpc/user/user.proto";
 
-option go_package = "Decent/x/user/types";
+option go_package = "Dhpc/x/user/types";
 
 // GenesisState defines the user module's genesis state.
 message GenesisState {

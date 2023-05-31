@@ -5,7 +5,7 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 
-	"Decent/x/data/types"
+	"Dhpc/x/data/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

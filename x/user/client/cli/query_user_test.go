@@ -12,10 +12,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"Decent/testutil/network"
-	"Decent/testutil/nullify"
-	"Decent/x/user/client/cli"
-	"Decent/x/user/types"
+	"Dhpc/testutil/network"
+	"Dhpc/testutil/nullify"
+	"Dhpc/x/user/client/cli"
+	"Dhpc/x/user/types"
 )
 
 // Prevent strconv unused error

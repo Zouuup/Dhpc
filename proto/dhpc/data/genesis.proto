@@ -1,12 +1,12 @@
 syntax = "proto3";
 
-package decent.data;
+package dhpc.data;
 
 import "gogoproto/gogo.proto";
-import "decent/data/params.proto";
-import "decent/data/data.proto";
+import "dhpc/data/params.proto";
+import "dhpc/data/data.proto";
 
-option go_package = "Decent/x/data/types";
+option go_package = "Dhpc/x/data/types";
 
 // GenesisState defines the data module's genesis state.
 message GenesisState {

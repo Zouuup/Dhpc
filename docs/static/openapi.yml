@@ -33976,9 +33976,9 @@ paths:
           format: int64
       tags:
         - Query
-  /Decent/data/data:
+  /Dhpc/data/data:
     get:
-      operationId: DecentDataDataAll
+      operationId: DhpcDataDataAll
       responses:
         '200':
           description: A successful response.
@@ -34117,10 +34117,10 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/data/data/{address}/{owner}/{network}:
+  /Dhpc/data/data/{address}/{owner}/{network}:
     get:
       summary: Queries a list of Data items.
-      operationId: DecentDataData
+      operationId: DhpcDataData
       responses:
         '200':
           description: A successful response.
@@ -34185,10 +34185,10 @@ paths:
           type: string
       tags:
         - Query
-  /Decent/data/params:
+  /Dhpc/data/params:
     get:
       summary: Parameters queries the parameters of the module.
-      operationId: DecentDataParams
+      operationId: DhpcDataParams
       responses:
         '200':
           description: A successful response.
@@ -34221,9 +34221,9 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Decent/request/allowed_oracles:
+  /Dhpc/request/allowed_oracles:
     get:
-      operationId: DecentRequestAllowedOraclesAll
+      operationId: DhpcRequestAllowedOraclesAll
       responses:
         '200':
           description: A successful response.
@@ -34349,10 +34349,10 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/request/allowed_oracles/{id}:
+  /Dhpc/request/allowed_oracles/{id}:
     get:
       summary: Queries a list of AllowedOracles items.
-      operationId: DecentRequestAllowedOracles
+      operationId: DhpcRequestAllowedOracles
       responses:
         '200':
           description: A successful response.
@@ -34397,9 +34397,9 @@ paths:
           format: uint64
       tags:
         - Query
-  /Decent/request/miner_response:
+  /Dhpc/request/miner_response:
     get:
-      operationId: DecentRequestMinerResponseAll
+      operationId: DhpcRequestMinerResponseAll
       responses:
         '200':
           description: A successful response.
@@ -34532,10 +34532,10 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/request/miner_response/{uUID}:
+  /Dhpc/request/miner_response/{uUID}:
     get:
       summary: Queries a list of MinerResponse items.
-      operationId: DecentRequestMinerResponse
+      operationId: DhpcRequestMinerResponse
       responses:
         '200':
           description: A successful response.
@@ -34586,10 +34586,10 @@ paths:
           type: string
       tags:
         - Query
-  /Decent/request/params:
+  /Dhpc/request/params:
     get:
       summary: Parameters queries the parameters of the module.
-      operationId: DecentRequestParams
+      operationId: DhpcRequestParams
       responses:
         '200':
           description: A successful response.
@@ -34622,9 +34622,9 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Decent/request/request_record:
+  /Dhpc/request/request_record:
     get:
-      operationId: DecentRequestRequestRecordAll
+      operationId: DhpcRequestRequestRecordAll
       responses:
         '200':
           description: A successful response.
@@ -34791,10 +34791,10 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/request/request_record/{uUID}:
+  /Dhpc/request/request_record/{uUID}:
     get:
       summary: Queries a list of RequestRecord items.
-      operationId: DecentRequestRequestRecord
+      operationId: DhpcRequestRequestRecord
       responses:
         '200':
           description: A successful response.
@@ -34879,10 +34879,10 @@ paths:
           type: string
       tags:
         - Query
-  /Decent/request/treasury:
+  /Dhpc/request/treasury:
     get:
       summary: Queries a Treasury by index.
-      operationId: DecentRequestTreasury
+      operationId: DhpcRequestTreasury
       responses:
         '200':
           description: A successful response.
@@ -34916,9 +34916,9 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Decent/user/linked_requesters:
+  /Dhpc/user/linked_requesters:
     get:
-      operationId: DecentUserLinkedRequestersAll
+      operationId: DhpcUserLinkedRequestersAll
       responses:
         '200':
           description: A successful response.
@@ -35041,10 +35041,10 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/user/linked_requesters/{index}:
+  /Dhpc/user/linked_requesters/{index}:
     get:
       summary: Queries a list of LinkedRequesters items.
-      operationId: DecentUserLinkedRequesters
+      operationId: DhpcUserLinkedRequesters
       responses:
         '200':
           description: A successful response.
@@ -35085,10 +35085,10 @@ paths:
           type: string
       tags:
         - Query
-  /Decent/user/params:
+  /Dhpc/user/params:
     get:
       summary: Parameters queries the parameters of the module.
-      operationId: DecentUserParams
+      operationId: DhpcUserParams
       responses:
         '200':
           description: A successful response.
@@ -35121,9 +35121,9 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Decent/user/slash_history:
+  /Dhpc/user/slash_history:
     get:
-      operationId: DecentUserSlashHistoryAll
+      operationId: DhpcUserSlashHistoryAll
       responses:
         '200':
           description: A successful response.
@@ -35251,10 +35251,10 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/user/slash_history/{index}:
+  /Dhpc/user/slash_history/{index}:
     get:
       summary: Queries a list of SlashHistory items.
-      operationId: DecentUserSlashHistory
+      operationId: DhpcUserSlashHistory
       responses:
         '200':
           description: A successful response.
@@ -35300,9 +35300,9 @@ paths:
           type: string
       tags:
         - Query
-  /Decent/user/user:
+  /Dhpc/user/user:
     get:
-      operationId: DecentUserUserAll
+      operationId: DhpcUserUserAll
       responses:
         '200':
           description: A successful response.
@@ -35469,10 +35469,10 @@ paths:
           type: boolean
       tags:
         - Query
-  /Decent/user/user/{account}:
+  /Dhpc/user/user/{account}:
     get:
       summary: Queries a list of User items.
-      operationId: DecentUserUser
+      operationId: DhpcUserUser
       responses:
         '200':
           description: A successful response.
@@ -71878,7 +71878,7 @@ definitions:
             NOTE: The amount field is an Int which implements the custom method
             signatures required by gogoproto.
     description: Period defines a length of time and amount of coins that will vest.
-  decent.data.Data:
+  dhpc.data.Data:
     type: object
     properties:
       address:
@@ -71903,14 +71903,14 @@ definitions:
         format: uint64
       hash:
         type: string
-  decent.data.MsgAddDataResponse:
+  dhpc.data.MsgAddDataResponse:
     type: object
-  decent.data.MsgDeleteDataResponse:
+  dhpc.data.MsgDeleteDataResponse:
     type: object
-  decent.data.Params:
+  dhpc.data.Params:
     type: object
     description: Params defines the parameters for the module.
-  decent.data.QueryAllDataResponse:
+  dhpc.data.QueryAllDataResponse:
     type: object
     properties:
       data:
@@ -71966,7 +71966,7 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  decent.data.QueryGetDataResponse:
+  dhpc.data.QueryGetDataResponse:
     type: object
     properties:
       data:
@@ -71994,14 +71994,14 @@ definitions:
             format: uint64
           hash:
             type: string
-  decent.data.QueryParamsResponse:
+  dhpc.data.QueryParamsResponse:
     type: object
     properties:
       params:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
-  decent.request.AllowedOracles:
+  dhpc.request.AllowedOracles:
     type: object
     properties:
       id:
@@ -72013,7 +72013,7 @@ definitions:
         type: string
       creator:
         type: string
-  decent.request.MinerResponse:
+  dhpc.request.MinerResponse:
     type: object
     properties:
       uUID:
@@ -72032,38 +72032,38 @@ definitions:
       salt:
         type: integer
         format: int32
-  decent.request.MsgCreateAllowedOraclesResponse:
+  dhpc.request.MsgCreateAllowedOraclesResponse:
     type: object
     properties:
       id:
         type: string
         format: uint64
-  decent.request.MsgCreateMinerResponseResponse:
+  dhpc.request.MsgCreateMinerResponseResponse:
     type: object
-  decent.request.MsgCreateRequestRecordResponse:
+  dhpc.request.MsgCreateRequestRecordResponse:
     type: object
-  decent.request.MsgCreateTreasuryResponse:
+  dhpc.request.MsgCreateTreasuryResponse:
     type: object
-  decent.request.MsgDeleteAllowedOraclesResponse:
+  dhpc.request.MsgDeleteAllowedOraclesResponse:
     type: object
-  decent.request.MsgDeleteMinerResponseResponse:
+  dhpc.request.MsgDeleteMinerResponseResponse:
     type: object
-  decent.request.MsgDeleteRequestRecordResponse:
+  dhpc.request.MsgDeleteRequestRecordResponse:
     type: object
-  decent.request.MsgDeleteTreasuryResponse:
+  dhpc.request.MsgDeleteTreasuryResponse:
     type: object
-  decent.request.MsgUpdateAllowedOraclesResponse:
+  dhpc.request.MsgUpdateAllowedOraclesResponse:
     type: object
-  decent.request.MsgUpdateMinerResponseResponse:
+  dhpc.request.MsgUpdateMinerResponseResponse:
     type: object
-  decent.request.MsgUpdateRequestRecordResponse:
+  dhpc.request.MsgUpdateRequestRecordResponse:
     type: object
-  decent.request.MsgUpdateTreasuryResponse:
+  dhpc.request.MsgUpdateTreasuryResponse:
     type: object
-  decent.request.Params:
+  dhpc.request.Params:
     type: object
     description: Params defines the parameters for the module.
-  decent.request.QueryAllAllowedOraclesResponse:
+  dhpc.request.QueryAllAllowedOraclesResponse:
     type: object
     properties:
       AllowedOracles:
@@ -72106,7 +72106,7 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  decent.request.QueryAllMinerResponseResponse:
+  dhpc.request.QueryAllMinerResponseResponse:
     type: object
     properties:
       minerResponse:
@@ -72156,7 +72156,7 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  decent.request.QueryAllRequestRecordResponse:
+  dhpc.request.QueryAllRequestRecordResponse:
     type: object
     properties:
       requestRecord:
@@ -72240,7 +72240,7 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  decent.request.QueryGetAllowedOraclesResponse:
+  dhpc.request.QueryGetAllowedOraclesResponse:
     type: object
     properties:
       AllowedOracles:
@@ -72255,7 +72255,7 @@ definitions:
             type: string
           creator:
             type: string
-  decent.request.QueryGetMinerResponseResponse:
+  dhpc.request.QueryGetMinerResponseResponse:
     type: object
     properties:
       minerResponse:
@@ -72277,7 +72277,7 @@ definitions:
           salt:
             type: integer
             format: int32
-  decent.request.QueryGetRequestRecordResponse:
+  dhpc.request.QueryGetRequestRecordResponse:
     type: object
     properties:
       requestRecord:
@@ -72333,7 +72333,7 @@ definitions:
           updatedBlock:
             type: string
             format: int64
-  decent.request.QueryGetTreasuryResponse:
+  dhpc.request.QueryGetTreasuryResponse:
     type: object
     properties:
       Treasury:
@@ -72343,14 +72343,14 @@ definitions:
             type: string
           creator:
             type: string
-  decent.request.QueryParamsResponse:
+  dhpc.request.QueryParamsResponse:
     type: object
     properties:
       params:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
-  decent.request.RequestRecord:
+  dhpc.request.RequestRecord:
     type: object
     properties:
       uUID:
@@ -72403,14 +72403,14 @@ definitions:
       updatedBlock:
         type: string
         format: int64
-  decent.request.Treasury:
+  dhpc.request.Treasury:
     type: object
     properties:
       address:
         type: string
       creator:
         type: string
-  decent.user.LinkedRequesters:
+  dhpc.user.LinkedRequesters:
     type: object
     properties:
       index:
@@ -72419,18 +72419,18 @@ definitions:
         type: string
       address:
         type: string
-  decent.user.MsgAddLinkedRequesterResponse:
+  dhpc.user.MsgAddLinkedRequesterResponse:
     type: object
-  decent.user.MsgDepositTokenResponse:
+  dhpc.user.MsgDepositTokenResponse:
     type: object
-  decent.user.MsgRemoveLinkedRequesterResponse:
+  dhpc.user.MsgRemoveLinkedRequesterResponse:
     type: object
-  decent.user.MsgWithdrawTokenResponse:
+  dhpc.user.MsgWithdrawTokenResponse:
     type: object
-  decent.user.Params:
+  dhpc.user.Params:
     type: object
     description: Params defines the parameters for the module.
-  decent.user.QueryAllLinkedRequestersResponse:
+  dhpc.user.QueryAllLinkedRequestersResponse:
     type: object
     properties:
       linkedRequesters:
@@ -72470,7 +72470,7 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  decent.user.QueryAllSlashHistoryResponse:
+  dhpc.user.QueryAllSlashHistoryResponse:
     type: object
     properties:
       slashHistory:
@@ -72515,7 +72515,7 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  decent.user.QueryAllUserResponse:
+  dhpc.user.QueryAllUserResponse:
     type: object
     properties:
       user:
@@ -72598,7 +72598,7 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
-  decent.user.QueryGetLinkedRequestersResponse:
+  dhpc.user.QueryGetLinkedRequestersResponse:
     type: object
     properties:
       linkedRequesters:
@@ -72610,7 +72610,7 @@ definitions:
             type: string
           address:
             type: string
-  decent.user.QueryGetSlashHistoryResponse:
+  dhpc.user.QueryGetSlashHistoryResponse:
     type: object
     properties:
       slashHistory:
@@ -72627,7 +72627,7 @@ definitions:
           level:
             type: integer
             format: int32
-  decent.user.QueryGetUserResponse:
+  dhpc.user.QueryGetUserResponse:
     type: object
     properties:
       user:
@@ -72682,14 +72682,14 @@ definitions:
                 level:
                   type: integer
                   format: int32
-  decent.user.QueryParamsResponse:
+  dhpc.user.QueryParamsResponse:
     type: object
     properties:
       params:
         description: params holds all the parameters of this module.
         type: object
     description: QueryParamsResponse is response type for the Query/Params RPC method.
-  decent.user.SlashHistory:
+  dhpc.user.SlashHistory:
     type: object
     properties:
       index:
@@ -72703,7 +72703,7 @@ definitions:
       level:
         type: integer
         format: int32
-  decent.user.User:
+  dhpc.user.User:
     type: object
     properties:
       account:

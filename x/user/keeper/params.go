@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"Decent/x/user/types"
+	"Dhpc/x/user/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

@@ -103,25 +103,25 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	datamodule "Decent/x/data"
-	datamodulekeeper "Decent/x/data/keeper"
-	datamoduletypes "Decent/x/data/types"
-	requestmodule "Decent/x/request"
-	requestmodulekeeper "Decent/x/request/keeper"
-	requestmoduletypes "Decent/x/request/types"
-	usermodule "Decent/x/user"
-	usermodulekeeper "Decent/x/user/keeper"
-	usermoduletypes "Decent/x/user/types"
+	datamodule "Dhpc/x/data"
+	datamodulekeeper "Dhpc/x/data/keeper"
+	datamoduletypes "Dhpc/x/data/types"
+	requestmodule "Dhpc/x/request"
+	requestmodulekeeper "Dhpc/x/request/keeper"
+	requestmoduletypes "Dhpc/x/request/types"
+	usermodule "Dhpc/x/user"
+	usermodulekeeper "Dhpc/x/user/keeper"
+	usermoduletypes "Dhpc/x/user/types"
 
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
-	appparams "Decent/app/params"
-	"Decent/docs"
+	appparams "Dhpc/app/params"
+	"Dhpc/docs"
 )
 
 const (
-	AccountAddressPrefix = "decent"
-	Name                 = "Decent"
+	AccountAddressPrefix = "dhpc"
+	Name                 = "Dhpc"
 )
 
 // this line is used by starport scaffolding # stargate/wasm/app/enabledProposals

@@ -1,9 +1,9 @@
 syntax = "proto3";
-package decent.user;
+package dhpc.user;
 
-option go_package = "Decent/x/user/types";
-import "decent/user/linked_requesters.proto"; 
-import "decent/user/slash_history.proto"; 
+option go_package = "Dhpc/x/user/types";
+import "dhpc/user/linked_requesters.proto"; 
+import "dhpc/user/slash_history.proto"; 
 import "gogoproto/gogo.proto"; 
 import "cosmos/base/v1beta1/coin.proto"; 
 

@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"Decent/x/data/types"
+	"Dhpc/x/data/types"
 )
 
 var (

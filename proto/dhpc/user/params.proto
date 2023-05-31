@@ -1,9 +1,9 @@
 syntax = "proto3";
-package decent.data;
+package dhpc.user;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "Decent/x/data/types";
+option go_package = "Dhpc/x/user/types";
 
 // Params defines the parameters for the module.
 message Params {

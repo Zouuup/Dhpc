@@ -10,8 +10,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"Decent/testutil/network"
-	"Decent/x/request/client/cli"
+	"Dhpc/testutil/network"
+	"Dhpc/x/request/client/cli"
 )
 
 func TestCreateTreasury(t *testing.T) {

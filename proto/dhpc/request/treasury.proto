@@ -1,7 +1,7 @@
 syntax = "proto3";
-package decent.request;
+package dhpc.request;
 
-option go_package = "Decent/x/request/types";
+option go_package = "Dhpc/x/request/types";
 
 message Treasury {
   string address = 1; 

@@ -11,10 +11,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"Decent/testutil/network"
-	"Decent/testutil/nullify"
-	"Decent/x/request/client/cli"
-	"Decent/x/request/types"
+	"Dhpc/testutil/network"
+	"Dhpc/testutil/nullify"
+	"Dhpc/x/request/client/cli"
+	"Dhpc/x/request/types"
 )
 
 func networkWithAllowedOraclesObjects(t *testing.T, n int) (*network.Network, []types.AllowedOracles) {

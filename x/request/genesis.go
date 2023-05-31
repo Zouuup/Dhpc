@@ -1,8 +1,8 @@
 package request
 
 import (
-	"Decent/x/request/keeper"
-	"Decent/x/request/types"
+	"Dhpc/x/request/keeper"
+	"Dhpc/x/request/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

@@ -3,9 +3,9 @@ package user
 import (
 	"math/rand"
 
-	"Decent/testutil/sample"
-	usersimulation "Decent/x/user/simulation"
-	"Decent/x/user/types"
+	"Dhpc/testutil/sample"
+	usersimulation "Dhpc/x/user/simulation"
+	"Dhpc/x/user/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"

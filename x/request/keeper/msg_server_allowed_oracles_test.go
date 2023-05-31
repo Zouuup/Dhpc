@@ -6,7 +6,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
 
-	"Decent/x/request/types"
+	"Dhpc/x/request/types"
 )
 
 func TestAllowedOraclesMsgServerCreate(t *testing.T) {

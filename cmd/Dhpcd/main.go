@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"Decent/app"
-	"Decent/cmd/Decentd/cmd"
+	"Dhpc/app"
+	"Dhpc/cmd/Dhpcd/cmd"
 )
 
 func main() {

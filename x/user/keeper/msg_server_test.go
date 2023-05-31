@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	keepertest "Decent/testutil/keeper"
-	"Decent/x/user/keeper"
-	"Decent/x/user/types"
+	keepertest "Dhpc/testutil/keeper"
+	"Dhpc/x/user/keeper"
+	"Dhpc/x/user/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

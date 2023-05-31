@@ -1,8 +1,8 @@
 package user
 
 import (
-	"Decent/x/user/keeper"
-	"Decent/x/user/types"
+	"Dhpc/x/user/keeper"
+	"Dhpc/x/user/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

@@ -1,7 +1,7 @@
 syntax = "proto3";
-package decent.user;
+package dhpc.user;
 
-option go_package = "Decent/x/user/types";
+option go_package = "Dhpc/x/user/types";
 
 message LinkedRequesters {
   string index = 1; 

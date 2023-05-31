@@ -3,10 +3,10 @@ package data_test
 import (
 	"testing"
 
-	keepertest "Decent/testutil/keeper"
-	"Decent/testutil/nullify"
-	"Decent/x/data"
-	"Decent/x/data/types"
+	keepertest "Dhpc/testutil/keeper"
+	"Dhpc/testutil/nullify"
+	"Dhpc/x/data"
+	"Dhpc/x/data/types"
 	"github.com/stretchr/testify/require"
 )
 

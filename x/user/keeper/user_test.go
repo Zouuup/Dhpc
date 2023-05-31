@@ -4,10 +4,10 @@ import (
 	"strconv"
 	"testing"
 
-	keepertest "Decent/testutil/keeper"
-	"Decent/testutil/nullify"
-	"Decent/x/user/keeper"
-	"Decent/x/user/types"
+	keepertest "Dhpc/testutil/keeper"
+	"Dhpc/testutil/nullify"
+	"Dhpc/x/user/keeper"
+	"Dhpc/x/user/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 )

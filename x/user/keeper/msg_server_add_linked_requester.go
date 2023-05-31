@@ -3,7 +3,7 @@ package keeper
 import (
 	"context"
 
-	"Decent/x/user/types"
+	"Dhpc/x/user/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"google.golang.org/grpc/codes"

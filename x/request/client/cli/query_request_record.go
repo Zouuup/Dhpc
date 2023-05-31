@@ -3,7 +3,7 @@ package cli
 import (
 	"context"
 
-	"Decent/x/request/types"
+	"Dhpc/x/request/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"

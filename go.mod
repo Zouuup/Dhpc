@@ -1,4 +1,4 @@
-module Decent
+module Dhpc
 
 go 1.19
 

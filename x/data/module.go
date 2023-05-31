@@ -11,9 +11,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"Decent/x/data/client/cli"
-	"Decent/x/data/keeper"
-	"Decent/x/data/types"
+	"Dhpc/x/data/client/cli"
+	"Dhpc/x/data/keeper"
+	"Dhpc/x/data/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"

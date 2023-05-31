@@ -9,10 +9,10 @@ import (
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 	"google.golang.org/grpc/status"
 
-	"Decent/testutil/network"
-	"Decent/testutil/nullify"
-	"Decent/x/request/client/cli"
-	"Decent/x/request/types"
+	"Dhpc/testutil/network"
+	"Dhpc/testutil/nullify"
+	"Dhpc/x/request/client/cli"
+	"Dhpc/x/request/types"
 )
 
 func networkWithTreasuryObjects(t *testing.T) (*network.Network, types.Treasury) {

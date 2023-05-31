@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"Decent/x/data/types"
+	"Dhpc/x/data/types"
 )
 
 var _ types.QueryServer = Keeper{}

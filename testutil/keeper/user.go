@@ -3,8 +3,8 @@ package keeper
 import (
 	"testing"
 
-	"Decent/x/user/keeper"
-	"Decent/x/user/types"
+	"Dhpc/x/user/keeper"
+	"Dhpc/x/user/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	"github.com/cosmos/cosmos-sdk/store"

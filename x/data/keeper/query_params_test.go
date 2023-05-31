@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "Decent/testutil/keeper"
-	"Decent/x/data/types"
+	testkeeper "Dhpc/testutil/keeper"
+	"Dhpc/x/data/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 )

@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package decent.user;
+package dhpc.user;
 
-option go_package = "Decent/x/user/types";
+option go_package = "Dhpc/x/user/types";
 
 // Msg defines the Msg service.
 service Msg {

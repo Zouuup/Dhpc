@@ -1,8 +1,8 @@
 syntax = "proto3";
-package decent.request;
+package dhpc.request;
 
-option go_package = "Decent/x/request/types";
-import "decent/request/miner_response.proto"; 
+option go_package = "Dhpc/x/request/types";
+import "dhpc/request/miner_response.proto"; 
 
 message RequestRecord {
   string uUID = 1; 
