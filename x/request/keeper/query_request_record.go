@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"Dhpc/x/request/types"
+
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
@@ -39,6 +40,65 @@ func (k Keeper) RequestRecordAll(goCtx context.Context, req *types.QueryAllReque
 	return &types.QueryAllRequestRecordResponse{RequestRecord: requestRecords, Pagination: pageRes}, nil
 }
 
+func (k Keeper) RequestRecordAllMinerPending(goCtx context.Context, req *types.QueryAllRequestRecordRequest) (*types.QueryAllRequestRecordResponse, error) {
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "invalid request")
+	}
+
+	var requestRecords []types.RequestRecord
+	ctx := sdk.UnwrapSDKContext(goCtx)
+
+	store := ctx.KVStore(k.storeKey)
+	requestRecordStore := prefix.NewStore(store, types.KeyPrefix(types.RequestRecordKeyPrefix))
+
+	pageRes, err := query.Paginate(requestRecordStore, req.Pagination, func(key []byte, value []byte) error {
+		var requestRecord types.RequestRecord
+		if err := k.cdc.Unmarshal(value, &requestRecord); err != nil {
+			return err
+		}
+
+		if requestRecord.Stage == 0 {
+			requestRecords = append(requestRecords, requestRecord)
+		}
+		return nil
+	})
+
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	return &types.QueryAllRequestRecordResponse{RequestRecord: requestRecords, Pagination: pageRes}, nil
+}
+
+func (k Keeper) RequestRecordAllAnswerPending(goCtx context.Context, req *types.QueryAllRequestRecordRequest) (*types.QueryAllRequestRecordResponse, error) {
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "invalid request")
+	}
+
+	var requestRecords []types.RequestRecord
+	ctx := sdk.UnwrapSDKContext(goCtx)
+
+	store := ctx.KVStore(k.storeKey)
+	requestRecordStore := prefix.NewStore(store, types.KeyPrefix(types.RequestRecordKeyPrefix))
+
+	pageRes, err := query.Paginate(requestRecordStore, req.Pagination, func(key []byte, value []byte) error {
+		var requestRecord types.RequestRecord
+		if err := k.cdc.Unmarshal(value, &requestRecord); err != nil {
+			return err
+		}
+
+		if requestRecord.Stage == 1 {
+			requestRecords = append(requestRecords, requestRecord)
+		}
+		return nil
+	})
+
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	return &types.QueryAllRequestRecordResponse{RequestRecord: requestRecords, Pagination: pageRes}, nil
+}
 func (k Keeper) RequestRecord(goCtx context.Context, req *types.QueryGetRequestRecordRequest) (*types.QueryGetRequestRecordResponse, error) {
 	if req == nil {
 		return nil, status.Error(codes.InvalidArgument, "invalid request")

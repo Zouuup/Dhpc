@@ -51,6 +51,14 @@ service Query {
     option (google.api.http).get = "/Dhpc/request/request_record";
   
   }
+  rpc RequestRecordAllMinerPending (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
+    option (google.api.http).get = "/Dhpc/request/request_record_miner_pending";
+
+  }
+  rpc RequestRecordAllAnswerPending (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
+    option (google.api.http).get = "/Dhpc/request/request_record_answer_pending";
+
+  }
   
   // Queries a Treasury by index.
   rpc Treasury (QueryGetTreasuryRequest) returns (QueryGetTreasuryResponse) {
