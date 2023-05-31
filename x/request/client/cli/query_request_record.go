@@ -45,8 +45,8 @@ func CmdListRequestRecord() *cobra.Command {
 
 func CmdListMinerPendingRequestRecord() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "list-pending-request-record",
-		Short: "list all pending requestRecord",
+		Use:   "list-miner-pending-request-record",
+		Short: "list all miner pending requestRecord",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx := client.GetClientContextFromCmd(cmd)
 
@@ -78,8 +78,8 @@ func CmdListMinerPendingRequestRecord() *cobra.Command {
 
 func CmdListAnswerPendingRequestRecord() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "list-pending-request-record",
-		Short: "list all pending requestRecord",
+		Use:   "list-answer-pending-request-record",
+		Short: "list all answer pending requestRecord",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx := client.GetClientContextFromCmd(cmd)
 
