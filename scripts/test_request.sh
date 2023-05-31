@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Test
+
 Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 150 --from dataProvider1 -y --log_level error  --gas 500237 
 Dhpcd tx data add-data 0xc236eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 250 --from dataProvider1 -y --log_level error  --gas 500237
 Dhpcd tx data add-data 0xc136eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 350 --from dataProvider1 -y --log_level error  --gas 500237
