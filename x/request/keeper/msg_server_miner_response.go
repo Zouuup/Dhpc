@@ -15,7 +15,7 @@ import (
 )
 
 // MinimumMiners defines the minimum number of miners required
-const MinimumMiners = 5
+const MinimumMiners = 2
 
 // BlackWait defines the wait time in blocks
 const BlackWait = 10

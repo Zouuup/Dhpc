@@ -28,6 +28,10 @@ service Query {
     option (google.api.http).get = "/Dhpc/data/data";
   
   }
+  rpc DataAllByAddr (QueryAllDataRequestByAddr) returns (QueryAllDataResponse) {
+    option (google.api.http).get = "/Dhpc/data/data/{address}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -45,6 +49,11 @@ message QueryGetDataRequest {
   string network = 3;
 }
 
+message QueryAllDataRequestByAddr {
+  string address = 1;
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
 message QueryGetDataResponse {
   Data data = 1 [(gogoproto.nullable) = false];
 }
@@ -52,6 +61,7 @@ message QueryGetDataResponse {
 message QueryAllDataRequest {
   cosmos.base.query.v1beta1.PageRequest pagination = 1;
 }
+
 
 message QueryAllDataResponse {
   repeated Data                                   data       = 1 [(gogoproto.nullable) = false];
