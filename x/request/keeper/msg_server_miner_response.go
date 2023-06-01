@@ -34,6 +34,7 @@ func (k msgServer) CreateMinerResponse(goCtx context.Context, msg *types.MsgCrea
 	}
 
 	// Iterate through dataused and make sure they are all unique
+	// TODO: protect against zero length dataused
 	if strings.Contains(msg.DataUsed, ",") {
 		dataUsedList := strings.Split(msg.DataUsed, ",")
 		for i := 0; i < len(dataUsedList); i++ {
@@ -113,7 +114,6 @@ func (k msgServer) UpdateMinerResponse(goCtx context.Context, msg *types.MsgUpda
 
 	// Stage 2.1:
 	// Start processing answers and salts, and payments
-
 	minerResponse.Answer = msg.Answer
 	minerResponse.Salt = msg.Salt
 	k.SetRequestRecord(ctx, requestRecord)
