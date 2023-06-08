@@ -26,7 +26,7 @@ func CmdCreateRequestRecord() *cobra.Command {
 			argFrom := args[3]
 			argAddress := args[4]
 			argOracle := args[5]
-			argBlock, err := cast.ToInt32E(args[6])
+			argBlock, err := cast.ToInt64E(args[6])
 			if err != nil {
 				return err
 			}
@@ -77,7 +77,7 @@ func CmdUpdateRequestRecord() *cobra.Command {
 				return err
 			}
 			argOracle := args[6]
-			argBlock, err := cast.ToInt32E(args[7])
+			argBlock, err := cast.ToInt64E(args[7])
 			if err != nil {
 				return err
 			}

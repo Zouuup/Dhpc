@@ -87,7 +87,7 @@ message MsgCreateRequestRecord {
   string        address =  6;
   int32         score   =  7;
   string        oracle  =  8;
-  int32         block   =  9;
+  int64         block   =  9;
   int32         stage   = 10;
   MinerResponse miners  = 11;
 }
@@ -103,7 +103,7 @@ message MsgUpdateRequestRecord {
   string        address =  6;
   int32         score   =  7;
   string        oracle  =  8;
-  int32         block   =  9;
+  int64         block   =  9;
   int32         stage   = 10;
   MinerResponse miners  = 11;
 }

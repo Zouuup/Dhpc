@@ -12,7 +12,7 @@ message RequestRecord {
   string address = 5; 
   int32 score = 6; 
   string oracle = 7; 
-  int32 block = 8; 
+  int64 block = 8; 
   int32 stage = 9; 
   repeated MinerResponse miners = 10; 
   string creator = 11;

@@ -34806,8 +34806,8 @@ paths:
                     oracle:
                       type: string
                     block:
-                      type: integer
-                      format: int32
+                      type: string
+                      format: int64
                     stage:
                       type: integer
                       format: int32
@@ -34974,8 +34974,8 @@ paths:
                   oracle:
                     type: string
                   block:
-                    type: integer
-                    format: int32
+                    type: string
+                    format: int64
                   stage:
                     type: integer
                     format: int32
@@ -35063,8 +35063,8 @@ paths:
                     oracle:
                       type: string
                     block:
-                      type: integer
-                      format: int32
+                      type: string
+                      format: int64
                     stage:
                       type: integer
                       format: int32
@@ -35232,8 +35232,8 @@ paths:
                     oracle:
                       type: string
                     block:
-                      type: integer
-                      format: int32
+                      type: string
+                      format: int64
                     stage:
                       type: integer
                       format: int32
@@ -72681,8 +72681,8 @@ definitions:
             oracle:
               type: string
             block:
-              type: integer
-              format: int32
+              type: string
+              format: int64
             stage:
               type: integer
               format: int32
@@ -72800,8 +72800,8 @@ definitions:
           oracle:
             type: string
           block:
-            type: integer
-            format: int32
+            type: string
+            format: int64
           stage:
             type: integer
             format: int32
@@ -72870,8 +72870,8 @@ definitions:
       oracle:
         type: string
       block:
-        type: integer
-        format: int32
+        type: string
+        format: int64
       stage:
         type: integer
         format: int32
