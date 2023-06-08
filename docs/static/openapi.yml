@@ -34002,6 +34002,9 @@ paths:
                     dateUpdated:
                       type: string
                       format: uint64
+                    blockValidity:
+                      type: string
+                      format: uint64
                     method:
                       type: string
                     score:
@@ -34141,6 +34144,9 @@ paths:
                       type: string
                       format: uint64
                     dateUpdated:
+                      type: string
+                      format: uint64
+                    blockValidity:
                       type: string
                       format: uint64
                     method:
@@ -34285,6 +34291,9 @@ paths:
                     type: string
                     format: uint64
                   dateUpdated:
+                    type: string
+                    format: uint64
+                  blockValidity:
                     type: string
                     format: uint64
                   method:
@@ -72376,6 +72385,9 @@ definitions:
       dateUpdated:
         type: string
         format: uint64
+      blockValidity:
+        type: string
+        format: uint64
       method:
         type: string
       score:
@@ -72411,6 +72423,9 @@ definitions:
               type: string
               format: uint64
             dateUpdated:
+              type: string
+              format: uint64
+            blockValidity:
               type: string
               format: uint64
             method:
@@ -72465,6 +72480,9 @@ definitions:
             type: string
             format: uint64
           dateUpdated:
+            type: string
+            format: uint64
+          blockValidity:
             type: string
             format: uint64
           method:

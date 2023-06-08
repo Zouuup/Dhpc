@@ -9,10 +9,11 @@ message Data {
   string network = 3; 
   uint64 dateAdded = 4; 
   uint64 dateUpdated = 5; 
-  string method = 6; 
-  int32 score = 7; 
-  uint64 hit = 8; 
-  string hash = 9;
+  uint64 blockValidity = 6;
+  string method = 7; 
+  int32 score = 8; 
+  uint64 hit = 9; 
+  string hash = 10;
 
 }
 
