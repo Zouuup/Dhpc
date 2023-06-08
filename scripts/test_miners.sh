@@ -2,11 +2,11 @@
 
 # Test
 
-Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 100 --from dataProvider1 -y --log_level error  --gas 500237 
+Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 500 100 --from dataProvider1 -y --log_level error  --gas 500237 
 
-Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1g6veqgqucfsx987uz9r03q8hesy8798c5e5c7l ethereum any 200 --from dataProvider2 -y --log_level error  --gas 500237
+Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1g6veqgqucfsx987uz9r03q8hesy8798c5e5c7l ethereum any 500 200 --from dataProvider2 -y --log_level error  --gas 500237
 
-Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc16stssnndzktenrpjpy0sk84pvqh8800u0h80s3 ethereum any 300 --from dataProvider3 -y --log_level error  --gas 500237
+Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc16stssnndzktenrpjpy0sk84pvqh8800u0h80s3 ethereum any 500 300 --from dataProvider3 -y --log_level error  --gas 500237
 
 Dhpcd tx request create-treasury `Dhpcd keys show treasury -a` -y --log_level error  --from alice
 

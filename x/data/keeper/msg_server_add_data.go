@@ -17,12 +17,12 @@ func (k msgServer) AddData(goCtx context.Context, msg *types.MsgAddData) (*types
 	data.Address = msg.Address
 	data.Owner = msg.Creator
 	data.Network = msg.Network
-	data.Method = msg.Method
+	data.Event = msg.Event
 	data.Score = msg.Score
 	data.DateAdded = uint64(ctx.BlockTime().Unix())
 	data.DateUpdated = uint64(ctx.BlockTime().Unix())
 	// data.Uuid is md5sum of address + network + owner + method
-	hash := md5.Sum([]byte(data.Address + data.Network + data.Owner + data.Method))
+	hash := md5.Sum([]byte(data.Address + data.Network + data.Owner + data.Event))
 	hashString := hex.EncodeToString(hash[:])
 	data.Hash = hashString
 

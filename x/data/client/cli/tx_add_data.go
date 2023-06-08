@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"Dhpc/x/data/types"
+
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
@@ -15,15 +16,19 @@ var _ = strconv.Itoa(0)
 
 func CmdAddData() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "add-data [address] [owner] [network] [method] [score]",
+		Use:   "add-data [address] [owner] [network] [event] [blockValidity] [score]",
 		Short: "Broadcast message addData",
-		Args:  cobra.ExactArgs(5),
+		Args:  cobra.ExactArgs(6),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			argAddress := args[0]
 			argOwner := args[1]
 			argNetwork := args[2]
-			argMethod := args[3]
-			argScore, err := cast.ToInt32E(args[4])
+			argEvent := args[3]
+			argBlockValidity, err := cast.ToInt64E(args[4])
+			if err != nil {
+				return err
+			}
+			argScore, err := cast.ToInt32E(args[5])
 			if err != nil {
 				return err
 			}
@@ -38,7 +43,8 @@ func CmdAddData() *cobra.Command {
 				argAddress,
 				argOwner,
 				argNetwork,
-				argMethod,
+				argEvent,
+				argBlockValidity,
 				argScore,
 			)
 			if err := msg.ValidateBasic(); err != nil {

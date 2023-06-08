@@ -34005,7 +34005,7 @@ paths:
                     blockValidity:
                       type: string
                       format: uint64
-                    method:
+                    event:
                       type: string
                     score:
                       type: integer
@@ -34149,7 +34149,7 @@ paths:
                     blockValidity:
                       type: string
                       format: uint64
-                    method:
+                    event:
                       type: string
                     score:
                       type: integer
@@ -34296,7 +34296,7 @@ paths:
                   blockValidity:
                     type: string
                     format: uint64
-                  method:
+                  event:
                     type: string
                   score:
                     type: integer
@@ -72388,7 +72388,7 @@ definitions:
       blockValidity:
         type: string
         format: uint64
-      method:
+      event:
         type: string
       score:
         type: integer
@@ -72428,7 +72428,7 @@ definitions:
             blockValidity:
               type: string
               format: uint64
-            method:
+            event:
               type: string
             score:
               type: integer
@@ -72485,7 +72485,7 @@ definitions:
           blockValidity:
             type: string
             format: uint64
-          method:
+          event:
             type: string
           score:
             type: integer

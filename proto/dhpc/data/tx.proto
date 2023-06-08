@@ -14,9 +14,10 @@ message MsgAddData {
   string address = 2;
   string owner   = 3;
   string network = 4;
-  string method  = 5;
-  int32  score   = 6;
-  string hash    = 7;
+  string event  = 5;
+  int64  blockvalidity = 6;
+  int32  score   = 7;
+  string hash    = 8;
 }
 
 message MsgAddDataResponse {}

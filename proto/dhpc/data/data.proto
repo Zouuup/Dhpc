@@ -10,7 +10,7 @@ message Data {
   uint64 dateAdded = 4; 
   uint64 dateUpdated = 5; 
   uint64 blockValidity = 6;
-  string method = 7; 
+  string event = 7; 
   int32 score = 8; 
   uint64 hit = 9; 
   string hash = 10;
