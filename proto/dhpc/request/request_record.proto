@@ -1,7 +1,7 @@
 syntax = "proto3";
 package dhpc.request;
 
-option go_package = "Dhpc/x/request/types";
+option go_package = "github.com/DhpcChain/Dhpc/x/request/types";
 import "dhpc/request/miner_response.proto"; 
 
 message RequestRecord {

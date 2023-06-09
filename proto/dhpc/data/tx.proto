@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package dhpc.data;
 
-option go_package = "Dhpc/x/data/types";
+option go_package = "github.com/DhpcChain/Dhpc/x/data/types";
 
 // Msg defines the Msg service.
 service Msg {

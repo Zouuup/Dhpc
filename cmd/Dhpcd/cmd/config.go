@@ -3,7 +3,7 @@ package cmd
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"Dhpc/app"
+	"github.com/DhpcChain/Dhpc/app"
 )
 
 func initSDKConfig() {

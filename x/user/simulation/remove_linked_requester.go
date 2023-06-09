@@ -3,8 +3,8 @@ package simulation
 import (
 	"math/rand"
 
-	"Dhpc/x/user/keeper"
-	"Dhpc/x/user/types"
+	"github.com/DhpcChain/Dhpc/x/user/keeper"
+	"github.com/DhpcChain/Dhpc/x/user/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"

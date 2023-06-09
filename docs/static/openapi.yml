@@ -33976,7 +33976,7 @@ paths:
           format: int64
       tags:
         - Query
-  /Dhpc/data/data:
+  /github.com/DhpcChain/Dhpc/data/data:
     get:
       operationId: DhpcDataDataAll
       responses:
@@ -34120,7 +34120,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/data/data/{address}:
+  /github.com/DhpcChain/Dhpc/data/data/{address}:
     get:
       operationId: DhpcDataDataAllByAddr
       responses:
@@ -34268,7 +34268,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/data/data/{address}/{owner}/{network}:
+  /github.com/DhpcChain/Dhpc/data/data/{address}/{owner}/{network}:
     get:
       summary: Queries a list of Data items.
       operationId: DhpcDataData
@@ -34339,7 +34339,7 @@ paths:
           type: string
       tags:
         - Query
-  /Dhpc/data/params:
+  /github.com/DhpcChain/Dhpc/data/params:
     get:
       summary: Parameters queries the parameters of the module.
       operationId: DhpcDataParams
@@ -34375,7 +34375,7 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Dhpc/request/allowed_oracles:
+  /github.com/DhpcChain/Dhpc/request/allowed_oracles:
     get:
       operationId: DhpcRequestAllowedOraclesAll
       responses:
@@ -34503,7 +34503,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/request/allowed_oracles/{id}:
+  /github.com/DhpcChain/Dhpc/request/allowed_oracles/{id}:
     get:
       summary: Queries a list of AllowedOracles items.
       operationId: DhpcRequestAllowedOracles
@@ -34551,7 +34551,7 @@ paths:
           format: uint64
       tags:
         - Query
-  /Dhpc/request/miner_response:
+  /github.com/DhpcChain/Dhpc/request/miner_response:
     get:
       operationId: DhpcRequestMinerResponseAll
       responses:
@@ -34686,7 +34686,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/request/miner_response/{uUID}:
+  /github.com/DhpcChain/Dhpc/request/miner_response/{uUID}:
     get:
       summary: Queries a list of MinerResponse items.
       operationId: DhpcRequestMinerResponse
@@ -34740,7 +34740,7 @@ paths:
           type: string
       tags:
         - Query
-  /Dhpc/request/params:
+  /github.com/DhpcChain/Dhpc/request/params:
     get:
       summary: Parameters queries the parameters of the module.
       operationId: DhpcRequestParams
@@ -34776,7 +34776,7 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Dhpc/request/request_record:
+  /github.com/DhpcChain/Dhpc/request/request_record:
     get:
       operationId: DhpcRequestRequestRecordAll
       responses:
@@ -34945,7 +34945,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/request/request_record/{uUID}:
+  /github.com/DhpcChain/Dhpc/request/request_record/{uUID}:
     get:
       summary: Queries a list of RequestRecord items.
       operationId: DhpcRequestRequestRecord
@@ -35033,7 +35033,7 @@ paths:
           type: string
       tags:
         - Query
-  /Dhpc/request/request_record_answer_pending:
+  /github.com/DhpcChain/Dhpc/request/request_record_answer_pending:
     get:
       operationId: DhpcRequestRequestRecordAllAnswerPending
       responses:
@@ -35202,7 +35202,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/request/request_record_miner_pending:
+  /github.com/DhpcChain/Dhpc/request/request_record_miner_pending:
     get:
       operationId: DhpcRequestRequestRecordAllMinerPending
       responses:
@@ -35371,7 +35371,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/request/treasury:
+  /github.com/DhpcChain/Dhpc/request/treasury:
     get:
       summary: Queries a Treasury by index.
       operationId: DhpcRequestTreasury
@@ -35408,7 +35408,7 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Dhpc/user/linked_requesters:
+  /github.com/DhpcChain/Dhpc/user/linked_requesters:
     get:
       operationId: DhpcUserLinkedRequestersAll
       responses:
@@ -35533,7 +35533,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/user/linked_requesters/{index}:
+  /github.com/DhpcChain/Dhpc/user/linked_requesters/{index}:
     get:
       summary: Queries a list of LinkedRequesters items.
       operationId: DhpcUserLinkedRequesters
@@ -35577,7 +35577,7 @@ paths:
           type: string
       tags:
         - Query
-  /Dhpc/user/params:
+  /github.com/DhpcChain/Dhpc/user/params:
     get:
       summary: Parameters queries the parameters of the module.
       operationId: DhpcUserParams
@@ -35613,7 +35613,7 @@ paths:
                   additionalProperties: {}
       tags:
         - Query
-  /Dhpc/user/slash_history:
+  /github.com/DhpcChain/Dhpc/user/slash_history:
     get:
       operationId: DhpcUserSlashHistoryAll
       responses:
@@ -35743,7 +35743,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/user/slash_history/{index}:
+  /github.com/DhpcChain/Dhpc/user/slash_history/{index}:
     get:
       summary: Queries a list of SlashHistory items.
       operationId: DhpcUserSlashHistory
@@ -35792,7 +35792,7 @@ paths:
           type: string
       tags:
         - Query
-  /Dhpc/user/user:
+  /github.com/DhpcChain/Dhpc/user/user:
     get:
       operationId: DhpcUserUserAll
       responses:
@@ -35961,7 +35961,7 @@ paths:
           type: boolean
       tags:
         - Query
-  /Dhpc/user/user/{account}:
+  /github.com/DhpcChain/Dhpc/user/user/{account}:
     get:
       summary: Queries a list of User items.
       operationId: DhpcUserUser

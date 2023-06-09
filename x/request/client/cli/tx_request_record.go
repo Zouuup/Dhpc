@@ -1,7 +1,7 @@
 package cli
 
 import (
-	"Dhpc/x/request/types"
+	"github.com/DhpcChain/Dhpc/x/request/types"
 	"encoding/json"
 
 	"github.com/cosmos/cosmos-sdk/client"

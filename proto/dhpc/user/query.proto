@@ -11,44 +11,44 @@ import "dhpc/user/slash_history.proto";
 import "dhpc/user/user.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "Dhpc/x/user/types";
+option go_package = "github.com/DhpcChain/Dhpc/x/user/types";
 
 // Query defines the gRPC querier service.
 service Query {
   
   // Parameters queries the parameters of the module.
   rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/Dhpc/user/params";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/user/params";
   
   }
   
   // Queries a list of LinkedRequesters items.
   rpc LinkedRequesters    (QueryGetLinkedRequestersRequest) returns (QueryGetLinkedRequestersResponse) {
-    option (google.api.http).get = "/Dhpc/user/linked_requesters/{index}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/user/linked_requesters/{index}";
   
   }
   rpc LinkedRequestersAll (QueryAllLinkedRequestersRequest) returns (QueryAllLinkedRequestersResponse) {
-    option (google.api.http).get = "/Dhpc/user/linked_requesters";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/user/linked_requesters";
   
   }
   
   // Queries a list of SlashHistory items.
   rpc SlashHistory    (QueryGetSlashHistoryRequest) returns (QueryGetSlashHistoryResponse) {
-    option (google.api.http).get = "/Dhpc/user/slash_history/{index}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/user/slash_history/{index}";
   
   }
   rpc SlashHistoryAll (QueryAllSlashHistoryRequest) returns (QueryAllSlashHistoryResponse) {
-    option (google.api.http).get = "/Dhpc/user/slash_history";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/user/slash_history";
   
   }
   
   // Queries a list of User items.
   rpc User    (QueryGetUserRequest) returns (QueryGetUserResponse) {
-    option (google.api.http).get = "/Dhpc/user/user/{account}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/user/user/{account}";
   
   }
   rpc UserAll (QueryAllUserRequest) returns (QueryAllUserResponse) {
-    option (google.api.http).get = "/Dhpc/user/user";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/user/user";
   
   }
 }

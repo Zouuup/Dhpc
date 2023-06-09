@@ -12,9 +12,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"Dhpc/x/request/client/cli"
-	"Dhpc/x/request/keeper"
-	"Dhpc/x/request/types"
+	"github.com/DhpcChain/Dhpc/x/request/client/cli"
+	"github.com/DhpcChain/Dhpc/x/request/keeper"
+	"github.com/DhpcChain/Dhpc/x/request/types"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"

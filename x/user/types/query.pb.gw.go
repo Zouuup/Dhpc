@@ -673,19 +673,19 @@ func RegisterQueryHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 }
 
 var (
-	pattern_Query_Params_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "user", "params"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_Params_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "user", "params"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_LinkedRequesters_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"Dhpc", "user", "linked_requesters", "index"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_LinkedRequesters_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"github.com", "DhpcChain", "Dhpc", "user", "linked_requesters", "index"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_LinkedRequestersAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "user", "linked_requesters"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_LinkedRequestersAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "user", "linked_requesters"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_SlashHistory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"Dhpc", "user", "slash_history", "index"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_SlashHistory_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"github.com", "DhpcChain", "Dhpc", "user", "slash_history", "index"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_SlashHistoryAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "user", "slash_history"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_SlashHistoryAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "user", "slash_history"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_User_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"Dhpc", "user", "account"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_User_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"github.com", "DhpcChain", "Dhpc", "user", "account"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_UserAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1}, []string{"Dhpc", "user"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_UserAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 3}, []string{"github.com", "DhpcChain", "Dhpc", "user"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

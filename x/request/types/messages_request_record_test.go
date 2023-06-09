@@ -3,7 +3,7 @@ package types
 import (
 	"testing"
 
-	"Dhpc/testutil/sample"
+	"github.com/DhpcChain/Dhpc/testutil/sample"
 
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"

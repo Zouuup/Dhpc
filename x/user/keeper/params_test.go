@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "Dhpc/testutil/keeper"
-	"Dhpc/x/user/types"
+	testkeeper "github.com/DhpcChain/Dhpc/testutil/keeper"
+	"github.com/DhpcChain/Dhpc/x/user/types"
 	"github.com/stretchr/testify/require"
 )
 

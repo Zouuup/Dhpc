@@ -3,7 +3,7 @@ package keeper
 import (
 	"context"
 
-	"Dhpc/x/user/types"
+	"github.com/DhpcChain/Dhpc/x/user/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"google.golang.org/grpc/codes"

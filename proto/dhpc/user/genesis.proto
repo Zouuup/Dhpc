@@ -8,7 +8,7 @@ import "dhpc/user/linked_requesters.proto";
 import "dhpc/user/slash_history.proto";
 import "dhpc/user/user.proto";
 
-option go_package = "Dhpc/x/user/types";
+option go_package = "github.com/DhpcChain/Dhpc/x/user/types";
 
 // GenesisState defines the user module's genesis state.
 message GenesisState {

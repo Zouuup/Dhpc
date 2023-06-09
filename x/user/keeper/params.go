@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"Dhpc/x/user/types"
+	"github.com/DhpcChain/Dhpc/x/user/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

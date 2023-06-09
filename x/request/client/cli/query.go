@@ -10,7 +10,7 @@ import (
 	// "github.com/cosmos/cosmos-sdk/client/flags"
 	// sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"Dhpc/x/request/types"
+	"github.com/DhpcChain/Dhpc/x/request/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

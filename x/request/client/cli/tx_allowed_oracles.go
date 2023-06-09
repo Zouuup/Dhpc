@@ -3,7 +3,7 @@ package cli
 import (
 	"strconv"
 
-	"Dhpc/x/request/types"
+	"github.com/DhpcChain/Dhpc/x/request/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"

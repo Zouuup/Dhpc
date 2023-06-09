@@ -6,7 +6,7 @@ import "gogoproto/gogo.proto";
 import "dhpc/data/params.proto";
 import "dhpc/data/data.proto";
 
-option go_package = "Dhpc/x/data/types";
+option go_package = "github.com/DhpcChain/Dhpc/x/data/types";
 
 // GenesisState defines the data module's genesis state.
 message GenesisState {

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"Dhpc/x/data/types"
+	"github.com/DhpcChain/Dhpc/x/data/types"
 )
 
 type msgServer struct {

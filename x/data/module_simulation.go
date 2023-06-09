@@ -3,9 +3,9 @@ package data
 import (
 	"math/rand"
 
-	"Dhpc/testutil/sample"
-	datasimulation "Dhpc/x/data/simulation"
-	"Dhpc/x/data/types"
+	"github.com/DhpcChain/Dhpc/testutil/sample"
+	datasimulation "github.com/DhpcChain/Dhpc/x/data/simulation"
+	"github.com/DhpcChain/Dhpc/x/data/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"

@@ -1,4 +1,4 @@
-module Dhpc
+module github.com/DhpcChain/Dhpc
 
 go 1.20
 

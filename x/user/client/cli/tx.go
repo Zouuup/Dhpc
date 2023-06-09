@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"Dhpc/x/user/types"
+	"github.com/DhpcChain/Dhpc/x/user/types"
 )
 
 var (

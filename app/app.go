@@ -103,20 +103,20 @@ import (
 	tmos "github.com/tendermint/tendermint/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	datamodule "Dhpc/x/data"
-	datamodulekeeper "Dhpc/x/data/keeper"
-	datamoduletypes "Dhpc/x/data/types"
-	requestmodule "Dhpc/x/request"
-	requestmodulekeeper "Dhpc/x/request/keeper"
-	requestmoduletypes "Dhpc/x/request/types"
-	usermodule "Dhpc/x/user"
-	usermodulekeeper "Dhpc/x/user/keeper"
-	usermoduletypes "Dhpc/x/user/types"
+	datamodule "github.com/DhpcChain/Dhpc/x/data"
+	datamodulekeeper "github.com/DhpcChain/Dhpc/x/data/keeper"
+	datamoduletypes "github.com/DhpcChain/Dhpc/x/data/types"
+	requestmodule "github.com/DhpcChain/Dhpc/x/request"
+	requestmodulekeeper "github.com/DhpcChain/Dhpc/x/request/keeper"
+	requestmoduletypes "github.com/DhpcChain/Dhpc/x/request/types"
+	usermodule "github.com/DhpcChain/Dhpc/x/user"
+	usermodulekeeper "github.com/DhpcChain/Dhpc/x/user/keeper"
+	usermoduletypes "github.com/DhpcChain/Dhpc/x/user/types"
 
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
-	appparams "Dhpc/app/params"
-	"Dhpc/docs"
+	appparams "github.com/DhpcChain/Dhpc/app/params"
+	"github.com/DhpcChain/Dhpc/docs"
 )
 
 const (

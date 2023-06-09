@@ -11,58 +11,58 @@ import "dhpc/request/miner_response.proto";
 import "dhpc/request/request_record.proto";
 import "dhpc/request/treasury.proto";
 
-option go_package = "Dhpc/x/request/types";
+option go_package = "github.com/DhpcChain/Dhpc/x/request/types";
 
 // Query defines the gRPC querier service.
 service Query {
   
   // Parameters queries the parameters of the module.
   rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/Dhpc/request/params";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/params";
   
   }
   
   // Queries a list of AllowedOracles items.
   rpc AllowedOracles    (QueryGetAllowedOraclesRequest) returns (QueryGetAllowedOraclesResponse) {
-    option (google.api.http).get = "/Dhpc/request/allowed_oracles/{id}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/allowed_oracles/{id}";
   
   }
   rpc AllowedOraclesAll (QueryAllAllowedOraclesRequest) returns (QueryAllAllowedOraclesResponse) {
-    option (google.api.http).get = "/Dhpc/request/allowed_oracles";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/allowed_oracles";
   
   }
   
   // Queries a list of MinerResponse items.
   rpc MinerResponse    (QueryGetMinerResponseRequest) returns (QueryGetMinerResponseResponse) {
-    option (google.api.http).get = "/Dhpc/request/miner_response/{uUID}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/miner_response/{uUID}";
   
   }
   rpc MinerResponseAll (QueryAllMinerResponseRequest) returns (QueryAllMinerResponseResponse) {
-    option (google.api.http).get = "/Dhpc/request/miner_response";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/miner_response";
   
   }
   
   // Queries a list of RequestRecord items.
   rpc RequestRecord    (QueryGetRequestRecordRequest) returns (QueryGetRequestRecordResponse) {
-    option (google.api.http).get = "/Dhpc/request/request_record/{uUID}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/request_record/{uUID}";
   
   }
   rpc RequestRecordAll (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
-    option (google.api.http).get = "/Dhpc/request/request_record";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/request_record";
   
   }
   rpc RequestRecordAllMinerPending (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
-    option (google.api.http).get = "/Dhpc/request/request_record_miner_pending";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/request_record_miner_pending";
 
   }
   rpc RequestRecordAllAnswerPending (QueryAllRequestRecordRequest) returns (QueryAllRequestRecordResponse) {
-    option (google.api.http).get = "/Dhpc/request/request_record_answer_pending";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/request_record_answer_pending";
 
   }
   
   // Queries a Treasury by index.
   rpc Treasury (QueryGetTreasuryRequest) returns (QueryGetTreasuryResponse) {
-    option (google.api.http).get = "/Dhpc/request/treasury";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/request/treasury";
   
   }
 }

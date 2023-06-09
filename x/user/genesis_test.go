@@ -3,10 +3,10 @@ package user_test
 import (
 	"testing"
 
-	keepertest "Dhpc/testutil/keeper"
-	"Dhpc/testutil/nullify"
-	"Dhpc/x/user"
-	"Dhpc/x/user/types"
+	keepertest "github.com/DhpcChain/Dhpc/testutil/keeper"
+	"github.com/DhpcChain/Dhpc/testutil/nullify"
+	"github.com/DhpcChain/Dhpc/x/user"
+	"github.com/DhpcChain/Dhpc/x/user/types"
 	"github.com/stretchr/testify/require"
 )
 

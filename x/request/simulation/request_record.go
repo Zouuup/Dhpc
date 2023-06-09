@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"strconv"
 
-	"Dhpc/x/request/keeper"
-	"Dhpc/x/request/types"
+	"github.com/DhpcChain/Dhpc/x/request/keeper"
+	"github.com/DhpcChain/Dhpc/x/request/types"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"

@@ -892,25 +892,25 @@ func RegisterQueryHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 }
 
 var (
-	pattern_Query_Params_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "request", "params"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_Params_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "request", "params"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_AllowedOracles_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"Dhpc", "request", "allowed_oracles", "id"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_AllowedOracles_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"github.com", "DhpcChain", "Dhpc", "request", "allowed_oracles", "id"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_AllowedOraclesAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "request", "allowed_oracles"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_AllowedOraclesAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "request", "allowed_oracles"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_MinerResponse_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"Dhpc", "request", "miner_response", "uUID"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_MinerResponse_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"github.com", "DhpcChain", "Dhpc", "request", "miner_response", "uUID"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_MinerResponseAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "request", "miner_response"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_MinerResponseAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "request", "miner_response"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_RequestRecord_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"Dhpc", "request", "request_record", "uUID"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_RequestRecord_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"github.com", "DhpcChain", "Dhpc", "request", "request_record", "uUID"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_RequestRecordAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "request", "request_record"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_RequestRecordAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "request", "request_record"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_RequestRecordAllMinerPending_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "request", "request_record_miner_pending"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_RequestRecordAllMinerPending_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "request", "request_record_miner_pending"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_RequestRecordAllAnswerPending_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "request", "request_record_answer_pending"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_RequestRecordAllAnswerPending_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "request", "request_record_answer_pending"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_Treasury_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"Dhpc", "request", "treasury"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_Treasury_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"github.com", "DhpcChain", "Dhpc", "request", "treasury"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

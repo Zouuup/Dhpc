@@ -1,8 +1,8 @@
 package data
 
 import (
-	"Dhpc/x/data/keeper"
-	"Dhpc/x/data/types"
+	"github.com/DhpcChain/Dhpc/x/data/keeper"
+	"github.com/DhpcChain/Dhpc/x/data/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

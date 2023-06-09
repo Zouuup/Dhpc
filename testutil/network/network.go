@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"Dhpc/app"
+	"github.com/DhpcChain/Dhpc/app"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/crypto/hd"

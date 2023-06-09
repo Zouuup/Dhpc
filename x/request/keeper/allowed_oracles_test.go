@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"testing"
 
-	keepertest "Dhpc/testutil/keeper"
-	"Dhpc/testutil/nullify"
-	"Dhpc/x/request/keeper"
-	"Dhpc/x/request/types"
+	keepertest "github.com/DhpcChain/Dhpc/testutil/keeper"
+	"github.com/DhpcChain/Dhpc/testutil/nullify"
+	"github.com/DhpcChain/Dhpc/x/request/keeper"
+	"github.com/DhpcChain/Dhpc/x/request/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 )

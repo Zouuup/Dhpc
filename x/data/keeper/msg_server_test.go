@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	keepertest "Dhpc/testutil/keeper"
-	"Dhpc/x/data/keeper"
-	"Dhpc/x/data/types"
+	keepertest "github.com/DhpcChain/Dhpc/testutil/keeper"
+	"github.com/DhpcChain/Dhpc/x/data/keeper"
+	"github.com/DhpcChain/Dhpc/x/data/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

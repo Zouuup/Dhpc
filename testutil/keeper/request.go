@@ -3,8 +3,8 @@ package keeper
 import (
 	"testing"
 
-	"Dhpc/x/request/keeper"
-	"Dhpc/x/request/types"
+	"github.com/DhpcChain/Dhpc/x/request/keeper"
+	"github.com/DhpcChain/Dhpc/x/request/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"

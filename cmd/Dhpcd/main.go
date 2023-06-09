@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"Dhpc/app"
-	"Dhpc/cmd/Dhpcd/cmd"
+	"github.com/DhpcChain/Dhpc/app"
+	"github.com/DhpcChain/Dhpc/cmd/Dhpcd/cmd"
 )
 
 func main() {

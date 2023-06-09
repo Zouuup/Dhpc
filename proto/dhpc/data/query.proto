@@ -8,28 +8,28 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "dhpc/data/params.proto";
 import "dhpc/data/data.proto";
 
-option go_package = "Dhpc/x/data/types";
+option go_package = "github.com/DhpcChain/Dhpc/x/data/types";
 
 // Query defines the gRPC querier service.
 service Query {
   
   // Parameters queries the parameters of the module.
   rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/Dhpc/data/params";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/data/params";
   
   }
   
   // Queries a list of Data items.
   rpc Data    (QueryGetDataRequest) returns (QueryGetDataResponse) {
-    option (google.api.http).get = "/Dhpc/data/data/{address}/{owner}/{network}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/data/data/{address}/{owner}/{network}";
   
   }
   rpc DataAll (QueryAllDataRequest) returns (QueryAllDataResponse) {
-    option (google.api.http).get = "/Dhpc/data/data";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/data/data";
   
   }
   rpc DataAllByAddr (QueryAllDataRequestByAddr) returns (QueryAllDataResponse) {
-    option (google.api.http).get = "/Dhpc/data/data/{address}";
+    option (google.api.http).get = "/github.com/DhpcChain/Dhpc/data/data/{address}";
   
   }
 }
