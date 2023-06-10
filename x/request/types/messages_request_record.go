@@ -21,7 +21,7 @@ func NewMsgCreateRequestRecord(
 	from string,
 	address string,
 	oracle string,
-	block int64,
+	block uint64,
 
 ) *MsgCreateRequestRecord {
 	return &MsgCreateRequestRecord{
@@ -76,7 +76,7 @@ func NewMsgUpdateRequestRecord(
 	address string,
 	score int32,
 	oracle string,
-	block int64,
+	block uint64,
 	stage int32,
 	miners *MinerResponse,
 

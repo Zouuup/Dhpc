@@ -15,7 +15,7 @@ message MsgAddData {
   string owner   = 3;
   string network = 4;
   string event  = 5;
-  int64  blockvalidity = 6;
+  uint64  blockvalidity = 6;
   int32  score   = 7;
   string hash    = 8;
 }

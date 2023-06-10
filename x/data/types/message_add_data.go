@@ -9,7 +9,7 @@ const TypeMsgAddData = "add_data"
 
 var _ sdk.Msg = &MsgAddData{}
 
-func NewMsgAddData(creator string, address string, owner string, network string, event string, blockValidity int64, score int32) *MsgAddData {
+func NewMsgAddData(creator string, address string, owner string, network string, event string, blockValidity uint64, score int32) *MsgAddData {
 	return &MsgAddData{
 		Creator:       creator,
 		Address:       address,

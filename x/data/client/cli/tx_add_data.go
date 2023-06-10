@@ -24,7 +24,7 @@ func CmdAddData() *cobra.Command {
 			argOwner := args[1]
 			argNetwork := args[2]
 			argEvent := args[3]
-			argBlockValidity, err := cast.ToInt64E(args[4])
+			argBlockValidity, err := cast.ToUint64E(args[4])
 			if err != nil {
 				return err
 			}

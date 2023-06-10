@@ -34807,7 +34807,7 @@ paths:
                       type: string
                     block:
                       type: string
-                      format: int64
+                      format: uint64
                     stage:
                       type: integer
                       format: int32
@@ -34975,7 +34975,7 @@ paths:
                     type: string
                   block:
                     type: string
-                    format: int64
+                    format: uint64
                   stage:
                     type: integer
                     format: int32
@@ -35064,7 +35064,7 @@ paths:
                       type: string
                     block:
                       type: string
-                      format: int64
+                      format: uint64
                     stage:
                       type: integer
                       format: int32
@@ -35233,7 +35233,7 @@ paths:
                       type: string
                     block:
                       type: string
-                      format: int64
+                      format: uint64
                     stage:
                       type: integer
                       format: int32
@@ -72682,7 +72682,7 @@ definitions:
               type: string
             block:
               type: string
-              format: int64
+              format: uint64
             stage:
               type: integer
               format: int32
@@ -72801,7 +72801,7 @@ definitions:
             type: string
           block:
             type: string
-            format: int64
+            format: uint64
           stage:
             type: integer
             format: int32
@@ -72871,7 +72871,7 @@ definitions:
         type: string
       block:
         type: string
-        format: int64
+        format: uint64
       stage:
         type: integer
         format: int32

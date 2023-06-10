@@ -6,11 +6,13 @@ Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85u
 Dhpcd tx data add-data 0xc236eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 500 250 --from dataProvider1 -y --log_level error  --gas 500237
 Dhpcd tx data add-data 0xc136eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 500 350 --from dataProvider1 -y --log_level error  --gas 500237
 Dhpcd tx data add-data 0xc536eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 500 450 --from dataProvider1 -y --log_level error  --gas 500237
+Dhpcd tx data add-data 0x0cfd0d5b2f9d5ff8b5308353b9934dd95e503aa4 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 500 550 --from dataProvider1 -y --log_level error  --gas 500237
 
 Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1g6veqgqucfsx987uz9r03q8hesy8798c5e5c7l ethereum any 500 150 --from dataProvider2 -y --log_level error  --gas 500237
 Dhpcd tx data add-data 0xc236eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1g6veqgqucfsx987uz9r03q8hesy8798c5e5c7l ethereum any 500 250 --from dataProvider2 -y --log_level error  --gas 500237
 Dhpcd tx data add-data 0xc136eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1g6veqgqucfsx987uz9r03q8hesy8798c5e5c7l ethereum any 500 350 --from dataProvider2 -y --log_level error  --gas 500237
 Dhpcd tx data add-data 0xc536eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1g6veqgqucfsx987uz9r03q8hesy8798c5e5c7l ethereum any 500 450 --from dataProvider2 -y --log_level error  --gas 500237
+Dhpcd tx data add-data 0xc8372ff584f621041b6B107050a16c4EcAa57F5A dhpc1g6veqgqucfsx987uz9r03q8hesy8798c5e5c7l ethereum any 500 550 --from dataProvider2 -y --log_level error  --gas 500237
 
 Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc16stssnndzktenrpjpy0sk84pvqh8800u0h80s3 ethereum any 500 150 --from dataProvider3 -y --log_level error  --gas 500237
 Dhpcd tx data add-data 0xc236eb8aed128275c8f224de2f1dd202c0ab5830 dhpc16stssnndzktenrpjpy0sk84pvqh8800u0h80s3 ethereum any 500 250 --from dataProvider3 -y --log_level error  --gas 500237
