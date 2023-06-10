@@ -19,6 +19,7 @@ func (k msgServer) AddData(goCtx context.Context, msg *types.MsgAddData) (*types
 	data.Network = msg.Network
 	data.Event = msg.Event
 	data.Score = msg.Score
+	data.BlockValidity = msg.Blockvalidity
 	data.DateAdded = uint64(ctx.BlockTime().Unix())
 	data.DateUpdated = uint64(ctx.BlockTime().Unix())
 	// data.Uuid is md5sum of address + network + owner + method
