@@ -2,7 +2,9 @@
 
 # Test
 
-Dhpcd tx data add-data 0x97e13fccfe2edab7e8077d0f2ac69fe984cfe7f7 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 500 110 --from dataProvider1 -y --log_level error  --gas 500237
+Dhpcd tx data add-data 0x97e13fccfe2edab7e8077d0f2ac69fe984cfe7f7 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum 'Transfer(address,address,uint256)' 0 110 --from dataProvider1 -y --log_level error  --gas 500237
+Dhpcd tx data add-data 0x97e13fccfe2edab7e8077d0f2ac69fe984cfe7f7 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 0 220 --from dataProvider2 -y --log_level error  --gas 500237
+Dhpcd tx data add-data 0x97e13fccfe2edab7e8077d0f2ac69fe984cfe7f7 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 0 330 --from dataProvider3 -y --log_level error  --gas 500237
 
 Dhpcd tx data add-data 0xc436eb8aed128275c8f224de2f1dd202c0ab5830 dhpc1sr55zk85uerru8tu0m7l7aujha5f8chcxh0073 ethereum any 500 220 --from dataProvider1 -y --log_level error  --gas 500237 
 
