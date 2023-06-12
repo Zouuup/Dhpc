@@ -545,7 +545,7 @@ func New(
 		app.BankKeeper,
 		app.DataKeeper,
 	)
-	requestModule := requestmodule.NewAppModule(appCodec, app.RequestKeeper, app.AccountKeeper, app.BankKeeper)
+	requestModule := requestmodule.NewAppModule(appCodec, app.RequestKeeper, app.AccountKeeper, app.BankKeeper, app.DataKeeper)
 
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
