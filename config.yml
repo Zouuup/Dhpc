@@ -1,76 +1,80 @@
 version: 1
 accounts:
-  - name: alice
-    coins:
-      - 100000dhpc
-      - 20000token
-      - 200000000stake
-  - name: bob
-    coins:
-      - 0dhpc
-      - 10000token
-      - 100000000stake
-  - name: arthur
-    coins:
-      - 0dhpc
-      - 10000token
-      - 100000000stake
-  - name: carl
-    coins:
-      - 0dhpc
-      - 10000token
-      - 100000000stake
-  - name: issac
-    coins:
-      - 0dhpc
-      - 10000token
-      - 100000000stake
-  - name: stan
-    coins:
-      - 0dhpc
-      - 10000token
-      - 100000000stake
-  - name: andy
-    coins:
-      - 0dhpc
-      - 10000token
-      - 100000000stake
-  - name: dataProvider1
-    coins:
-      - 0dhpc
-      - 10000token
-  - name: dataProvider2
-    coins:
-      - 0dhpc
-      - 10000token
-  - name: dataProvider3
-    coins:
-      - 0dhpc
-      - 10000token
-  - name: oracle
-    coins:
-      - 0dhpc
-      - 100token
-      - 100stake
-  - name: dapp
-    coins:
-      - 10000000dhpc
-      - 0token
-      - 0stake
-  - name: treasury
-    coins:
-      - 0dhpc
-      - 0token
-      - 0stake
-client:
-  openapi:
-    path: docs/static/openapi.yml
+- name: alice
+  coins:
+  - 100000dhpc
+  - 20000token
+  - 200000000stake
+- name: bob
+  coins:
+  - 0dhpc
+  - 10000token
+  - 100000000stake
+- name: arthur
+  coins:
+  - 0dhpc
+  - 10000token
+  - 100000000stake
+- name: carl
+  coins:
+  - 0dhpc
+  - 10000token
+  - 100000000stake
+- name: issac
+  coins:
+  - 0dhpc
+  - 10000token
+  - 100000000stake
+- name: stan
+  coins:
+  - 0dhpc
+  - 10000token
+  - 100000000stake
+- name: andy
+  coins:
+  - 0dhpc
+  - 10000token
+  - 100000000stake
+- name: dataProvider1
+  coins:
+  - 0dhpc
+  - 10000token
+- name: dataProvider2
+  coins:
+  - 0dhpc
+  - 10000token
+- name: dataProvider3
+  coins:
+  - 0dhpc
+  - 10000token
+- name: oracle
+  coins:
+  - 0dhpc
+  - 100token
+  - 100stake
+- name: dapp
+  coins:
+  - 10000000dhpc
+  - 0token
+  - 0stake
+- name: treasury
+  coins:
+  - 0dhpc
+  - 0token
+  - 0stake
 faucet:
   name: bob
   coins:
-    - 10000000dhpc
-    - 5token
-    - 100000stake
+  - 10000000dhpc
+  - 5token
+  - 100000stake
+client:
+  typescript:
+    path: ts-client
+  hooks:
+    path: react/src/hooks
+  openapi:
+    path: docs/static/openapi.yml
 validators:
-  - name: alice
-    bonded: 100000000stake
+- name: alice
+  bonded: 100000000stake
